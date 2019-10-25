@@ -1,0 +1,62 @@
+///////////////////////////////
+// TABLES
+///////////////////////////////
+
+.table-wrapper {
+  overflow:auto
+}
+
+table {
+  font-size: .85em;
+  width: 100%;
+  max-width: 46rem;
+  text-align: left;
+  margin: auto;
+  position: relative;
+  border-collapse:collapse
+}
+
+table.container {
+  margin:3em auto
+}
+
+table.full-width {
+  max-width:none
+}
+
+table thead tr:first-of-type {
+  background: #fff;
+  border-top: 2px solid #fdd9b9;
+  border-bottom:2px solid #fdd9b9
+}
+
+table thead + tbody tr:first-of-type {
+  border:none
+}
+
+table thead + tbody tr:nth-of-type(2n) {
+  background:#f5f2ef
+}
+
+table thead + tbody tr:nth-of-type(odd) {
+  background:none
+}
+
+table tr:nth-of-type(odd) {
+  background:#f5f2ef
+}
+
+table th {
+  padding: 1em .75rem;
+  line-height: 1;
+  background:transparent
+}
+
+table td {
+  padding: .85em .75rem;
+  text-align:left
+}
+
+table p {
+  margin:0
+}

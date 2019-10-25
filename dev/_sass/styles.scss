@@ -6,6 +6,7 @@
 //"_vendors/libs/normalize",
 
 // Base
+"styles/base/reset",
 "styles/base/variables",
 "styles/base/grid",
 "styles/base/mixins",
@@ -19,10 +20,12 @@
 // Element Includes
 "styles/elements/header",
 "styles/elements/mainnavigation",
-"styles/elements/seknavigation",
+"styles/elements/subnavigation",
 "styles/elements/breadcrumb",
 "styles/elements/footer",
 "styles/elements/forms",
+"styles/elements/pagination",
+"styles/elements/tables",
 "styles/elements/search",
 "styles/elements/sitemap",
 "styles/elements/cookielaw",
@@ -32,7 +35,7 @@
 "styles/components/abstand",
 "styles/components/accordeon",
 
-"styles/components/actionbanner",
+"styles/components/promo",
 "styles/components/bild",
 "styles/components/bildgalerie",
 "styles/components/callToAction",
@@ -45,7 +48,6 @@
 "styles/components/slider",
 "styles/components/team",
 "styles/components/teaser",
-"styles/components/sectionTeaser",
 "styles/components/testimonial",
 "styles/components/topoffer",
 "styles/components/webcam",

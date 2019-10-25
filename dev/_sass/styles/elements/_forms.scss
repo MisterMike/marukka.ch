@@ -2,157 +2,205 @@
 // FORM 
 ///////////////////////////////
 
-$_form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
-$_form-box-shadow-focus: $_form-box-shadow, 0 0 5px rgba($action-color, 0.7);
+.form, form {
+    max-width: 46rem;
+    margin:auto
+}
+
+form {
+    -webkit-appearance:none
+}
+
+form [hidden] {
+    display:none
+}
+
+form .button {
+    font-size: 1em;
+    background:none
+}
+
+form legend {
+    width: 100%;
+    padding:0
+}
+
+form label, form legend {
+    font-size: 14px;
+    display: block;
+    margin-bottom:.125em
+}
+
+form label > a, form label > button, form label > em, form label > span, form legend > a, form legend > button, form legend > em, form legend > span {
+    float:right
+}
+
+form label .inline, form legend .inline {
+    float:none
+}
+
+form input[type=email], form input[type=number], form input[type=password], form input[type=search], form input[type=text], form textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none
+}
+
+form input[type=email], form input[type=number], form input[type=password], form input[type=search], form input[type=text], form select, form textarea {
+    max-width: 100%;
+    width: 100%;
+    border: 2px solid #ddd;
+    padding: .5em;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-family: soleil, sans-serif;
+    margin-bottom: .125em;
+    border-radius:0
+}
+
+form select {
+    font-size:16px
+}
+
+form input[type=email]:focus, form input[type=number]:focus, form input[type=password]:focus, form input[type=search]:focus, form input[type=text]:focus, form select:focus, form textarea:focus {
+    border-color: #acdbda;
+    outline:none
+}
+
+form input[type=checkbox], form input[type=radio] {
+    float: left;
+    height: 1em;
+    width: 1em;
+    font-size:16px
+}
+
+form input[type=checkbox] + label, form input[type=radio] + label {
+    margin-left: 1.633em;
+    line-height: 22px;
+    font-size:16px
+}
+
+form input[disabled] {
+    opacity:.5
+}
+
+form .input {
+    position: relative;
+    margin-bottom:1em
+}
+
+form input.error, form select.error, form textarea.error {
+    border-color: red;
+    outline:none
+}
+
+form .error-description {
+    color: #ddd;
+    font-style: italic;
+    font-size:14px
+}
 
 fieldset {
-    background-color: transparent;
     border: 0;
-    margin: 0;
-    padding: 0;
+    padding:0
 }
 
-legend {
-    font-weight: 600;
-    margin-bottom: $small-spacing / 2;
-    padding: 0;
-}
-
-input,
-select,
-textarea {
+fieldset legend {
     display: block;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
+    margin-bottom:.25em
 }
 
-#{$all-text-inputs} {
+.form-multi-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-gap:.5em 1.5em
+}
+
+.form--inline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    margin: 0 auto;
+    max-width:54em
+}
+
+.form--inline .input {
+    margin-bottom:0
+}
+
+.form--inline .input:first-of-type {
+    -webkit-box-flex: 3;
+    -ms-flex-positive: 3;
+    flex-grow:3
+}
+
+.form--inline input[type=email], .form--inline input[type=search], .form--inline input[type=text] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    margin-bottom: $base-spacing;
-    padding: $base-spacing / 3;
+    border: 2px solid #ddd;
+    border-right: none;
+    padding: 1rem .75em;
+    line-height: 1em;
+    margin-bottom: 0;
+    margin-right: 0;
+    height:50px
+}
+
+.form--inline input[type=submit] {
+    font-family: soleil, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    height: 50px;
+    font-size:1rem
+}
+
+input::-webkit-input-placeholder {
+    font-style: italic;
+    color:rgba(0, 0, 0, .836)
+}
+
+input:-ms-input-placeholder, input::-ms-input-placeholder {
+    font-style: italic;
+    color:rgba(0, 0, 0, .836)
+}
+
+input::placeholder {
+    font-style: italic;
+    color:rgba(0, 0, 0, .836)
+}
+
+::-webkit-input-placeholder {
+    line-height:normal
+}
+
+.grid-sidebar .form, .grid-sidebar form {
+    margin-left:0
+}
+
+.form-card-wrapper {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 50vh;
+    place-items: auto center;
+    -webkit-box-align: auto center;
+    -ms-flex-align: auto center;
+    align-items: auto center;
+    -webkit-box-pack: auto center;
+    -ms-flex-pack: auto center;
+    justify-content:auto center
+}
+
+.form-card-wrapper form {
+    border: 2px solid #ddd;
     width: 100%;
-    padding-left: $base-spacing/2;
-    padding-right: 0;
-    border: 1px solid $grey-light;
-    border-radius: 0;
-    font-weight: bold;
-
-    &:focus {
-        outline: none;
-    }
-
-    &:disabled {
-        background-color: shade($base-background-color, 5%);
-        cursor: not-allowed;
-
-        &:hover {
-            border: $base-border;
-        }
-    }
-
-    &::placeholder {
-        color: tint($base-font-color, 40%);
-    }
-}
-
-textarea {
-    resize: vertical;
-    border: 1px solid $black;
-    padding-left: $base-spacing/2;
-}
-
-[type="checkbox"],
-[type="radio"] {
-    display: inline;
-    margin-right: $small-spacing / 2;
-}
-
-[type="file"] {
-    margin-bottom: $small-spacing;
-    width: 100%;
-}
-
-select {
-    margin-bottom: $small-spacing;
-    width: 100%;
-}
-
-[type="checkbox"],
-[type="radio"],
-[type="file"],
-select {
-    &:focus {
-        outline: $focus-outline;
-        outline-offset: $focus-outline-offset;
-    }
-}
-
-.kontakt__section {
-    @include grid-container();
-}
-
-.kontaktform__wrapper {
-    position: relative;
-    @include grid-collapse();
-}
-
-.kontaktform {
-    @include grid-column(12);
-
-    @include grid-media($neat-grid-phoneUp) {
-        @include grid-column(12);
-        margin-left: 25px;
-    }
-
-    @include grid-media($neat-grid-desktopUp) {
-        @include grid-column(8);
-        margin-left: 25px;
-    }
-  
-  input, textarea {
-    position: relative;
-    padding-left: $base-spacing/2;
-    border: none;
-    border: 2px solid $action-color;
-  }
-  
-  .submit {
-    padding: $small-spacing $base-spacing*1.5;
-    border: none;
-  }
-  
-}
-
-.kontatkform__heading {
-  margin-top: 0;
-}
-
-.kontakt-errors__items {
-  @include clear-ul;
-  position: relative;
-  color: red;
-  margin-top: -$base-spacing/2;
-  margin-bottom: $base-spacing;
-
-    > li {
-        padding-left: 0;
-    }
-}
-
-.input__error {
-  border-color: red !important;
-}
-
-input#secretHoneypotK4 { 
-  display: none; 
-}
-
-.message.error {
-  color: red;
-}
-
-/* Change the white to any color ;) */
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px $white inset;
-    -webkit-text-fill-color: $base-font-color;
+    max-width: 30em;
+    padding: 2em 2em 1em
 }

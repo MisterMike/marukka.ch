@@ -150,13 +150,13 @@ return [
       ]
     ],
 
-      'teaser' => [
+      'promo' => [
           // optional lazysizes. Can be boolean (true = lazysizes, false = no lazysizes) or
           // string (uses string value for src attribute value)
           'lazysizes' => true,
           'img' => [
               'sizes' => '20vw',
-              'widths' => [400, 800]
+              'widths' => [800, 1200]
           ],
 
           // Angepasst Kreisvier

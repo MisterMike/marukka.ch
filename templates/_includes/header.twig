@@ -1,58 +1,145 @@
-<header>
-    <div class="subheader__wrapper">
-        <div class="grid__container">
-            <nav class="sekundaer__nav">
+<header role="banner" class="site-header">
+    <section class="nav-utility">
+        <nav role="navigation" class="navigation container is-open">
 
+            <a class="logo" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="351" height="60" viewBox="0 0 351 60">
+                    <defs><style>.cls-1 {font-size: 32px;text-anchor: middle;font-family: "Myriad Pro";font-weight: 700;}.cls-2 {fill: #424141;}</style></defs>
+                    <text id="CRAFT_FLEX.GRID" data-name="CRAFT FLEX.GRID" class="cls-1" x="203.019" y="40.121"><tspan x="203.019">CRAFT <tspan class="cls-2">FLEX</tspan>.GRID</tspan></text>
+                    <circle cx="30" cy="29" r="28"/>
+                    <image id="grid-square-1" data-name="Rechteck 1" x="15" y="18" width="31" height="11" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAALCAYAAACH6Va0AAAAI0lEQVQ4jWP8////f4YBAkwDZTHDqOWjlo9aPmo5TQEDAwMAnj0EEvL4Nt0AAAAASUVORK5CYII="/>
+                    <image id="grid-square-2" data-name="Rechteck 2" x="15" y="31" width="16" height="9" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAHUlEQVQokWP8////fwYKABMlmhlGDRgWBjAwMAAAKEcEDgFqGv8AAAAASUVORK5CYII="/>
+                    <image id="grid-square-3" data-name="Rechteck 2 Kopie" x="34" y="31" width="12" height="9" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAAAHElEQVQYlWP8////fwYSABMpihlGNdBEAwMDAwDkugQOeRa12gAAAABJRU5ErkJggg=="/>
+                </svg>
+            </a>
+
+            <a href="#expand-nav-main-list" class="nav-main-link" aria-controls="nav-main-list" aria-haspopup="true" aria-expanded="true">
+                <svg width="30" height="25" class="icon-hamburger" viewBox="0 0 30 25" id="icon-hamburger">
+                    <path d="M30 5H0V0h30v5zm0 15H0v5h30v-5zm0-10H0v5h30v-5z"></path>
+                </svg>
+            </a>
+
+            <ul class="nav-action show-desktop">
                 {% set seknav = sekundaerNavigation.shortLinks %}
+                {% for page in seknav.all() %}
+                <li class="sekundaer__nav--item--level1">
+                    <a class="sekundaer__nav--link--level1 {% if craft.app.request.segments|last == page.slug %}active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>
+                </li>
+                <li><a href="/join" class="button">Klich mich</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </section>
 
-                <ul class="sekundaer__nav--items--level1">
 
-                    {% for page in seknav.all() %}
+                    <section class="nav-main">
+                        <nav role="navigation" class="navigation container">
+                            <ul id="nav-main-list" class="nav-main-list" aria-expanded="false">
+                                <li class="subnav">
+                                    <a href="#expand-subnav-1" aria-controls="subnav-1" aria-haspopup="true" aria-expanded="false">Menu 1<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20">
+                                            <path fill="currentColor" d="M4.516 7.548c.436-.446 1.043-.48 1.576 0L10 11.295l3.908-3.747c.533-.48 1.14-.446 1.574 0 .436.445.408 1.197 0 1.615-.406.418-4.695 4.502-4.695 4.502-.217.223-.502.335-.787.335s-.57-.112-.79-.335c0 0-4.286-4.084-4.694-4.502s-.436-1.17 0-1.615z"></path>
+                                        </svg></a><ul id="subnav-1" hidden="true" class="subnav-content"><li><a href="https://www.austinchamber.com/what-we-do">Overview</a></li><li><a href="https://www.austinchamber.com/advocacy">Advocacy</a></li><li><a href="https://www.austinchamber.com/economic-development">Economic Development</a></li><li><a href="https://www.austinchamber.com/education-talent">Education &amp; Talent</a></li><li><a href="https://www.austinchamber.com/innovation">Innovation &amp; International Partnerships</a></li></ul></li><li class="subnav">
+                                    <a href="#expand-subnav-2" aria-controls="subnav-2" aria-haspopup="true" aria-expanded="false">Menu 2<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20">
+                                            <path fill="currentColor" d="M4.516 7.548c.436-.446 1.043-.48 1.576 0L10 11.295l3.908-3.747c.533-.48 1.14-.446 1.574 0 .436.445.408 1.197 0 1.615-.406.418-4.695 4.502-4.695 4.502-.217.223-.502.335-.787.335s-.57-.112-.79-.335c0 0-4.286-4.084-4.694-4.502s-.436-1.17 0-1.615z"></path>
+                                        </svg></a><ul id="subnav-2" hidden="true" class="subnav-content"><li><a href="https://www.austinchamber.com/economic-development/why-austin">Why the Austin Region?</a></li><li><a href="https://www.austinchamber.com/economic-development/business-climate">Business Climate</a></li><li><a href="https://www.austinchamber.com/economic-development/austin-profile">Greater Austin Profile</a></li><li><a href="https://www.austinchamber.com/economic-development/taxes-incentives">Taxes &amp; Incentives</a></li><li><a href="https://www.austinchamber.com/economic-development/real-estate">Real Estate</a></li><li><a href="https://www.austinchamber.com/economic-development/key-industries">Key Industries</a></li><li><a href="https://www.austinchamber.com/economic-development/community-profiles">Community Profiles</a></li><li class="lined"><a href="https://www.austinchamber.com/economic-development/contact">Contact Us</a></li><li><a href="https://www.austinchamber.com/about/opportunity-austin">Opportunity Austin</a></li></ul></li><li class="subnav">
+                                    <a href="#expand-subnav-3" aria-controls="subnav-3" aria-haspopup="true" aria-expanded="false">Menu 3<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20">
+                                            <path fill="currentColor" d="M4.516 7.548c.436-.446 1.043-.48 1.576 0L10 11.295l3.908-3.747c.533-.48 1.14-.446 1.574 0 .436.445.408 1.197 0 1.615-.406.418-4.695 4.502-4.695 4.502-.217.223-.502.335-.787.335s-.57-.112-.79-.335c0 0-4.286-4.084-4.694-4.502s-.436-1.17 0-1.615z"></path>
+                                        </svg></a><ul id="subnav-3" hidden="true" class="subnav-content"><li><a href="https://www.austinchamber.com/membership/as-an-investment">As an investment</a></li><li><a href="https://www.austinchamber.com/membership/small-business">For small business</a></li><li><a href="https://www.austinchamber.com/membership/business-development">For business development</a></li><li><a href="https://www.austinchamber.com/membership/marketing-visibility">For marketing &amp; visibility</a></li><li class="lined"><a href="/directory">Directory</a></li><li><a href="https://www.austinchamber.com/membership/our-members">Our Members</a></li><li><a href="https://www.austinchamber.com/membership/resources">Membership resources</a></li><li><a href="https://www.austinchamber.com/join">Join</a></li></ul></li><li class="subnav">
+                                    <a href="#expand-subnav-4" aria-controls="subnav-4" aria-haspopup="true" aria-expanded="false">Menu 4<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20">
+                                            <path fill="currentColor" d="M4.516 7.548c.436-.446 1.043-.48 1.576 0L10 11.295l3.908-3.747c.533-.48 1.14-.446 1.574 0 .436.445.408 1.197 0 1.615-.406.418-4.695 4.502-4.695 4.502-.217.223-.502.335-.787.335s-.57-.112-.79-.335c0 0-4.286-4.084-4.694-4.502s-.436-1.17 0-1.615z"></path>
+                                        </svg></a><ul id="subnav-4" hidden="true" class="subnav-content"><li><a href="/events">Chamber events</a></li><li><a href="/events/community">Community events</a></li><li class="lined"><a href="https://www.austinchamber.com/about/partners">Annual Partners</a></li><li><a href="https://www.austinchamber.com/programs/intercity-visits">Intercity Visits</a></li><li><a href="https://www.austinchamber.com/membership/sponsorship">Sponsorship opportunities</a></li></ul></li><li class="subnav">
+                                    <a href="/blog">Menu 5</a></li><li class="subnav">
+                                    <a href="#expand-subnav-6" aria-controls="subnav-6" aria-haspopup="true" aria-expanded="false">Menu 6<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20">
+                                            <path fill="currentColor" d="M4.516 7.548c.436-.446 1.043-.48 1.576 0L10 11.295l3.908-3.747c.533-.48 1.14-.446 1.574 0 .436.445.408 1.197 0 1.615-.406.418-4.695 4.502-4.695 4.502-.217.223-.502.335-.787.335s-.57-.112-.79-.335c0 0-4.286-4.084-4.694-4.502s-.436-1.17 0-1.615z"></path>
+                                        </svg></a>
+                                    <ul id="subnav-6" hidden="true" class="subnav-content">
+                                        <li><a href="https://www.austinchamber.com/about">The Chamber</a></li>
+                                        <li><a href="https://www.austinchamber.com/about/team">Our team</a></li>
+                                        <li><a href="/press-releases">Press releases</a></li>
+                                        <li><a href="https://www.austinchamber.com/about/contact">Contact</a></li>
+                                        <li class="lined"><a href="https://www.austinchamber.com/about/austin-gives">Austin Gives</a></li>
+                                        <li><a href="https://www.austinchamber.com/about/quality-of-life-foundation">Quality of Life Foundation</a></li>
+                                    </ul>
+                                </li>
+                                <ul class="hide-desktop nav-action">
+                                    <li><a href="https://www.austinchamber.com/login">Member Login</a></li>
+                                    <li><a href="https://www.austinchamber.com/join" class="button">Join the Chamber</a></li>
+                                </ul>
+                            </ul>
 
-                        <li class="sekundaer__nav--item--level1">
+                            <button id="search_open" class="search-icon" aria-label="Search">
+                                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="31.4px" height="30.9px" viewBox="0 0 31.4 30.9">
+                                    <style>
+                                        .st0 {
+                                            fill: #111
+                                        }
+                                    </style>
+                                    <path class="st0" d="M20,22.6c-2.2,1.6-4.9,2.4-7.5,2.4c-2.7,0-5.4-0.9-7.6-2.6c-5.5-4.3-6.6-12-2.4-17.5c2.4-3.1,6-4.9,10-4.9
+                                        c2.8,0,5.4,0.9,7.5,2.6c2.7,2,4.4,5,4.8,8.2c0.5,3-0.2,6-1.9,8.6l8.5,8.5l-3,3L20,22.6z M12.6,4.2c-4.6,0-8.3,3.7-8.3,8.3
+                                        c0,4.5,3.7,8.2,8.3,8.2c4.5,0,8.2-3.7,8.2-8.3C20.8,7.9,17.1,4.2,12.6,4.2z"></path>
+                                </svg>
+                            </button>
+                        </nav>
+                    </section>
+                </header>
 
-                            <a class="sekundaer__nav--link--level1 {% if craft.app.request.segments|last == page.slug %}active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>
 
-                        </li>
 
-                    {% endfor %}
+                {#<header role="banner" class="site-header">#}
+{#    <div class="subheader__wrapper">#}
+{#        <div class="grid__container">#}
+{#            <nav class="sekundaer__nav">#}
 
-                </ul>
-            </nav>
+{#                {% set seknav = sekundaerNavigation.shortLinks %}#}
 
-            <div class="header__icon--search">
-                <span class="icon-search"></span>
-                <span class="icon-close"></span>
-            </div>
+{#                <ul class="sekundaer__nav--items--level1">#}
 
-        </div>
-    </div>
-  <div class="header__wrapper">
-    <div class="grid__container">
-      <div class="content__wrapper">
+{#                    {% for page in seknav.all() %}#}
 
-          <a href="{{ siteUrl }}">
-              <div class="header__logo"></div>
-          </a>
-          
-          <form class="form__suche" action="{{ '{entry:105}' | parseRefs }}">
-            <input class="form__suche--input" type="search" name="q" placeholder="Suchbegriff">
-            <input type="submit" value="Suchen">
-          </form>
+{#                        <li class="sekundaer__nav--item--level1">#}
 
-          <div class="main__nav--icon" role="button" aria-label="Toggle Navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+{#                            <a class="sekundaer__nav--link--level1 {% if craft.app.request.segments|last == page.slug %}active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>#}
 
-          <nav class="main__nav">
+{#                        </li>#}
 
-            {{ mainNavigation | raw }}
+{#                    {% endfor %}#}
 
-          </nav>
+{#                </ul>#}
+{#            </nav>#}
 
-      </div>
-    </div>
-  </div>
-</header>
+{#            <div class="header__icon--search">#}
+{#                <span class="icon-search"></span>#}
+{#                <span class="icon-close"></span>#}
+{#            </div>#}
+
+{#        </div>#}
+{#    </div>#}
+{#    <div class="header__wrapper">#}
+{#        <div class="grid__container">#}
+{#            <div class="content__wrapper">#}
+
+{#                <a href="{{ siteUrl }}">#}
+{#                    <div class="header__logo"></div>#}
+{#                </a>#}
+
+{#                <form class="form__suche" action="{{ '{entry:105}' | parseRefs }}">#}
+{#                    <input class="form__suche--input" type="search" name="q" placeholder="Suchbegriff">#}
+{#                    <input type="submit" value="Suchen">#}
+{#                </form>#}
+
+{#                <div class="main__nav--icon" role="button" aria-label="Toggle Navigation">#}
+{#                    <span></span>#}
+{#                    <span></span>#}
+{#                    <span></span>#}
+{#                </div>#}
+
+{#                <nav class="main__nav">#}
+
+{#                    {{ mainNavigation | raw }}#}
+
+{#                </nav>#}
+
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}

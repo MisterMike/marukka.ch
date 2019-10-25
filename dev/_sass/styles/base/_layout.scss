@@ -2,178 +2,77 @@
 // LAYOUT 
 //////////////////////////////
 
-html {
-    box-sizing: border-box;
-    height: 100%;
+.container {
+  width: 92%;
+  max-width: 1400px;
+  margin:0 auto
 }
 
-body {
-    height: 100%;
-    margin: 0;
-    padding-top: 70px;
-
-    @media (min-width: $break-desktop) {
-      padding-top: $header-height;
-    }
+.container .container {
+  width:100%
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+img {
+  margin-bottom:1.5em
 }
 
-.clear {
-  clear: both;
-  width: 100%;
+iframe, img {
+  max-width:100%
 }
 
-
-.grid__container {
-//  @include grid-visual($color: rgba(#00d4ff, 0.25));
-  @include grid-container;
-
-  @include grid-media($neat-grid-phoneUp) {
-//    @include grid-visual($color: rgba(#00d4ff, 0.25));
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  
-  
-  @include grid-media($neat-grid-desktopUp) {
-//    @include grid-visual($color: rgba(#00d4ff, 0.25));
-  }
-  
-}
-
-
-.grid__collapse {
-  @include grid-container;
-  @include grid-collapse;
-
-  @include grid-media($neat-grid-phoneUp) {
-    @include grid-container;
-    @include grid-collapse;
-  }
-
-  @include grid-media($neat-grid-desktopUp) {
-    @include grid-container;
-    @include grid-collapse;
-  }
-
-}
-
-.inhalt__wrapper--grid {
-  position: relative;
-  @include grid-container;
-  @include grid-collapse;
-  
-  @include grid-media($neat-grid-phoneUp) {
-    @include grid-container;
-    @include grid-collapse;
-  }
-  
-  @include grid-media($neat-grid-desktopUp) {
-    @include grid-container;
-    @include grid-collapse;
-  }
-} 
-
-main {
-  margin-bottom: $gutterPadding*2;
-
-  .content__wrapper {
-    margin-top: 20px;
-    @media (min-width: $break-desktop) {
-      //margin-top: 80px;
-    }
-  }
-
-}
-
-.content {
-
-  @include grid-column(12);
-
-  @include grid-media($neat-grid-phoneUp) {
-    @include grid-column(12);
-  }
-  
-  @include grid-media($neat-grid-desktopUp) {
-    @include grid-column(12);
-  }
-
-}
-
-.visible--desktopUp {
-  display: none;
-  @media (min-width: $break-desktop) {
-    display: block;
-  }
-}
-
-.visible--tabletUp {
-  display: none;
-  @media (min-width: $break-tablet) {
-    display: block;
-  }
-}
-
-.visible--phoneUp {
-  display: none;
-  @media (min-width: $break-phone) {
-    display: block;
-  }
-}
-
-.visible--tabletDown {
-  display: block;
-  @media (min-width: $break-desktop) {
-    display: none;
-  }
-}
-
-// Lazyloaded Image
-main img {
-  opacity: 0;
-  width: calc(100% + 30px);
-  //margin: 0 -15px;
+iframe {
   margin: 0;
-  
-  @media (min-width: $break-phone) {
-    width: 100%;
-    margin: 0;
-  }
+  height:auto
+}
 
-  &.lazyloaded {
-    opacity: 1;
-    transition: all 1s ease;
+figure {
+  margin:0 0 2em
+}
+
+figure img {
+  margin-bottom:.25em
+}
+
+figure figcaption {
+  font-size:.85em
+}
+
+.block-link {
+  display: block;
+  text-decoration:none
+}
+
+.block-link:hover {
+  text-decoration: none;
+  color:#1f1f1f
+}
+
+[hidden=true] {
+  display:none !important
+}
+
+.show-desktop {
+  display:none
+}
+
+@media screen and (min-width: 900px) {
+  .show-desktop {
+    display:inline-block
   }
 }
 
-html.inited main img {
-  opacity: 1;
-  transition: all 1s ease;
+.hide-desktop {
+  display:block
 }
 
-section {
-  @media (min-width: $break-phone) {
-    &.grey {
-      background-color: #f0f0f0;
-    }
-
-    &.green {
-      background-color: #e0eed0;
-    }
-
-    &.yellow {
-      background-color: #eee9d0;
-    }
-
-    &.blue {
-      background-color: #d0d4ee;
-    }
+@media screen and (min-width: 900px) {
+  .hide-desktop {
+    display:none
   }
-
 }
+
+.rounded, .rounded img {
+  border-radius:50em
+}
+
+

@@ -17,7 +17,7 @@ return [
 
         'omitScriptNameInUrls' => true,
 
-        'cpTrigger' => 'kiteadmin',
+        'cpTrigger' => 'admin',
 
         'securityKey' => getenv('SECURITY_KEY'),
         

@@ -99,23 +99,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_navigation__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _main_detectIE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main/detectIE */ "./dev/_js/main/detectIE.js");
 /* harmony import */ var _main_detectIE__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_main_detectIE__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _main_smoothscroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/smoothscroll */ "./dev/_js/main/smoothscroll.js");
-/* harmony import */ var _main_smoothscroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_main_smoothscroll__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _main_formlabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main/formlabel */ "./dev/_js/main/formlabel.js");
-/* harmony import */ var _main_formlabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_main_formlabel__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _main_accordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main/accordeon */ "./dev/_js/main/accordeon.js");
-/* harmony import */ var _main_accordeon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_main_accordeon__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main/accordeonBlocks */ "./dev/_js/main/accordeonBlocks.js");
-/* harmony import */ var _main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _main_photoswipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/photoswipe */ "./dev/_js/main/photoswipe.js");
-/* harmony import */ var _main_photoswipe__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_main_photoswipe__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rellax */ "./node_modules/rellax/rellax.js");
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rellax__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _main_accordeon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/accordeon */ "./dev/_js/main/accordeon.js");
+/* harmony import */ var _main_accordeon__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_main_accordeon__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main/accordeonBlocks */ "./dev/_js/main/accordeonBlocks.js");
+/* harmony import */ var _main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_main_accordeonBlocks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _main_photoswipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main/photoswipe */ "./dev/_js/main/photoswipe.js");
+/* harmony import */ var _main_photoswipe__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_main_photoswipe__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rellax */ "./node_modules/rellax/rellax.js");
+/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rellax__WEBPACK_IMPORTED_MODULE_6__);
 
-
-
+ // import SmoothScroll from './main/smoothscroll';
+//import FormLabel from './main/formlabel';
 
 
 
@@ -127,7 +123,7 @@ var Carousel = __webpack_require__(/*! vanilla-js-carousel */ "./node_modules/va
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementsByTagName("html")[0].className += " inited";
-  var rellax = new rellax__WEBPACK_IMPORTED_MODULE_8___default.a('.rellax', {
+  var rellax = new rellax__WEBPACK_IMPORTED_MODULE_6___default.a('.rellax', {
     speed: .5,
     center: false,
     wrapper: null,
@@ -277,151 +273,6 @@ if (detectIE()) {
 
 /***/ }),
 
-/***/ "./dev/_js/main/formlabel.js":
-/*!***********************************!*\
-  !*** ./dev/_js/main/formlabel.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * classie - class helper functions
- * from bonzo https://github.com/ded/bonzo
- * 
- * classie.has( elem, 'my-class' ) -> true/false
- * classie.add( elem, 'my-new-class' )
- * classie.remove( elem, 'my-unwanted-class' )
- * classie.toggle( elem, 'my-class' )
- */
-
-/*jshint browser: true, strict: true, undef: true */
-
-/*global define: false */
-$(document).ready(function () {
-  (function (window) {
-    // class helper functions from bonzo https://github.com/ded/bonzo
-    function classReg(className) {
-      return new RegExp("(^|\\s+)".concat(className, "(\\s+|$)"));
-    } // classList support for class management
-    // altho to be fair, the api sucks because it won't accept multiple classes at once
-
-
-    var hasClass;
-    var addClass;
-    var removeClass;
-
-    if ('classList' in document.documentElement) {
-      hasClass = function hasClass(_ref, c) {
-        var classList = _ref.classList;
-        return classList.contains(c);
-      };
-
-      addClass = function addClass(_ref2, c) {
-        var classList = _ref2.classList;
-        classList.add(c);
-      };
-
-      removeClass = function removeClass(_ref3, c) {
-        var classList = _ref3.classList;
-        classList.remove(c);
-      };
-    } else {
-      hasClass = function hasClass(_ref4, c) {
-        var className = _ref4.className;
-        return classReg(c).test(className);
-      };
-
-      addClass = function addClass(elem, c) {
-        if (!hasClass(elem, c)) {
-          elem.className = "".concat(elem.className, " ").concat(c);
-        }
-      };
-
-      removeClass = function removeClass(elem, c) {
-        elem.className = elem.className.replace(classReg(c), ' ');
-      };
-    }
-
-    function toggleClass(elem, c) {
-      var fn = hasClass(elem, c) ? removeClass : addClass;
-      fn(elem, c);
-    }
-
-    var classie = {
-      // full names
-      hasClass: hasClass,
-      addClass: addClass,
-      removeClass: removeClass,
-      toggleClass: toggleClass,
-      // short names
-      has: hasClass,
-      add: addClass,
-      remove: removeClass,
-      toggle: toggleClass
-    }; // transport
-
-    if (true) {
-      // AMD
-      !(__WEBPACK_AMD_DEFINE_FACTORY__ = (classie),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-    } else {}
-  })(window);
-
-  function inputFilled() {
-    $('.input__field').on('focus', function () {
-      $(this).children('.input__field--wrapper').addClass('input--filled');
-    });
-    $('.input__field').on('blur', function () {
-      if ($(this).val() == '') {
-        $(this).parent('.input__field--wrapper').removeClass('input--filled');
-      }
-    });
-  }
-
-  (function () {
-    // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-    if (!String.prototype.trim) {
-      (function () {
-        // Make sure we trim BOM and NBSP
-        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-
-        String.prototype.trim = function () {
-          return this.replace(rtrim, '');
-        };
-      })();
-    }
-
-    [].slice.call(document.querySelectorAll('.input__field')).forEach(function (inputEl) {
-      // in case the input is already filled..
-      if (inputEl.value.trim() !== '') {
-        classie.add(inputEl.parentNode, 'input--filled');
-      } // events:
-
-
-      inputEl.addEventListener('focus', onInputFocus);
-      inputEl.addEventListener('blur', onInputBlur);
-    });
-
-    function onInputFocus(_ref5) {
-      var target = _ref5.target;
-      classie.add(target.parentNode, 'input--filled');
-    }
-
-    function onInputBlur(_ref6) {
-      var target = _ref6.target;
-
-      if (target.value.trim() === '') {
-        classie.remove(target.parentNode, 'input--filled');
-      }
-    }
-  })();
-});
-
-/***/ }),
-
 /***/ "./dev/_js/main/navigation.js":
 /*!************************************!*\
   !*** ./dev/_js/main/navigation.js ***!
@@ -429,85 +280,89 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// Navigation Button
-var buttonOpenLevel2 = document.querySelector('.button__open--level-2');
-var buttonOpenLevel3 = document.querySelector('.button__open--level-3');
-var header = document.querySelector('header');
-var mainNav = document.querySelector('.main__nav');
-var sekNav = document.querySelector('.sekundaer__nav');
-var mainNavButton = document.querySelector('.main__nav--icon');
-var mainNavWrapper = document.querySelector('.main__nav--wrapper');
-var formSuche = document.querySelector('.form__suche');
-var formSucheInput = document.querySelector('.form__suche--input');
-var formSucheClose = document.querySelector('.header__icon--search'); // Get the click events for the document
+var n = document.querySelectorAll(".nav-main-list [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
+window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), n.forEach(function (e) {
+  var t = document.getElementById(e.getAttribute("aria-controls")),
+      n = function n() {
+    e.setAttribute("aria-expanded", "false"), t.setAttribute("hidden", "true");
+  };
 
-document.addEventListener('click', function (event) {
-  // Mobile Navigation
-  if (event.target.closest('.main__nav--icon')) {
-    mainNavButton.classList.toggle('open');
-    header.classList.toggle('open');
-    mainNav.classList.toggle('open');
-    sekNav.classList.toggle('open');
-  } // Search form 
-
-
-  if (event.target.matches('.header__icon--search span')) {
-    event.preventDefault();
-    formSuche.classList.toggle('show');
-    formSucheClose.classList.toggle('open');
-    setTimeout(function () {
-      formSucheInput.classList.toggle('show');
-    }, 100);
-  }
-}, false); //
-// Fixed menubar when scrolled
-//
-
-$(window).bind('scroll', function () {
-  if ($(window).scrollTop() > 150) {
-    setTimeout(function () {
-      $('header').addClass('scrolled'); //$('main').css('margin-top', '85px');
-    }, 400);
-  } else {
-    setTimeout(function () {
-      $('header').removeClass('scrolled'); //$('main').css('margin-top', '180px');
-    }, 400);
-  }
-
-  ; // Animation of Scroll-to-Top Icon
-
-  var bottomOffset;
-  bottomOffset = $('footer').height();
-  $(window).scrollTop() + $(window).height() > $(document).height() - bottomOffset ? $("#button__scroll--top").addClass('is-at-bottom') : $("#button__scroll--top").removeClass('is-at-bottom');
-  document.body.scrollTop > 450 || document.documentElement.scrollTop > 450 ? $("#button__scroll--top").addClass('is-visible') : $("#button__scroll--top").removeClass('is-visible');
-}); // Open Level 2 Mainnavigation
-
-$('.button__open--level-2').click(function () {
-  if (!$(this).hasClass('active')) {
-    $('.main__nav--link--level1').removeClass('active');
-    $(this).addClass('active');
-    $('.main__nav--items--level2').removeClass('open');
-    $('header').addClass('nav-level2-open');
-    $(this).siblings('.main__nav--items--level2').addClass('open');
-    $(this).siblings('.main__nav--link--level1').addClass('active');
-  } else {
-    $(this).siblings('.main__nav--link--level1').removeClass('active');
-    $(this).removeClass('active');
-    $(this).siblings('.main__nav--items--level2').removeClass('open');
-    $('header').removeClass('nav-level2-open');
-  }
-
-  $(this).toggleClass('active');
-  $(this).siblings('.main__nav--items--level2').toggleClass('open');
-  $(this).siblings('.main__nav--link--level1').toggleClass('active');
-  $('header').toggleClass('nav-level2-open');
-}); //Open Level 3 Mainnavigation
-
-$('.button__open--level-3').click(function () {
-  $(this).toggleClass('active');
-  $(this).siblings('.main__nav--items--level3').toggleClass('open');
-  $(this).siblings('.main__nav--link--level2').toggleClass('active');
+  e.addEventListener("click", function (i) {
+    i.preventDefault(), "true" === e.getAttribute("aria-expanded") ? n() : (e.setAttribute("aria-expanded", "true"), t.removeAttribute("hidden"));
+  }), window.addEventListener("resize", n);
+}), window.addEventListener("keydown", function e(t) {
+  9 === t.keyCode && (document.body.classList.add("user-is-tabbing"), document.getElementById("search_modal").classList.add("user-is-tabbing"), window.removeEventListener("keydown", e));
 });
+var i = document.querySelectorAll(".nav-main-list [aria-haspopup]");
+
+function d() {
+  c && c.hasAttribute("hidden") && (c.removeAttribute("hidden"), u.setAttribute("aria-expanded", !0), document.querySelector(".navigation").classList.add("is-open"));
+}
+
+function r() {
+  c.setAttribute("hidden", !0), u.setAttribute("aria-expanded", !1), document.querySelector(".navigation").classList.remove("is-open");
+}
+
+function o2() {
+  return window.matchMedia("(min-width: 900px)").matches;
+}
+
+function a() {
+  o2() ? d() : r();
+}
+
+i.forEach(function (e) {
+  e.addEventListener("click", function (t) {
+    for (var _t = 0; _t < i.length; _t++) {
+      if (i[_t] !== e && i[_t]) {
+        i[_t].setAttribute("aria-expanded", "false");
+
+        var _e = document.getElementById(i[_t].getAttribute("aria-controls"));
+
+        _e && _e.setAttribute("hidden", "true");
+      }
+    }
+  });
+});
+var s = {};
+window.addEventListener("keyup", function (e) {
+  s[e.keyCode] = !1;
+}), window.addEventListener("keydown", function (e) {
+  s[e.keyCode] = !0;
+});
+var c = document.querySelector(".nav-main-list"),
+    u = document.querySelector(".nav-main-link");
+
+function o() {
+  return window.matchMedia("(min-width: 900px)").matches;
+}
+
+function l() {
+  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== o() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")));
+}
+
+function m() {
+  !0 !== o() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"));
+}
+
+function f() {
+  o2() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m();
+}
+
+u && u.addEventListener("click", function (e) {
+  e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? d() : r();
+}), window.addEventListener("resize", a), window.addEventListener("load", a), a();
+s = {};
+window.addEventListener("keyup", function (e) {
+  s[e.keyCode] = !1;
+}), window.addEventListener("keydown", function (e) {
+  s[e.keyCode] = !0;
+});
+var v = document.querySelector(".nav-sidebar"),
+    h = document.querySelector(".nav-sidebar-link");
+h && h.addEventListener("click", function (e) {
+  e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? l() : m();
+}), window.addEventListener("resize", f), window.addEventListener("load", f);
 
 /***/ }),
 
@@ -723,39 +578,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   initPhotoSwipeFromDOM('.gridGallery');
-});
-
-/***/ }),
-
-/***/ "./dev/_js/main/smoothscroll.js":
-/*!**************************************!*\
-  !*** ./dev/_js/main/smoothscroll.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(function () {
-  $('#button__scroll--top').click(function () {
-    var smooth = new SmoothAnimate(document.getElementsByTagName('body'), {
-      scrollTop: 0
-    }, {
-      duration: 1000,
-      easing: 'easeInOutQuint'
-    });
-  });
-  $('.scroll').click(function () {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $("[name=".concat(this.hash.slice(1), "]"));
-
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
 });
 
 /***/ }),
@@ -1961,9 +1783,9 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Webcode/kitesailing3/dev/_js/main.js */"./dev/_js/main.js");
-__webpack_require__(/*! /Webcode/kitesailing3/dev/_sass/styles.scss */"./dev/_sass/styles.scss");
-module.exports = __webpack_require__(/*! /Webcode/kitesailing3/dev/_sass/_vendors/photoswipe/src/css/main.scss */"./dev/_sass/_vendors/photoswipe/src/css/main.scss");
+__webpack_require__(/*! /Webcode/craft-grid/dev/_js/main.js */"./dev/_js/main.js");
+__webpack_require__(/*! /Webcode/craft-grid/dev/_sass/styles.scss */"./dev/_sass/styles.scss");
+module.exports = __webpack_require__(/*! /Webcode/craft-grid/dev/_sass/_vendors/photoswipe/src/css/main.scss */"./dev/_sass/_vendors/photoswipe/src/css/main.scss");
 
 
 /***/ })

@@ -48,14 +48,7 @@ html.inited main section.homeSlider.owl-carousel {
 
 .slider__bild {
   
-  @include grid-media($neat-grid-phoneUp) {
-    @include grid-column(6);
-    border: 1px solid green;
-  }
-  
-  @include grid-media($neat-grid-desktopUp) {
-    @include grid-column(6);
-  }
+
   
 }
 

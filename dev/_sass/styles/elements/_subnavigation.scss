@@ -1,0 +1,85 @@
+///////////////////////////////
+// SEKNAVIGATION 
+///////////////////////////////
+
+
+.nav-utility .navigation {
+  padding-top: 10px;
+  padding-bottom:10px
+}
+
+@media screen and (min-width: 900px) {
+  .nav-utility .navigation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom:20px
+  }
+}
+
+.nav-utility .navigation .logo {
+  margin: auto 0;
+  max-width: 200px;
+  display:block
+}
+
+@media screen and (min-width: 900px) {
+  .nav-utility .navigation .logo {
+    max-width:280px
+  }
+}
+
+.nav-utility .navigation .logo svg {
+  margin: 0;
+  width: 100%;
+  display:block
+}
+
+
+.site-header ul.nav-action {
+  margin:auto 0
+}
+
+.site-header ul.nav-action li {
+  margin:7px 0 25px
+}
+
+@media screen and (min-width: 900px) {
+  .site-header ul.nav-action li {
+    display: inline-block;
+    padding: .5em;
+    margin:0
+  }
+}
+
+.site-header ul.nav-action li:last-child {
+  margin-right: 0;
+  padding-right:0
+}
+
+.site-header ul.nav-action li a {
+  padding: 13px;
+  margin: 0;
+  line-height: 1;
+  font-weight: 700;
+  border:2px solid transparent
+}
+
+@media screen and (min-width: 900px) {
+  .site-header ul.nav-action li a {
+    font-size:.935em
+  }
+}
+
+.site-header ul.nav-action li a.button {
+  border:2px solid #1f1f1f
+}
+
+.nav-utility ul.nav-action li a:focus, .nav-utility ul.nav-action li a:hover, .site-header ul.nav-action li a.button:hover {
+  background: ($accent-color,40%);
+  color:$white;
+}

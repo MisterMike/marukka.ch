@@ -1,105 +1,83 @@
+const n = document.querySelectorAll(".nav-main-list [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
 
-// Navigation Button
-
-const buttonOpenLevel2 = document.querySelector('.button__open--level-2');
-const buttonOpenLevel3 = document.querySelector('.button__open--level-3');
-
-const header = document.querySelector('header');
-const mainNav = document.querySelector('.main__nav');
-const sekNav = document.querySelector('.sekundaer__nav');
-
-const mainNavButton = document.querySelector('.main__nav--icon');
-const mainNavWrapper = document.querySelector('.main__nav--wrapper');
-
-const formSuche = document.querySelector('.form__suche');
-const formSucheInput = document.querySelector('.form__suche--input');
-const formSucheClose = document.querySelector('.header__icon--search');
-
-
-// Get the click events for the document
-document.addEventListener('click', function (event) {
-
-  // Mobile Navigation
-  if ( event.target.closest( '.main__nav--icon' ) ) {
-
-
-   mainNavButton.classList.toggle('open');
-          header.classList.toggle('open');
-         mainNav.classList.toggle('open');
-          sekNav.classList.toggle('open');
-  }
-
-  // Search form 
-  if ( event.target.matches( '.header__icon--search span' ) ) {
-
-    event.preventDefault();
-
-    formSuche.classList.toggle('show');
-    formSucheClose.classList.toggle('open');
-
-    setTimeout(() => { 
-      formSucheInput.classList.toggle('show');
-    }, 100)
-  }
-
-}, false);
-
-//
-// Fixed menubar when scrolled
-//
-$(window).bind('scroll', function () {
-  if ($(window).scrollTop() > 150) {
-    setTimeout(function() {
-      $('header').addClass('scrolled');
-      //$('main').css('margin-top', '85px');
-    }, 400);
-  } else {
-    setTimeout(function() {
-      $('header').removeClass('scrolled');
-      //$('main').css('margin-top', '180px');
-    }, 400);
-  };
-
-  // Animation of Scroll-to-Top Icon
-  var bottomOffset;
-  bottomOffset = $('footer').height();
-  ($(window).scrollTop() + $(window).height() > $(document).height() - bottomOffset) ? $("#button__scroll--top").addClass('is-at-bottom') : $("#button__scroll--top").removeClass('is-at-bottom');
-  (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) ? $("#button__scroll--top").addClass('is-visible') : $("#button__scroll--top").removeClass('is-visible');
-
+window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), n.forEach(function(e) {
+  let t = document.getElementById(e.getAttribute("aria-controls")),
+      n = function() {
+        e.setAttribute("aria-expanded", "false"), t.setAttribute("hidden", "true")
+      };
+  e.addEventListener("click", function(i) {
+    i.preventDefault(), "true" === e.getAttribute("aria-expanded") ? n() : (e.setAttribute("aria-expanded", "true"), t.removeAttribute("hidden"))
+  }), window.addEventListener("resize", n)
+}), window.addEventListener("keydown", function e(t) {
+  9 === t.keyCode && (document.body.classList.add("user-is-tabbing"), document.getElementById("search_modal").classList.add("user-is-tabbing"), window.removeEventListener("keydown", e))
 });
 
-// Open Level 2 Mainnavigation
-$('.button__open--level-2').click(function(){
+const i = document.querySelectorAll(".nav-main-list [aria-haspopup]");
 
-  if(!$(this).hasClass('active')) {
-    $('.main__nav--link--level1').removeClass('active');
-    $(this).addClass('active');
-    $('.main__nav--items--level2').removeClass('open');
-    $('header').addClass('nav-level2-open');
-    $(this).siblings('.main__nav--items--level2').addClass('open');
-    $(this).siblings('.main__nav--link--level1').addClass('active');
+function d() {
+  c && c.hasAttribute("hidden") && (c.removeAttribute("hidden"), u.setAttribute("aria-expanded", !0), document.querySelector(".navigation").classList.add("is-open"))
+}
 
-  } else {
-    $(this).siblings('.main__nav--link--level1').removeClass('active');
-    $(this).removeClass('active');
-    $(this).siblings('.main__nav--items--level2').removeClass('open');
-    $('header').removeClass('nav-level2-open');
+function r() {
+  c.setAttribute("hidden", !0), u.setAttribute("aria-expanded", !1), document.querySelector(".navigation").classList.remove("is-open")
+}
 
-  }
+function o2() {
+  return window.matchMedia("(min-width: 900px)").matches
+}
 
-  $(this).toggleClass('active');
-  $(this).siblings('.main__nav--items--level2').toggleClass('open');
-  
-  $(this).siblings('.main__nav--link--level1').toggleClass('active');
-  $('header').toggleClass('nav-level2-open');
-  
+function a() {
+  o2() ? d() : r()
+}
+
+i.forEach(function(e) {
+  e.addEventListener("click", function(t) {
+    for (let t = 0; t < i.length; t++)
+      if (i[t] !== e && i[t]) {
+        i[t].setAttribute("aria-expanded", "false");
+        let e = document.getElementById(i[t].getAttribute("aria-controls"));
+        e && e.setAttribute("hidden", "true")
+      }
+  })
+});
+var s = {};
+window.addEventListener("keyup", function(e) {
+  s[e.keyCode] = !1
+}), window.addEventListener("keydown", function(e) {
+  s[e.keyCode] = !0
 });
 
+let c = document.querySelector(".nav-main-list"),
+    u = document.querySelector(".nav-main-link");
 
+function o() {
+  return window.matchMedia("(min-width: 900px)").matches
+}
 
-//Open Level 3 Mainnavigation
-$('.button__open--level-3').click(function(){
-  $(this).toggleClass('active');
-  $(this).siblings('.main__nav--items--level3').toggleClass('open');
-  $(this).siblings('.main__nav--link--level2').toggleClass('active');
+function l() {
+  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== o() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")))
+}
+
+function m() {
+  !0 !== o() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"))
+}
+
+function f() {
+  o2() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m()
+}
+u && u.addEventListener("click", function(e) {
+  e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? d() : r()
+}), window.addEventListener("resize", a), window.addEventListener("load", a), a();
+s = {};
+window.addEventListener("keyup", function(e) {
+  s[e.keyCode] = !1
+}), window.addEventListener("keydown", function(e) {
+  s[e.keyCode] = !0
 });
+
+let v = document.querySelector(".nav-sidebar"),
+    h = document.querySelector(".nav-sidebar-link");
+
+h && h.addEventListener("click", function(e) {
+  e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? l() : m()
+}), window.addEventListener("resize", f), window.addEventListener("load", f)

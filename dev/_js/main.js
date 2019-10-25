@@ -2,9 +2,9 @@ import Navigation from './main/navigation';
 
 import detectIE from './main/detectIE';
 
-import SmoothScroll from './main/smoothscroll';
+// import SmoothScroll from './main/smoothscroll';
 
-import FormLabel from './main/formlabel';
+//import FormLabel from './main/formlabel';
 
 import Accordeon from './main/accordeon';
 

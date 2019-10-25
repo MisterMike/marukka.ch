@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "craft-default-3",
-  "description": "k4 Default Template for Craft CMS 3.x",
-  "version": "3.1.0",
+  "name": "craft-grid",
+  "description": "Craft grid Template for Craft CMS 3.x",
+  "version": "3.3.0",
   "main": "/public/index.php",
   "repository": {
     "type": "git",

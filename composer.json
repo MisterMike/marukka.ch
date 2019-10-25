@@ -24,8 +24,7 @@
     "spatie/pdf-to-text": "^1.2",
     "voku/portable-utf8": "^5.4",
     "nibiru/facebook-events":"^0.1",
-    "codemonauts/craft-instagram-feed": "^1.0",
-    "nibiru/weatherstationdata": "^1.0"
+    "codemonauts/craft-instagram-feed": "^1.0"
 
   },
   "autoload": {

@@ -2,125 +2,27 @@
 // HEADER 
 //////////////////////////////
 
-$header-color-bgnd: $blue;
-$header-color-light: $white; 
+.site-header {
+    position: relative;
+    background-color: $accent-color;
+    background-image: url("/assets/images/texture-narrow.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-size:.875em
+}
 
-
-header {
-  position: fixed;
-  top: 0;
-  //padding-top: 5px;
-  height: $header-height - 40;
-  background: $header-color-bgnd;
-  width: 100%;
-  z-index: 100;
-
-  transition: all .5s ease;
-
-  @media (min-width: $break-desktop) {
-    height: $header-height;
-    overflow: visible;
-    background: rgba(53,54,55,0.5);
-    //background: linear-gradient(to bottom, rgba($header-color-bgnd, 1) 0%, rgba($header-color-bgnd, 1) 30px, rgba($header-color-light,1) 30px, rgba($header-color-light, 1) 100%);
-    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$grey-light', endColorstr='#ffffff', GradientType=0 );
-  }
-
-  &.scrolled {
-
-    height: 80px;
-
-    @media (min-width: $break-desktop) {
-      background: $blue;
+@media screen and (min-width: 900px) {
+    .site-header {
+        background-image: url("/assets/images/texture-sm.png");
+        background-position:50%
     }
+}
 
-    .subheader__wrapper {
-      transition: all .5s ease;
-      height: 0;
-      opacity: 0;
+@media screen and (min-width: 1600px) {
+    .site-header .container {
+        padding:0 1em
     }
-
-  }
-
-  &.open {
-    //height: 100vh;
-    max-height: 100vh;
-    //overflow-y: scroll;
-    //background: transparent;
-
-    @media (min-width: $break-desktop) {
-      background: $white;
-      min-height: $header-height;
-      max-height: auto;
-      height: auto;
-    }
-
-  //&.nav-level2-open {
-  //
-  //    @media (min-width: $break-desktop) {
-  //      background: linear-gradient(to bottom, rgba($header-color-bgnd, 1) 0%, rgba($header-color-bgnd, 1) 30px, rgba(255,255,255,1) 30px, rgba($header-color-light, 1) 100%);
-  //      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$grey-light', endColorstr='#ffffff', GradientType=0 );
-  //    }
-  //  }
-  //
- }
-
-}
-
-.subheader__wrapper {
-  background: $header-color-bgnd;
-  position: relative;
-  display: none;
-  height: 40px;
-  transition: all .5s ease;
-
-  @media (min-width: $break-desktop) {
-    display: block;
-  }
-}
-
-.header__icon--wrapper {
-  position: relative;
-  margin-bottom: $base-spacing*2.5;
-  @include clearfix;
-
-  @media (min-width: $break-desktop) {
-    margin-bottom: 0;
-  }
-}
-
-.header__logo--wrapper {
-  position: absolute;
-  width: 50px;
-  margin-left: 20px;
-  margin-top: 25px;
-  
-  @include grid-media($neat-grid-phoneUp) {
-    //margin-left: 0;
-  }
-  
-  @media (min-width: $break-desktop) {
-    margin-top: 55px;
-    margin-left: 0;
-  }
-  
-
-
-}
-
-.header__logo {
-  background: url(/assets/img/logo/logo-kitesailing-white.svg) no-repeat;
-  background-size: 100%;
-  background-color: transparent;
-  height: 75px;
-  width: 100px;
-  float: left;
-  margin-left: 25px;
-
-  @media (min-width: $break-desktop) {
-    height: 70px;
-    width: 110px;
-  }
-
 }
 
 

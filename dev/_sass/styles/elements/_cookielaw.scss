@@ -10,10 +10,7 @@
   padding: 0 $base-spacing $base-spacing;
   text-align: center;
   z-index: 200;
-  
-  @include grid-media($neat-grid-desktopUp) {
-    padding: 0 $gutterPaddingUp 30px;
-  }
+
 }
 
 .datenschutz__text {

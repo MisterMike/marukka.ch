@@ -2,146 +2,67 @@
 // BUTTONS
 //////////////////////////////
 
-.button {
-    border: 1px solid $accent-color;
-    color: $accent-color;
-    background-color: transparent;
+
+.button, a .button {
+    border: 2px solid $accent-color;
+    color: #1f1f1f;
+    padding: .75em;
     display: inline-block;
-    font-size: 1rem;
+    font-family: soleil, sans-serif;
     font-weight: 700;
-    letter-spacing: .26em;
-    line-height: 1;
-    padding: 24px;
-    position: relative;
-    text-align: left;
-    text-transform: uppercase;
-    transition: all .2s;
-
-    @media (min-width:$break-phone) {
-        padding: 24px 34px
-    }
-
-    &:focus,&:hover,&:hover {
-        border-color: $accent-color;
-        background-color: $accent-color;
-        color: $white;
-    }
-}
-
-.button--invers {
-    border: 1px solid $white;
-    color: $white;
-    background-color: $accent-color;
-
-    i {
-        color: $white;
-    }
-
-    &:focus,&:hover,&:hover {
-        border-color: white;
-        background-color: $white;
-        color: $accent-color;
-
-        i {
-            color: $accent-color;
-        }
-
-    }
-
-}
-
-.button--wide {
-    padding: 24px 64px;
-}
-
-.button--small {
-    font-size: 12px;
-    padding: 18px 44px 18px 24px;
-
-    & i {
-        font-size: 0.8rem;
-        height: 14px;
-        margin-top: -6px;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        width: 14px
-    }
-}
-
-.button--icon {
-    min-width: 256px;
-    padding-right: 60px;
-    position: relative;
-}
-
-.button--arrow {
-    min-width: 256px;
-    padding-right: 85px;
-    position: relative;
-
-    & i {
-        font-size: 0.9rem;
-        height: 18px;
-        margin-top: -6px;
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        width: 18px
-    }
-
-}
-
-/* Scroll-Top Button */
-
-#button__scroll--top {
-    position: fixed;
-    width: 48px;
-    height: 48px;
-    bottom: 2rem;
-    border: 2px solid $white;
-    right: -6rem;
-    z-index: 201;
-    font-size: 1rem;
-    border-radius: 50%;
-    outline: none;
-    background-color: $blue;
-    color: $white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
-    //padding: 15px;
-    box-shadow: 0 0 0 0 rgba(0,0,0,.4);
-    transition: background-color .2s ease-in-out, right .2s ease-in-out, bottom .2s ease-in-out, transform .2s ease-in-out;
+    text-decoration: none;
+    border-radius: 0;
+    -webkit-transition: background .2s ease-out;
+    transition: background .2s ease-out;
+    line-height: 1em;
+    text-align: center;
+    margin:0 1em .5em 0
+}
 
-    &.is-visible {
-        right: 1rem;
-        transform: scale(1) translateZ(0);
-        transform-style: preserve-3d;
+.button:only-of-type, a .button:only-of-type {
+    margin:0
+}
 
-        @media (min-width: $break-desktop) {
-            bottom: 2rem;
-        }
-    }
-    &.is-at-bottom{
-        //right: 2rem;
-        bottom: 2rem;
-        background-color: $white;
+.button:focus, .button:hover, a .button:focus, a .button:hover {
+    background-color: $accent-color;
+    color: #1f1f1f;
+    text-decoration:none
+}
 
-        &:after {
-            color: $grey-dark;
-        }
+.button.button--secondary, a .button.button--secondary {
+    color: #1f1f1f;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    padding-right: 1.4em;
+    padding-left: 0;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSI3NXB4IiBoZWlnaHQ9IjYyLjJweCIgdmlld0JveD0iMCAwIDc1IDYyLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDc1IDYyLjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTQwLjksNjFjMS42LDEuNiw0LjMsMS42LDUuOSwwbDI3LTI3YzAuNC0wLjQsMC43LTAuOCwwLjktMS4zYzAuMi0wLjUsMC4zLTEsMC4zLTEuNWwwLTAuMWwwLTAuMWMwLTAuNS0wLjEtMS4xLTAuMy0xLjUKCWwtMC45LTEuM2wwLDBsLTI3LTI3Yy0xLjYtMS42LTQuMy0xLjYtNS45LDBjLTEuNiwxLjYtMS42LDQuMywwLDUuOXYwTDYwLjgsMjdINC4yQzEuOSwyNywwLDI4LjgsMCwzMS4xYzAsMi4zLDEuOSw0LjIsNC4yLDQuMgoJaDU2LjZMNDAuOSw1NS4yQzM5LjMsNTYuOCwzOS4zLDU5LjQsNDAuOSw2MXoiLz4KPC9zdmc+Cg==");
+    background-size: .9em;
+    background-position: right .95em;
+    background-repeat:no-repeat
+}
 
-        @media (min-width: $break-desktop) {
-            bottom: 3rem;
-        }
-    }
+.button.button--secondary:hover, a .button.button--secondary:hover {
+    background-color: transparent;
+    text-decoration:underline
+}
 
-    &:after {
-        content: $icon-home;
-        font-family: $symbol-font-family;
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-    &:hover {
-        background-color: $black;
-    }
+a:hover .button {
+    background-color: #acdbda;
+    color:#1f1f1f
+}
+
+a:hover .button.button--secondary {
+    background-color: transparent;
+    text-decoration:underline
+}
+
+.card .button {
+    margin-left: .5em;
+    margin-right:.5em
 }

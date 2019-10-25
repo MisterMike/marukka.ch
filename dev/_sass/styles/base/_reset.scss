@@ -1,0 +1,53 @@
+
+
+body, html {
+    background: #fff;
+    margin: 0;
+    padding:0
+}
+
+div {
+    padding:0
+}
+
+blockquote, h1, h2, h3, h4, h5, h6 {
+    margin:0
+}
+
+cite {
+    font-style:normal
+}
+
+ol, ul {
+    list-style: none;
+    padding:0
+}
+
+a img {
+    border:none
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display:block
+}
+
+@-ms-viewport {
+    width:device-width
+}
+
+@-o-viewport {
+    width:device-width
+}
+
+@viewport {
+    width:device-width
+}
+
+html {
+    overflow-y:auto
+}
+
+img, video {
+    max-width: 100%;
+    height:auto
+}
