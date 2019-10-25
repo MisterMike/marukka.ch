@@ -1,0 +1,31 @@
+
+
+{% extends "_layout/_site" %}
+
+{% block main %}
+
+
+    {% if (entry.passwordField != "") and (getSecureCookie( 'intern' ) != entry.passwordField) %}
+
+            {% redirect "/_includes/login" %}
+
+<!--             <p>entry pwd: {{entry.passwordField}}</p>
+            <p>{{ getSecureCookie( 'intern' ) }}</p>
+            <p>{% if getSecureCookie( 'intern' ) != entry.passwordField %} not! {% else %} yep!{%endif%}</p>
+ -->
+    {% else %}
+            
+    <div class="container">
+
+        <section>
+
+        {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+        {%- include "_routers/component" with { blocks: entry.adminInhaltMatrix.all() } -%}
+    
+        </section>
+    </div>
+
+    {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% if image|length %}
+
+  {% if image.hasFocalPoint %}
+    {% set focalPoint = image.getFocalPoint() %}
+    {% set position = focalPoint.x * 100 ~ '% ' ~ focalPoint.y * 100 ~ '%' %}
+  {% else %}
+    {% set position = 'center center' %}
+  {% endif %}
+
+  <style>
+  
+    .seitenbild {
+        height: 500px;
+        background: url("{{ craft.picture.url(image, 'mobile') }}") no-repeat center;
+        background-size: cover;
+        background-position: {{ position }};
+    }            
+
+    @media (min-width: 768px) {
+
+      .seitenbild {
+          background: url("{{ craft.picture.url(image, 'tablet') }}") no-repeat center;
+          background-size: cover;
+          background-position: {{ position }};
+      }
+
+    }
+
+    @media (min-width: 1224px) {
+
+        .seitenbild {
+          background: url("{{ craft.picture.url(image, 'desktop') }}") no-repeat center;
+          background-size: cover;
+          background-position: {{ position }};
+        }
+
+    }
+
+  </style>
+  
+  <div class="seitenbild"></div>
+
+{% endif %}

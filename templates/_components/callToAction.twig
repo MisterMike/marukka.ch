@@ -1,0 +1,41 @@
+{% if block.call2actionText|length %}
+
+  {% set linkhref = '' %}
+  {% set targetblank = false %}
+
+  {% if block.internerLink|length %}
+  
+    {% for linkItem in block.internerLink.all() %}
+
+      {% set linkhref = linkItem.url %}
+      
+    {% endfor %}
+    
+  {% elseif block.externerLink|length %}
+
+      {% set linkhref = block.externerLink %}
+      {% if "@" in linkhref %}
+        {% set linkhref="mailto:" ~ linkhref | replace("mailto:","") %}
+      {% endif%} 
+      {% set targetblank = true %}
+    
+  {% elseif block.linkZuDatei|length %}
+  
+    {% for linkItem in block.linkZuDatei.all() %}
+
+      {% set linkhref = linkItem.url %}
+      {% set targetblank = true %}
+
+    {% endfor %}
+
+  {% endif %}
+ 
+  {% set fullLink %}
+  
+    <a href="{{ linkhref }}" {% if targetblank %}target="_blank"{% endif %}>{{ block.call2actionText  }}</a>
+   
+  {% endset %}
+
+  {{  fullLink | raw | obfuscateEmail  }}
+  
+{% endif %}

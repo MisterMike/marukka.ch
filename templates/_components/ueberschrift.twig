@@ -1,0 +1,7 @@
+{% if block.titel|length %}
+  <div class="grid__container">
+    <div class="ueberschrift--content">
+  <{{ block.ueberschriftstyp | default("h2") }} id="{{ block.titel|ascii|replace(' ', '-') }}">{{ block.titel }}</{{ block.ueberschriftstyp | default("h2") }}>
+  </div>
+  </div>
+{% endif %}

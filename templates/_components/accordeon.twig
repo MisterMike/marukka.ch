@@ -1,0 +1,29 @@
+{% if block.inhalt|length %}
+
+  {% if prevType != 'accordeon' %}
+
+<div class="grid__container">
+    <div class="accordeon__wrapper">
+  
+  {% endif %}
+
+  <div class="accordeon__item">
+    <div class="accordeon__header" data-target="#accordeon-{{ block.id }}">
+      <span class="" href="#">{{ block.titel }}</span>
+      <span class="accordeon__header--icon" aria-hidden="true"></span>
+    </div>
+    <div class="accordeon__content--wrapper" id="accordeon-{{ block.id }}">
+      <div class="accordeon__content">
+        {{ block.inhalt }}
+      </div>
+    </div>
+  </div>
+      
+  {% if nextType != 'accordeon' %}
+      
+    </div></div>
+
+  {% endif %}
+
+{% endif %}
+

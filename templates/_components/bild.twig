@@ -1,0 +1,80 @@
+{% if block.bild|length %}
+
+  {# Bild #}
+  {# check picture.php in config #}
+  {% set image = block.bild.one %}
+
+  {# adjust image transform (boxed/fullwidth) #}
+
+  {% if block.fullwidth %}
+
+    {% set imageSize = 'contentBreit' %}
+
+  {% else %}
+
+    {% set imageSize = 'lazyLoadedLarge' %}
+
+  {% endif %}
+
+  <section class="bild__wrapper">{{ block.fullwidth == 1 ? '' : '<div class="grid__container">' }}
+
+  {{ craft.picture.element(
+    image,
+    imageSize,
+    { alt: image.title, transform: { position: 'bottom-right', quality: 80 } } ) 
+  }}
+
+  {{ block.fullwidth == 1 ? '' : '</div>' }}</section>
+  
+  {# Grossansicht aktivieren #}
+  {% set grossAnsicht = false %}
+  
+  {% if block.grossansichtAktivieren %}
+  
+    {% set grossAnsicht = true %}
+  
+  {% endif %}
+
+  {# Links #}
+  {% set linkhref = '' %}
+  {% set linkText = '' %}
+  {% set linkTrue = false %}
+  {% set targetblank = false %}
+
+  {% if block.internerLink|length %}
+
+    {% for linkItem in block.internerLink.all() %}
+
+      {% set linkhref = linkItem.url %}
+      {% set linkTrue = true %}
+      {% set linkText = linkItem.title %}
+
+    {% endfor %}
+
+  {% elseif block.externerLink|length %}
+
+      {% set linkhref = block.externerLink %}
+      {% set targetblank = true %}
+      {% set linkTrue = true %}
+      {% set linkText = linkhref|replace({'http://': '', 'https://': ''}) %}
+
+  {% elseif block.linkZuDatei|length %}
+
+    {% for linkItem in block.linkZuDatei.all() %}
+
+      {% set linkhref = linkItem.url %}
+      {% set targetblank = true %}
+      {% set linkTrue = true %}
+      {% set linkText = linkItem.title %}
+
+    {% endfor %}
+
+  {% endif %}
+
+  {% if linkTrue %}
+
+    <a href="{{ linkhref }}" {% if targetblank %}target="_blank"{% endif %}>{{ linkText }}</a>
+
+  {% endif %}
+       
+{% endif %}

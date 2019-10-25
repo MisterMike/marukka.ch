@@ -1,0 +1,111 @@
+///////////////////////////////
+// SERVICES BOXES
+//////////////////////////////
+
+
+
+.topoffer--headline {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        text-transform: uppercase;
+        color: $blue;
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+
+    h3 {
+        margin: 15px 0 50px 0;
+        color: $grey-medium;
+        font-size: 1.4rem;
+        font-weight: normal;
+    }
+}
+
+.topoffer__widget {
+
+    margin-bottom: 40px;
+
+    @media (min-width: $break-tablet) {
+        margin-bottom: 20px;
+    }
+
+
+    .topoffer__widget--header {
+        text-transform: uppercase;
+        margin-top: 0;
+
+    }
+
+    .topoffer__widget--link {
+
+        color: $white;
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        @media (min-width: $break-tablet) {
+            color: $blue;
+            font-size: 1.5rem;
+        }
+    }
+
+    .topoffer__widget--image {
+        overflow: hidden;
+        img {
+                width: 100%;
+        }
+
+    }
+
+    .topoffer__widget--content {
+        padding: 25px;
+        background-color: $blue;
+
+        @media (min-width: $break-tablet) {
+            padding: 30px 0 5px 0;
+            background-color: $white;
+        }
+    }
+
+    .topoffer__widget--text {
+        color: $white;
+        font-size: 1.2rem;
+        line-height: 1.3;
+
+        @media (min-width: $break-tablet) {
+            color: $grey-dark;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+    }
+
+    .topoffer__widget--morelink {
+
+        color: $white;
+        transition: 0.3s;
+
+
+        @media (min-width: $break-tablet) {
+
+            color: $blue;
+
+        }
+
+        .topoffer__widget--morelink--text {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 1rem;
+
+            @media (min-width: $break-tablet) {
+                font-size: 1.1rem;
+            }
+
+        }
+
+        &:hover, &:active, &:focus {
+            color: $green;
+        }
+    }
+}

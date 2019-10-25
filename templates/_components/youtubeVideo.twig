@@ -1,0 +1,44 @@
+{% if block.youtubeVideo|length %}
+
+  {% set media = craft.oembed.embed(block.youtubeVideo) %}
+
+  {% if media %}
+
+    {% switch block.youtubeVideo.media.providerName %}
+
+      {% case "YouTube"%}
+
+        {% do view.registerCssFile("/assets/css/videoplayer.min.css") %}
+        {% do view.registerJsFile("/assets/plugins/plyr/plyr.min.js") %}
+
+        {% set youTubeVideoID = block.youtubeVideo.media.url | replace("http://www.youtube.com/watch?v=","") %}
+
+        <div class="grid__container">
+
+          <div class="videoplayer__section">
+
+          <div class="videoplayer__wrapper">
+            <div id="player--{{ i }}" data-plyr-provider="youtube" data-plyr-embed-id="{{ youTubeVideoID }}"></div>
+          </div>
+
+        </div></div>
+
+        {% set videoJS %}
+
+          const player = new Plyr('#player--{{ i }}');
+
+        {% endset %}
+
+        {% js videoJS %}
+
+      {% default %}
+        <!-- leider wird dieses Element bisher nicht spezifisch in der Anzeige unterstützt. -->
+        {# block.youtubeVideo.render #}
+        {# weitere Möglichkeiten siehe -> https://github.com/wrav/oembed/blob/master/README.md#}
+
+      {% endswitch %}
+
+
+  {% endif %}
+
+{% endif %}

@@ -1,0 +1,16 @@
+{% set prevType = null %}
+{% set nextType = null %}
+
+{% for i, block in blocks %}
+
+  {% set type = (nextType ?: block.type.handle) %}
+  {% set nextType = (not loop.last ? blocks[i+1].type.handle) %}
+
+  {%- include [
+    '_components/' ~ block.type.handle,
+    '_components/default',
+  ] -%}
+
+  {% set prevType = type %}
+
+{% endfor %}

@@ -1,0 +1,52 @@
+{% if entry is defined and entry.id != "2" %}
+
+<div class="breadcrumb__wrapper">
+  <div class="grid__container">
+ 
+  {% set navs = [ mainNavigation  ~"", ] %}
+
+  {% set break = false %}
+
+  {% for nav in navs if not break %}
+    {% if "active" in nav %}
+
+      <ul class="breadcrumb__list--items">
+
+          <li class="breadcrumb__list--item">
+            <a class="breadcrumb__list--link" href="/">Home</a>
+          </li>
+
+          {{ nav | k4NavigationGetBreadcrumbLi(selectedPath," ", linkActiveBreadcrumbPath) | raw }}
+
+          {% if linkActiveBreadcrumbPath %}
+        <li class="breadcrumb__list--item">{{ entry.title }}</li>
+          {% endif %}
+
+      </ul>
+
+
+      {% set break = true %}
+    {% endif %}
+  {% endfor %}
+
+    {% if break == false %}
+
+    <ul class="breadcrumb__list--items">
+
+      <li class="breadcrumb__list--item">
+        <a class="breadcrumb__list--link" href="/">Home</a>
+      </li>
+      
+      <li class="breadcrumb__list--item">{{ entry.title }}</li>
+      
+    </ul>
+
+    {% endif %}
+
+{% endif %}   
+  </div>
+</div>
+
+
+
+

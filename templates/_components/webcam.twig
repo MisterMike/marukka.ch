@@ -1,0 +1,73 @@
+
+{#<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>#}
+{#<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />#}
+
+{#https://hddn01.skylinewebcams.com/live.m3u8?a=hcp8dfq3k329bul4kjucg8dem2#}
+
+
+<section class="webcam__section">
+    <div class="grid__container">
+        <div class="webcam__wrapper">
+
+            <link rel="stylesheet" href="https://cdn.plyr.io/1.8.2/plyr.css">
+            <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
+            <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
+
+            <div class="webcam__left col-5">
+
+                <video preload="none" id="player" autoplay controls crossorigin></video>
+
+{#                <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/stable/style/flowplayer.css">#}
+{#                <script src="/assets/js/libs/flowplayer.min.js"></script>#}
+{#                <script src="//cdn.flowplayer.com/releases/native/stable/flowplayer.min.js"></script>#}
+{#                <script src="//cdn.flowplayer.com/releases/native/translations/flowplayer.lang.de.js"></script>#}
+{#                <script src="//cdn.flowplayer.com/releases/native/stable/plugins/hls.min.js"></script>#}
+
+{#                <div id="flowplayer"></div>#}
+
+{#                    <script src="//cdn.flowplayer.com/players/8dfd6c14-ba3a-445e-8ef5-191d9358ed0a/native/flowplayer.async.js">#}
+{#                        { "src": "https://hddn01.skylinewebcams.com/live.m3u8?a=hcp8dfq3k329bul4kjucg8dem2",#}
+{#                            "plugins": ["dash"],#}
+{#                            "autoplay": true#}
+{#                        }</script>#}
+                <script>
+                    (function () {
+                        var video = document.querySelector('#player');
+
+                        if (Hls.isSupported()) {
+                            var hls = new Hls();
+                            hls.loadSource('//www.skylinewebcams.com/webcam/schweiz/graubunden/silvaplana/silvaplana.html?w=951');
+                            hls.attachMedia(video);
+                            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                                video.play();
+                            });
+                        }
+
+                        plyr.setup(video);
+                    })();
+                </script>
+
+            </div>
+            <div class="teaser__right col-5">
+                <h3 class="webcam__content--titel">{{ block.webcamTitel|default() }}</h3>
+                <p class="webcam__content--text">{{ block.webcamContent|default() }}</p>
+            </div>
+            <div class="teaser__right col-2">
+                </script><a href="//www.skylinewebcams.com/webcam/schweiz/graubunden/silvaplana/silvaplana.html?w=951" rel="shadowbox;width=800;height=500"><img src="//embed.skylinewebcams.com/media.php?id=951&w=450" border="0" alt="Webcam Live" /></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style id="custom_skin">
+    div.flowplayer .fp-color { background-color: #063b47 }
+    .flowplayer { max-width: 800px }
+    .use-controlbar-background .fp-controls { background-color: rgba(0,0,0,.6) }
+
+    /* Force controls to be visible initially. Do not use in production. */
+    .flowplayer .fp-controls { visibility: visible; opacity: 1; }
+    .flowplayer .fp-footer { display: none }
+    .flowplayer .fp-progress { width: 50% }
+</style>
+

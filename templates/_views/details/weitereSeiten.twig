@@ -1,0 +1,28 @@
+{% set linkActiveBreadcrumbPath = false %}
+
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+<main class="main__content">
+  <div class="section__outer">
+
+    {%- include "_includes/breadcrumb" -%}
+
+    <div class="content__wrapper">
+      
+
+      <div class="grid__container"><h1>{{ entry.seitenUeberschrift|length ? entry.seitenUeberschrift : entry.title }}</h1></div>
+
+
+        {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+        {%- include "_routers/component" with { blocks: entry.adminInhaltMatrix.all() } -%}
+
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% set linkActiveBreadcrumbPath = false %}
+
+{% set seitenBild = entry.seitenbild.one()|default(standardSeitenbild.seitenbild.one()) %}
+
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+  {% if seitenBild is defined and seitenBild is not empty %}
+    {%- include "_components/seitenbild" with { image: seitenBild } -%}
+  {% endif %}
+
+<main class="main__content">
+  <div class="section__outer">
+
+    {%- include "_includes/breadcrumb" -%}
+
+{#    <div class="content__wrapper" data-sal="fade"#}
+{#         data-sal-delay="300"#}
+{#         data-sal-duration="500"#}
+{#         data-sal-easing="ease-in-out">#}
+
+    <div class="content__wrapper">
+
+      <div class="grid__container">
+        <h1>{{ entry.seitenUeberschrift|length ? entry.seitenUeberschrift : entry.title }}</h1>
+      </div>
+
+      {% if entry.inhaltMatrix|length %}
+        {% set inhaltsBlocks = entry.inhaltMatrix.all() %}
+        {%- include "_routers/component" with { blocks: inhaltsBlocks } -%}
+      {% endif %}
+
+      {% if entry.adminInhaltMatrix|length %}
+        {% set adminBlocks = entry.adminInhaltMatrix.all() %}
+        {%- include "_routers/component" with { blocks: adminBlocks } -%}
+      {% endif %}
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

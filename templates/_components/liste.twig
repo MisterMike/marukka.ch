@@ -1,0 +1,13 @@
+{% if block.aufzaehlung|length %}
+
+  <ul>
+
+    {% for row in block.aufzaehlung %}
+    
+      <li>{{ row.liste }} </li>
+    
+    {% endfor %}
+
+  </ul>
+
+{% endif %}

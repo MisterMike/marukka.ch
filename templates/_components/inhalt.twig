@@ -1,0 +1,15 @@
+{% if block.inhalt | length %}
+
+<div class="inhalt__wrapper">
+
+  <div class="grid__container">
+
+    <div class="inhalt__text">
+
+      {{ block.inhalt | encodeEmails | replace({'<table>': '<div class="table__container table__container--inhalt"><span class="table__scroll--icon"></span><table>','</table>': '</table></div>'}) | raw }}
+
+    </div>
+
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,33 @@
+
+{%- if block.services is defined -%}
+
+  {%- set relatedServices = craft.entries.section('Website').relatedTo(block) -%}
+
+  {% if relatedServices|length -%}
+
+    {% set columnWidth = 12/(relatedServices|length) %}
+
+    <section class="services__section" data-count="{{ columnWidth }}">
+      <div class="grid__container">
+        <div class="services__wrapper">
+
+          <div class="grid__container">
+            <div class="services--headline">
+              {% if block.ueberschrift|length %}<h2>{{block.ueberschrift}}</h2>{%- endif -%}
+              {% if block.ueberschriftSubtitel|length %}<h3>{{block.ueberschriftSubtitel}}</h3>{%- endif -%}
+            </div>
+          </div>
+
+          <div class="services__widgets--wrapper">
+            {%- for kiteService in relatedServices.all() -%}
+              {%- include "_snippets/kiteservice" with { kiteService: kiteService,columnWidth: columnWidth  }  -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  {%- endif -%}
+
+{%- endif %}

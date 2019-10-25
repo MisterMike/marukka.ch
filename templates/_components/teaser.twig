@@ -1,0 +1,72 @@
+{%- if block.teaser is defined -%}
+
+    <section class="teaser__section">
+        <div class="teaser__wrapper">
+
+            <div class="teaser__left col-2 ">
+            </div>
+
+            <div class="teaser__middle col-3 ">
+                <div class="teaser__content "
+                     data-sal="slide-right"
+                     data-sal-delay="300"
+                     data-sal-duration="700"
+                     data-sal-easing="ease-in-out">
+                    <div class="teaser__content--wrapper">
+                        <h3 class="teaser__content--titel">{{ block.titel|default() }}</h3>
+                        <p class="teaser__content--lead">{{ block.lead|default() }}</p>
+                        <div class="teaser__content--text">{{ block.text|default() }}</div>
+
+                        {% if block.beitrag|length %}
+
+                            <a href="{{block.beitrag.one().url}}" class="teaser__content--link">
+                                <span class="button button--small">Mehr erfahren</span>
+                            </a>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% if block.bild|length %}
+
+                {%  set image = block.bild.one() %}
+
+                {% if image.hasFocalPoint %}
+                    {% set focalPoint = image.getFocalPoint() %}
+                    {% set position = focalPoint.x * 100 ~ '% ' ~ focalPoint.y * 100 ~ '%' %}
+                {% else %}
+                    {% set position = 'center center' %}
+                {% endif %}
+
+
+                <style>
+
+                    .seitenbild {
+                        height: 320px;
+                        background: url("") no-repeat center;
+                        background-repeat:no-repeat;
+                        background-size: cover;
+                        background-position: {{ position }};
+                    }
+
+                    /* Add media queries and load images */
+
+                </style>
+
+                <div class="teaser__right col-7 " style="background-image:url({{ craft.picture.url(image, 'teaserLarge') }});background-position:{{ position }};background-repeat:no-repeat;background-size:cover;" >
+
+                    <div class="teaser__bild--spacer visible--desktopUp">
+                        <div class="teaser__bild--spacer-element" style="height:400px"></div>
+                    </div>
+                    <div class="teaser__bild--spacer" >
+                        <div class="teaser__bild--spacer-element" style="height:300px"></div>
+                    </div>
+                </div>
+            {% endif %}
+
+
+        </div>
+    </section>
+
+{%- endif %}

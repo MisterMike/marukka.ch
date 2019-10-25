@@ -1,0 +1,57 @@
+///////////////////////////////
+// COOKIE LAW 
+///////////////////////////////
+
+#cookie-law {
+  background: $black;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 0 $base-spacing $base-spacing;
+  text-align: center;
+  z-index: 200;
+  
+  @include grid-media($neat-grid-desktopUp) {
+    padding: 0 $gutterPaddingUp 30px;
+  }
+}
+
+.datenschutz__text {
+  margin: $base-spacing 0 0;
+  display: block;
+  text-align: center;
+  color: $white;
+  font-size: 16px;
+}
+
+.datenschutz__links {
+  margin: $base-spacing 0 0;
+  margin-top: $base-spacing/2;
+  display: inline-block;
+}
+
+.close-cookie-banner {
+  position: relative;
+  display: inline-block;
+  padding-left: $base-spacing/1.5;
+  padding-right: $base-spacing/1.5;
+  
+  &:focus, &:hover, &:active {
+    background-color: darken($action-color, 8);
+  }
+  
+}
+
+.datenschutz__link {
+  margin-top: 8px;
+  margin-right: $base-spacing/2;
+  display: inline-block;
+  vertical-align: top;
+  border-bottom: 1px solid $white;
+  color: $white;
+  font-size: 14px;
+  
+  &:focus, &:hover, &:active {
+    border: none;
+  }
+}

@@ -1,0 +1,47 @@
+
+.notification__message--box {
+  display: table;
+  position: relative;
+  margin: 40px auto 0;
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &.notification--info {
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.notification__message--icon {
+  display: table-cell;
+  vertical-align: middle;
+  width: 60px;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0,0,0, 0.25);
+
+  @media (min-width: $break-tablet) {
+    padding: 30px;
+  }
+
+  >i {
+    width: 20px;
+    font-size: 20px;
+  }
+}
+.notification__message--text {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 15px 20px 15px 10px;
+
+  @media (min-width: $break-tablet) {
+    padding: 30px 20px 30px 10px;
+  }
+
+  > p {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 6px;
+  }
+}

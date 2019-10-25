@@ -1,0 +1,61 @@
+{% if entry.nichtCachen == false %}
+
+  {% header "X-LiteSpeed-Cache-Control:public,max-age=86400" %}
+  {% header "X-LiteSpeed-Tag: K4" %}
+
+{% endif %}
+
+{% set devMode = craft.app.config.general.devMode %}
+{% set staticAssetsVersion = craft.app.config.general.custom.staticAssetsVersion %}
+
+{# spaceless#}
+
+{% if not selectedPath is defined %}
+  {% set selectedPath = craft.app.request.absoluteUrl %}
+{% endif %}
+
+{# Dieser Parameter ist beispielsweise für Team Sektion gedacht, einfach true setzen #}
+{% if not linkActiveBreadcrumbPath is defined %}
+  {% set linkActiveBreadcrumbPath = false %}
+{% endif %}
+
+{% set mainNavigation %}
+
+{# Output Main-Navigation #}
+  {%- include "_macros/mainNavigation" with { sectionName: 'website', cssClass: "main" } -%}
+{% endset %}
+
+{% set mainNavigation = mainNavigation | k4NavigationGetActivePath(selectedPath) %}
+
+
+<!DOCTYPE html>
+<html lang="de-CH">
+  
+  <head>
+
+    {% include '_includes/htmlhead' %}
+
+    {% if not devMode %}{% include '_includes/google-analytics.twig' -%}{%  endif %}
+    
+    <link href="/assets/css/styles{{ devMode ? '' : '.min' }}.css?{{ staticAssetsVersion }}" rel="stylesheet" type="text/css">
+    
+  </head>
+  
+  <body class="{{ entry.slug }}">
+    
+    {%- include "_includes/header" -%}
+
+    {% block content %}
+    
+    {% endblock %}
+    
+    {%- include '_includes/footer' -%}
+
+    <button id="button__scroll--top" title="{{ 'Nach oben' | t }}"></button>
+
+    {%- include '_includes/scripts' -%}
+    
+  </body>
+  
+</html>
+{# endspaceless #}

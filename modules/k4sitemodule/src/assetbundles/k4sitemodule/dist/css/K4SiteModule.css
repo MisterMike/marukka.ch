@@ -1,0 +1,72 @@
+/**
+ * k4 Site Module module for Craft CMS
+ *
+ * k4 Site Module CSS
+ *
+ * @author    Mischa Sprecher
+ * @copyright Copyright (c) 2019 Mischa Sprecher
+ * @link      kreisvier.ch
+ * @package   K4SiteModule
+ * @since     1.0.0
+ */
+
+body.login {
+    overflow: hidden;
+    background: #063b47 ;
+}
+body.login::after {
+    content: "";
+    background: url(/assets/img/install-bg-1920.png) no-repeat 50% 50%;
+    background-size: cover;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+
+body.login #login-form {
+    left: 0;
+    width: 69%; /* fallback for browsers without support for calc() */
+    width: calc(100% - 160px);
+    outline: 18px solid rgba(250,250, 250, 0.15);
+    padding: 40px 60px;
+    background: #fff;
+    background-image: url('/assets/img/logo/logo_login.svg');
+    background-position: center 50px;
+    background-size: 200px 200px;
+    padding-top: 280px;
+    margin-top: -400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+}
+
+body.login #login-form #loginName,
+body.login #login-form #password{
+    border-radius: 0;
+    margin-top: 15px;
+}
+
+body.login #login-form .buttons .submit {
+    border-radius: 0;
+}
+
+body.login #login-form #poweredby {
+    margin-bottom: 40px;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    body.login #login-form {
+        width: 300px;
+        margin: -400px 0 0 -210px;
+        left: 50%;
+    }
+
+}

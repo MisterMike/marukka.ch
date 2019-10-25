@@ -1,0 +1,1493 @@
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+
+$plyr-bp-sm: 480px !default;
+$plyr-bp-md: 768px !default;
+$plyr-bp-lg: 1024px !default;
+
+
+// Max-width media queries
+$plyr-bp-xs-max: ($plyr-bp-sm - 1);
+$plyr-bp-sm-max: ($plyr-bp-md - 1);
+$plyr-bp-md-max: ($plyr-bp-lg - 1);
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+$plyr-color-main: $action-color !default;
+$plyr-color-gunmetal: #2f343d !default;
+$plyr-color-fiord: #4f5b5f !default;
+$plyr-color-lynch: #6b7d85 !default;
+$plyr-color-heather: #b7c5cd !default;
+
+// ==========================================================================
+// Cosmetic
+// ==========================================================================
+
+$plyr-tab-focus-default-color: $plyr-color-main !default;
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+$plyr-font-family: $base-font-family;
+$plyr-font-size-base: 16px !default;
+$plyr-font-size-small: 14px !default;
+$plyr-font-size-large: 18px !default;
+$plyr-font-size-xlarge: 21px !default;
+
+$plyr-font-size-time: $plyr-font-size-small !default;
+$plyr-font-size-badge: 9px !default;
+$plyr-font-size-menu: $plyr-font-size-small !default;
+
+$plyr-font-weight-regular: $font-weight-regular !default;
+$plyr-font-weight-bold: $font-weight-bold !default;
+
+$plyr-line-height: 1.7 !default;
+
+$plyr-font-smoothing: false !default;
+
+
+// ==========================================================================
+// Badges
+// ==========================================================================
+
+$plyr-badge-bg: $plyr-color-fiord !default;
+$plyr-badge-color: #fff !default;
+
+// ==========================================================================
+// Captions
+// ==========================================================================
+
+$plyr-captions-bg: rgba(#000, 0.8) !default;
+$plyr-captions-color: #fff !default;
+$plyr-font-size-captions-base: $plyr-font-size-base !default;
+$plyr-font-size-captions-small: $plyr-font-size-small !default;
+$plyr-font-size-captions-medium: $plyr-font-size-large !default;
+$plyr-font-size-captions-large: $plyr-font-size-xlarge !default;
+
+// ==========================================================================
+// Controls
+// ==========================================================================
+
+$plyr-control-icon-size: 18px !default;
+$plyr-control-spacing: 10px !default;
+$plyr-control-padding: ($plyr-control-spacing * 0.7) !default;
+$plyr-control-radius: 3px !default;
+
+$plyr-video-controls-bg: #000 !default;
+$plyr-video-control-color: #fff !default;
+$plyr-video-control-color-hover: #fff !default;
+$plyr-video-control-bg-hover: $plyr-color-main !default;
+
+$plyr-audio-controls-bg: #fff !default;
+$plyr-audio-control-color: $plyr-color-fiord !default;
+$plyr-audio-control-color-hover: #fff !default;
+$plyr-audio-control-bg-hover: $plyr-color-main !default;
+
+// ==========================================================================
+// Enable helpers
+// ==========================================================================
+
+$plyr-border-box: true !default;
+$plyr-touch-action: true !default;
+$plyr-sr-only-important: true !default;
+
+// ==========================================================================
+// Menus
+// ==========================================================================
+
+$plyr-menu-bg: rgba(#fff, 0.9) !default;
+$plyr-menu-color: $plyr-color-fiord !default;
+$plyr-menu-arrow-size: 6px !default;
+$plyr-menu-border-color: $plyr-color-heather !default;
+$plyr-menu-border-shadow-color: #fff !default;
+$plyr-menu-shadow: 0 1px 2px rgba(#000, 0.15) !default;
+
+// ==========================================================================
+// Progress
+// ==========================================================================
+
+// Loading
+$plyr-progress-loading-size: 25px !default;
+$plyr-progress-loading-bg: rgba($plyr-color-gunmetal, 0.6) !default;
+
+// Buffered
+$plyr-video-progress-buffered-bg: rgba(#fff, 0.25) !default;
+$plyr-audio-progress-buffered-bg: rgba($plyr-color-heather, 0.66) !default;
+
+
+// ==========================================================================
+// Sliders
+// ==========================================================================
+
+// Active state
+$plyr-range-thumb-active-shadow-width: 3px !default;
+
+// Thumb
+$plyr-range-thumb-height: 14px !default;
+$plyr-range-thumb-bg: #fff !default;
+$plyr-range-thumb-border: 2px solid transparent !default;
+$plyr-range-thumb-shadow: 0 1px 1px rgba(#000, 0.15), 0 0 0 1px rgba($plyr-color-gunmetal, 0.2) !default;
+
+// Track
+$plyr-range-track-height: 4px !default;
+$plyr-range-max-height: ($plyr-range-thumb-active-shadow-width * 2) + $plyr-range-thumb-height !default;
+
+// Fill
+$plyr-range-fill-bg: $plyr-color-main !default;
+
+// Type specific
+$plyr-video-range-track-bg: $plyr-video-progress-buffered-bg !default;
+$plyr-audio-range-track-bg: $plyr-audio-progress-buffered-bg !default;
+$plyr-audio-range-thumb-shadow-color: rgba(#000, 0.1) !default;
+
+
+// ==========================================================================
+// Tooltips
+// ==========================================================================
+
+$plyr-tooltip-bg: rgba(#fff, 0.9) !default;
+$plyr-tooltip-color: $plyr-color-fiord !default;
+$plyr-tooltip-padding: ($plyr-control-spacing / 2) !default;
+$plyr-tooltip-arrow-size: 4px !default;
+$plyr-tooltip-radius: 3px !default;
+$plyr-tooltip-shadow: 0 1px 2px rgba(#000, 0.15) !default;
+
+// --------------------------------------------------------------
+// Animations
+// --------------------------------------------------------------
+
+@keyframes plyr-progress {
+  to {
+    background-position: $plyr-progress-loading-size 0;
+  }
+}
+
+@keyframes plyr-popup {
+  0% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plyr-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// ==========================================================================
+// Useful functions
+// ==========================================================================
+
+@function to-percentage($input) {
+  @return $input * 1%;
+}
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// Nicer focus styles
+// ---------------------------------------
+@mixin plyr-tab-focus($color: $plyr-tab-focus-default-color) {
+  box-shadow: 0 0 0 5px rgba($color, 0.5);
+  outline: 0;
+}
+
+// Font smoothing
+// ---------------------------------------
+@mixin plyr-font-smoothing($mode: true) {
+  @if $mode {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+// <input type="range"> styling
+// ---------------------------------------
+@mixin plyr-range-track() {
+  background: transparent;
+  border: 0;
+  border-radius: ($plyr-range-track-height / 2);
+  height: $plyr-range-track-height;
+  transition: box-shadow 0.3s ease;
+  user-select: none;
+}
+
+@mixin plyr-range-thumb() {
+  background: $plyr-range-thumb-bg;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: $plyr-range-thumb-shadow;
+  height: $plyr-range-thumb-height;
+  position: relative;
+  transition: all 0.2s ease;
+  width: $plyr-range-thumb-height;
+}
+
+@mixin plyr-range-thumb-active($color: rgba($plyr-range-thumb-bg, 0.5)) {
+  box-shadow: $plyr-range-thumb-shadow, 0 0 0 $plyr-range-thumb-active-shadow-width $color;
+}
+
+// Fullscreen styles
+// ---------------------------------------
+@mixin plyr-fullscreen-active() {
+  background: #000;
+  border-radius: 0 !important;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+
+  video {
+    height: 100%;
+  }
+
+  .plyr__video-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  .plyr__video-embed {
+    // Revert overflow change
+    overflow: visible;
+  }
+
+  // Vimeo requires some different styling
+  &.plyr--vimeo .plyr__video-wrapper {
+    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Display correct icon
+  .plyr__control .icon--exit-fullscreen {
+    display: block;
+
+    + svg {
+      display: none;
+    }
+  }
+
+  // Hide cursor in fullscreen when controls hidden
+  &.plyr--hide-controls {
+    cursor: none;
+  }
+
+  // Large captions in full screen on larger screens
+  @media (min-width: $plyr-bp-lg) {
+    .plyr__captions {
+      font-size: $plyr-font-size-captions-large;
+    }
+  }
+}
+
+// --------------------------------------------------------------
+// Base styling
+// --------------------------------------------------------------
+
+// Base
+.plyr {
+  @include plyr-font-smoothing($plyr-font-smoothing);
+  direction: ltr;
+  font-family: $plyr-font-family;
+  font-variant-numeric: tabular-nums; // Force monosace-esque number widths
+  font-weight: $plyr-font-weight-regular;
+  line-height: $plyr-line-height;
+  max-width: 100%;
+  min-width: 200px;
+  position: relative;
+  text-shadow: none;
+  transition: box-shadow 0.3s ease;
+
+  // Media elements
+  video,
+  audio {
+    border-radius: inherit;
+    height: auto;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  button {
+    font: inherit;
+    line-height: inherit;
+    width: auto;
+  }
+
+  // Ignore focus
+  &:focus {
+    outline: 0;
+  }
+}
+
+// border-box everything
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
+@if $plyr-border-box {
+  .plyr--full-ui {
+    box-sizing: border-box;
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+  }
+}
+
+// Fix 300ms delay
+@if $plyr-touch-action {
+  .plyr--full-ui {
+    a,
+    button,
+    input,
+    label {
+      touch-action: manipulation;
+    }
+  }
+}
+
+// --------------------------------------------------------------
+// Badges
+// --------------------------------------------------------------
+
+.plyr__badge {
+  background: $plyr-badge-bg;
+  border-radius: 2px;
+  color: $plyr-badge-color;
+  font-size: $plyr-font-size-badge;
+  line-height: 1;
+  padding: 3px 4px;
+}
+
+// --------------------------------------------------------------
+// Captions
+// --------------------------------------------------------------
+
+// Hide default captions
+.plyr--full-ui ::-webkit-media-text-track-container {
+  display: none;
+}
+
+.plyr__captions {
+  animation: plyr-fade-in 0.3s ease;
+  bottom: 0;
+  color: $plyr-captions-color;
+  display: none;
+  font-size: $plyr-font-size-captions-small;
+  left: 0;
+  padding: $plyr-control-spacing;
+  position: absolute;
+  text-align: center;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+
+  .plyr__caption {
+    background: $plyr-captions-bg;
+    border-radius: 2px;
+    box-decoration-break: clone;
+    line-height: 185%;
+    padding: 0.2em 0.5em;
+    white-space: pre-wrap;
+
+    // Firefox adds a <div> when using getCueAsHTML()
+    div {
+      display: inline;
+    }
+  }
+
+  span:empty {
+    display: none;
+  }
+
+  @media (min-width: $plyr-bp-sm) {
+    font-size: $plyr-font-size-captions-base;
+    padding: ($plyr-control-spacing * 2);
+  }
+
+  @media (min-width: $plyr-bp-md) {
+    font-size: $plyr-font-size-captions-medium;
+  }
+}
+
+.plyr--captions-active .plyr__captions {
+  display: block;
+}
+
+// If the lower controls are shown and not empty
+.plyr:not(.plyr--hide-controls) .plyr__controls:not(:empty) ~ .plyr__captions {
+  transform: translateY(-($plyr-control-spacing * 4));
+    }
+
+// --------------------------------------------------------------
+// Control buttons
+// --------------------------------------------------------------
+
+.plyr__control {
+  background: transparent;
+  border: 0;
+  border-radius: $plyr-control-radius;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: visible; // IE11
+  padding: $plyr-control-padding;
+  position: relative;
+  transition: all 0.3s ease;
+
+  svg {
+    display: block;
+    fill: currentColor;
+    height: $plyr-control-icon-size;
+    pointer-events: none;
+    width: $plyr-control-icon-size;
+  }
+
+  // Default focus
+  &:focus {
+    outline: 0;
+  }
+
+  // Tab focus
+  &.plyr__tab-focus {
+    @include plyr-tab-focus();
+  }
+}
+
+// Remove any link styling
+a.plyr__control {
+  text-decoration: none;
+
+  &::after,
+  &::before {
+    display: none;
+  }
+}
+
+// Change icons on state change
+.plyr__control:not(.plyr__control--pressed) .icon--pressed,
+.plyr__control.plyr__control--pressed .icon--not-pressed,
+.plyr__control:not(.plyr__control--pressed) .label--pressed,
+.plyr__control.plyr__control--pressed .label--not-pressed {
+  display: none;
+}
+
+// Audio control
+.plyr--audio .plyr__control {
+  &.plyr__tab-focus,
+  &:hover,
+  &[aria-expanded='true'] {
+    background: $plyr-audio-control-bg-hover;
+    color: $plyr-audio-control-color-hover;
+  }
+}
+
+// Video control
+.plyr--video .plyr__control {
+  svg {
+    filter: drop-shadow(0 1px 1px rgba(#000, 0.15));
+  }
+
+  // Hover and tab focus
+  &.plyr__tab-focus,
+  &:hover,
+  &[aria-expanded='true'] {
+    background: $plyr-video-control-bg-hover;
+    color: $plyr-video-control-color-hover;
+  }
+}
+
+// Large play button (video only)
+.plyr__control--overlaid {
+  background: rgba($plyr-video-control-bg-hover, 0.8);
+  border: 0;
+  border-radius: 100%;
+  box-shadow: 0 1px 1px rgba(#000, 0.15);
+  color: $plyr-video-control-color;
+  display: none;
+  left: 50%;
+  padding: ceil($plyr-control-spacing * 1.5);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  // Offset icon to make the play button look right
+  svg {
+    left: 2px;
+    position: relative;
+  }
+
+  &:hover,
+  &:focus {
+    background: $plyr-video-control-bg-hover;
+  }
+}
+
+.plyr--playing .plyr__control--overlaid {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
+  display: block;
+}
+
+// --------------------------------------------------------------
+// Controls
+// --------------------------------------------------------------
+
+// Hide native controls
+.plyr--full-ui ::-webkit-media-controls {
+  display: none;
+}
+
+// Playback controls
+.plyr__controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+
+  // Spacing
+  > .plyr__control,
+  .plyr__progress,
+  .plyr__time,
+  .plyr__menu,
+  .plyr__volume {
+    margin-left: ($plyr-control-spacing / 2);
+  }
+
+  .plyr__menu + .plyr__control,
+  > .plyr__control + .plyr__menu,
+  > .plyr__control + .plyr__control,
+  .plyr__progress + .plyr__control {
+    margin-left: floor($plyr-control-spacing / 4);
+  }
+
+  > .plyr__control:first-child,
+  > .plyr__control:first-child + [data-plyr='pause'] {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  // Hide empty controls
+  &:empty {
+    display: none;
+  }
+
+  @media (min-width: $plyr-bp-sm) {
+    > .plyr__control,
+    .plyr__menu,
+    .plyr__progress,
+    .plyr__time,
+    .plyr__volume {
+      margin-left: $plyr-control-spacing;
+    }
+  }
+}
+
+// Audio controls
+.plyr--audio .plyr__controls {
+  background: $plyr-audio-controls-bg;
+  border-radius: inherit;
+  color: $plyr-audio-control-color;
+  padding: $plyr-control-spacing;
+}
+
+// Video controls
+.plyr--video .plyr__controls {
+  background: linear-gradient(
+    rgba($plyr-video-controls-bg, 0),
+    rgba($plyr-video-controls-bg, 0.7)
+  );
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  bottom: 0;
+  color: $plyr-video-control-color;
+  left: 0;
+  padding: ($plyr-control-spacing * 2) ($plyr-control-spacing / 2) ($plyr-control-spacing / 2);
+  position: absolute;
+  right: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  z-index: 3;
+
+  @media (min-width: $plyr-bp-sm) {
+    padding: ($plyr-control-spacing * 3.5) $plyr-control-spacing $plyr-control-spacing;
+  }
+}
+
+// Hide video controls
+.plyr--video.plyr--hide-controls .plyr__controls {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+// Some options are hidden by default
+.plyr [data-plyr='captions'],
+.plyr [data-plyr='pip'],
+.plyr [data-plyr='airplay'],
+.plyr [data-plyr='fullscreen'] {
+  display: none;
+}
+.plyr--captions-enabled [data-plyr='captions'],
+.plyr--pip-supported [data-plyr='pip'],
+.plyr--airplay-supported [data-plyr='airplay'],
+.plyr--fullscreen-enabled [data-plyr='fullscreen'] {
+  display: inline-block;
+}
+
+// --------------------------------------------------------------
+// Embedded players
+// YouTube, Vimeo, etc
+// --------------------------------------------------------------
+
+// Default to 16:9 ratio but this is set by JavaScript based on config
+$embed-padding: ((100 / 16) * 9);
+
+.plyr__video-embed {
+  height: 0;
+  padding-bottom: to-percentage($embed-padding);
+  position: relative;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    user-select: none;
+    width: 100%;
+  }
+}
+
+// If the full custom UI is supported
+.plyr--full-ui .plyr__video-embed {
+  $height: 240;
+  $offset: to-percentage(($height - $embed-padding) / ($height / 50));
+
+  // Only used for Vimeo
+  > .plyr__video-embed__container {
+    padding-bottom: to-percentage($height);
+    position: relative;
+    transform: translateY(-$offset);
+      }
+}
+
+// --------------------------------------------------------------
+// Menus
+// --------------------------------------------------------------
+
+.plyr__menu {
+  display: flex; // Edge fix
+  position: relative;
+
+  // Animate the icon
+  .plyr__control svg {
+    transition: transform 0.3s ease;
+  }
+  .plyr__control[aria-expanded='true'] {
+    svg {
+      transform: rotate(90deg);
+    }
+
+    // Hide tooltip
+    .plyr__tooltip {
+      display: none;
+    }
+  }
+
+  // The actual menu container
+  &__container {
+    animation: plyr-popup 0.2s ease;
+    background: $plyr-menu-bg;
+    border-radius: 4px;
+    bottom: 100%;
+    box-shadow: $plyr-menu-shadow;
+    color: $plyr-menu-color;
+    font-size: $plyr-font-size-base;
+    margin-bottom: 10px;
+    position: absolute;
+    right: -3px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 3;
+
+    > div {
+      overflow: hidden;
+      transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    // Arrow
+    &::after {
+      border: 4px solid transparent;
+      border-top-color: $plyr-menu-bg;
+      content: '';
+      height: 0;
+      position: absolute;
+      right: 15px;
+      top: 100%;
+      width: 0;
+    }
+
+    [role='menu'] {
+      padding: $plyr-control-padding;
+    }
+
+    [role='menuitem'],
+    [role='menuitemradio'] {
+      margin-top: 2px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    // Options
+    .plyr__control {
+      align-items: center;
+      color: $plyr-menu-color;
+      display: flex;
+      font-size: $plyr-font-size-menu;
+      padding: ceil($plyr-control-padding / 2)
+        ceil($plyr-control-padding * 1.5);
+      user-select: none;
+      width: 100%;
+
+      > span {
+        align-items: inherit;
+        display: flex;
+        width: 100%;
+      }
+
+      &::after {
+        border: 4px solid transparent;
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &--forward {
+        padding-right: ceil($plyr-control-padding * 4);
+
+        &::after {
+          border-left-color: rgba($plyr-menu-color, 0.8);
+          right: 5px;
+        }
+
+        &.plyr__tab-focus::after,
+        &:hover::after {
+          border-left-color: currentColor;
+        }
+      }
+
+      &--back {
+        $horizontal-padding: ($plyr-control-padding * 2);
+        font-weight: $plyr-font-weight-regular;
+        margin: $plyr-control-padding;
+        margin-bottom: floor($plyr-control-padding / 2);
+        padding-left: ceil($plyr-control-padding * 4);
+        position: relative;
+        width: calc(100% - #{$horizontal-padding});
+
+        &::after {
+          border-right-color: rgba($plyr-menu-color, 0.8);
+          left: $plyr-control-padding;
+        }
+
+        &::before {
+          background: $plyr-menu-border-color;
+          box-shadow: 0 1px 0 $plyr-menu-border-shadow-color;
+          content: '';
+          height: 1px;
+          left: 0;
+          margin-top: ceil($plyr-control-padding / 2);
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          top: 100%;
+        }
+
+        &.plyr__tab-focus::after,
+        &:hover::after {
+          border-right-color: currentColor;
+        }
+      }
+    }
+
+    .plyr__control[role='menuitemradio'] {
+      padding-left: $plyr-control-padding;
+
+      &::before,
+      &::after {
+        border-radius: 100%;
+      }
+
+      &::before {
+        background: rgba(#000, 0.1);
+        content: '';
+        display: block;
+        flex-shrink: 0;
+        height: 16px;
+        margin-right: $plyr-control-spacing;
+        transition: all 0.3s ease;
+        width: 16px;
+      }
+
+      &::after {
+        background: #fff;
+        border: 0;
+        height: 6px;
+        left: 12px;
+        opacity: 0;
+        top: 50%;
+        transform: translateY(-50%) scale(0);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        width: 6px;
+      }
+
+      &[aria-checked='true'] {
+        &::before {
+          background: $plyr-color-main;
+        }
+        &::after {
+          opacity: 1;
+          transform: translateY(-50%) scale(1);
+        }
+      }
+
+      &.plyr__tab-focus::before,
+      &:hover::before {
+        background: rgba(#000, 0.1);
+      }
+    }
+
+    // Option value
+    .plyr__menu__value {
+      align-items: center;
+      display: flex;
+      margin-left: auto;
+      margin-right: -($plyr-control-padding - 2);
+      overflow: hidden;
+      padding-left: ceil($plyr-control-padding * 3.5);
+      pointer-events: none;
+    }
+  }
+}
+
+// --------------------------------------------------------------
+// Slider inputs - <input type="range">
+// --------------------------------------------------------------
+
+.plyr--full-ui input[type='range'] {
+  // WebKit
+  -webkit-appearance: none; /* stylelint-disable-line */
+  background: transparent;
+  border: 0;
+  border-radius: ($plyr-range-thumb-height * 2);
+  // color is used in JS to populate lower fill for WebKit
+  color: $plyr-range-fill-bg;
+  display: block;
+  height: $plyr-range-max-height;
+  margin: 0;
+  padding: 0;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+
+  &::-webkit-slider-runnable-track {
+    @include plyr-range-track();
+    background-image: linear-gradient(
+      to right,
+      currentColor var(--value, 0%),
+      transparent var(--value, 0%)
+    );
+  }
+
+  &::-webkit-slider-thumb {
+    @include plyr-range-thumb();
+    -webkit-appearance: none; /* stylelint-disable-line */
+    margin-top: -(($plyr-range-thumb-height - $plyr-range-track-height) / 2);
+  }
+
+  // Mozilla
+  &::-moz-range-track {
+    @include plyr-range-track();
+  }
+
+  &::-moz-range-thumb {
+    @include plyr-range-thumb();
+  }
+
+  &::-moz-range-progress {
+    background: currentColor;
+    border-radius: ($plyr-range-track-height / 2);
+    height: $plyr-range-track-height;
+  }
+
+  // Microsoft
+  &::-ms-track {
+    @include plyr-range-track();
+    color: transparent;
+  }
+
+  &::-ms-fill-upper {
+    @include plyr-range-track();
+  }
+
+  &::-ms-fill-lower {
+    @include plyr-range-track();
+
+    background: currentColor;
+  }
+
+  &::-ms-thumb {
+    @include plyr-range-thumb();
+    // For some reason, Edge uses the -webkit margin above
+    margin-top: 0;
+  }
+
+  &::-ms-tooltip {
+    display: none;
+  }
+
+  // Focus styles
+  &:focus {
+    outline: 0;
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &.plyr__tab-focus {
+    &::-webkit-slider-runnable-track {
+      @include plyr-tab-focus();
+    }
+
+    &::-moz-range-track {
+      @include plyr-tab-focus();
+    }
+
+    &::-ms-track {
+      @include plyr-tab-focus();
+    }
+  }
+}
+
+// Video range inputs
+.plyr--full-ui.plyr--video input[type='range'] {
+  &::-webkit-slider-runnable-track {
+    background-color: $plyr-video-range-track-bg;
+  }
+
+  &::-moz-range-track {
+    background-color: $plyr-video-range-track-bg;
+  }
+
+  &::-ms-track {
+    background-color: $plyr-video-range-track-bg;
+  }
+
+  // Pressed styles
+  &:active {
+    &::-webkit-slider-thumb {
+      @include plyr-range-thumb-active();
+    }
+
+    &::-moz-range-thumb {
+      @include plyr-range-thumb-active();
+    }
+
+    &::-ms-thumb {
+      @include plyr-range-thumb-active();
+    }
+  }
+}
+
+// Audio range inputs
+.plyr--full-ui.plyr--audio input[type='range'] {
+  &::-webkit-slider-runnable-track {
+    background-color: $plyr-audio-range-track-bg;
+  }
+
+  &::-moz-range-track {
+    background-color: $plyr-audio-range-track-bg;
+  }
+
+  &::-ms-track {
+    background-color: $plyr-audio-range-track-bg;
+  }
+
+  // Pressed styles
+  &:active {
+    &::-webkit-slider-thumb {
+      @include plyr-range-thumb-active(
+        $plyr-audio-range-thumb-shadow-color
+        );
+    }
+
+    &::-moz-range-thumb {
+      @include plyr-range-thumb-active(
+        $plyr-audio-range-thumb-shadow-color
+        );
+    }
+
+    &::-ms-thumb {
+      @include plyr-range-thumb-active(
+        $plyr-audio-range-thumb-shadow-color
+        
+        shadow-color
+        );
+    }
+  }
+}
+
+// --------------------------------------------------------------
+// Faux poster overlay
+// --------------------------------------------------------------
+
+.plyr__poster {
+  background-color: #000;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.plyr--stopped.plyr__poster-enabled .plyr__poster {
+  opacity: 1;
+}
+
+
+// --------------------------------------------------------------
+// Time
+// --------------------------------------------------------------
+
+.plyr__time {
+  font-size: $plyr-font-size-time;
+}
+
+// Media duration hidden on small screens
+.plyr__time + .plyr__time {
+  // Add a slash in before
+  &::before {
+    content: '\2044';
+    margin-right: $plyr-control-spacing;
+  }
+
+  @media (max-width: $plyr-bp-sm-max) {
+    display: none;
+  }
+}
+
+.plyr--video .plyr__time {
+  text-shadow: 0 1px 1px rgba(#000, 0.15);
+}
+
+// --------------------------------------------------------------
+// Tooltips
+// --------------------------------------------------------------
+
+.plyr__tooltip {
+  background: $plyr-tooltip-bg;
+  border-radius: $plyr-tooltip-radius;
+  bottom: 100%;
+  box-shadow: $plyr-tooltip-shadow;
+  color: $plyr-tooltip-color;
+  font-size: $plyr-font-size-small;
+  font-weight: $plyr-font-weight-regular;
+  left: 50%;
+  line-height: 1.3;
+  margin-bottom: ($plyr-tooltip-padding * 2);
+  opacity: 0;
+  padding: $plyr-tooltip-padding ($plyr-tooltip-padding * 1.5);
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, 10px) scale(0.8);
+  transform-origin: 50% 100%;
+  transition: transform 0.2s 0.1s ease, opacity 0.2s 0.1s ease;
+  white-space: nowrap;
+  z-index: 2;
+
+  // The background triangle
+  &::before {
+    border-left: $plyr-tooltip-arrow-size solid transparent;
+    border-right: $plyr-tooltip-arrow-size solid transparent;
+    border-top: $plyr-tooltip-arrow-size solid $plyr-tooltip-bg;
+    bottom: -$plyr-tooltip-arrow-size;
+    content: '';
+    height: 0;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 0;
+    z-index: 2;
+  }
+}
+
+// Displaying
+.plyr .plyr__control:hover .plyr__tooltip,
+.plyr .plyr__control.plyr__tab-focus .plyr__tooltip,
+.plyr__tooltip--visible {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.plyr .plyr__control:hover .plyr__tooltip {
+  z-index: 3;
+}
+
+// First tooltip
+.plyr__controls > .plyr__control:first-child .plyr__tooltip,
+.plyr__controls > .plyr__control:first-child + .plyr__control .plyr__tooltip {
+  left: 0;
+  transform: translate(0, 10px) scale(0.8);
+  transform-origin: 0 100%;
+
+  &::before {
+    left: ($plyr-control-icon-size / 2) + $plyr-control-padding;
+  }
+}
+
+// Last tooltip
+.plyr__controls > .plyr__control:last-child .plyr__tooltip {
+  left: auto;
+  right: 0;
+  transform: translate(0, 10px) scale(0.8);
+  transform-origin: 100% 100%;
+
+  &::before {
+    left: auto;
+    right: ($plyr-control-icon-size / 2) + $plyr-control-padding;
+    transform: translateX(50%);
+  }
+}
+
+.plyr__controls > .plyr__control:first-child,
+.plyr__controls > .plyr__control:first-child + .plyr__control,
+.plyr__controls > .plyr__control:last-child {
+  &:hover .plyr__tooltip,
+  &.plyr__tab-focus .plyr__tooltip,
+  .plyr__tooltip--visible {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+// --------------------------------------------------------------
+// Video styles
+// --------------------------------------------------------------
+
+.plyr--video {
+  background: #000;
+  overflow: hidden;
+
+  // Menu open
+  &.plyr--menu-open {
+    overflow: visible;
+  }
+}
+
+.plyr__video-wrapper {
+  background: #000;
+  border-radius: inherit;
+  overflow: hidden;
+  position: relative;
+  // Require z-index to force border-radius
+  z-index: 0;
+}
+
+// --------------------------------------------------------------
+// Playback progress
+// --------------------------------------------------------------
+
+.plyr__progress {
+  flex: 1;
+  left: $plyr-range-thumb-height / 2;
+  margin-right: $plyr-range-thumb-height;
+  position: relative;
+
+  input[type='range'],
+  &__buffer {
+    margin-left: -($plyr-range-thumb-height / 2);
+    margin-right: -($plyr-range-thumb-height / 2);
+    // Offset the range thumb in order to be able to calculate the relative progress (#954)
+    width: calc(100% + #{$plyr-range-thumb-height});
+  }
+
+  input[type='range'] {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Seek tooltip to show time
+  .plyr__tooltip {
+    font-size: $plyr-font-size-time;
+    left: 0;
+  }
+}
+
+.plyr__progress__buffer {
+  -webkit-appearance: none; /* stylelint-disable-line */
+  background: transparent;
+  border: 0;
+  border-radius: 100px;
+  height: $plyr-range-track-height;
+  left: 0;
+  margin-top: -($plyr-range-track-height / 2);
+  padding: 0;
+  position: absolute;
+  top: 50%;
+
+  &::-webkit-progress-bar {
+    background: transparent;
+    transition: width 0.2s ease;
+  }
+
+  &::-webkit-progress-value {
+    background: currentColor;
+    border-radius: 100px;
+    min-width: $plyr-range-track-height;
+  }
+
+  // Mozilla
+  &::-moz-progress-bar {
+    background: currentColor;
+    border-radius: 100px;
+    min-width: $plyr-range-track-height;
+    transition: width 0.2s ease;
+  }
+
+  // Microsoft
+  &::-ms-fill {
+    border-radius: 100px;
+    transition: width 0.2s ease;
+  }
+}
+
+.plyr--video .plyr__progress__buffer {
+  box-shadow: 0 1px 1px rgba(#000, 0.15);
+  color: $plyr-video-progress-buffered-bg;
+}
+
+.plyr--audio .plyr__progress__buffer {
+  color: $plyr-audio-progress-buffered-bg;
+}
+
+// Loading state
+.plyr--loading .plyr__progress__buffer {
+  animation: plyr-progress 1s linear infinite;
+  background-image: linear-gradient(
+    -45deg,
+    $plyr-progress-loading-bg 25%,
+    transparent 25%,
+    transparent 50%,
+    $plyr-progress-loading-bg 50%,
+    $plyr-progress-loading-bg 75%,
+    transparent 75%,
+    transparent
+  );
+  background-repeat: repeat-x;
+  background-size: $plyr-progress-loading-size $plyr-progress-loading-size;
+  color: transparent;
+}
+
+.plyr--video.plyr--loading .plyr__progress__buffer {
+  background-color: $plyr-video-progress-buffered-bg;
+}
+
+.plyr--audio.plyr--loading .plyr__progress__buffer {
+  background-color: $plyr-audio-progress-buffered-bg;
+}
+
+// --------------------------------------------------------------
+// Volume
+// --------------------------------------------------------------
+
+.plyr__volume {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  position: relative;
+
+  input[type='range'] {
+    margin-left: ($plyr-control-spacing / 2);
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: $plyr-bp-sm) {
+    max-width: 90px;
+  }
+
+  @media (min-width: $plyr-bp-md) {
+    max-width: 110px;
+  }
+}
+
+// Hide sound controls on iOS
+// It's not supported to change volume using JavaScript:
+// https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html
+.plyr--is-ios .plyr__volume {
+  display: none !important;
+}
+
+// Vimeo has no toggle mute method so hide mute button
+// https://github.com/vimeo/player.js/issues/236#issuecomment-384663183
+.plyr--is-ios.plyr--vimeo [data-plyr='mute'] {
+  display: none !important;
+}
+
+
+// --------------------------------------------------------------
+// Fullscreen
+// --------------------------------------------------------------
+
+.plyr:fullscreen {
+  @include plyr-fullscreen-active();
+}
+
+/* stylelint-disable-next-line */
+.plyr:-webkit-full-screen {
+  @include plyr-fullscreen-active();
+}
+
+/* stylelint-disable-next-line */
+.plyr:-moz-full-screen {
+  @include plyr-fullscreen-active();
+}
+
+/* stylelint-disable-next-line */
+.plyr:-ms-fullscreen {
+  @include plyr-fullscreen-active();
+}
+
+// Fallback for unsupported browsers
+.plyr--fullscreen-fallback {
+  @include plyr-fullscreen-active();
+
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000000;
+}
+
+// ==========================================================================
+// Advertisements
+// ==========================================================================
+
+.plyr__ads {
+  border-radius: inherit;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1; // Hide it by default
+
+  // Make sure the inner container is big enough for the ad creative.
+  > div,
+  > div iframe {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  // The countdown label
+  &::after {
+    background: rgba($plyr-color-gunmetal, 0.8);
+    border-radius: 2px;
+    bottom: $plyr-control-spacing;
+    color: #fff;
+    content: attr(data-badge-text);
+    font-size: 11px;
+    padding: 2px 6px;
+    pointer-events: none;
+    position: absolute;
+    right: $plyr-control-spacing;
+    z-index: 3;
+  }
+
+  &::after:empty {
+    display: none;
+  }
+}
+
+// Advertisement cue's for the progress bar
+.plyr__cues {
+  background: currentColor;
+  display: block;
+  height: $plyr-range-track-height;
+  left: 0;
+  margin: -($plyr-range-track-height / 2) 0 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  z-index: 3; // Between progress and thumb
+}
+
+// --------------------------------------------------------------
+// Animation utils
+// --------------------------------------------------------------
+
+.plyr--no-transition {
+  transition: none !important;
+}
+
+// --------------------------------------------------------------
+// Hiding content nicely
+// --------------------------------------------------------------
+
+// Screen reader only elements
+.plyr__sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+
+  // !important is not always needed
+  @if $plyr-sr-only-important {
+    border: 0 !important;
+    height: 1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  } @else {
+    border: 0;
+    height: 1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+.plyr [hidden] {
+  display: none !important;
+}

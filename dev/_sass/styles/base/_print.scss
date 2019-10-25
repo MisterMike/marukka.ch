@@ -1,0 +1,108 @@
+@media print {
+    
+    /* stuff to hide */
+    .breadcrumb,
+    .footer,
+    .hidePrint,
+    .nav,
+    .mobile {
+        display:none;
+    }
+    
+    body {
+      color: #000 !important;
+      background: #fff !important;
+    }
+
+    .main *[class^='flex'], .main *[class*=' flex'] {
+        color: #000 !important;
+        background: #fff !important;
+        border:1px #000 dotted;
+    }      
+    
+    .section-outer.header {
+        margin:0;
+        padding:0;
+    }
+    
+    .section-outer.header .logo {
+        height: 100px;
+        width: auto;
+        margin: 0;
+        display: block;
+    }
+
+    .main {
+
+        .seitenbild {
+            padding-bottom: $base-padding;
+        }
+        .img-block-left {
+            float: left;
+            padding: $base-padding;
+        }
+        .img-block-right {
+            float: right;
+            padding: $base-padding;
+        }
+        
+        .downloads a {
+            position: relative;
+            padding-bottom: 30px;
+            display: block;
+
+        }
+        .downloads a:after{
+            content: "URL: http://craftdefaulttemplate.kreisvier.com" attr(href);
+            color:#000;
+            font-size:0.9em;
+            position: absolute;
+            left:0;
+            top:25px;
+            margin-left: 10px;
+        }
+        
+        .youtube {
+            iframe {
+                height: 100px !important;
+            }   
+        }
+        
+        .faq {
+            .faq-frage:after {
+              border-color:#fff transparent;
+            }            
+        }
+        
+        .accordion {
+            
+            .active {
+                color: #000 !important;
+            }
+            .accordion-content {
+                display: block !important;
+            }
+        }
+
+        .flex-googlemaps {
+            iframe {
+                width:100% !important;
+            }   
+        }
+        
+    }
+    
+    .box {
+        orphans: 3;
+        widows: 3;
+        page-break-after: avoid;
+    }
+    p, h1, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+}

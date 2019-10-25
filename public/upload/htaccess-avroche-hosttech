@@ -1,0 +1,45 @@
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/xml text/plain text/css text/javascript application/json
+    
+    AddType image/svg+xml .svg
+    AddOutputFilterByType DEFLATE image/svg+xml
+
+    AddType text/javascript .js
+    AddOutputFilterByType DEFLATE text/javascript
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType text/xml "access plus 3600 seconds"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # https only
+    RewriteCond %{SERVER_PORT} !^443$
+    RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
+	
+	RewriteCond %{HTTP_HOST} ^www.avroche\.ch$ [NC]
+	RewriteRule ^(.*)$ https://avroche.ch/$1 [R=301,L]
+
+    # Blitz cache rewrite
+    RewriteCond %{DOCUMENT_ROOT}/cache/blitz/%{HTTP_HOST}/%{REQUEST_URI}/%{QUERY_STRING}/index.html -s
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteRule .* /cache/blitz/%{HTTP_HOST}/%{REQUEST_URI}/%{QUERY_STRING}/index.html [L]
+
+    # Send would-be 404 requests to Craft
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+    RewriteRule (.+) index.php?p=$1 [QSA,L]
+</IfModule>

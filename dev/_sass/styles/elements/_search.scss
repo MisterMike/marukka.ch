@@ -1,0 +1,134 @@
+///////////////////////////////
+// SEARCH 
+///////////////////////////////
+
+.header__icon--search {
+  position: absolute;
+  height: 20px;
+  top: 18px;
+  right: 80px;
+  margin: auto;
+  cursor: pointer;
+  font-size: 1.6rem;
+
+  @media (min-width: $break-desktop) {
+    right: 30px;
+    bottom: auto;
+    top: 12px;
+    font-size: 1rem;
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    right: $gutterPaddingUp;
+  }
+  
+  .icon-close {
+    
+    transition: all .5s ease;
+    transform: scale(0);
+  }
+  
+  .icon-search {
+    transition: all .5s ease;
+    transform: scale(1);
+    color: $white;
+
+    &:hover, &:active, &:focus {
+            color: $green;
+        }
+  }
+  
+//  border: 1px solid blue;
+  
+  span {
+//    border: 1px solid red;
+    display: block;
+    
+  }
+  
+  &.open {
+    
+    .icon-search {
+      transition: all .5s ease;
+      transform: scale(0);
+    }
+    
+    .icon-close {
+      right: -30px;
+      position: absolute;
+      top: 15px;
+      display: initial;
+      transition: all .5s ease;
+      transform: scale(1);
+      z-index: 400;
+
+      @media (min-width: $break-desktop) {
+        right: 0;
+        color: $white;
+        top: 2px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.form__suche {
+  display: none;
+  background: $white;
+  width: 100%;
+  padding: 0 $gutterPadding;
+  float: left;
+  padding-top: $base-spacing;
+  padding-bottom: $base-spacing;
+
+  &.show {
+    display: block;
+    
+    @media (min-width: $break-desktop) {
+      max-height: 400px;
+      transition: max-height 1s ease;
+    }
+  }
+  
+
+  @media (min-width: $break-desktop) {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    width: 440px;
+    top: 35px;
+    left: auto;
+    right: $gutterPadding;
+    background: rgba(255,255,255,.8);
+    z-index: 100;
+    transition: max-height .5s ease;
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    right: $gutterPaddingUp;
+  }
+
+}
+
+.form__suche--input {
+    border: 0;
+    box-shadow: 0;
+    width: 0px !important;
+    transition: all .25s ease;
+    border-bottom: 2px solid $green;
+
+    &.show {
+        transition: all .25s ease;
+        width: 100% !important;
+        border-bottom: 2px solid $green;
+    }
+  
+  @media (min-width: $break-desktop) {
+    background: transparent !important;
+    
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px $grey-light inset;
+      -webkit-text-fill-color: $base-font-color;
+    }
+  }
+}

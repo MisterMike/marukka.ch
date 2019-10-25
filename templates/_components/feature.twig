@@ -1,0 +1,29 @@
+{% if block.inhalt | length %}
+    <section class="section__feature">
+    <div class="grid__container">
+        <div class="content">
+            <div class="inhalt__wrapper--grid">
+                <div class="feature__wrapper">
+                <div class="feature__text">
+                    
+                    <h2>{{ block.titel }}</h2>
+
+                    {{ block.inhalt | obfuscateEmail | raw }}
+
+                </div>
+                <div class="feature__bild">
+                    {% set image = block.bild.one %}
+
+                    {% if image is defined and image is not empty %}
+                        <picture>
+                        {{ craft.picture.element(image,'feature',{ alt: image.title,transform: { position: 'center-center',quality: 80}}) }}
+                        </picture>
+                    {% endif %}
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+{% endif %}

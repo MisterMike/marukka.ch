@@ -1,0 +1,29 @@
+--- 
+image: chialab/php:7.2-fpm # https://github.com/chialab/docker-php
+
+pipelines:
+  branches:
+    staging:
+      -
+        step:
+          name: Build and Deploy by to staging FTPS host
+          deployment: production
+          script:
+            - "apt-get update"
+            - "apt-get -qq install git-ftp"
+            - git config git-ftp.url ""
+              - git config git-ftp.user $SECURE_USER2
+              - git config git-ftp.password $SECURE_PASS2
+              - git ftp init --disable-epsv -v
+    master:
+      -
+        step:
+          name: Build and Deploy by to production FTPS host
+          deployment: production
+          script:
+            - "apt-get update"
+            - "apt-get -qq install git-ftp"
+            - git config git-ftp.url ""
+            - git config git-ftp.user $SECURE_USER
+            - git config git-ftp.password $SECURE_PASS
+            - git ftp push --insecure --disable-epsv -v

@@ -1,0 +1,19 @@
+///////////////////////////////
+// HOME 
+///////////////////////////////
+
+
+section.homepage__startscreen {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -80px;
+
+    @media (min-width: $break-phone) {
+        height: 100vh;
+    }
+}
+
+section.homepage__content {
+
+}

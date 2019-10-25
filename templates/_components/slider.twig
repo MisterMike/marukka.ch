@@ -1,0 +1,121 @@
+{% if block.bild|length %}
+
+  {% do view.registerCssFile("/tpl/css/plugins/slickslider.min.css") %}
+  {% do view.registerJsFile("/tpl/js/plugins/slickslider.min.js") %}
+
+  {% if prevType != 'slider' %}
+
+    <div class="slider">
+    
+  {% endif %}
+      
+    <div class="slider__item">
+      
+      <div class="inhalt__wrapper--grid">
+        
+        <div class="slider__bild">
+           
+          {# check picture.php in config #}
+          {% set image = block.bild.one %}
+
+          {% if image.width > image.height %}
+
+            {{ craft.picture.element(
+                image,
+                'sliderBreit',
+                 {
+                  alt: image.title,
+                   transform: {
+                     position: 'center',
+                     quality: 100
+                   }
+                 }
+            ) }}
+
+          {% else %}
+
+            {{ craft.picture.element(
+                image,
+                'sliderHoch',
+                 {
+                  alt: image.title,
+                   transform: {
+                     position: 'center',
+                     quality: 100
+                   }
+                 }
+            ) }}        
+
+          {% endif %}
+          
+        </div>
+      
+        <div class="slider__content">
+
+          {# Überschrift #}
+          {% if block.ueberschrift|length %}
+            <h2 class="slider__heading">{{ block.ueberschrift }}</h2>
+          {% endif %}
+
+          {# Inhalt #}
+          {% if block.inhalt|length %}
+            <p>{{ block.inhalt }}</p>
+          {% endif %}
+
+          {# LInks #}
+          {% set linkhref = '' %}
+          {% set linkText = '' %}
+          {% set linkTrue = false %}
+          {% set targetblank = false %}
+
+          {% if block.internerLink|length %}
+
+            {% for linkItem in block.internerLink.all() %}
+
+              {% set linkhref = linkItem.url %}
+              {% set linkTrue = true %}
+              {% set linkText = linkItem.title %}
+
+            {% endfor %}
+
+          {% elseif block.externerLink|length %}
+
+              {% set linkhref = block.externerLink %}
+              {% set targetblank = true %}
+              {% set linkTrue = true %}
+              {% set linkText = linkhref|replace({'http://': '', 'https://': ''}) %}
+
+          {% elseif block.linkZuDatei|length %}
+
+            {% for linkItem in block.linkZuDatei.all() %}
+
+              {% set linkhref = linkItem.url %}
+              {% set targetblank = true %}
+              {% set linkTrue = true %}
+              {% set linkText = linkItem.title %}
+
+            {% endfor %}
+
+          {% endif %}
+
+          {% if linkTrue %}
+
+            <a href="{{ linkhref }}" {% if targetblank %}target="_blank"{% endif %}>{{ linkText }}</a>
+
+          {% endif %}
+
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  {% if nextType != 'slider' %}
+
+  </div>
+
+  {% endif %}
+
+
+{% endif %}
+

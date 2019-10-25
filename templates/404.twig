@@ -1,0 +1,78 @@
+{% set redirectTo = "" %}
+
+{% set oldUrlValue = "|/" ~ craft.app.request.pathInfo() ~ "|" %}
+{% set oldUrlValue = oldUrlValue | lower %}
+
+{% set redirectUrlData = [
+
+  {'oldUrl':'|/arbeiten|','newUrl':'','newId':'44'},
+
+] %}
+
+{% for myRedirect in redirectUrlData %}    
+
+  {% if myRedirect.oldUrl == oldUrlValue %}
+
+    {% if not myRedirect.newUrl is empty %}
+
+      {% set redirectTo = myRedirect.newUrl %}   
+
+    {% else %}
+
+    {% set newEntry = craft.entries.id(myRedirect.newId).one() %}
+
+      {% if newEntry | length %}
+
+        {% set redirectTo = newEntry.getUrl %}   
+
+      {% endif %}
+
+    {% endif %}
+
+    {% if not redirectTo is empty %}
+
+      {% redirect redirectTo  301 %}{# Permanent Redirect #}
+
+      {% exit %}
+
+    {% endif %}
+
+  {% endif %}
+
+{% endfor %}
+
+
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+{% set title = '404' %}
+
+{% set entry = '' %}
+
+{% if entry.seitenbild|length %}
+  {% set image = entry.seitenbild.one() %}
+{% endif %}
+
+<main>
+  <div class="section__outer">
+    <div class="grid__container">
+      <div class="content">
+
+        <h1>Error 404</h1>
+        
+        <p>Oha! Wir haben wirklich &uuml;berall gesucht, aber die gew&uuml;nschte Seite wurde leider nicht gefunden. </p>
+        <p>Bitte nehmen Sie <a href="{{ '{entry:83}' | parseRefs }}">Kontakt</a> mit uns auf.</p>
+        <br>
+        <br>
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+{% endblock %}

@@ -1,0 +1,148 @@
+
+///////////////////////////////
+// Neat Grid Settings
+//////////////////////////////
+
+$neat-grid: (
+        columns: 12,
+        gutter: $gutterPadding,
+);
+
+$neat-grid-phoneUp: (
+        gutter: $gutterPadding,
+        media: $break-tablet,
+);
+
+$neat-grid-desktopUp: (
+        gutter: $gutterPadding,
+        media: $break-desktop-wide,
+);
+
+$neat-grid-seemless: (
+        columns: 12,
+        gutter: 0,
+        media: $break-tablet,
+);
+
+
+///////////////////////////////
+// GRID SYSTEM BY MISCHA
+//////////////////////////////
+
+
+.col-2 {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(2);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(2);
+  }
+
+}
+
+.col-3 {
+  //@include grid-column(12);
+
+  width: 100%;
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(3);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(3);
+  }
+
+}
+
+.col-3s {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-seemless) {
+    @include grid-column(3);
+  }
+}
+
+.col-4 {
+  //@include grid-column(12);
+
+  width: 100%;
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(4);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(4);
+  }
+}
+
+
+
+.col-5 {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(5);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(5);
+  }
+}
+
+.col-6 {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(6);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(6);
+  }
+}
+
+.col-7 {
+
+  width: 100%;
+  //@include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(7);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(7);
+  }
+
+
+}
+
+.col-9 {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(9);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(9);
+  }
+}
+
+.col-12 {
+  @include grid-column(12);
+
+  @include grid-media($neat-grid-phoneUp) {
+    @include grid-column(12);
+  }
+
+  @include grid-media($neat-grid-desktopUp) {
+    @include grid-column(12);
+  }
+
+}

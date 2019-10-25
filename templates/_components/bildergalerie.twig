@@ -1,0 +1,84 @@
+{% if block.bilder|length %}
+
+    {%- include '_includes/photoswipe' -%}
+
+    {% do view.registerCssFile("/assets/plugins/photoswipe/photoswipe.css") %}
+    {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe.min.js") %}
+    {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe-ui-default.min.js") %}
+
+    {% set galleryImages = block.bilder.orderBy('RAND()').all() %}
+
+    {% if block.layout == "grid" %}
+
+        <section class="gallery__grid">
+            <div class="gallery__grid--wrapper">
+
+                {% for bild in galleryImages %}
+
+                    {% set bildLink = craft.picture.url(bild, 'desktop') %}
+
+                    <figure class="gallery__grid--item grid--item{{ loop.index }}" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+{#                        <a class="gallery__grid--item--title" href="{{ bildLink }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}">+</a>#}
+                        <div class="gallery__grid--item--image">
+                            <a href="{{ bildLink }}" class="galerie__link--grid" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}">
+                                {{ craft.picture.element(bild,'gridgalerieLarge',{ alt: bild.title, transform: { position: 'center-center', quality: 80 }}) }}
+                            </a>
+                        </div>
+                        {#                    <figcaption itemprop="caption description">{{ bild.title }}</figcaption>#}
+                    </figure>
+                {% endfor %}
+
+            </div>
+        </section>
+
+    {% else %}
+
+        {%- do view.registerCssFile("/assets/plugins/owl-carousel/owl.carousel.min.css") -%}
+        {%- do view.registerJsFile("/assets/plugins/owl-carousel/owl.carousel.min.js") -%}
+
+        {% set imageArtClass = '' %}
+
+        {%  if entry.id == 2 %}</div></div>{%  endif %}
+
+            <div class="grid__container--bildergalerie">
+                <div class="galerie owl-carousel">
+
+                    {% for bild in block.bilder.all() %}
+
+                        {% if bild.height > bild.width %}
+
+                            {% set imageArtClass = 'hochformat' %}
+
+                        {% else %}
+
+                            {% set imageArtClass = 'breitformat' %}
+
+                        {% endif %}
+
+                        <div class="galerie__item--wrapper" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+
+                            <a href="{{ craft.picture.url(bild, 'desktop') }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}" class="galerie__link--{{ imageArtClass }}">
+
+                                {{ craft.picture.element(
+                                    bild,
+                                    'bilderGalerie',
+                                    {
+                                        alt: bild.title,
+                                        transform: {
+                                        position: 'center-center',
+                                        quality: 80
+                                    }
+                                    }
+                                ) }}
+
+                            </a>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            {%  if entry.id == 2 %}<div class="section__outer"><div class="grid__container">{%  endif %}
+        {% endif %}
+
+{% endif %}

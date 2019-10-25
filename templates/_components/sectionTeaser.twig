@@ -1,0 +1,33 @@
+{% if block.accordeonTitle is defined %}
+
+    {% if prevType != 'sectionTeaser' %}
+        <section class="section-teaser__wrapper">
+    {% endif %}
+
+{#        <div class="col-3 accordeon__wrapper" data-next="{{ nextType }}">#}
+{#            <li class="accordeon__item" id='{{block.accordeonTitle|url_encode}}'>#}
+{#                <a href="#{{block.accordeonTitle|url_encode}}" class="accordeon__title"><i class="icon"></i>{{ block.accordeonTitle }}</a>#}
+{#                <div class="accordeon__content">#}
+{#                    <p class="accordeon__content--text">{{block.accordeonContent}}</p>#}
+{#                </div>#}
+{#            </li>#}
+{#        </div>#}
+
+    <div class="section-teaser__element teaser__element--{{ block.sectionTeaserTitle }}">
+        <div class="section-teaser__element--header" data-target="#accordeon-{{ block.id }}">
+            <span class="" href="#">{{ block.sectionTeaserTitle }}</span>
+            <span class="section-teaser__element--header--icon" aria-hidden="true"></span>
+        </div>
+        <div class="section-teaser__element--content--wrapper" id="accordeon-{{ block.id }}">
+            <div class="section-teaser__element--content">
+                {{ block.sectionTeaserContent }}
+            </div>
+        </div>
+    </div>
+
+
+    {%- if nextType != 'sectionTeaser' -%}
+        </section>
+    {%- endif -%}
+
+{% endif %}

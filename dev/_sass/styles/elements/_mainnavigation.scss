@@ -1,0 +1,618 @@
+///////////////////////////////
+// NAVIGATION 
+///////////////////////////////
+
+/* variables */
+
+$base-navigation-link-color: $white;
+$base-navigation-hover-color: $blue;
+$base-navigation-bg-color: $blue;
+$base-navigation-accent-color: $blue;
+
+
+/* Color Settings */
+
+.main__nav--item--level1 {
+  color: $base-navigation-link-color;
+  background-color: $base-navigation-bg-color;
+
+  @media (min-width: $break-desktop) {
+    background-color: transparent;
+    border-top: 4px solid transparent;
+  }
+
+  &:focus, &:hover, &:active {
+
+    background-color: $base-navigation-bg-color;
+
+    .button__open--level {
+      color: $white;
+    }
+
+    @media (max-width: $break-tablet) {
+      background-color: darken($base-navigation-bg-color, 5%);
+
+      .button__open--level {
+        color: $green;
+      }
+
+      .main__nav--link--level1 {
+        color: $white;
+      }
+    }
+
+    @media (min-width: $break-tablet) {
+      background-color: transparent;
+      //border-top: 4px solid $base-navigation-hover-color;
+    }
+  }
+}
+
+.main__nav--item--level2 {
+  color: $base-navigation-link-color;
+  background-color: $base-navigation-bg-color;
+
+  &:focus, &:hover, &:active {
+    background-color: darken($base-navigation-bg-color, 5%);
+  }
+
+  @media (min-width: $break-desktop) {
+    background-color: $base-navigation-link-color;
+
+    &:focus, &:hover, &:active {
+      background: $base-navigation-bg-color;
+    }
+  }
+
+
+
+}
+
+.main__nav--link--level1 {
+  color: $base-navigation-link-color;
+
+  &:focus, &:hover, &:active {
+    color: $green;
+
+    //@media (min-width: $break-desktop) {
+    //  color: $base-navigation-link-color;
+    //}
+
+  }
+}
+
+.main__nav--link--level2 {
+  color: $base-navigation-link-color;
+
+  @media (min-width: $break-desktop) {
+    color: $base-navigation-bg-color;
+  }
+
+  &:focus, &:hover, &:active {
+    color: $green;
+    transition: all .3s ease;
+
+    @media (min-width: $break-desktop) {
+      color: $base-navigation-link-color;
+    }
+  }
+}
+
+.main__nav--items--level1 {
+  background-color: $blue;
+
+  @media (min-width: $break-desktop) {
+    background: transparent;
+  }
+}
+
+.main__nav--items--level2 {
+  background-color: $blue;
+
+  @media (min-width: $break-desktop) {
+
+    border-top: 4px solid $base-navigation-hover-color;
+    background: $base-navigation-link-color;
+
+  }
+
+}
+
+/* Navigation styles */
+
+.main__nav {
+
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  top: 80px;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  transition: max-height 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  
+  @include grid-media($neat-grid-phoneUp) {
+    position: relative;
+    width: auto;
+    float: right;
+    margin-left: 0;
+    margin-bottom: $base-spacing*14;
+    
+    @media (min-width: $break-tablet) {
+      margin-bottom: $base-spacing*5;
+    }
+
+    @media (min-width: $break-desktop) {
+      position: relative;
+      display: block;
+      top: 0;
+      margin: 0;
+      height: auto;
+      max-height: 80px;
+      overflow: visible;
+      text-align: right;
+    }
+    
+  }
+
+}
+
+.main__nav.open {
+  display: block;
+  max-height: 100vh;
+}
+
+// Main Nav Level 1 UL
+.main__nav--items--level1 {
+  @include clear-ul;
+
+  @media (min-width: $break-phone) {
+    width: 100vw;
+    
+  }
+  
+  @media (min-width: $break-tablet) {
+    width: 50vw;
+    float: right;
+  }
+  
+  @media (min-width: $break-desktop) {
+    margin-top: 0;
+    width: auto;
+    float: none;
+  }
+}
+
+.main__nav--item--level1 {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  //flex: 1 auto;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .3s ease;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i+1) * .1}s;
+    }
+  }
+
+  @media (min-width: $break-tablet) {
+    border: none;
+    padding-bottom: 0;
+    width: 100%;
+  }
+  
+  @media (min-width: $break-desktop) {
+    opacity: 1;
+    display: inline-block;
+    padding: 0 28px;
+    width: auto;
+  }
+  
+  &:first-child {
+    border-top: 1px solid $blue;
+    
+    @media (min-width: $break-tablet) {
+      border: none;
+    }
+  }
+
+  &:focus, &:hover, &:active {
+
+    @media (min-width: $break-desktop) {
+      .main__nav--link--level1 {
+        font-weight: 700;
+        &:after {
+          transform: scale(1);
+          transition: all .5s ease;
+        }
+
+      }
+    }
+  }
+
+  &.ctaButton {
+
+    @media (min-width: $break-desktop) {
+      margin-left: 20px;
+      line-height: 24px;
+      border-radius: 20px;
+      background-color: $blue;
+      //animation: colorFlash 10s ease-in-out 10s infinite ;
+      transition: all .3s ease-out;
+
+      a {
+        padding: 0 2px 6px 2px;
+
+        &:focus, &:hover, &:active {
+          border-bottom: 0;
+        }
+
+        &:after {
+          content: none;
+          border: 0;
+        }
+      }
+
+
+      &.active {
+        border-top: 4px solid transparent;
+      }
+
+      &:focus, &:hover, &:active {
+        //background-color: $base-navigation-hover-color;
+        border-color: transparent;
+      }
+    }
+
+  }
+
+  @keyframes colorFlash {
+    0% { background-color: $blue; }
+    50% { background-color: $blue; }
+    70% { background-color: $blue; }
+    75% { background-color: $green; }
+    80% { background-color: $blue; }
+    100% { background-color: $blue; }
+  }
+  
+  &.has--children {
+    
+    @media (min-width: $break-desktop) {
+
+      &:focus, &:hover, &:active {
+
+        > .main__nav--items--level2 {
+          display: block;
+          visibility: visible;
+          transform: translateY(0);
+          opacity: 1;
+          transition: all .3s ease-out;
+        }
+        
+      }
+      
+    }
+    
+  }
+}
+
+.main__nav.open .main__nav--item--level1 {
+  opacity: 1;
+}
+
+.main__nav--link--level1 {
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all .3s ease;
+  
+  @media (min-width: $break-phone) {
+    //color: $black;
+    //padding-bottom: $base-spacing/6;
+    display: inline-block;
+    //width: auto;
+    //border-bottom: 2px solid transparent;
+    font-size: 1.1rem;
+  }
+  
+  @media (min-width: $break-desktop) {
+    //color: $white;
+    padding: 22px 0 22px 0;
+    border-top: 4px solid transparent;
+  }
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: calc(50% + .7em);
+    left: 0;
+    width: 100%;
+    border-top-style: solid;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+    border-top: 2px solid $base-navigation-accent-color;
+  }
+  
+  &:focus, &:hover, &:active {
+    transition: all .3s ease;
+    border-bottom: none;
+    
+    @media (min-width: $break-phone) {
+      //border-bottom: 2px solid $action-color;
+    }
+    
+    @media (min-width: $break-desktop) {
+      border-bottom: 2px solid transparent;
+
+    }
+
+  }
+  
+  &.active {
+    font-weight: $font-weight-bold;
+  }
+  
+  &:after {
+    display: block;
+    position: absolute;
+    bottom: $base-spacing;
+    width: 100%;
+    height: 2px;
+    background: $action-color;
+    transform: scale(0);
+    transition: all .3s ease;
+  }
+  
+}
+
+/* CTA Button Style für Menu item */
+.main__nav--item--level1.ctaButton .main__nav--link--level1 {
+  color: $white;
+  transition: all .3s ease-out;
+}
+
+
+// Main Nav Level 2
+.main__nav--items--level2 {
+  @include clear-ul;
+  max-height: 0;
+  overflow: hidden;
+  transition: all .25s ease;
+  top: 0;
+  text-align: center;
+  
+  @media (min-width: $break-desktop) {
+    position: absolute;
+    top: 74px;
+    left: 0;
+    height: auto;
+    max-height: 800px;
+    width: 300px;
+    text-align: left;
+    opacity: 0;
+    transition: all .5s ease-out;
+    visibility: hidden;
+    z-index: 200;
+  }
+
+  &.open {
+    transition: all .5s ease;
+    overflow: visible;
+    max-height: 800px;
+    opacity: 1;
+    border-top: 1px solid $white;
+    border-bottom: 1px solid $white;
+    
+    @media (min-width: $break-desktop) {
+      left: 0;
+      opacity: 0;
+    }
+  }
+  
+}
+
+.main__nav--item--level2 {
+  position: relative;
+  transition: all .3s ease;
+  
+  @media (min-width: $break-desktop) {
+    
+    border: none;
+    padding: 10px 0;
+
+  }
+
+  
+}
+
+.main__nav--link--level2 {
+  font-weight: $font-weight-regular;
+  padding: $base-spacing/3 0;
+  width: 85%;
+  font-size: 1.1rem;
+  transition: all .3s ease;
+  
+  @media (min-width: $break-phone) {
+    padding: $base-spacing/2 0;
+  }
+  
+  @media (min-width: $break-desktop) {
+    padding: 0;
+    font-weight: $font-weight-bold;
+    font-size: 1rem;
+    padding-left: $base-spacing/2;
+  }
+
+  
+  &.active {
+    font-weight: $font-weight-bold;
+    border-bottom: 1px solid $white;
+  }
+  
+}
+
+
+// Main Nav Level 2
+.main__nav--items--level3 {
+  @include clear-ul;
+  max-height: 0;
+  overflow: hidden;
+  transition: all .25s ease;
+
+  &.open {
+    transition: all .5s ease;
+    overflow: visible;
+    max-height: 800px;
+  }
+  
+}
+
+.main__nav--link--level3 {
+  color: $base-font-color;
+  font-weight: $font-weight-regular;
+  padding: $base-spacing/3 0;
+  margin-left: $base-spacing/3;
+  font-size: 16px;
+  margin-bottom: $base-spacing/2;
+  transition: all .25s ease;
+  
+  &:focus, &:hover, &:active {
+    transition: all .25s ease;
+  }
+  
+  &.active {
+    font-weight: $font-weight-bold;
+  }
+}
+
+
+$button-size-open-level: 36px;
+
+.button__open--level {
+  position: absolute;
+  right: 70px;
+  margin: auto;
+  color: $base-navigation-link-color;
+  font-weight: $font-weight-bold;
+  transition: all $base-duration $base-timing;
+  width: $button-size-open-level;
+  height: $button-size-open-level;
+  cursor: pointer;
+  font-size: 1.8rem;
+  text-align: center;
+  z-index: 999;
+
+  // @media (min-width: $break-phone) {
+  //   color: $green;
+  // }
+  
+  @media (min-width: $break-desktop) {
+    display: none;
+  }
+
+  &:before {
+    content: $icon-down-open-mini;
+    font-family: 'symbolica';
+    display: block;
+    //transition: all .3s ease;
+  }
+  
+  &.active {
+    
+    &:before {
+      transform: rotate(-180deg);
+      display: block;
+      transition: all .25s ease;
+    }
+    
+  }
+
+}
+
+.button__open--level-2 {
+  top: 20px;
+  @media (min-width: $break-phone) {
+    top: 11px; // 20
+    font-size: $button-size-open-level/3*2;
+  }
+}
+
+.button__open--level-3 {
+  top: $base-spacing/3;
+}
+
+// Hamburger Button für Mobile Navigation
+// Beispiele für andere Anims: https://codepen.io/designcouch/pen/Atyop
+
+.main__nav--icon {
+  width: 30px;
+  height: 24px;
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  margin: auto;
+  transform: rotate(0);
+  transition: .3s ease-in-out;
+  z-index: 200;
+  cursor: pointer;
+
+  @media (min-width: $break-desktop) {
+    display: none;
+  }
+}
+
+.main__nav--icon span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: $white;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0);
+    transition: .3s ease-in-out
+}
+
+.main__nav--icon span:nth-child(1) {
+    top: 0
+}
+
+.main__nav--icon span:nth-child(2) {
+    top: 10px
+}
+
+.main__nav--icon span:nth-child(3) {
+    top: 20px
+}
+
+.main__nav--icon.open span {
+  background: $white;
+  //@media (min-width: $break-phone) {
+  //  background: $black;
+  //}
+  
+}
+
+.main__nav--icon.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg)
+}
+
+.main__nav--icon.open span:nth-child(2) {
+    opacity: 0;
+    left: 37.5px
+}
+
+.main__nav--icon.open span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg)
+}

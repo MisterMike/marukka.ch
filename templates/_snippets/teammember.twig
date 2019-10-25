@@ -1,0 +1,35 @@
+<div class="team__widget col-4"
+     data-sal="fade"
+     data-sal-delay="500"
+     data-sal-duration="500"
+     data-sal-easing="ease-in-out"
+>
+    {% set teamImage = teamMember.teamBild.one() %}
+
+    <div class="team__widget--image" >
+		<span class="team__widget--image-link">
+			{% if teamImage is defined and teamImage is not empty %}
+                {{ craft.picture.element( teamImage, 'teaserSquare', { alt: teamImage.title, transform: { position: 'center-center', quality: 80 } } ) }}
+            {% endif %}
+		</span>
+    </div>
+
+    <div class="team__widget--content">
+        <div class="team__widget--content-2">
+            <h4 class="team__widget--header">
+                <a class="team__widget--link" href="{{teamMember.getURL()}}">
+                    {{ teamMember.seitenUeberschrift|length ? teamMember.seitenUeberschrift : teamMember.title }}
+                </a>
+            </h4>
+            <p class="team__widget--text">{{ teamMember.teaserText }}</p>
+        </div>
+        <div class="team__widget--readmore" >
+            <a href="{{teamMember.getURL()}}" class="team__widget--morelink">
+                <span class="icon-right-open"></span>
+                <span class="team__widget--morelink--text">{{ 'Mehr lesen' | t }}</span>
+            </a>
+        </div>
+    </div>
+
+
+</div>

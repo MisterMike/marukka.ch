@@ -1,0 +1,14 @@
+bitbucket-pipelines.yml
+.env*
+.git-ftp-ignore
+gulpfile.js
+webpack.config.js
+bin/*
+src/*
+storage/*
+dev/**
+!dev/_plugins/**
+vendor/**
+_old/**
+public/cpresources/*
+public/uploads/*

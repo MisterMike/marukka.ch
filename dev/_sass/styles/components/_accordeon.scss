@@ -1,0 +1,142 @@
+.accordeon__wrapper {
+  margin-bottom: $base-spacing*2;
+}
+
+.accordeon__item {
+  border: 1px solid $grey-medium;
+  border-radius: 0;
+  margin-bottom: 8px;
+  transition: all .5s ease;
+}
+
+.accordeon__header {
+  padding: 26px 20px;
+  font-size: 1.6rem;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.accordeon__header--title{
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  width: auto;
+}
+
+.accordeon__header--button {
+
+}
+
+.accordeon__header--icon {
+  float: right;
+  padding-top: 0.5rem;
+
+
+  &:before {
+    content: $icon-down-open;
+    font-family: 'icomoon';
+    display: block;
+    transition: all .25s ease;
+  }
+}
+
+.accordeon__content--wrapper {
+  display: none;
+  position: relative;
+
+  &.active {
+    display: block;
+
+    .accordeon__header--icon {
+      &:before {
+        transform: rotate(-180deg);
+        display: block;
+        transition: all .25s ease;
+      }
+    }
+  }
+}
+
+.accordeon__content {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+}
+
+.tab__headline {
+  position: relative;
+  display: block;
+  color: $green;
+  font-weight: $font-weight-regular;
+  padding-top: $base-spacing/3;
+  padding-right: $base-spacing*2;
+  padding-bottom: $base-spacing/1.25;
+  transition: all .5s ease;
+  border: none;
+  cursor: pointer;
+  border-top: 1px solid $grey-light;
+  font-size: 20px;
+
+  &.active {
+    transition: all .5s ease;
+
+    .tab__button { 
+
+      &:before {
+        transform: rotate(-180deg);
+        display: block;
+        transition: all .25s ease;
+      }
+
+    }
+
+  }
+
+}
+
+.tab__content {
+  position: relative;
+  padding-bottom: $base-spacing;
+  display: none;
+
+  p {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+$button-size: 40px;
+
+.tab__button {
+  position: absolute;
+  color: $green;
+  font-weight: $font-weight-bold;
+  top: -8px;
+  right: 4px;
+  margin: auto;
+  transition: all $base-duration $base-timing;
+  width: $button-size;
+  height: $button-size;
+  cursor: pointer;
+  font-size: $button-size;
+  text-align: center;
+  
+  @media (min-width: $break-phone) {
+    right: $base-spacing;
+  }
+
+  &:before {
+    content: $icon-down-open;
+    font-family: 'icomoon';
+    display: block;
+    transition: all .25s ease;
+  }
+
+}

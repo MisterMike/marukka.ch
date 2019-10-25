@@ -1,0 +1,95 @@
+{% if block.bilder|length %}
+
+    {%- include '_includes/photoswipe' -%}
+
+    {% do view.registerCssFile("/assets/plugins/photoswipe/photoswipe.css") %}
+    {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe.min.js") %}
+    {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe-ui-default.min.js") %}
+
+    {% set galleryImages = block.bilder.orderBy('RAND()').all() %}
+
+    {% if block.layout == "grid" %}
+
+        <div class="gridGallery">
+            {% for bild in galleryImages %}
+
+                {% set bildLink = craft.picture.url(bild, 'desktop') %}
+
+                <figure class="gridGallery__item" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a class="gridGallery__item--title" href="{{ bildLink }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}">+</a>
+                    <div class="gridGallery--image">
+                        <a href="{{ bildLink }}" class="galerie__link--grid" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}">
+                            {{ craft.picture.element(bild,'gridgalerie',{ alt: bild.title, transform: { position: 'center-center', quality: 80 }}) }}
+                        </a>
+                    </div>
+{#                    <figcaption itemprop="caption description">{{ bild.title }}</figcaption>#}
+                </figure>
+            {% endfor %}
+        </div>
+
+    {% else %}
+
+        {%- do view.registerCssFile("/assets/plugins/owl-carousel/owl.carousel.min.css") -%}
+        {%- do view.registerJsFile("/assets/plugins/owl-carousel/owl.carousel.min.js") -%}
+
+        {% set imageArtClass = '' %}
+
+        {%  if entry.id == 2 %}</div></div>{%  endif %}
+
+            <div class="grid__container--bildergalerie">
+                <div class="galerie owl-carousel">
+
+                    {% for bild in block.bilder.all() %}
+
+                        {% if bild.height > bild.width %}
+
+                            {% set imageArtClass = 'hochformat' %}
+
+                        {% else %}
+
+                            {% set imageArtClass = 'breitformat' %}
+
+                        {% endif %}
+
+                        <div class="galerie__item--wrapper" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+
+                            <a href="{{ craft.picture.url(bild, 'desktop') }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}" class="galerie__link--{{ imageArtClass }}">
+
+                                {{ craft.picture.element(
+                                    bild,
+                                    'bilderGalerie',
+                                    {
+                                        alt: bild.title,
+                                        transform: {
+                                        position: 'center-center',
+                                        quality: 80
+                                    }
+                                    }
+                                ) }}
+
+                            </a>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            {%  if entry.id == 2 %}<div class="section__outer"><div class="grid__container">{%  endif %}
+        {% endif %}
+<section class="gallery__grid">
+    <div class="gallery__grid--wrapper">
+        <div class="gallery__grid--item">Bildli 1</div>
+        <div class="gallery__grid--item">Bildli 2</div>
+        <div class="gallery__grid--item">Bildli 3</div>
+        <div class="gallery__grid--item">Bildli 4</div>
+        <div class="gallery__grid--item">Bildli 5</div>
+{#        <div class="gallery__grid--item">Bildli 6</div>#}
+{#        <div class="gallery__grid--item">Bildli 7</div>#}
+{#        <div class="gallery__grid--item">Bildli 8</div>#}
+{#        <div class="gallery__grid--item">Bildli 9</div>#}
+{#        <div class="gallery__grid--item">Bildli 10</div>#}
+        <div class="gallery__grid--item">Bildli 11</div>
+        <div class="gallery__grid--item">Bildli 12</div>
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,58 @@
+<header>
+    <div class="subheader__wrapper">
+        <div class="grid__container">
+            <nav class="sekundaer__nav">
+
+                {% set seknav = sekundaerNavigation.shortLinks %}
+
+                <ul class="sekundaer__nav--items--level1">
+
+                    {% for page in seknav.all() %}
+
+                        <li class="sekundaer__nav--item--level1">
+
+                            <a class="sekundaer__nav--link--level1 {% if craft.app.request.segments|last == page.slug %}active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </nav>
+
+            <div class="header__icon--search">
+                <span class="icon-search"></span>
+                <span class="icon-close"></span>
+            </div>
+
+        </div>
+    </div>
+  <div class="header__wrapper">
+    <div class="grid__container">
+      <div class="content__wrapper">
+
+          <a href="{{ siteUrl }}">
+              <div class="header__logo"></div>
+          </a>
+          
+          <form class="form__suche" action="{{ '{entry:105}' | parseRefs }}">
+            <input class="form__suche--input" type="search" name="q" placeholder="Suchbegriff">
+            <input type="submit" value="Suchen">
+          </form>
+
+          <div class="main__nav--icon" role="button" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <nav class="main__nav">
+
+            {{ mainNavigation | raw }}
+
+          </nav>
+
+      </div>
+    </div>
+  </div>
+</header>

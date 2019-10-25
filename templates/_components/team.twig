@@ -1,0 +1,28 @@
+{%- if block.team is defined -%}
+
+    {%- set relatedTeam = craft.entries.section('Team').relatedTo(block) -%}
+
+    {% if relatedTeam|length -%}
+
+        <section class="team__section">
+            <div class="grid__container">
+                <div class="team__wrapper">
+
+                    <div class="team--headline">
+                        {% if block.ueberschrift|length %}<h2>{{block.ueberschrift}}</h2>{%- endif -%}
+                        {% if block.ueberschriftSubtitel|length %}<h3>{{block.ueberschriftSubtitel}}</h3>{%- endif -%}
+                    </div>
+
+                    {%- for teamMember in relatedTeam.all() -%}
+
+                        {%- include "_snippets/teammember" with { teamMember: teamMember }  -%}
+
+                    {%- endfor -%}
+                </div>
+            </div>
+        </section>
+
+
+    {%- endif -%}
+
+{%- endif %}

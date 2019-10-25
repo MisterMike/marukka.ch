@@ -1,0 +1,20 @@
+{% if block.downloads|length %}
+
+    <div class="grid__container">
+
+    <ul class="downloads__items">
+
+      {% for download in block.downloads.all() %}
+
+        <li class="downloads__item">
+          <a class="downloads__link" href="{{ download.getURL() }}" target="_blank">
+            <span class="downloads__icon icon-download"></span>{{ download.title }}
+            <small>({{ download.extension }}, {{ download.size|filesize }})</small>
+          </a>
+        </li>
+
+      {% endfor %}
+
+    </ul>
+  </div>
+{% endif %}

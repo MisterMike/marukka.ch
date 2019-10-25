@@ -1,0 +1,109 @@
+
+{% extends "_layout/_site" %}
+
+ {% block main %}
+            
+    <div class="container">
+
+        <section>
+
+        
+        {% set entry = craft.entries.id(159).one() %}
+        {% set entrylogin = craft.entries.id(253).one() %}
+
+        {%- include "_routers/component" with { 'MatrixBlock': entry.inhaltMatrix.all() } -%}
+
+        {% if craft.app.request.getBodyParam('access-code') %}
+
+        {% if %}
+
+            {% set requestCookies = craft.app.request.cookies %}
+            {% set csrfCookie = requestCookies.get('tcb-intern') %}
+            {% if csrfCookie and csrfCookie.value == entry.passwordField %}
+                
+                {% redirect "_views/details/intern" %}
+
+            {% endif %}
+
+        {% endif %}
+
+
+            {% if entry.passwordField == craft.app.request.getBodyParam('access-code') %} 
+
+                {{ setSecureCookie('intern', entry.passwordField, 0 ) }}
+
+                {% set responseCookies = craft.app.response.cookies %}
+                {% set cookie = create({
+                    'class': 'yii\\web\\Cookie',
+                    'name': 'tcb-intern',
+                    'value': 'Tcb!4127',
+                    'expire': now | date_modify("+1 hour").timestamp
+                }) %}
+                {% do responseCookies.add(cookie) %}
+
+                {% redirect "_views/details/intern" %}
+
+            {% else %}
+
+                <form action="/{{ craft.app.request.pathInfo }}" method="POST">
+                    <p>Der eingegebene Zugangscode ist leider falsch.</p>
+                    {{ csrfInput() }}
+                    <input type="text" name="access-code" id="access-code" />
+                    <input type="submit" value="Freischalten" />
+                </form>
+
+            {% endif %}
+
+        {% else %}
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+               <form action="/{{ craft.app.request.pathInfo }}" method="POST">
+                    {{ csrfInput() }}
+                    <input type="text" name="access-code" id="access-code" />
+                    <input type="submit" value="Freischalten" />
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        </section>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+        {% set requestCookies = craft.app.request.cookies %}
+        {% set csrfCookie = requestCookies.get('tcb-intern') %}
+        {% if csrfCookie and csrfCookie.value == entry.passwordField %}
+            {% set tcbAllowed = true %}
+        {% endif %}
+
+        
+
+        {% if entry.passwordField is not empty %}
+
+          {% set responseCookies = craft.app.response.cookies %}
+          {% set cookie = create({
+              'class': 'yii\\web\\Cookie',
+              'name': 'tcb-intern',
+              'value': 'Tcb!4127',
+              'expire': now | date_modify("+1 hour").timestamp
+          }) %}
+          {% do responseCookies.add(cookie) %}
+          {{ dump(responseCookies) }}
+
+          {% set tcbAllowed = true %}
+
+          {% if tcbAllowed = true %}
+            {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+            {%- include "_routers/component" with { blocks: entry.adminInhaltMatrix.all() } -%}
+          {% endif %}
+
+        {% else %}
+
+          {% redirect "/_includes/login" %}
+
+        {% endif %}

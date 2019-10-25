@@ -1,0 +1,85 @@
+///////////////////////////////
+// TEASER ELEMENT
+//////////////////////////////
+
+.teaser__section {
+    @include grid-container;
+    overflow: hidden;
+}
+
+.teaser__wrapper {
+    position: relative;
+    background-color: $grey-light;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap:wrap;
+    //@include grid-collapse;
+}
+
+.teaser__left {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.teaser__middle {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.teaser__right {
+
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $break-tablet) {
+        margin-left: 100px;
+    }
+}
+
+.teaser__content {
+
+    justify-content: center;
+
+    .teaser__content--wrapper {
+        padding: 0 25px 25px 25px;
+    }
+
+    .teaser__content--titel {
+        font-weight: 700;
+        font-style: normal;
+        color: $blue;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        letter-spacing: 0px;
+        transition: .3s;
+    }
+
+    .teaser__content--lead {
+        margin: 15px 0;
+        font-weight: 500;
+        font-style: normal;
+        color: $blue;
+        font-size: 1.2rem;
+        line-height: 1.4;
+        letter-spacing: 0px;
+    }
+
+    .teaser__content--text {
+        font-weight: 300;
+        font-style: normal;
+        color: $grey-dark;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        letter-spacing: 0px;
+    }
+
+
+}
+
+.teaser__button {
+    padding-left: 25px;
+}

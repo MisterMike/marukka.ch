@@ -1,0 +1,5 @@
+{% if block.snippet|length %}
+
+  {% include "/_snippets/" ~ block.snippet with { parameter1: block.parameter1, parameter2: block.parameter2 } %}
+
+{% endif %}

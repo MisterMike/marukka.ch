@@ -1,0 +1,106 @@
+///////////////////////////////
+// VARIABLES 
+//////////////////////////////
+
+$gutterPadding: 50px;
+$gutterPaddingUp: 70px;
+
+///////////////////////////////
+// Breakpoints
+//////////////////////////////
+
+$break-phone-down: 320px;
+$phone-landscape: 480px;
+$break-phone: 768px;
+$break-tablet: 992px;
+$break-desktop: 1224px;
+$break-desktop-wide: 1824px;
+
+$medium-screen: 600px;
+$large-screen: 900px;
+
+
+
+// Typography
+$base-font-family: 'Roboto Condensed';
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 16px;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: 30px;
+$base-padding: $gutterPadding/2;
+$small-spacing: $base-spacing/2;
+$base-z-index: 0;
+
+$header-height: 120px;
+
+$icon-size: 50px;
+
+// Colors
+
+// Logofarbe Druck #24485a, digital #063b47
+
+$blue2: #063b47;
+$blue: #24485a;
+$blue-light: #80b7d5;
+$green: #7abc64;
+$red: #bc0303;
+$orange: #ffb100;
+
+$white: #fff;
+$black: #000;
+$grey-dark: #7a7e7f;
+$grey-medium: #A6ADB4;
+$grey-light: #f2f2f2;
+$grey-superlight: #f0f0f0;
+
+$grey-footer: #222222;
+$grey-footer-medium: #525252;
+
+$blue-box: rgba($blue, .1);
+$bluelight-box: #e6f0f8;
+$green-box: rgba($green, .1);
+$orange-box: rgba($orange, .1);
+
+
+// Font Colors
+$accent-color: $blue;
+$base-font-color: $black;
+$action-color: $blue;
+
+// Border
+$base-border-color: $blue;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: $white;
+$secondary-background-color: rgba($blue, .1);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba($black, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
+
+// Animations
+$base-duration: .3s;
+$base-timing: ease-in-out;
+
+
