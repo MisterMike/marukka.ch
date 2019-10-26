@@ -230,84 +230,41 @@ sub {
 
 $fonts-path: "/assets/fonts" !default;
 
-/* raleway-regular - latin */
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url('#{$fonts-path}/raleway-v14-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Raleway'), local('Raleway-Regular'),
-       url('#{$fonts-path}/raleway-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('#{$fonts-path}/raleway-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('#{$fonts-path}/raleway-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('#{$fonts-path}/raleway-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('#{$fonts-path}/raleway-v14-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
-}
 
-/* pt-sans-regular - latin */
+/* lato-300 - latin */
 @font-face {
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('#{$fonts-path}/pt-sans-v11-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('PT Sans'), local('PTSans-Regular'),
-  url('#{$fonts-path}/pt-sans-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('#{$fonts-path}/pt-sans-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-  url('#{$fonts-path}/pt-sans-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
-  url('#{$fonts-path}/pt-sans-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('#{$fonts-path}/pt-sans-v11-latin-regular.svg#PTSans') format('svg'); /* Legacy iOS */
-}
-/* pt-sans-700 - latin */
-@font-face {
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url('#{$fonts-path}/pt-sans-v11-latin-700.eot'); /* IE9 Compat Modes */
-  src: local('PT Sans Bold'), local('PTSans-Bold'),
-  url('#{$fonts-path}/pt-sans-v11-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('#{$fonts-path}/pt-sans-v11-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-  url('#{$fonts-path}/pt-sans-v11-latin-700.woff') format('woff'), /* Modern Browsers */
-  url('#{$fonts-path}/pt-sans-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('#{$fonts-path}/pt-sans-v11-latin-700.svg#PTSans') format('svg'); /* Legacy iOS */
-}
-
-/* roboto-condensed-300 - latin */
-@font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: url('#{$fonts-path}/roboto-condensed-v18-latin-300.eot'); /* IE9 Compat Modes */
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'),
-       url('#{$fonts-path}/roboto-condensed-v18-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-300.woff') format('woff'), /* Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-300.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+  src: local('Lato Light'), local('Lato-Light'),
+       url('#{$fonts-path}/lato-v16-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('#{$fonts-path}/lato-v16-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* roboto-condensed-regular - latin */
+/* lato-regular - latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: url('#{$fonts-path}/roboto-condensed-v18-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'),
-       url('#{$fonts-path}/roboto-condensed-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-regular.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('#{$fonts-path}/lato-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('#{$fonts-path}/lato-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* roboto-condensed-700 - latin */
+/* lato-700 - latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: url('#{$fonts-path}/roboto-condensed-v18-latin-700.eot'); /* IE9 Compat Modes */
-  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
-       url('#{$fonts-path}/roboto-condensed-v18-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('#{$fonts-path}/roboto-condensed-v18-latin-700.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+  src: local('Lato Bold'), local('Lato-Bold'),
+       url('#{$fonts-path}/lato-v16-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('#{$fonts-path}/lato-v16-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-900 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Lato Black'), local('Lato-Black'),
+       url('#{$fonts-path}/lato-v16-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('#{$fonts-path}/lato-v16-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 

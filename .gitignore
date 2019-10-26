@@ -6,8 +6,7 @@
 *.DS_Store
 *.orig
 *.sass-cache/*
-craft
-craft.bat
+
 
 _old/
 /sql

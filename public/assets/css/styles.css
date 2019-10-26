@@ -172,7 +172,7 @@ html {
 
 body {
   color: #000;
-  font-family: "Roboto Condensed";
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -379,65 +379,37 @@ sub {
   top: 0.4em;
 }
 
-/* raleway-regular - latin */
+/* lato-300 - latin */
 @font-face {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/fonts/raleway-v14-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("Raleway"), local("Raleway-Regular"), url("/assets/fonts/raleway-v14-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/raleway-v14-latin-regular.woff2") format("woff2"), url("/assets/fonts/raleway-v14-latin-regular.woff") format("woff"), url("/assets/fonts/raleway-v14-latin-regular.ttf") format("truetype"), url("/assets/fonts/raleway-v14-latin-regular.svg#Raleway") format("svg");
-  /* Legacy iOS */
-}
-/* pt-sans-regular - latin */
-@font-face {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/fonts/pt-sans-v11-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("PT Sans"), local("PTSans-Regular"), url("/assets/fonts/pt-sans-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/pt-sans-v11-latin-regular.woff2") format("woff2"), url("/assets/fonts/pt-sans-v11-latin-regular.woff") format("woff"), url("/assets/fonts/pt-sans-v11-latin-regular.ttf") format("truetype"), url("/assets/fonts/pt-sans-v11-latin-regular.svg#PTSans") format("svg");
-  /* Legacy iOS */
-}
-/* pt-sans-700 - latin */
-@font-face {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/assets/fonts/pt-sans-v11-latin-700.eot");
-  /* IE9 Compat Modes */
-  src: local("PT Sans Bold"), local("PTSans-Bold"), url("/assets/fonts/pt-sans-v11-latin-700.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/pt-sans-v11-latin-700.woff2") format("woff2"), url("/assets/fonts/pt-sans-v11-latin-700.woff") format("woff"), url("/assets/fonts/pt-sans-v11-latin-700.ttf") format("truetype"), url("/assets/fonts/pt-sans-v11-latin-700.svg#PTSans") format("svg");
-  /* Legacy iOS */
-}
-/* roboto-condensed-300 - latin */
-@font-face {
-  font-family: "Roboto Condensed";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 300;
-  src: url("/assets/fonts/roboto-condensed-v18-latin-300.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto Condensed Light"), local("RobotoCondensed-Light"), url("/assets/fonts/roboto-condensed-v18-latin-300.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/roboto-condensed-v18-latin-300.woff2") format("woff2"), url("/assets/fonts/roboto-condensed-v18-latin-300.woff") format("woff"), url("/assets/fonts/roboto-condensed-v18-latin-300.ttf") format("truetype"), url("/assets/fonts/roboto-condensed-v18-latin-300.svg#RobotoCondensed") format("svg");
-  /* Legacy iOS */
+  src: local("Lato Light"), local("Lato-Light"), url("/assets/fonts/lato-v16-latin-300.woff2") format("woff2"), url("/assets/fonts/lato-v16-latin-300.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* roboto-condensed-regular - latin */
+/* lato-regular - latin */
 @font-face {
-  font-family: "Roboto Condensed";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  src: url("/assets/fonts/roboto-condensed-v18-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto Condensed"), local("RobotoCondensed-Regular"), url("/assets/fonts/roboto-condensed-v18-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/roboto-condensed-v18-latin-regular.woff2") format("woff2"), url("/assets/fonts/roboto-condensed-v18-latin-regular.woff") format("woff"), url("/assets/fonts/roboto-condensed-v18-latin-regular.ttf") format("truetype"), url("/assets/fonts/roboto-condensed-v18-latin-regular.svg#RobotoCondensed") format("svg");
-  /* Legacy iOS */
+  src: local("Lato Regular"), local("Lato-Regular"), url("/assets/fonts/lato-v16-latin-regular.woff2") format("woff2"), url("/assets/fonts/lato-v16-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* roboto-condensed-700 - latin */
+/* lato-700 - latin */
 @font-face {
-  font-family: "Roboto Condensed";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  src: url("/assets/fonts/roboto-condensed-v18-latin-700.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto Condensed Bold"), local("RobotoCondensed-Bold"), url("/assets/fonts/roboto-condensed-v18-latin-700.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/roboto-condensed-v18-latin-700.woff2") format("woff2"), url("/assets/fonts/roboto-condensed-v18-latin-700.woff") format("woff"), url("/assets/fonts/roboto-condensed-v18-latin-700.ttf") format("truetype"), url("/assets/fonts/roboto-condensed-v18-latin-700.svg#RobotoCondensed") format("svg");
-  /* Legacy iOS */
+  src: local("Lato Bold"), local("Lato-Bold"), url("/assets/fonts/lato-v16-latin-700.woff2") format("woff2"), url("/assets/fonts/lato-v16-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-900 - latin */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Lato Black"), local("Lato-Black"), url("/assets/fonts/lato-v16-latin-900.woff2") format("woff2"), url("/assets/fonts/lato-v16-latin-900.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
   font-family: "symbolica";
@@ -1465,7 +1437,8 @@ body.sal-disabled [data-sal|=flip] {
     width: 100%;
   }
 }
-.site-header .navigation .nav-main-list[aria-expanded=false], .site-header .navigation .nav-main-list[aria-expanded=true] {
+.site-header .navigation .nav-main-list[aria-expanded=false],
+.site-header .navigation .nav-main-list[aria-expanded=true] {
   left: 0;
 }
 
@@ -1479,7 +1452,7 @@ body.sal-disabled [data-sal|=flip] {
   display: block;
   padding: 10px 10px;
   margin: 3px 0 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-decoration: none;
   transition: background 0.2s ease-out;
   box-sizing: border-box;
@@ -1490,6 +1463,7 @@ body.sal-disabled [data-sal|=flip] {
     color: #1f1f1f;
     padding: 9px;
     margin: 0;
+    font-size: 0.9rem;
     white-space: pre;
   }
 }
@@ -1575,6 +1549,7 @@ body.sal-disabled [data-sal|=flip] {
   .site-header .navigation .subnav ul a {
     margin: 0;
     padding: 6px 15px;
+    font-size: 0.9rem;
   }
 }
 .site-header .navigation .subnav ul li.lined:before {
