@@ -5,7 +5,7 @@
   {%- import _self as self -%}
 
   {%- if wrapUl %}
-    <ul class="sub-menu {{ cssClass }}__nav--items--level{{ depth }}">
+    <ul class="sub-menu {{ cssClass }}__nav--items--level{{ depth }}" hidden="true" ">
   {% endif -%}
 
   {%- for entry in entries.all() -%}

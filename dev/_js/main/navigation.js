@@ -1,4 +1,6 @@
-const n = document.querySelectorAll(".nav-main-list [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
+
+const navElem = '.main__nav--items--level1';
+const n = document.querySelectorAll(".main__nav--items--level1 [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
 
 window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), n.forEach(function(e) {
   let t = document.getElementById(e.getAttribute("aria-controls")),
@@ -12,7 +14,7 @@ window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = 
   9 === t.keyCode && (document.body.classList.add("user-is-tabbing"), document.getElementById("search_modal").classList.add("user-is-tabbing"), window.removeEventListener("keydown", e))
 });
 
-const i = document.querySelectorAll(".nav-main-list [aria-haspopup]");
+const i = document.querySelectorAll(".main__nav--items--level1 [aria-haspopup]");
 
 function d() {
   c && c.hasAttribute("hidden") && (c.removeAttribute("hidden"), u.setAttribute("aria-expanded", !0), document.querySelector(".navigation").classList.add("is-open"))
@@ -47,8 +49,8 @@ window.addEventListener("keyup", function(e) {
   s[e.keyCode] = !0
 });
 
-let c = document.querySelector(".nav-main-list"),
-    u = document.querySelector(".nav-main-link");
+let c = document.querySelector('.main__nav--items--level1'),
+    u = document.querySelector('.main__nav--items--level1');
 
 function o() {
   return window.matchMedia("(min-width: 900px)").matches

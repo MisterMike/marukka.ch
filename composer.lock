@@ -2049,7 +2049,8 @@
             "dist": {
                 "type": "path",
                 "url": "dev/_plugins/facebookevents",
-                "reference": "24ae85eaf9af4645020fc598e140d9505d2e2b86"
+                "reference": "24ae85eaf9af4645020fc598e140d9505d2e2b86",
+                "shasum": null
             },
             "require": {
                 "facebook/graph-sdk": "^5.7"

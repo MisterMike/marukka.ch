@@ -6,7 +6,7 @@ mix.setPublicPath('public/assets/')
   .js('dev/_js/main.js', 'js')
   .js('dev/_js/plugins.js', 'js')
   .sass('dev/_sass/styles.scss', 'css')
-  .sass('dev/_sass/_vendors/photoswipe/src/css/main.scss', 'plugins/photoswipe/photoswipe.css')
+  .sass('dev/_sass/_vendors/photoswipe/css/main.scss', 'plugins/photoswipe/photoswipe.css')
   .options({
     processCssUrls: false,
    })

@@ -280,7 +280,8 @@ if (detectIE()) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var n = document.querySelectorAll(".nav-main-list [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
+var navElem = '.main__nav--items--level1';
+var n = document.querySelectorAll(".main__nav--items--level1 [aria-haspopup], .search-menu [aria-haspopup], .nav-sidebar [aria-haspopup]");
 window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach), n.forEach(function (e) {
   var t = document.getElementById(e.getAttribute("aria-controls")),
       n = function n() {
@@ -293,7 +294,7 @@ window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = 
 }), window.addEventListener("keydown", function e(t) {
   9 === t.keyCode && (document.body.classList.add("user-is-tabbing"), document.getElementById("search_modal").classList.add("user-is-tabbing"), window.removeEventListener("keydown", e));
 });
-var i = document.querySelectorAll(".nav-main-list [aria-haspopup]");
+var i = document.querySelectorAll(".main__nav--items--level1 [aria-haspopup]");
 
 function d() {
   c && c.hasAttribute("hidden") && (c.removeAttribute("hidden"), u.setAttribute("aria-expanded", !0), document.querySelector(".navigation").classList.add("is-open"));
@@ -330,8 +331,8 @@ window.addEventListener("keyup", function (e) {
 }), window.addEventListener("keydown", function (e) {
   s[e.keyCode] = !0;
 });
-var c = document.querySelector(".nav-main-list"),
-    u = document.querySelector(".nav-main-link");
+var c = document.querySelector('.main__nav--items--level1'),
+    u = document.querySelector('.main__nav--items--level1');
 
 function o() {
   return window.matchMedia("(min-width: 900px)").matches;
@@ -582,10 +583,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
-/***/ "./dev/_sass/_vendors/photoswipe/src/css/main.scss":
-/*!*********************************************************!*\
-  !*** ./dev/_sass/_vendors/photoswipe/src/css/main.scss ***!
-  \*********************************************************/
+/***/ "./dev/_sass/_vendors/photoswipe/css/main.scss":
+/*!*****************************************************!*\
+  !*** ./dev/_sass/_vendors/photoswipe/css/main.scss ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1777,15 +1778,15 @@ module.exports = g;
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************************************************************!*\
-  !*** multi ./dev/_js/main.js ./dev/_sass/styles.scss ./dev/_sass/_vendors/photoswipe/src/css/main.scss ***!
-  \*********************************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** multi ./dev/_js/main.js ./dev/_sass/styles.scss ./dev/_sass/_vendors/photoswipe/css/main.scss ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Webcode/craft-grid/dev/_js/main.js */"./dev/_js/main.js");
 __webpack_require__(/*! /Webcode/craft-grid/dev/_sass/styles.scss */"./dev/_sass/styles.scss");
-module.exports = __webpack_require__(/*! /Webcode/craft-grid/dev/_sass/_vendors/photoswipe/src/css/main.scss */"./dev/_sass/_vendors/photoswipe/src/css/main.scss");
+module.exports = __webpack_require__(/*! /Webcode/craft-grid/dev/_sass/_vendors/photoswipe/css/main.scss */"./dev/_sass/_vendors/photoswipe/css/main.scss");
 
 
 /***/ })
