@@ -140,6 +140,16 @@
 
   }
 
+  a[aria-haspopup=true]:after {
+      content: $icon-down-open;
+      font-family: 'symbolica';
+      font-size:.8rem;
+      top: 0;
+      left: 6px;
+      position:relative
+    }
+
+
 }
 
 .main__header .navigation .main__nav--item--level1 svg {

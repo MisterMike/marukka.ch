@@ -253,15 +253,15 @@ return [
   // update kreisvier
   'urlTransforms' => [
     // the 'hero' transform - these image will be 7:3, and 1000px wide
-    'mobile' => [
+    'banner-mobile' => [
       'aspectRatio' => 7/3,
       'width' => 800
     ],
-    'tablet' => [
+    'banner-tablet' => [
       'aspectRatio' => 7/3,
       'width' => 1000
     ],
-    'desktop' => [
+    'banner-desktop' => [
       'aspectRatio' => 7/3,
       'width' => 2000
     ]

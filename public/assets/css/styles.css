@@ -1479,6 +1479,14 @@ body.sal-disabled [data-sal|=flip] {
     font-size: 0.9rem;
   }
 }
+.main__header .navigation .main__nav--item--level1 a[aria-haspopup=true]:after {
+  content: "\E814";
+  font-family: "symbolica";
+  font-size: 0.8rem;
+  top: 0;
+  left: 6px;
+  position: relative;
+}
 
 .main__header .navigation .main__nav--item--level1 svg {
   top: 3px;
@@ -2465,7 +2473,7 @@ hr.abstand--lg {
 }
 .tab__button:before {
   content: "\E814";
-  font-family: "icomoon";
+  font-family: "symbolica";
   display: block;
   transition: all 0.25s ease;
 }
