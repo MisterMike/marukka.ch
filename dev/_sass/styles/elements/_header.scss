@@ -2,28 +2,23 @@
 // HEADER 
 //////////////////////////////
 
-.site-header {
+.main__header {
     position: relative;
     background-color: $accent-color;
-    background-image: url("/assets/images/texture-narrow.png");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size:.875em
-}
+    font-size: .9em;
 
-@media screen and (min-width: 900px) {
-    .site-header {
-        background-image: url("/assets/images/texture-sm.png");
-        background-position:50%
+    @media screen and (min-width: $break-tablet) {
+        //background-position:50%
+    }
+
+    @media screen and (min-width: $break-desktop-wide) {
+        //padding:0 1em;
     }
 }
 
-@media screen and (min-width: 1600px) {
-    .site-header .container {
-        padding:0 1em
-    }
-}
+
+
+
 
 
 

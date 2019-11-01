@@ -6,7 +6,7 @@
 
     {#  Generate the fullscreen homescreen with slider and sectionTeaser  #}
     {% if entry.sliderMatrix|length %}
-        <section class="homepage__startscreen">
+        <section class="homepage__slider">
 
             {%- include "_routers/component" with { blocks: entry.sliderMatrix.all() } only -%}
 

@@ -74,30 +74,44 @@
         box-shadow: -18vw 0 0 #f5f2ef
     }
 }
+
+// Fullscreen Promo Banner
+
 .promo.promo--wide {
-    background: #f5f2ef
+    background: $grey-light;
+
+    .container {
+        width: 100%;
+
+        .promo-img {
+            margin: 0;
+            width: 100%;
+            max-height: 350px;
+
+            img {
+                margin-bottom: 0
+            }
+        }
+
+        .promo-content {
+            padding: 1em 4vw
+        }
+
+        .promo-description {
+            border: none;
+            padding: 1em 0;
+            width: 96%;
+            max-width: none;
+            margin: auto
+        }
+
+
+    }
+
 }
-.promo.promo--wide .container {
-    width: 100%
-}
-.promo.promo--wide .container .promo-img {
-    margin: 0;
-    width: 100%;
-    max-height: 350px
-}
-.promo.promo--wide .container .promo-img img {
-    margin-bottom: 0
-}
-.promo.promo--wide .container .promo-content {
-    padding: 1em 4vw
-}
-.promo.promo--wide .container .promo-description {
-    border: none;
-    padding: 1em 0;
-    width: 96%;
-    max-width: none;
-    margin: auto
-}
+
+
+
 @media screen and (min-width: $break-tablet) { //900
     .promo.promo--wide .container {
         max-width: none;
@@ -130,5 +144,43 @@
     .promo.promo--wide.promo--image-left .promo-img {
         padding-right: 2%;
         padding-left: 0
+    }
+}
+
+// Fullscreen Promo without Text Content
+
+.promo.promo--full {
+        background: $grey-light;
+
+    .container {
+        width: 100%;
+
+        @media screen and (min-width: $break-tablet) {
+            max-width: none;
+            width: 100%;
+        }
+
+        .promo-img {
+            margin: 0;
+            width: 100%;
+            max-height: 350px;
+
+            @media screen and (min-width: $break-tablet) {
+                max-height:450px;
+                padding-left: 0;
+                width: 100%;
+            }
+
+            img {
+                margin-bottom: 0;
+                @media screen and (min-width: $break-tablet) {
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
     }
 }

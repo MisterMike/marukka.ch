@@ -39,40 +39,42 @@ figure figcaption {
 
 .block-link {
   display: block;
-  text-decoration:none
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color:#1f1f1f
+  }
 }
 
-.block-link:hover {
-  text-decoration: none;
-  color:#1f1f1f
-}
+
 
 [hidden=true] {
   display:none !important
 }
 
+
 .show-desktop {
-  display:none
+  display:none;
+
+  @media screen and (min-width: $break-tablet) {
+    display:inline-block;
+  }
+
 }
 
-@media screen and (min-width: 900px) {
-  .show-desktop {
-    display:inline-block
-  }
-}
 
 .hide-desktop {
-  display:block
-}
+  display:block;
 
-@media screen and (min-width: 900px) {
-  .hide-desktop {
+  @media screen and (min-width: $break-tablet) {
     display:none
   }
 }
 
+
 .rounded, .rounded img {
-  border-radius:50em
+  border-radius:50em;
 }
 
 

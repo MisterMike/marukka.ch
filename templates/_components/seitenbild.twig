@@ -9,17 +9,17 @@
 
   <style>
   
-    .seitenbild {
+    .seitenbild__image {
         height: 500px;
-        background: url("{{ craft.picture.url(image, 'mobile') }}") no-repeat center;
+        background: url("{{ craft.picture.url(image, 'banner-mobile') }}") no-repeat center;
         background-size: cover;
         background-position: {{ position }};
     }            
 
     @media (min-width: 768px) {
 
-      .seitenbild {
-          background: url("{{ craft.picture.url(image, 'tablet') }}") no-repeat center;
+      .seitenbild__image {
+          background: url("{{ craft.picture.url(image, 'banner-tablet') }}") no-repeat center;
           background-size: cover;
           background-position: {{ position }};
       }
@@ -28,8 +28,8 @@
 
     @media (min-width: 1224px) {
 
-        .seitenbild {
-          background: url("{{ craft.picture.url(image, 'desktop') }}") no-repeat center;
+        .seitenbild__image {
+          background: url("{{ craft.picture.url(image, 'banner-desktop') }}") no-repeat center;
           background-size: cover;
           background-position: {{ position }};
         }
@@ -38,6 +38,10 @@
 
   </style>
   
-  <div class="seitenbild"></div>
+  <section id="seitenbild-{{ entry.id }}" class="seitenbild">
+      <div class="container">
+          <div class="seitenbild__image"></div>
+      </div>
+  </section>
 
 {% endif %}

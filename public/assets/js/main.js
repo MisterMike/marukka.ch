@@ -107,12 +107,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_photoswipe__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_main_photoswipe__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
 /* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rellax */ "./node_modules/rellax/rellax.js");
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rellax__WEBPACK_IMPORTED_MODULE_6__);
 
  // import SmoothScroll from './main/smoothscroll';
 //import FormLabel from './main/formlabel';
-
 
 
 
@@ -123,34 +120,6 @@ var Carousel = __webpack_require__(/*! vanilla-js-carousel */ "./node_modules/va
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementsByTagName("html")[0].className += " inited";
-  var rellax = new rellax__WEBPACK_IMPORTED_MODULE_6___default.a('.rellax', {
-    speed: .5,
-    center: false,
-    wrapper: null,
-    round: true,
-    vertical: true,
-    horizontal: false
-  });
-  var carousel = new Carousel({
-    elem: 'miniCarousel',
-    // id of the carousel container
-    autoplay: true,
-    // starts the rotation automatically
-    infinite: true,
-    // enables the infinite mode
-    interval: 2500,
-    // interval between slide changes
-    initial: 0,
-    // slide to start with
-    dots: false,
-    // show navigation dots
-    arrows: false,
-    // show navigation arrows
-    buttons: false,
-    // hide play/stop buttons,
-    btnStopText: 'Pause' // STOP button text
-
-  });
 });
 
 /***/ }),
@@ -289,6 +258,7 @@ window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = 
   };
 
   e.addEventListener("click", function (i) {
+    // menu click
     i.preventDefault(), "true" === e.getAttribute("aria-expanded") ? n() : (e.setAttribute("aria-expanded", "true"), t.removeAttribute("hidden"));
   }), window.addEventListener("resize", n);
 }), window.addEventListener("keydown", function e(t) {
@@ -304,12 +274,12 @@ function r() {
   c.setAttribute("hidden", !0), u.setAttribute("aria-expanded", !1), document.querySelector(".navigation").classList.remove("is-open");
 }
 
-function o2() {
+function tabletWidth() {
   return window.matchMedia("(min-width: 900px)").matches;
 }
 
 function a() {
-  o2() ? d() : r();
+  tabletWidth() ? d() : r();
 }
 
 i.forEach(function (e) {
@@ -332,22 +302,22 @@ window.addEventListener("keyup", function (e) {
   s[e.keyCode] = !0;
 });
 var c = document.querySelector('.main__nav--items--level1'),
-    u = document.querySelector('.main__nav--items--level1');
-
-function o() {
-  return window.matchMedia("(min-width: 900px)").matches;
-}
+    u = document.querySelector('.nav-main-link');
 
 function l() {
-  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== o() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")));
+  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== tabletWidth() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")));
 }
 
 function m() {
-  !0 !== o() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"));
+  !0 !== tabletWidth() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"));
 }
 
-function f() {
-  o2() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m();
+function sidebarWideLink() {
+  if (!h || !h.length) {
+    return;
+  }
+
+  tabletWidth() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m();
 }
 
 u && u.addEventListener("click", function (e) {
@@ -361,9 +331,34 @@ window.addEventListener("keyup", function (e) {
 });
 var v = document.querySelector(".nav-sidebar"),
     h = document.querySelector(".nav-sidebar-link");
-h && h.addEventListener("click", function (e) {
+h && h.length && h.addEventListener("click", function (e) {
   e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? l() : m();
-}), window.addEventListener("resize", f), window.addEventListener("load", f);
+}), window.addEventListener("resize", sidebarWideLink), window.addEventListener("load", sidebarWideLink); // SEARCH MODAL
+
+var searchOpen = document.getElementById("search_modal"),
+    mainBody = document.body;
+mainBody.parentNode.insertBefore(searchOpen, mainBody), function () {
+  "use strict";
+
+  var e,
+      searchModal = document.getElementById("search_modal"),
+      searchOpen = document.getElementById("search_open"),
+      mainBody = searchModal.querySelector(".close-button"),
+      searchModalContent = searchModal.querySelector(".modal-content"),
+      r = !1;
+
+  function o(searchOpen) {
+    !r || searchOpen.keyCode && 27 !== searchOpen.keyCode || (searchModal.setAttribute("aria-hidden", "true"), searchModal.setAttribute("tabindex", "-1"), r = !1, e.focus());
+  }
+
+  searchModal.addEventListener("click", function (e) {
+    e.target == searchModalContent.parentNode && o(e);
+  }, !1), searchOpen.addEventListener("click", function () {
+    e = document.activeElement, searchModal.setAttribute("aria-hidden", "false"), r = !0, searchModal.setAttribute("tabindex", "0"), searchModal.focus(), search.focus();
+  }), mainBody.addEventListener("click", o), document.addEventListener("keydown", function (e) {
+    r && !searchModalContent.contains(e.target) && e.target !== mainBody && (e.stopPropagation(), search.focus());
+  }), document.addEventListener("keydown", o);
+}();
 
 /***/ }),
 
@@ -1335,406 +1330,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
-/***/ "./node_modules/rellax/rellax.js":
-/*!***************************************!*\
-  !*** ./node_modules/rellax/rellax.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-// ------------------------------------------
-// Rellax.js
-// Buttery smooth parallax library
-// Copyright (c) 2016 Moe Amaya (@moeamaya)
-// MIT license
-//
-// Thanks to Paraxify.js and Jaime Cabllero
-// for parallax concepts
-// ------------------------------------------
-
-(function (root, factory) {
-  if (true) {
-    // AMD. Register as an anonymous module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-}(typeof window !== "undefined" ? window : global, function () {
-  var Rellax = function(el, options){
-    "use strict";
-
-    var self = Object.create(Rellax.prototype);
-
-    var posY = 0;
-    var screenY = 0;
-    var posX = 0;
-    var screenX = 0;
-    var blocks = [];
-    var pause = true;
-
-    // check what requestAnimationFrame to use, and if
-    // it's not supported, use the onscroll event
-    var loop = window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      function(callback){ return setTimeout(callback, 1000 / 60); };
-
-    // store the id for later use
-    var loopId = null;
-
-    // Test via a getter in the options object to see if the passive property is accessed
-    var supportsPassive = false;
-    try {
-      var opts = Object.defineProperty({}, 'passive', {
-        get: function() {
-          supportsPassive = true;
-        }
-      });
-      window.addEventListener("testPassive", null, opts);
-      window.removeEventListener("testPassive", null, opts);
-    } catch (e) {}
-
-    // check what cancelAnimation method to use
-    var clearLoop = window.cancelAnimationFrame || window.mozCancelAnimationFrame || clearTimeout;
-
-    // check which transform property to use
-    var transformProp = window.transformProp || (function(){
-        var testEl = document.createElement('div');
-        if (testEl.style.transform === null) {
-          var vendors = ['Webkit', 'Moz', 'ms'];
-          for (var vendor in vendors) {
-            if (testEl.style[ vendors[vendor] + 'Transform' ] !== undefined) {
-              return vendors[vendor] + 'Transform';
-            }
-          }
-        }
-        return 'transform';
-      })();
-
-    // Default Settings
-    self.options = {
-      speed: -2,
-      center: false,
-      wrapper: null,
-      relativeToWrapper: false,
-      round: true,
-      vertical: true,
-      horizontal: false,
-      callback: function() {},
-    };
-
-    // User defined options (might have more in the future)
-    if (options){
-      Object.keys(options).forEach(function(key){
-        self.options[key] = options[key];
-      });
-    }
-
-    // By default, rellax class
-    if (!el) {
-      el = '.rellax';
-    }
-
-    // check if el is a className or a node
-    var elements = typeof el === 'string' ? document.querySelectorAll(el) : [el];
-
-    // Now query selector
-    if (elements.length > 0) {
-      self.elems = elements;
-    }
-
-    // The elements don't exist
-    else {
-      console.warn("Rellax: The elements you're trying to select don't exist.");
-      return;
-    }
-
-    // Has a wrapper and it exists
-    if (self.options.wrapper) {
-      if (!self.options.wrapper.nodeType) {
-        var wrapper = document.querySelector(self.options.wrapper);
-
-        if (wrapper) {
-          self.options.wrapper = wrapper;
-        } else {
-          console.warn("Rellax: The wrapper you're trying to use doesn't exist.");
-          return;
-        }
-      }
-    }
-
-
-    // Get and cache initial position of all elements
-    var cacheBlocks = function() {
-      for (var i = 0; i < self.elems.length; i++){
-        var block = createBlock(self.elems[i]);
-        blocks.push(block);
-      }
-    };
-
-
-    // Let's kick this script off
-    // Build array for cached element values
-    var init = function() {
-      for (var i = 0; i < blocks.length; i++){
-        self.elems[i].style.cssText = blocks[i].style;
-      }
-
-      blocks = [];
-
-      screenY = window.innerHeight;
-      screenX = window.innerWidth;
-      setPosition();
-
-      cacheBlocks();
-
-      animate();
-
-      // If paused, unpause and set listener for window resizing events
-      if (pause) {
-        window.addEventListener('resize', init);
-        pause = false;
-        // Start the loop
-        update();
-      }
-    };
-
-    // We want to cache the parallax blocks'
-    // values: base, top, height, speed
-    // el: is dom object, return: el cache values
-    var createBlock = function(el) {
-      var dataPercentage = el.getAttribute( 'data-rellax-percentage' );
-      var dataSpeed = el.getAttribute( 'data-rellax-speed' );
-      var dataZindex = el.getAttribute( 'data-rellax-zindex' ) || 0;
-      var dataMin = el.getAttribute( 'data-rellax-min' );
-      var dataMax = el.getAttribute( 'data-rellax-max' );
-
-      // initializing at scrollY = 0 (top of browser), scrollX = 0 (left of browser)
-      // ensures elements are positioned based on HTML layout.
-      //
-      // If the element has the percentage attribute, the posY and posX needs to be
-      // the current scroll position's value, so that the elements are still positioned based on HTML layout
-      var wrapperPosY = self.options.wrapper ? self.options.wrapper.scrollTop : (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
-      // If the option relativeToWrapper is true, use the wrappers offset to top, subtracted from the current page scroll.
-      if (self.options.relativeToWrapper) {
-        var scrollPosY = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
-        wrapperPosY = scrollPosY - self.options.wrapper.offsetTop;
-      }
-      var posY = self.options.vertical ? ( dataPercentage || self.options.center ? wrapperPosY : 0 ) : 0;
-      var posX = self.options.horizontal ? ( dataPercentage || self.options.center ? self.options.wrapper ? self.options.wrapper.scrollLeft : (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft) : 0 ) : 0;
-
-      var blockTop = posY + el.getBoundingClientRect().top;
-      var blockHeight = el.clientHeight || el.offsetHeight || el.scrollHeight;
-
-      var blockLeft = posX + el.getBoundingClientRect().left;
-      var blockWidth = el.clientWidth || el.offsetWidth || el.scrollWidth;
-
-      // apparently parallax equation everyone uses
-      var percentageY = dataPercentage ? dataPercentage : (posY - blockTop + screenY) / (blockHeight + screenY);
-      var percentageX = dataPercentage ? dataPercentage : (posX - blockLeft + screenX) / (blockWidth + screenX);
-      if(self.options.center){ percentageX = 0.5; percentageY = 0.5; }
-
-      // Optional individual block speed as data attr, otherwise global speed
-      var speed = dataSpeed ? dataSpeed : self.options.speed;
-
-      var bases = updatePosition(percentageX, percentageY, speed);
-
-      // ~~Store non-translate3d transforms~~
-      // Store inline styles and extract transforms
-      var style = el.style.cssText;
-      var transform = '';
-
-      // Check if there's an inline styled transform
-      var searchResult = /transform\s*:/i.exec(style);
-      if (searchResult) {
-        // Get the index of the transform
-        var index = searchResult.index;
-
-        // Trim the style to the transform point and get the following semi-colon index
-        var trimmedStyle = style.slice(index);
-        var delimiter = trimmedStyle.indexOf(';');
-
-        // Remove "transform" string and save the attribute
-        if (delimiter) {
-          transform = " " + trimmedStyle.slice(11, delimiter).replace(/\s/g,'');
-        } else {
-          transform = " " + trimmedStyle.slice(11).replace(/\s/g,'');
-        }
-      }
-
-      return {
-        baseX: bases.x,
-        baseY: bases.y,
-        top: blockTop,
-        left: blockLeft,
-        height: blockHeight,
-        width: blockWidth,
-        speed: speed,
-        style: style,
-        transform: transform,
-        zindex: dataZindex,
-        min: dataMin,
-        max: dataMax
-      };
-    };
-
-    // set scroll position (posY, posX)
-    // side effect method is not ideal, but okay for now
-    // returns true if the scroll changed, false if nothing happened
-    var setPosition = function() {
-      var oldY = posY;
-      var oldX = posX;
-
-      posY = self.options.wrapper ? self.options.wrapper.scrollTop : (document.documentElement || document.body.parentNode || document.body).scrollTop || window.pageYOffset;
-      posX = self.options.wrapper ? self.options.wrapper.scrollLeft : (document.documentElement || document.body.parentNode || document.body).scrollLeft || window.pageXOffset;
-      // If option relativeToWrapper is true, use relative wrapper value instead.
-      if (self.options.relativeToWrapper) {
-        var scrollPosY = (document.documentElement || document.body.parentNode || document.body).scrollTop || window.pageYOffset;
-        posY = scrollPosY - self.options.wrapper.offsetTop;
-      }
-
-
-      if (oldY != posY && self.options.vertical) {
-        // scroll changed, return true
-        return true;
-      }
-
-      if (oldX != posX && self.options.horizontal) {
-        // scroll changed, return true
-        return true;
-      }
-
-      // scroll did not change
-      return false;
-    };
-
-    // Ahh a pure function, gets new transform value
-    // based on scrollPosition and speed
-    // Allow for decimal pixel values
-    var updatePosition = function(percentageX, percentageY, speed) {
-      var result = {};
-      var valueX = (speed * (100 * (1 - percentageX)));
-      var valueY = (speed * (100 * (1 - percentageY)));
-
-      result.x = self.options.round ? Math.round(valueX) : Math.round(valueX * 100) / 100;
-      result.y = self.options.round ? Math.round(valueY) : Math.round(valueY * 100) / 100;
-
-      return result;
-    };
-
-    // Remove event listeners and loop again
-    var deferredUpdate = function() {
-      window.removeEventListener('resize', deferredUpdate);
-      window.removeEventListener('orientationchange', deferredUpdate);
-      (self.options.wrapper ? self.options.wrapper : window).removeEventListener('scroll', deferredUpdate);
-      (self.options.wrapper ? self.options.wrapper : document).removeEventListener('touchmove', deferredUpdate);
-
-      // loop again
-      loopId = loop(update);
-    };
-
-    // Loop
-    var update = function() {
-      if (setPosition() && pause === false) {
-        animate();
-
-        // loop again
-        loopId = loop(update);
-      } else {
-        loopId = null;
-
-        // Don't animate until we get a position updating event
-        window.addEventListener('resize', deferredUpdate);
-        window.addEventListener('orientationchange', deferredUpdate);
-        (self.options.wrapper ? self.options.wrapper : window).addEventListener('scroll', deferredUpdate, supportsPassive ? { passive: true } : false);
-        (self.options.wrapper ? self.options.wrapper : document).addEventListener('touchmove', deferredUpdate, supportsPassive ? { passive: true } : false);
-      }
-    };
-
-    // Transform3d on parallax element
-    var animate = function() {
-      var positions;
-      for (var i = 0; i < self.elems.length; i++){
-        var percentageY = ((posY - blocks[i].top + screenY) / (blocks[i].height + screenY));
-        var percentageX = ((posX - blocks[i].left + screenX) / (blocks[i].width + screenX));
-
-        // Subtracting initialize value, so element stays in same spot as HTML
-        positions = updatePosition(percentageX, percentageY, blocks[i].speed);// - blocks[i].baseX;
-        var positionY = positions.y - blocks[i].baseY;
-        var positionX = positions.x - blocks[i].baseX;
-
-        // The next two "if" blocks go like this:
-        // Check if a limit is defined (first "min", then "max");
-        // Check if we need to change the Y or the X
-        // (Currently working only if just one of the axes is enabled)
-        // Then, check if the new position is inside the allowed limit
-        // If so, use new position. If not, set position to limit.
-
-        // Check if a min limit is defined
-        if (blocks[i].min !== null) {
-          if (self.options.vertical && !self.options.horizontal) {
-            positionY = positionY <= blocks[i].min ? blocks[i].min : positionY;
-          }
-          if (self.options.horizontal && !self.options.vertical) {
-            positionX = positionX <= blocks[i].min ? blocks[i].min : positionX;
-          }
-        }
-
-        // Check if a max limit is defined
-        if (blocks[i].max !== null) {
-          if (self.options.vertical && !self.options.horizontal) {
-            positionY = positionY >= blocks[i].max ? blocks[i].max : positionY;
-          }
-          if (self.options.horizontal && !self.options.vertical) {
-            positionX = positionX >= blocks[i].max ? blocks[i].max : positionX;
-          }
-        }
-
-        var zindex = blocks[i].zindex;
-
-        // Move that element
-        // (Set the new translation and append initial inline transforms.)
-        var translate = 'translate3d(' + (self.options.horizontal ? positionX : '0') + 'px,' + (self.options.vertical ? positionY : '0') + 'px,' + zindex + 'px) ' + blocks[i].transform;
-        self.elems[i].style[transformProp] = translate;
-      }
-      self.options.callback(positions);
-    };
-
-    self.destroy = function() {
-      for (var i = 0; i < self.elems.length; i++){
-        self.elems[i].style.cssText = blocks[i].style;
-      }
-
-      // Remove resize event listener if not pause, and pause
-      if (!pause) {
-        window.removeEventListener('resize', init);
-        pause = true;
-      }
-
-      // Clear the animation loop to prevent possible memory leak
-      clearLoop(loopId);
-      loopId = null;
-    };
-
-    // Init
-    init();
-
-    // Allow to recalculate the initial values whenever we want
-    self.refresh = init;
-
-    return self;
-  };
-  return Rellax;
-}));
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
 /***/ "./node_modules/vanilla-js-carousel/index.js":
 /*!***************************************************!*\
   !*** ./node_modules/vanilla-js-carousel/index.js ***!
@@ -1743,37 +1338,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /***/ (function(module, exports) {
 
 module.exports=function(t){function e(t,e,n){var i=C.querySelectorAll("."+T+" > ul li")[t];i.style.marginLeft=e,C.querySelector("."+T+" > ul").removeChild(i),C.querySelector("."+T+" > ul").insertAdjacentHTML(n,i.outerHTML)}function n(){var t=document.createElement("ul");t.classList.add(w),t.addEventListener("click",r.bind(this));for(var e=0;e<P;e++){var n=document.createElement("li");n.setAttribute("data-position",e),t.appendChild(n)}C.appendChild(t),i()}function i(){[].forEach.call(C.querySelectorAll("."+w+" li"),function(t){t.classList.remove("is-active")}),C.querySelectorAll("."+w+" li")[I].classList.add("is-active")}function r(t){"LI"===t.target.tagName&&(c(t.target.getAttribute("data-position")),h())}function l(){var t=document.createElement("button");t.innerHTML=A,t.classList.add(j);var e=document.createElement("button");e.innerHTML=x,e.classList.add(k),t.addEventListener("click",d),e.addEventListener("click",p),C.appendChild(t),C.appendChild(e)}function a(){var t=document.createElement("button");t.innerHTML=q,t.classList.add(M),t.addEventListener("click",b);var e=document.createElement("button");e.innerHTML=g,e.classList.add(H),e.addEventListener("click",E),C.appendChild(t),C.appendChild(e)}function o(t){t.style.marginLeft=""}function u(t){t.style.marginLeft=-C.offsetWidth+"px"}function c(t){var e=I-t;e<0?s(-e,p):s(e,d)}function s(t,e){for(var n=0;n<t;n++)e()}function d(){t.infinite?f():v(),h()}function f(){o(C.querySelectorAll("."+T+" > ul li")[0]),e(P-1,-C.offsetWidth+"px","afterBegin"),y(-1)}function v(){E(),0!==I&&(o(C.querySelectorAll("."+T+" > ul li")[I-1]),y(-1))}function p(){t.infinite?m():L(),h()}function m(){u(C.querySelectorAll("."+T+" > ul li")[1]),e(0,"","beforeEnd"),y(1)}function L(){I!==P-1?(u(C.querySelectorAll("."+T+" > ul li")[I]),y(1)):E()}function y(e){switch(I+=e){case-1:I=P-1;break;case P:I=0;break;default:I=I}t.dots&&i()}function h(){B&&(E(),b())}function b(){B||(B=setInterval(p.bind(this),S))}function E(){clearInterval(B),B=null}var C=document.getElementById(t.elem||"carousel"),S=t.interval||3e3,q=t.btnPlayText||"Play",g=t.btnStopText||"Stop",x=t.arrNextText||"&rsaquo;",A=t.arrPrevText||"&lsaquo;",T="js-Carousel",j="js-Carousel-arrowPrev",k="js-Carousel-arrowNext",w="js-Carousel-dots",H="js-Carousel-btnStop",M="js-Carousel-btnPlay",P=C.querySelectorAll("li").length,I=0,B=null;return P>1&&function(){var i={dots:function(){return n()},arrows:function(){return l()},buttons:function(){return a()},autoplay:function(){return b()},infinite:function(){return e(P-1,-C.offsetWidth+"px","afterBegin")},initial:function(){return c(t.initial>=P?P:t.initial)}};for(var r in i)t.hasOwnProperty(r)&&t[r]&&i[r]()}(),{live:function(){return I},show:c,prev:d,next:p,play:b,stop:E}};
-
-/***/ }),
-
-/***/ "./node_modules/webpack/buildin/global.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 

@@ -1,18 +1,18 @@
-{%- macro recursive_nav(entries, cssClass, depth, wrapUl) -%}
+{%- macro recursive_nav(entries, cssClass, depth, wrapUl, loopId) -%}
 
   {% set nichtAnzeigen = false %}
 
   {%- import _self as self -%}
 
   {%- if wrapUl %}
-    <ul class="sub-menu {{ cssClass }}__nav--items--level{{ depth }}" hidden="true" ">
+    <ul id="main__nav--link-{{loopId}}" class="sub-menu {{ cssClass }}__nav--items--level{{ depth }}" hidden="{{ depth > '0' ? 'true' : 'false'}}">
   {% endif -%}
 
   {%- for entry in entries.all() -%}
 
     {%- if entry.nichtInNavigationAnzeigen == false -%}
 
-        <li class="menu-item {{ cssClass }}__nav--item--level{{ depth }} {% if entry.hasDescendants %}has--children{% endif %} {{entry.callToActionButton ? 'ctaButton' : ''}}">
+        <li class="menu-item main__nav--item--level{{ depth }}">
           {%- set itemLink = entry.url -%}
 
           {%- if entry.hasDescendants -%}
@@ -30,9 +30,13 @@
             {% endif -%}
 
           {%- endif -%}
-          <a href="{{ itemLink }}" class="{{ cssClass }}__nav--link--level{{ depth }}">{{ entry.title }}</a>
+          <a 
+            href="{{ itemLink }}" 
+            class="main__nav--link--level{{ depth }}" 
+            aria-controls="main__nav--link-{{loop.index}}"
+            {{entry.hasDescendants ? 'aria-haspopup="true" aria-expanded="false"' : '' }}>{{ entry.title }}</a>
           {%- if entry.hasDescendants -%}
-            {{ self.recursive_nav(entry.children, cssClass, depth+1, true) }}
+            {{ self.recursive_nav(entry.children, cssClass, depth+1, true, loop.index) }}
           {%- endif -%}
         </li>
 
@@ -48,7 +52,7 @@
 
 {%- import _self as self -%}
 
-<ul class="{{ cssClass }}__nav--items--level1">
+<ul id="main__nav" class="{{ cssClass }}__nav--items--level1" aria-expanded="false">
 
   {% set navEntries = craft.entries.section(sectionName ?? entry.section).level(1) %}
   {{ self.recursive_nav(navEntries,(cssClass == "" ? entry.section : cssClass ), 1, false)  }}

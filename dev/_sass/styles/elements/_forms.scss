@@ -31,28 +31,45 @@ form label, form legend {
     margin-bottom:.125em
 }
 
-form label > a, form label > button, form label > em, form label > span, form legend > a, form legend > button, form legend > em, form legend > span {
+form label > a, 
+form label > button, 
+form label > em, 
+form label > span, 
+form legend > a, 
+form legend > button, 
+form legend > em, 
+form legend > span {
     float:right
 }
 
-form label .inline, form legend .inline {
+form label .inline, 
+form legend .inline {
     float:none
 }
 
-form input[type=email], form input[type=number], form input[type=password], form input[type=search], form input[type=text], form textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+form input[type=email], 
+form input[type=number], 
+form input[type=password], 
+form input[type=search], 
+form input[type=text], 
+form textarea {
     appearance:none
 }
 
-form input[type=email], form input[type=number], form input[type=password], form input[type=search], form input[type=text], form select, form textarea {
+form input[type=email], 
+form input[type=number], 
+form input[type=password], 
+form input[type=search], 
+form input[type=text], 
+form select, 
+form textarea {
     max-width: 100%;
     width: 100%;
     border: 2px solid #ddd;
     padding: .5em;
     font-size: 18px;
     font-size: 1.125rem;
-    font-family: soleil, sans-serif;
+    font-family: $base-font-family;
     margin-bottom: .125em;
     border-radius:0
 }
@@ -61,19 +78,27 @@ form select {
     font-size:16px
 }
 
-form input[type=email]:focus, form input[type=number]:focus, form input[type=password]:focus, form input[type=search]:focus, form input[type=text]:focus, form select:focus, form textarea:focus {
+form input[type=email]:focus, 
+form input[type=number]:focus, 
+form input[type=password]:focus, 
+form input[type=search]:focus, 
+form input[type=text]:focus, 
+form select:focus, 
+form textarea:focus {
     border-color: #acdbda;
     outline:none
 }
 
-form input[type=checkbox], form input[type=radio] {
+form input[type=checkbox], 
+form input[type=radio] {
     float: left;
     height: 1em;
     width: 1em;
     font-size:16px
 }
 
-form input[type=checkbox] + label, form input[type=radio] + label {
+form input[type=checkbox] + label, 
+form input[type=radio] + label {
     margin-left: 1.633em;
     line-height: 22px;
     font-size:16px
@@ -88,14 +113,16 @@ form .input {
     margin-bottom:1em
 }
 
-form input.error, form select.error, form textarea.error {
+form input.error, 
+form select.error, 
+form textarea.error {
     border-color: red;
     outline:none
 }
 
 form .error-description {
     color: #ddd;
-    font-style: italic;
+    font-style: normal;
     font-size:14px
 }
 
@@ -116,14 +143,8 @@ fieldset legend {
 }
 
 .form--inline {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
     align-items: stretch;
     width: 100%;
     margin: 0 auto;
@@ -140,9 +161,9 @@ fieldset legend {
     flex-grow:3
 }
 
-.form--inline input[type=email], .form--inline input[type=search], .form--inline input[type=text] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+.form--inline input[type=email], 
+.form--inline input[type=search], 
+.form--inline input[type=text] {
     appearance: none;
     border: 2px solid #ddd;
     border-right: none;
@@ -154,7 +175,7 @@ fieldset legend {
 }
 
 .form--inline input[type=submit] {
-    font-family: soleil, sans-serif;
+    font-family: $base-font-family;
     margin: 0;
     padding: 1rem;
     height: 50px;
@@ -163,17 +184,18 @@ fieldset legend {
 
 input::-webkit-input-placeholder {
     font-style: italic;
-    color:rgba(0, 0, 0, .836)
+    color:rgba(0, 0, 0, .6)
 }
 
-input:-ms-input-placeholder, input::-ms-input-placeholder {
+input:-ms-input-placeholder, 
+input::-ms-input-placeholder {
     font-style: italic;
-    color:rgba(0, 0, 0, .836)
+    color:rgba(0, 0, 0, .6)
 }
 
 input::placeholder {
     font-style: italic;
-    color:rgba(0, 0, 0, .836)
+    color:rgba(0, 0, 0, .6)
 }
 
 ::-webkit-input-placeholder {
@@ -190,11 +212,7 @@ input::placeholder {
     grid-template-columns: 1fr;
     min-height: 50vh;
     place-items: auto center;
-    -webkit-box-align: auto center;
-    -ms-flex-align: auto center;
     align-items: auto center;
-    -webkit-box-pack: auto center;
-    -ms-flex-pack: auto center;
     justify-content:auto center
 }
 

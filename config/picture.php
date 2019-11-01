@@ -155,7 +155,10 @@ return [
           // string (uses string value for src attribute value)
           'lazysizes' => true,
           'img' => [
-              'sizes' => '20vw',
+              'sizes' => implode(', ', [
+            '(max-width: 900px) 100vw',
+            '1200px'
+          ]),
               'widths' => [800, 1200]
           ],
 

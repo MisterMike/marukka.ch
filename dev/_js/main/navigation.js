@@ -8,6 +8,7 @@ window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = 
         e.setAttribute("aria-expanded", "false"), t.setAttribute("hidden", "true")
       };
   e.addEventListener("click", function(i) {
+    // menu click
     i.preventDefault(), "true" === e.getAttribute("aria-expanded") ? n() : (e.setAttribute("aria-expanded", "true"), t.removeAttribute("hidden"))
   }), window.addEventListener("resize", n)
 }), window.addEventListener("keydown", function e(t) {
@@ -24,12 +25,13 @@ function r() {
   c.setAttribute("hidden", !0), u.setAttribute("aria-expanded", !1), document.querySelector(".navigation").classList.remove("is-open")
 }
 
-function o2() {
+function tabletWidth() {
   return window.matchMedia("(min-width: 900px)").matches
 }
 
+
 function a() {
-  o2() ? d() : r()
+  tabletWidth() ? d() : r()
 }
 
 i.forEach(function(e) {
@@ -42,6 +44,7 @@ i.forEach(function(e) {
       }
   })
 });
+
 var s = {};
 window.addEventListener("keyup", function(e) {
   s[e.keyCode] = !1
@@ -50,23 +53,23 @@ window.addEventListener("keyup", function(e) {
 });
 
 let c = document.querySelector('.main__nav--items--level1'),
-    u = document.querySelector('.main__nav--items--level1');
+    u = document.querySelector('.nav-main-link');
 
-function o() {
-  return window.matchMedia("(min-width: 900px)").matches
-}
 
 function l() {
-  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== o() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")))
+  v && v.hasAttribute("hidden") && (v.removeAttribute("hidden"), !0 !== tabletWidth() && (h.setAttribute("aria-expanded", !0), document.querySelector(".nav-sidebar").classList.add("is-open")))
 }
 
 function m() {
-  !0 !== o() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"))
+  !0 !== tabletWidth() && v && (v.setAttribute("hidden", !0), h.setAttribute("aria-expanded", !1), document.querySelector(".nav-sidebar").classList.remove("is-open"))
 }
 
-function f() {
-  o2() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m()
+function sidebarWideLink() {
+  if (!h || !h.length) {return}
+  tabletWidth() ? (l(), document.querySelector(".nav-sidebar-link").classList.remove("wide")) : m()
+  
 }
+
 u && u.addEventListener("click", function(e) {
   e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? d() : r()
 }), window.addEventListener("resize", a), window.addEventListener("load", a), a();
@@ -80,6 +83,31 @@ window.addEventListener("keyup", function(e) {
 let v = document.querySelector(".nav-sidebar"),
     h = document.querySelector(".nav-sidebar-link");
 
-h && h.addEventListener("click", function(e) {
+h && h.length && h.addEventListener("click", function(e) {
   e.preventDefault(), "false" === this.getAttribute("aria-expanded") ? l() : m()
-}), window.addEventListener("resize", f), window.addEventListener("load", f)
+}), window.addEventListener("resize", sidebarWideLink), window.addEventListener("load", sidebarWideLink);
+
+// SEARCH MODAL
+
+var searchOpen = document.getElementById("search_modal"),
+    mainBody = document.body;
+
+    mainBody.parentNode.insertBefore(searchOpen, mainBody), function() {
+      "use strict";
+      var e,
+          searchModal = document.getElementById("search_modal"),
+          searchOpen = document.getElementById("search_open"),
+          mainBody = searchModal.querySelector(".close-button"),
+          searchModalContent = searchModal.querySelector(".modal-content"),
+          r = !1;
+          function o(searchOpen) {
+            !r || searchOpen.keyCode && 27 !== searchOpen.keyCode || (searchModal.setAttribute("aria-hidden", "true"), searchModal.setAttribute("tabindex", "-1"), r = !1, e.focus())
+          }
+          searchModal.addEventListener("click", function(e) {
+                e.target == searchModalContent.parentNode && o(e)
+            }, !1), searchOpen.addEventListener("click", function() {
+                e = document.activeElement, searchModal.setAttribute("aria-hidden", "false"), r = !0, searchModal.setAttribute("tabindex", "0"), searchModal.focus(), search.focus()
+            }), mainBody.addEventListener("click", o), document.addEventListener("keydown", function(e) {
+                r && !searchModalContent.contains(e.target) && e.target !== mainBody && (e.stopPropagation(), search.focus())
+            }), document.addEventListener("keydown", o)
+        }()

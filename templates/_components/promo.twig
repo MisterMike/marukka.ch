@@ -15,8 +15,7 @@
 
             {% set image = block.bild.one %}
             <div class="promo-img">
-                <img src="http://localhost:3000/assets/img/_800xAUTO_crop_bottom-right_80_none/Basel-Rhen-1170x570.jpg" alt="">
-{#                {{ craft.picture.element( image, 'promo', { alt: image.title, transform: { position: 'bottom-right', quality: 80 }} ) }}#}
+                {{ craft.picture.element( image, 'promo', { alt: image.title, transform: { position: 'bottom-right', quality: 80 }} ) }}
             </div>
         </div>
     </section>
