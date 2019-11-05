@@ -18,12 +18,12 @@ pipelines:
     master:
       -
         step:
-          name: Build and Deploy by to production FTPS host
+          name: Build and Deploy by to production SFTPS 
           deployment: production
           script:
             - "apt-get update"
             - "apt-get -qq install git-ftp"
-            - git config git-ftp.url ""
+            - git config git-ftp.url "sftp://marukka.ch/ch.marukka/html"
             - git config git-ftp.user $SECURE_USER
             - git config git-ftp.password $SECURE_PASS
-            - git ftp push --insecure --disable-epsv -v
+            - git ftp init --insecure -v
