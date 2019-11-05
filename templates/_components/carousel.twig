@@ -1,0 +1,32 @@
+{% do view.registerCssFile("/assets/plugins/photoswipe/photoswipe.css") %}
+{% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe.min.js") %}
+{% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe-ui-default.min.js") %}
+
+{%- do view.registerCssFile("/assets/plugins/owl-carousel/owl.carousel.min.css") -%}
+{%- do view.registerJsFile("/assets/plugins/owl-carousel/owl.carousel.min.js") -%}
+
+
+{% if block.reihenfolge == 'zufall' %}
+
+	{% set carouselPics = block.bilder.orderBy('RAND()').all() %}
+
+{% else %}
+	
+	{% set carouselPics = block.bilder.all() %}
+
+{% endif %}
+
+{% for bild in carouselPics %}
+
+    {% set bildLink = craft.picture.url(bild, 'desktop') %}
+
+    <figure class="gallery__grid--item grid--item{{ loop.index }}" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+
+        <div class="gallery__grid--item--image">
+            <a href="{{ craft.picture.url(bild, 'desktop') }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}" class="galerie__link--{{ imageArtClass }}">
+            	{{ craft.picture.element( bild, 'bilderGalerie', { alt: bild.title, transform: { position: 'center-center', quality: 80 } } ) }}
+        	</a>
+        </div>
+
+    </figure>
+{% endfor %}
