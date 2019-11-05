@@ -14,9 +14,10 @@
 
 {% if devMode %}
   <small style="position: fixed; bottom: 0; left: 0; min-width: 120px; padding: 8px; font-size: 9px;color: #fff; background-color: #333;font-size:0.7rem;z-index:700;">
-    <span style="color:#C70039 ">Section Handle:</span> {{ entry.section.handle}} •
-    <span style="color:#2471a3 ">Entry Handle:</span>{{ entry.type.handle }} •
-    <span style="color:#27ae60 ">Request Path:</span>{{ craft.app.request.pathInfo}}
+    <span style="color:#C70039 ">Section Handle: </span> {{ entry.section.handle}} –
+    <span style="color:#2471a3 ">Entry Type Handle: </span>{{ entry.type.handle }} –
+    <span style="color:#27ae60 ">Request Path: </span>{{ craft.app.request.pathInfo}} –
+    <span style="color:#27aeae ">Segment Route: </span>{{ baseSegmentRoute|default('none')}}
   </small>
 {% endif %}
 

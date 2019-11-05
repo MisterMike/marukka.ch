@@ -34,7 +34,7 @@
   padding-right: $base-spacing/1.5;
   
   &:focus, &:hover, &:active {
-    background-color: darken($action-color, 8);
+    background-color: darken($secondary-color, 8);
   }
   
 }

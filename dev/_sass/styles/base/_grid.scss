@@ -3,45 +3,60 @@
 // CSS Item Grid
 //////////////////////////////
 
-.item-grid .item-img {
-  margin-bottom: 1em
-}
-.item-grid .item-img img {
-  margin: 0;
-  display: block
-}
-.item-grid .button {
-  margin-bottom: .5em
-}
-@media screen and (min-width: 400px) and (max-width: 900px) {
-  .item-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: calc(1.5em + 1.5vw);
-    justify-items: center
-  }
-}
-@media screen and (min-width: 900px) {
-  .item-grid {
+
+.item-grid {
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: calc(1.5em + 1.5vw);
+  justify-items: center;
+
+  @media screen and (min-width: $break-tablet) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: calc(1.5em + 1.5vw)
+    grid-gap: calc(1.2em + 1.2vw);
+    justify-items: auto;
   }
-}
-.item-grid>* {
-  -webkit-box-pack: stretch;
-  -ms-flex-pack: stretch;
-  justify-content: stretch;
-  width: 100%
-}
-.item-grid .item-content {
-  max-width: 620px
-}
-@media screen and (max-width: 400px) {
-  .item-grid .item-content {
-    margin-bottom: 3em
+
+  @media screen and (min-width: $break-desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: calc(1.5em + 1.5vw);
   }
+
+  >* {
+    justify-content: stretch;
+    width: 100%
+  }
+
+
+  .item-img {
+    margin-bottom: 1em;
+
+    img {
+      margin: 0;
+      display: block
+    }
+
+    .button {
+      margin-bottom: .5em
+    }
+
+  }
+
+  .item-content {
+    max-width: 900px; /* 620 */
+
+    @media screen and (max-width: 400px) {
+      margin-bottom: 3em
+    }
+  }
+
 }
+
+
+
+
+
 .item-grid .item-content h1,
 .item-grid .item-content h2,
 .item-grid .item-content h3 {
@@ -52,75 +67,68 @@
 .item-grid .item-content h6 {
   margin-bottom: .5em
 }
+
 .item-grid.item-grid--icons {
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  grid-gap: 0
-}
-.item-grid.item-grid--icons>* {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 calc(260px + 2.0vw);
-  flex: 0 0 calc(260px + 2.0vw);
-  margin: calc(1em + 1vw) calc(1em + 1vw) calc(3em + 3vw)
-}
-@media screen and (min-width: 900px) {
-  .item-grid.item-grid--icons>* {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 calc(320px + 2.0vw);
-    flex: 0 0 calc(320px + 2.0vw)
+  grid-gap: 0;
+
+  >* {
+    flex: 0 0 calc(260px + 2.0vw);
+    margin: calc(1em + 1vw) calc(1em + 1vw) calc(3em + 3vw);
+
+    @media screen and (min-width: $break-tablet) {
+      flex: 0 0 calc(320px + 2.0vw)
+    }
+    
+    @media screen and (min-width: $break-desktop) {
+      flex: 0 0 calc(190px + 2.0vmin)
+    }
+
   }
+
 }
-@media screen and (min-width: 1200px) {
-  .item-grid.item-grid--icons>* {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 calc(190px + 2.0vmin);
-    flex: 0 0 calc(190px + 2.0vmin)
-  }
-}
+
 @supports (display: flex) {
   .item-grid.item-grid--icons .item-content {
-    margin-bottom: 1em
-  }
-  .item-grid.item-grid--icons .item-content,
-  .item-grid.item-grid--icons .item-content .item-description {
-    display: -webkit-box;
-    display: -ms-flexbox;
+    margin-bottom: 1em;
+
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
+
+    .button {
+      align-self: flex-start
+    }
+
+    .item-description {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .item-img {
+      max-width: 8.5em;
+      width: 90%;
+      margin: 0 auto;
+
+      img {
+        margin-bottom: 1.5em;
+        width: 100%
+      }
+
+    }
+
   }
-  .item-grid.item-grid--icons .item-content .item-description {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1
-  }
-  .item-grid.item-grid--icons .item-content .button {
-    margin: auto auto 0;
-    -ms-flex-item-align: start;
-    align-self: flex-start
-  }
+  
+
+
 }
+
 @media screen and (min-width: 1200px) {
   .item-grid.item-grid--icons .item-content p {
     font-size: .93em;
     margin-bottom: 1em
   }
-}
-.item-grid.item-grid--icons .item-img {
-  max-width: 8.5em;
-  width: 90%;
-  margin: 0 auto
-}
-.item-grid.item-grid--icons .item-img img {
-  margin-bottom: 1.5em;
-  width: 100%
 }

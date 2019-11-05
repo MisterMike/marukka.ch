@@ -1,0 +1,79 @@
+{% if mapData|length %}
+
+  <style>
+  
+    .headermap__image {
+        height: 400px;
+
+    }            
+
+    @media (min-width: 900px) {
+
+      .headermap__image {
+
+      }
+
+    }
+
+    @media (min-width: 1200px) {
+
+        .headermap__image {
+
+        }
+
+    }
+
+  </style>
+
+  {% set tempAdress = kontakt.kontaktAdresse|json_encode()|replace({'"':'','\\n':','}) %}
+  
+  <section id="seitenbild-{{ entry.id }}" class="headermap">
+      <div class="container">
+          <div class="headermap__image" id="map"></div>
+      </div>
+  </section>
+
+  <script>
+    function initMap() {
+    var address = '{{ tempAdress }}';
+
+    var map = new google.maps.Map(document.getElementById('map'), { 
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        zoom: {{ mapZoomLevel }},
+        styles: [
+            {
+              featureType: 'all',
+              stylers: [{"saturation": -100}]
+            }
+          ]
+    });
+
+
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+        'address': address
+    }, 
+
+    function(results, status) {
+        if(status == google.maps.GeocoderStatus.OK) {
+          new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map
+          });
+          map.setCenter(results[0].geometry.location);
+
+          // add marker to map
+          var marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map,
+            icon: '/assets/images/sparks-map-icon.png'
+          });
+
+        }
+    });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ googlemapsapikey|default('0') }}&callback=initMap"
+    type="text/javascript"></script>
+
+{% endif %}

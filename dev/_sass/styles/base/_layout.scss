@@ -5,7 +5,11 @@
 .container {
   width: 92%;
   max-width: 1400px;
-  margin:0 auto
+  margin:0 auto;
+
+  // @media screen and (min-width: $break-tablet) {
+  //   width: 92%; /* 100 above */
+  // }
 }
 
 .container .container {
@@ -77,4 +81,15 @@ figure figcaption {
   border-radius:50em;
 }
 
+
+section.section__default {
+
+  margin: 3rem auto;
+
+  .container {
+    background-color: $accent-color;
+    color: $base-font-color;
+    padding: 5rem;
+  }
+}
 

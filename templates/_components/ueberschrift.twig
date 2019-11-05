@@ -1,8 +1,10 @@
 {% if block.titel|length %}
-  <section id="{{ block.id }}" class="container">
-    <header class="section-heading">
-      <{{ block.ueberschriftstyp | default("h2") }} id="{{ block.titel|ascii|replace(' ', '-') }}">{{ block.titel }}</{{ block.ueberschriftstyp | default("h2") }}>
-    </header>
-  </section>
+	<section id="ueberschrift__{{ block.fieldId }}" class="section__ueberschrift">
+	  	<div class="container">
+		    <header class="section-heading">
+		      <{{ block.ueberschriftstyp | default("h2") }} id="{{ block.titel|ascii|replace(' ', '-') }}">{{ block.titel }}</{{ block.ueberschriftstyp | default("h2") }}>
+		    </header>
+	    </div>
+	</section>
 {% endif %}
 

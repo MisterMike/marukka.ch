@@ -1,0 +1,29 @@
+{% set linkActiveBreadcrumbPath = false %}
+
+{% set mapData = kontakt.kontaktKoordinaten %}
+
+{% set mapZoomLevel = 16 %}
+
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+  
+
+<main role="main" class="{{entry.type.handle}}">
+
+    {% if mapData is defined and mapData is not empty %}
+      {%- include "_includes/headermap" with { mapData: mapData, mapZoomLevel: mapZoomLevel } -%}
+    {% endif %}
+
+    {#  Get the rest of the blocks except sectionTeaser  #}
+    {%- include "_routers/component" with { blocks: entry.inhaltMatrix.type('not sectionTeaser') }  -%}
+    {%- include "_routers/component" with { blocks: entry.adminInhaltMatrix.all() } -%}
+
+</main>
+
+
+
+{% endblock %}
+

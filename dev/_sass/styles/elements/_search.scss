@@ -78,7 +78,6 @@
   padding: 2.5em;
   position: relative;
   transform: scale(.9);
-  transition: -webkit-transform .3s;
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
   width:100%
@@ -87,7 +86,7 @@
 .modal-content .form--inline input[type=submit] {
   padding: 12px;
   border: 2px solid $black;
-  background: darken($green, 10%);
+  background: darken($accent-color, 10%);
   height:60px
 }
 

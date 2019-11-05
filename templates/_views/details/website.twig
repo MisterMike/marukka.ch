@@ -12,7 +12,7 @@
 <main role="main">
 
     {% if seitenBild is defined and seitenBild is not empty %}
-      {%- include "_components/seitenbild" with { image: seitenBild } -%}
+      {%- include "_includes/headerbild" with { image: seitenBild } -%}
     {% endif %}
 
     {#  Get the rest of the blocks except sectionTeaser  #}

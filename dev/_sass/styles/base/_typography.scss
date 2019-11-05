@@ -142,7 +142,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($secondary-color, 25%);
     outline: none;
   }
 }
@@ -162,10 +162,9 @@ a.download-link:hover {
 
 blockquote {
   font-style: normal;
-  font-size: 2em;
-  color: #1f1f1f;
-  font-family: poynter-oldstyle-display-nar, serif;
-  font-weight:600;
+  font-size: 2rem;
+  color: $grey-dark;
+  font-weight:700;
 
   @media (min-width: $break-desktop) {
     font-size:3.25em;

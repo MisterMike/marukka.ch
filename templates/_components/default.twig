@@ -1,6 +1,7 @@
-{% if craft.app.config.general.devMode %}
-  <pre>Type: {{ type }}</pre>
-  <h2>Achtung: dieses Components gibt es noch nicht!</h2>
-  
-  <h3>Hint: dump(block.type)</h3>
-{% endif %}
+<section class="section__default">
+	<div class="container" style="padding: 3rem auto;">
+	{% if craft.app.config.general.devMode %}
+	  <h3>Achtung: Das Matrix Component <strong>&laquo;{{ type }}&raquo;</strong> gibt es noch nicht!</h3>
+	  	{% endif %}	
+	</div>
+</section>

@@ -2,11 +2,13 @@
 
     {%- set relatedTeaser = craft.entries.section('Website').relatedTo(block) -%}
 
-    <ul class="item-grid container ">
-        {%- for teaserBlock in relatedTeaser.all() -%}
-            {%- include "_snippets/teaser" with { teaserBlock: teaserBlock  }  -%}
-        {%- endfor -%}
-    </ul>
+    <section id="teaser__{{ block.fieldId }}" class="section__teaser">
+	    <ul class="item-grid container ">
+	        {%- for teaserBlock in relatedTeaser.all() -%}
+	            {%- include "_snippets/teaser" with { teaserBlock: teaserBlock  }  -%}
+	        {%- endfor -%}
+	    </ul>
+	</section>
 
 
 

@@ -8,7 +8,7 @@
 {% block content %}
 
   {% if seitenBild is defined and seitenBild is not empty %}
-    {%- include "_components/seitenbild" with { image: seitenBild } -%}
+    {%- include "_includes/headerbild" with { image: seitenBild } -%}
   {% endif %}
 
 <main class="main__content">

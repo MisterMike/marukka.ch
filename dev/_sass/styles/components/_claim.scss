@@ -1,0 +1,60 @@
+///////////////////////////////
+// BIG LETTER CLAIM
+//////////////////////////////
+
+
+section.section__claim {
+
+    background: $grey-light;
+    padding: 8% 0;
+    padding: calc(3.25em + 4vw + 4vh) 0;
+    background-size: cover;
+    background-position: 50%;
+    overflow: hidden;
+    color: $black;
+
+    &.primary {
+        background-color: $accent-color;
+    }
+
+    &.secondary {
+        background-color: $secondary-color;
+        color: $white;
+    }
+
+    &.black {
+        background-color: $black;
+        color: $white;
+    }
+
+    &.grey {
+        background-color: $grey-light;
+    }
+
+    &.white {
+        background-color: $white;
+    }
+
+    .claim__content--wrapper {
+        padding: 0 2%;
+        max-width: 58rem;
+        margin: 0 auto;
+    }
+
+    .claim__content--quote {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-style: normal;
+        color: inherit;
+
+        @media (min-width: $break-tablet) {
+            font-size: 3.9rem;
+        }
+    }
+
+    .claim__content--text {
+        margin: .5rem auto;
+    }
+
+}
+

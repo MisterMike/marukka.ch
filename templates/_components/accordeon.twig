@@ -2,7 +2,9 @@
 
   {% if prevType != 'accordeon' %}
 
-<div class="grid__container">
+<section id="accordeon__{{ block.fieldId }}" class="section__accordeon">
+
+<div class="container">
     <div class="accordeon__wrapper">
   
   {% endif %}
@@ -21,7 +23,7 @@
       
   {% if nextType != 'accordeon' %}
       
-    </div></div>
+    </div></div></section>
 
   {% endif %}
 

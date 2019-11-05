@@ -70,11 +70,13 @@ $bluelight-box: #e6f0f8;
 $green-box: rgba($green, .1);
 $orange-box: rgba($orange, .1);
 
+// Theme Master Colors
+$accent-color: $blue;
+$secondary-color: $bluelight-box;
 
 // Font Colors
-$accent-color: $green;
 $base-font-color: $black;
-$action-color: $blue;
+
 
 // Border
 $base-border-color: $blue;
@@ -86,11 +88,11 @@ $secondary-background-color: rgba($blue, .1);
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba($black, 0.06);
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($secondary-color, $lightness: -5%, $alpha: -0.3);
 
 
 // Focus
-$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-color: transparentize($secondary-color, 0.4);
 $focus-outline-width: 3px;
 $focus-outline: $focus-outline-width solid $focus-outline-color;
 $focus-outline-offset: 2px;
