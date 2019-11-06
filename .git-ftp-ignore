@@ -6,7 +6,7 @@ webpack.config.js
 bin/*
 src/*
 storage/*
-dev/**
+dev/
 !dev/_plugins/**
 vendor/**
 _old/**

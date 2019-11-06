@@ -34,6 +34,10 @@ return [
         // globally turn off devMode (default)
         'devMode' => false,
 
+        'allowUpdates' => true,
+
+        'allowAdminChanges' => true,
+
         // Custom site-specific config settings
         'custom' => [
             'craftEnv' => CRAFT_ENVIRONMENT,
