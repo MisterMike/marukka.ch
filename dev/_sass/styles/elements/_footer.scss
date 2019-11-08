@@ -3,68 +3,83 @@
 //////////////////////////////
 
 
-.site-footer {
+
+
+.footer {
   font-size: .875em;
-  border-top: 1px solid #ddd;
-  padding:2em 0
-}
+  border-top: 1px solid $black;
+  padding:2em 0;
+  background: darken($accent-color, 40%);
 
-@media screen and (min-width: 900px) {
-  .site-footer ul li {
-    display: inline-block;
-    margin-right:.5em
-  }
-}
-
-.site-footer .footer-sub {
-  max-width:none
-}
-
-@media screen and (min-width: 900px) {
-  .site-footer .footer-sub {
-    padding: 0 1em;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content:space-between
+  ul li {
+    @media screen and (min-width: 900px) {
+      display: inline-block;
+      margin-right:.5em;
+      color: $white;
+    }
   }
 
-  .site-footer .footer-sub ul {
-    margin-top:.25em
+  .footer__wrapper {
+    max-width:none;
+
+    @media screen and (min-width: 900px) {
+      padding: 0 1em;
+      display: flex;
+      justify-content:space-between
+    }
+
+    ul {
+      @media screen and (min-width: 900px) {
+        margin-top:.25em;
+      }
+    }
+
+    ul li {
+      @media screen and (min-width: 900px) {
+        display:inline-block;
+      }
+    }
+
+    .footer__navigation {
+      font-size: .9rem;
+
+      a {
+      font-size: .9rem;
+      font-weight: 500;
+      color: $white;
+      &:hover {
+        color: $accent-color;
+      }
+      }
+    }
+
+    .footer__social {
+      margin:0;
+
+      @media screen and (max-width: 900px) {
+          margin:1em 0;
+      }
+
+      li {
+        display: inline-block;
+        margin-right:.5em;
+      }
+
+      li svg {
+        fill: $white;
+        transition:fill .15s ease;
+
+        &:hover {
+          fill:$accent-color;
+        }
+      }
+
+      li:last-of-type {
+        margin-right:0
+      }
+
+    }
+
   }
 
-  .site-footer .footer-sub ul li {
-    display:inline-block
-  }
-}
-
-.site-footer .footer-sub .footer-social {
-  margin:0
-}
-
-@media screen and (max-width: 900px) {
-  .site-footer .footer-sub .footer-social {
-    margin:1em 0
-  }
-}
-
-.site-footer .footer-sub .footer-social li {
-  display: inline-block;
-  margin-right:.5em
-}
-
-.site-footer .footer-sub .footer-social li svg {
-  fill: #1f1f1f;
-  -webkit-transition: fill .15s ease;
-  transition:fill .15s ease
-}
-
-.site-footer .footer-sub .footer-social li svg:hover {
-  fill:#6bb9b8
-}
-
-.site-footer .footer-sub .footer-social li:last-of-type {
-  margin-right:0
 }

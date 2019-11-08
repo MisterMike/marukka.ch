@@ -11,8 +11,17 @@
 
 <main role="main">
 
-    {% if seitenBild is defined and seitenBild is not empty %}
+	{#  Generate the fullscreen homescreen with slider and sectionTeaser  #}
+    {% if entry.sliderMatrix|length %}
+        <section class="section__slider">
+
+            {%- include "_routers/component" with { blocks: entry.sliderMatrix.all() } only -%}
+
+        </section>
+    {% elseif seitenBild is defined and seitenBild is not empty %}
+      
       {%- include "_includes/headerbild" with { image: seitenBild } -%}
+    
     {% endif %}
 
     {#  Get the rest of the blocks except sectionTeaser  #}

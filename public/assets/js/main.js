@@ -388,14 +388,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (figureEl.nodeType !== 1) {
           continue;
-        }
+        } //divEl = figureEl.children[1]; // surrounding <div> element
+        //linkEl = divEl.children[0]; // <a> element inside another div
 
-        divEl = figureEl.children[1]; // surrounding <div> element
 
-        linkEl = divEl.children[0]; // <a> element
+        linkEl = figureEl.children[0]; // <a> element
 
-        size = linkEl.getAttribute('data-size').split('x');
-        console.log(divEl); // create slide object
+        size = linkEl.getAttribute('data-size').split('x'); // create slide object
 
         item = {
           src: linkEl.getAttribute('href'),
@@ -403,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
           h: parseInt(size[1], 10)
         };
 
-        if (divEl.children.length > 1) {
+        if (figureEl.children.length > 1) {
           // <figcaption> content
           item.title = figureEl.children[1].innerHTML;
         }
@@ -573,7 +572,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  initPhotoSwipeFromDOM('.gridGallery');
+  initPhotoSwipeFromDOM('.gallery');
 });
 
 /***/ }),

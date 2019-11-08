@@ -3,8 +3,13 @@
 // Fullscreen hero image
 //////////////////////////////
 
-.seitenbild {
+section.section__seitenbild {
         background: $grey-light;
+        margin-bottom: 20px;
+
+        @media screen and (min-width: $break-tablet) {
+            margin-bottom: 50px;
+        }
 
     .container {
     	display: flex;

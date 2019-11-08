@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded",function(){
                     continue;
                 }
 
-                divEl = figureEl.children[1]; // surrounding <div> element
-                linkEl = divEl.children[0]; // <a> element
+                //divEl = figureEl.children[1]; // surrounding <div> element
+                //linkEl = divEl.children[0]; // <a> element inside another div
 
-
+                linkEl = figureEl.children[0]; // <a> element
 
                 size = linkEl.getAttribute('data-size').split('x');
-                console.log(divEl);
+                
                 // create slide object
                 item = {
                     src: linkEl.getAttribute('href'),
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-                if(divEl.children.length > 1) {
+                if(figureEl.children.length > 1) {
                     // <figcaption> content
                     item.title = figureEl.children[1].innerHTML;
                 }
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     };
 
-        initPhotoSwipeFromDOM('.gridGallery');
+        initPhotoSwipeFromDOM('.gallery');
 
 });
 

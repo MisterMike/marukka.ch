@@ -2,6 +2,11 @@
 // INHALT 
 //////////////////////////////
 
+section.section__inhalt {
+  min-height: 300px;
+}
+
+
 .inhalt__wrapper {
   @include grid-container;
 }

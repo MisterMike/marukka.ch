@@ -1,121 +1,115 @@
+
 {% if block.bild|length %}
 
-  {% do view.registerCssFile("/tpl/css/plugins/slickslider.min.css") %}
-  {% do view.registerJsFile("/tpl/js/plugins/slickslider.min.js") %}
+  {% set position = 'center center' %}
 
-  {% if prevType != 'slider' %}
 
-    <div class="slider">
+  {%- if prevType != 'slider' -%}
+
+    {%- do view.registerCssFile("/assets/plugins/swiper/swiper.min.css") -%}
+    {%- do view.registerJsFile("/assets/plugins/swiper/swiper.min.js") -%}
+    
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
     
   {% endif %}
-      
-    <div class="slider__item">
-      
-      <div class="inhalt__wrapper--grid">
-        
-        <div class="slider__bild">
-           
-          {# check picture.php in config #}
-          {% set image = block.bild.one %}
 
-          {% if image.width > image.height %}
+  {% set image = block.bild.one %}
 
-            {{ craft.picture.element(
-                image,
-                'sliderBreit',
-                 {
-                  alt: image.title,
-                   transform: {
-                     position: 'center',
-                     quality: 100
-                   }
-                 }
-            ) }}
+  {% if image.hasFocalPoint %}
+      {% set focalPoint = image.getFocalPoint() %}
+      {% set position = focalPoint.x * 100 ~ '% ' ~ focalPoint.y * 100 ~ '%' %}
+    {% else %}
+      {% set position = 'center center' %}
+    {% endif %}
 
-          {% else %}
+  {% set sliderImage = craft.picture.url(image,'sliderHome',{transform: {position: position,quality: 90}}) %}
+    
 
-            {{ craft.picture.element(
-                image,
-                'sliderHoch',
-                 {
-                  alt: image.title,
-                   transform: {
-                     position: 'center',
-                     quality: 100
-                   }
-                 }
-            ) }}        
+  {% set linkhref = '' %}
+  {% set linkText = '' %}
+  {% set linkTrue = false %}
+  {% set targetblank = false %}
 
-          {% endif %}
-          
-        </div>
-      
+  {% if block.internerLink|length %}
+
+    {% for linkItem in block.internerLink.all() %}
+
+      {% set linkhref = linkItem.url %}
+      {% set linkTrue = true %}
+      {% set linkText = linkItem.title %}
+
+    {% endfor %}
+
+  {% elseif block.externerLink|length %}
+
+    {% set linkhref = block.externerLink %}
+    {% set targetblank = true %}
+    {% set linkTrue = true %}
+    {% set linkText = linkhref|replace({'http://': '', 'https://': ''}) %}
+
+  {% elseif block.linkZuDatei|length %}
+
+    {% for linkItem in block.linkZuDatei.all() %}
+
+      {% set linkhref = linkItem.url %}
+      {% set targetblank = true %}
+      {% set linkTrue = true %}
+      {% set linkText = linkItem.title %}
+
+    {% endfor %}
+
+  {% endif %}
+
+    <div class="swiper-slide" style="background:linear-gradient(
+			  		to bottom,
+			  		rgba(0,0,0,0.2) 0%,
+			  		rgba(0,0,0,0.2) 100%),
+			  		url({{ sliderImage }})
+			  		no-repeat; background-size: cover;background-position: {{ position }};">
+      <div class="slider__content-container">
         <div class="slider__content">
-
-          {# Überschrift #}
+          
           {% if block.ueberschrift|length %}
-            <h2 class="slider__heading">{{ block.ueberschrift }}</h2>
+            <h2 class="slider__title title-big">{{ block.ueberschrift }}</h2>
           {% endif %}
-
-          {# Inhalt #}
-          {% if block.inhalt|length %}
-            <p>{{ block.inhalt }}</p>
+          {% if block.inhalt|length > 0 %}
+            {{ block.inhalt }}
           {% endif %}
-
-          {# LInks #}
-          {% set linkhref = '' %}
-          {% set linkText = '' %}
-          {% set linkTrue = false %}
-          {% set targetblank = false %}
-
-          {% if block.internerLink|length %}
-
-            {% for linkItem in block.internerLink.all() %}
-
-              {% set linkhref = linkItem.url %}
-              {% set linkTrue = true %}
-              {% set linkText = linkItem.title %}
-
-            {% endfor %}
-
-          {% elseif block.externerLink|length %}
-
-              {% set linkhref = block.externerLink %}
-              {% set targetblank = true %}
-              {% set linkTrue = true %}
-              {% set linkText = linkhref|replace({'http://': '', 'https://': ''}) %}
-
-          {% elseif block.linkZuDatei|length %}
-
-            {% for linkItem in block.linkZuDatei.all() %}
-
-              {% set linkhref = linkItem.url %}
-              {% set targetblank = true %}
-              {% set linkTrue = true %}
-              {% set linkText = linkItem.title %}
-
-            {% endfor %}
-
-          {% endif %}
-
           {% if linkTrue %}
-
-            <a href="{{ linkhref }}" {% if targetblank %}target="_blank"{% endif %}>{{ linkText }}</a>
-
+            <a href="{{ linkhref }}" class="button_calltoAction" {% if targetblank %}target="_blank"{% endif %}>Mehr erfahren</a>
           {% endif %}
-
         </div>
-        
       </div>
-      
     </div>
-    
+
   {% if nextType != 'slider' %}
-
+      </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
-
-  {% endif %}
-
+    {% js %}
+      document.addEventListener("DOMContentLoaded",function(){
+        var swiper = new Swiper('.swiper-container', {
+           effect: 'fade',
+           spaceBetween: 30,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: true,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      });
+    {% endjs %}
+  {%  endif %}
 
 {% endif %}
-
