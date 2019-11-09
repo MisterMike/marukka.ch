@@ -1,10 +1,21 @@
 {% if block.titel|length %}
-	<section id="ueberschrift__{{ block.fieldId }}" class="section__ueberschrift">
-	  	<div class="container">
-		    <header class="section-heading">
-		      <{{ block.ueberschriftstyp | default("h2") }} id="{{ block.titel|ascii|replace(' ', '-') }}">{{ block.titel }}</{{ block.ueberschriftstyp | default("h2") }}>
-		    </header>
-	    </div>
-	</section>
-{% endif %}
+	
+	{% if nextType == 'accordeon' %}
+		<section id="accordeon__{{ block.fieldId }}" class="section__accordeon">
+			<div class="container">
+				<div class="accordeon">
+				<div class="header--box">
+					<label for="acc--close" class="box--title">{{ block.titel }}</label>
+				</div>
+	{% else %}
 
+		<section id="ueberschrift__{{ block.fieldId }}" class="section__ueberschrift">
+			<div class="container">
+				<header class="section-heading">
+		 	 <{{ block.ueberschriftstyp | default("h2") }} id="{{ block.titel|ascii|replace(' ', '-') }}">{{ block.titel }}</{{ block.ueberschriftstyp | default("h2") }}>
+				</header>
+			</div>
+		</section>
+	{% endif %}
+	    
+{% endif %}

@@ -563,10 +563,6 @@ sub {
   content: "\E817";
 }
 
-main {
-  min-height: 700px;
-}
-
 .container {
   width: 92%;
   max-width: 1400px;
@@ -3695,123 +3691,120 @@ hr.abstand--lg {
     height: calc(2em + 9vh);
   }
 }
-.accordeon__wrapper  {
-  margin-bottom: 60px;
-}
-
-.accordeon__item {
-  border: 1px solid #A6ADB4;
-  border-radius: 0;
-  margin-bottom: 8px;
-  transition: all 0.5s ease;
-}
-
-.accordeon__header {
-  padding: 26px 20px;
-  font-size: 1.6rem;
-  font-style: normal;
-  cursor: pointer;
-}
-
-.accordeon__header--title {
-  margin: 0;
-  padding: 0;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 500;
-  width: auto;
-}
-
-.accordeon__header--icon {
-  float: right;
-  padding-top: 0.5rem;
-}
-.accordeon__header--icon:before {
-  content: "\E814";
-  font-family: "icomoon";
-  display: block;
-  transition: all 0.25s ease;
-}
-
-.accordeon__content--wrapper {
-  display: none;
-  position: relative;
-}
-.accordeon__content--wrapper.active {
-  display: block;
-}
-.accordeon__content--wrapper.active .accordeon__header--icon:before {
-  transform: rotate(-180deg);
-  display: block;
-  transition: all 0.25s ease;
-}
-
-.accordeon__content {
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0px;
-}
-
-.tab__headline {
-  position: relative;
-  display: block;
-  color: #7abc64;
-  font-weight: 400;
-  padding-top: 10px;
-  padding-right: 60px;
-  padding-bottom: 24px;
-  transition: all 0.5s ease;
-  border: none;
-  cursor: pointer;
-  border-top: 1px solid #f2f2f2;
-  font-size: 20px;
-}
-.tab__headline.active {
-  transition: all 0.5s ease;
-}
-.tab__headline.active .tab__button:before {
-  transform: rotate(-180deg);
-  display: block;
-  transition: all 0.25s ease;
-}
-
-.tab__content {
-  position: relative;
-  padding-bottom: 30px;
-  display: none;
-}
-.tab__content p {
-  margin-left: 0;
-  width: 100%;
-}
-.tab__content p:last-child {
-  margin-bottom: 0;
-}
-
-.tab__button {
-  position: absolute;
-  color: #7abc64;
-  font-weight: 700;
-  top: -8px;
-  right: 4px;
+.accordeon {
   margin: auto;
-  transition: all 0.3s ease-in-out;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 40px;
-  text-align: center;
+  margin-bottom: 20px;
 }
-@media (min-width: 768px) {
-  .tab__button {
-    right: 30px;
+@media (min-width: 900px) {
+  .accordeon {
+    margin-bottom: 50px;
   }
 }
-.tab__button:before {
-  content: "\E814";
-  font-family: "symbolica";
+
+.accordeon input {
+  display: none;
+}
+
+.content--box {
+  position: relative;
+  margin: 4px 0;
+  background: white;
+  height: 64px;
+  transition: all 0.15s ease-in-out;
+}
+
+.content--box::before {
+  content: "";
+  position: absolute;
   display: block;
-  transition: all 0.25s ease;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border: 1px solid #f2f2f2;
+}
+
+.header--box {
+  background: #80b7d5;
+  z-index: 100;
+  cursor: initial;
+  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, 0.12), 0 2px 4px -4px rgba(0, 0, 0, 0.24);
+}
+
+.header--box .box--title {
+  margin: 0;
+  font-weight: normal;
+  font-size: 16pt;
+  color: white;
+  cursor: initial;
+}
+
+.box--title {
+  width: calc(100% - 40px);
+  height: 64px;
+  line-height: 64px;
+  padding: 0 20px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.box--content {
+  width: calc(100% - 40px);
+  padding: 30px 20px;
+  font-size: 11pt;
+  color: rgba(0, 0, 0, 0.54);
+  display: none;
+}
+
+.box--close {
+  position: absolute;
+  height: 64px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  display: none;
+}
+
+input:checked + .content--box {
+  height: auto;
+  margin: 16px 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+}
+
+input:checked + .content--box .box--title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+input:checked + .content--box .box--content,
+input:checked + .content--box .box--close {
+  display: inline-block;
+}
+
+.content--box .box--title {
+  padding-left: 44px;
+  width: calc(100% - 64px);
+}
+
+.content--box .box--title:before {
+  position: absolute;
+  display: block;
+  content: "\203A";
+  font-size: 18pt;
+  left: 20px;
+  top: -2px;
+  transition: transform 0.15s ease-in-out;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+input:checked + section.content--box .box--title:before {
+  transform: rotate(90deg);
 }
 
 @media screen and (max-width: 600px) {

@@ -1,7 +1,5 @@
 {% if block.bild|length %}
 
-
-
     <section id="{{ block.id }}" class="promo  promo--wide">
         <div class="container block-link">
 
@@ -9,7 +7,9 @@
                 <div class="promo-description">
                     <h2 class="h2">{{ block.titel }}</h2>
                     <p>{{ block.inhalt }}</p>
-                    <a href="{{ block.linkUrl.one().url }}" class="button ">{{ block.linkText }}</a>
+                    {% if block.linkUrl|length %}
+                        <a href="{{ block.linkUrl.one().url }}" class="button ">{{ block.linkText }}</a>
+                    {% endif %}
                 </div>
             </div>
 

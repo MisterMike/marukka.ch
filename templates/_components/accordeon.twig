@@ -1,29 +1,31 @@
 {% if block.inhalt|length %}
 
-  {% if prevType != 'accordeon' %}
+  {% if ueberschrift is not defined %}
+    {% set ueberschrift = false %}
+  {% endif %}
 
-<section id="accordeon__{{ block.fieldId }}" class="section__accordeon">
+  {% if prevType != 'accordeon' and prevType != 'ueberschrift' %}
 
-<div class="container">
-    <div class="accordeon__wrapper">
+    {% set ueberschrift = true %}
+
+    <section id="accordeon__{{ block.fieldId }}" class="section__accordeon">
+      <div class="container">
+        <div class="accordeon">
   
   {% endif %}
 
-  <div class="accordeon__item">
-    <div class="accordeon__header" data-target="#accordeon-{{ block.id }}">
-      <span class="" href="#">{{ block.titel }}</span>
-      <span class="accordeon__header--icon" aria-hidden="true"></span>
-    </div>
-    <div class="accordeon__content--wrapper" id="accordeon-{{ block.id }}">
-      <div class="accordeon__content">
-        {{ block.inhalt }}
-      </div>
-    </div>
-  </div>
+<input type="radio" name="accordeon" id="accordeon-{{ block.id }}" />
+<section class="content--box">
+  <label class="box--title" for="accordeon-{{ block.id }}">{{ block.titel }}</label>
+  <label class="box--close" for="acc--close"></label>
+  <div class="box--content">{{ block.inhalt }}</div>
+</section>
       
   {% if nextType != 'accordeon' %}
       
+    <input type="radio" name="accordeon" id="acc--close" />
     </div></div></section>
+    {{ ueberschrift ? '</div></div></section>' : '' }}
 
   {% endif %}
 
