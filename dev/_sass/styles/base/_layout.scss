@@ -12,6 +12,13 @@
   // @media screen and (min-width: $break-tablet) {
   //   width: 92%; /* 100 above */
   // }
+
+  &.container--wide {
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+      margin: 0;
+    }
+  }
 }
 
 .container .container {
