@@ -150,6 +150,12 @@ cp -R node_modules/photoswipe/src dev/_SASS/_vendors/photoswipe
 tput setaf 6;printf "\n  √ PhotoSwipe kopiert (dev/_SASS/_vendors/photoswipe)"
 sleep 1
 
+# Copy bourbon assets from node_modules to vendor folder
+cp -R node_modules/aos/src/sass dev/_SASS/_vendors/aos
+
+tput setaf 6;printf "\n  √ AOS kopiert (dev/_SASS/_vendors/aos)"
+sleep 1
+
 # Copy Normalize.scss to vendor folder 
 cp -R node_modules/normalize-scss/sass/ dev/_SASS/_vendors/libs
 

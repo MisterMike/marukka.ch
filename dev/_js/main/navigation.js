@@ -7,7 +7,7 @@ window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = 
       n = function() {
         e.setAttribute("aria-expanded", "false"), t.setAttribute("hidden", "true")
       };
-  e.addEventListener("click", function(i) {
+  e.addEventListener("mouseover", function(i) {
     // menu click
     i.preventDefault(), "true" === e.getAttribute("aria-expanded") ? n() : (e.setAttribute("aria-expanded", "true"), t.removeAttribute("hidden"))
   }), window.addEventListener("resize", n)

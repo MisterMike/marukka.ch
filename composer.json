@@ -24,7 +24,10 @@
     "spatie/pdf-to-text": "^1.2",
     "voku/portable-utf8": "^5.4",
     "nibiru/facebook-events":"^0.1",
-    "codemonauts/craft-instagram-feed": "^1.0"
+    "codemonauts/craft-instagram-feed": "^1.0",
+    "craftcms/element-api": "2.6.0",
+    "craftcms/feed-me": "4.1.2",
+    "craftcms/commerce": "2.2.7"
 
   },
   "autoload": {

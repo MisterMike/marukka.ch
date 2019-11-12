@@ -1,0 +1,77 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Commerce Reports plugin for Craft CMS
+ *
+ * CommerceReportsWidget Widget Settings
+ *
+ * @author    MilesHerndon
+ * @copyright Copyright (c) 2019 MilesHerndon
+ * @link      https://milesherndon.com
+ * @package   CommerceReports
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("milesherndon\\commercereports\\assetbundles\\commercereportswidgetwidget\\CommerceReportsWidgetWidgetAsset") %}
+
+{% switch reportType %}
+    {% case "batch-transactions" %}
+        <p>Report to be imported into FundWare. Exports zip file of txts and csv.</p>
+
+    {% case "customer-order-history" %}
+        <p>Exports csv file of orders for a selected customer.</p>
+
+    {% case "full-inventory" %}
+        <p>Exports csv file of total inventory.</p>
+
+    {% case "inventory-sold" %}
+        <p>Exports csv file of amount sold and inventory in date range.</p>
+
+    {% case "indiana-sales-tax" %}
+        <p>Exports csv file of orders with sales tax.</p>
+
+    {% case "inventory-quantity-adjustments" %}
+        <p>Exports csv file of adjustments to inventory quantities.</p>
+
+    {% default %}
+
+{% endswitch %}
+
+{{ forms.hidden({
+        id: 'reportType',
+        name: 'reportType',
+        value: reportType
+    })
+}}
+
+{% if reportType == 'customer-order-history' %}
+{{ forms.selectField({
+        label: 'Select a Customer'|t,
+        id: 'customer',
+        name: 'customer',
+        options: customers,
+        value: widget['customer'],
+    })
+}}
+{% endif %}
+
+{% if reportType != 'full-inventory' %}
+{{ forms.dateField({
+        label: 'Start Date'|t,
+        instructions: 'The batch closes at 10pm the day before your selection.'|t,
+        id: 'startDate',
+        name: 'startDate',
+    })
+}}
+
+{{ forms.dateField({
+        label: 'End Date'|t,
+        instructions: 'The batch closes at 10pm the day of your selection.'|t,
+        id: 'endDate',
+        name: 'endDate',
+    })
+}}
+{% endif %}

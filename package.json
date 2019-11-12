@@ -37,7 +37,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.3.0",
     "aos": "^2.3.4",
     "clappr": "^0.3.8",
     "flowplayer": "^7.2.7",

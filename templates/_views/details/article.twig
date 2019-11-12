@@ -1,0 +1,8 @@
+{% if article is defined %}
+  <article>
+    <section>
+      <h2 class="article__header"><span class="article__header--id">#{{article.id}}</span> {{article.title}}</h2>
+      <p>{{article.teaserText}}</p>
+    </section>
+  </article>
+{% endif %}

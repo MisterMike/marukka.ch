@@ -7,19 +7,19 @@ import detectIE from './main/detectIE';
 //import FormLabel from './main/formlabel';
 
 import Accordeon from './main/accordeon';
-
 import AccordeonBlocks from './main/accordeonBlocks';
-
 import PhotoSwipe from './main/photoswipe';
-
 import lazySizes from 'lazysizes';
+import AOS from 'aos';
 
-
-const Carousel = require("vanilla-js-carousel");
-
+import Inview from './main/inview';
 
 document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementsByTagName("html")[0].className += " inited";
+
+    AOS.init({
+        duration: 800,
+    });
 
 });
