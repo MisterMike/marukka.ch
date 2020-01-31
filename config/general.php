@@ -25,6 +25,9 @@ return [
         
         'convertFilenamesToAscii' => true,
 
+        /* for the sql dump plugin */
+        'extraAllowedFileExtensions' => 'sql',
+
         'limitAutoSlugsToAscii' => true,
 
         'errorTemplatePrefix' => "_errors/",
