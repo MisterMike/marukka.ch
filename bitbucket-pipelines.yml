@@ -26,4 +26,4 @@ pipelines:
             - git config git-ftp.url "sftp://marukka.ch/ch.marukka/html"
             - git config git-ftp.user $SECURE_USER
             - git config git-ftp.password $SECURE_PASS
-            - git ftp init --insecure -v
+            - git ftp push --insecure -v
