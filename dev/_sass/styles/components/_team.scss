@@ -22,7 +22,7 @@ section.team__section {
 
   h2 {
     text-transform: uppercase;
-    color: $blue;
+    color: $accent-color;
     font-size: 2.6rem;
     font-weight: 700;
   }
@@ -57,7 +57,7 @@ section.team__section {
     font-weight: bold;
 
     @media (min-width: $break-tablet) {
-      color: $blue;
+      color: $accent-color;
       font-size: 1.5rem;
     }
   }
@@ -81,7 +81,7 @@ section.team__section {
 
   .team__widget--content {
     padding: 25px;
-    background-color: $blue;
+    background-color: $accent-color;
 
     @media (min-width: $break-tablet) {
       padding: 30px 0 5px 0;
@@ -109,7 +109,7 @@ section.team__section {
 
     @media (min-width: $break-tablet) {
 
-      color: $blue;
+      color: $accent-color;
 
     }
 
@@ -125,7 +125,7 @@ section.team__section {
     }
 
     &:hover, &:active, &:focus {
-      color: $green;
+      color: $accent-color;
     }
   }
 }

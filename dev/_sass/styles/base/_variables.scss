@@ -49,15 +49,14 @@ $header-height: 120px;
 $icon-size: 50px;
 
 // Colors
-
-$main1: #371d31;
-$main2: #563c50;
-$main3: #f95950;
-$main4: #edd1cb;
+$green:#9bd142;
+$green-dark:#669526;
+$green-medium:#8cbf37;
+$green-light:#b4e06c;
 
 $white: #fff;
-$black: #222222;
-$grey-dark: #7a7e7f;
+$black: #0D0B0D;
+$grey-dark: #494949;
 $grey-medium: #A6ADB4;
 $grey-light: #f2f2f2;
 $grey-superlight: #f0f0f0;
@@ -65,26 +64,27 @@ $grey-superlight: #f0f0f0;
 $grey-footer: #222222;
 $grey-footer-medium: #525252;
 
-$blue-box: rgba($blue, .1);
+$green-box: rgba($green, .1);
 $bluelight-box: #e6f0f8;
 $green-box: rgba($green, .1);
-$orange-box: rgba($orange, .1);
+
 
 // Theme Master Colors
-$accent-color: $blue;
-$secondary-color: $bluelight-box;
+$accent-color: $green;
+$secondary-color: $green-light;
+$accent-color-dark: $green-dark;
 
 // Font Colors
 $base-font-color: $black;
 
 
 // Border
-$base-border-color: $blue;
+$base-border-color: $accent-color;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
 $base-background-color: $white;
-$secondary-background-color: rgba($blue, .1);
+$secondary-background-color: rgba($green, .1);
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba($black, 0.06);

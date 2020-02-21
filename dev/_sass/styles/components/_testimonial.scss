@@ -34,7 +34,7 @@
 
     .testimonial__title {
         text-transform: uppercase;
-        color: $blue;
+        color: $accent-color;
         font-size: 2.6rem;
         font-weight: 700;
         margin-top: 0;
@@ -85,7 +85,7 @@
 }
 
 .testimonial__text {
-    color: $blue;
+    color: $accent-color;
     font-size: 1.5rem;
     font-weight: 300;
     font-style: italic;
@@ -101,7 +101,7 @@
 
 .testimonial__author {
     text-transform: uppercase;
-    color: $blue;
+    color: $accent-color;
     font-size: 1.4rem;
     font-weight: 700;
 
@@ -117,7 +117,7 @@
 .js-Carousel .js-Carousel-arrowNext {
     background: transparent;
     border: 0;
-    color: $blue;
+    color: $accent-color;
     cursor: pointer;
     font-size: 3rem;
     outline: 0;
@@ -129,7 +129,7 @@
 }
 .js-Carousel .js-Carousel-arrowPrev:hover,
 .js-Carousel .js-Carousel-arrowNext:hover {
-    color: #aaaaaa;
+    color: $accent-color;
 }
 .js-Carousel .js-Carousel-arrowPrev {
     left: 0;
@@ -147,7 +147,7 @@
     width: auto;
 }
 .js-Carousel .js-Carousel-dots li {
-    background: #aaaaaa;
+    background: $accent-color;
     border-radius: 0.75em;
     cursor: pointer;
     display: inline-block;
@@ -161,5 +161,5 @@
     box-shadow: 0 0 3px 3px #ddd;
 }
 .js-Carousel .js-Carousel-dots li:hover {
-    background: #f5f5f5;
+    background: $accent-color-dark;
 }

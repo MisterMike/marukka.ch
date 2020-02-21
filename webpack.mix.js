@@ -36,7 +36,7 @@ mix.browserSync({
     
     // When serving PHP via xyz.localhost URL
     // Note, no server node required
-    proxy: 'craft-grid.localhost',
+    proxy: 'marukka.localhost',
   
     files: [
         'public/assets/img',
