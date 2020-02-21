@@ -22,4 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 800,
     });
 
+    document.getElementById("main__logo--header").classList.add("show")
+
 });

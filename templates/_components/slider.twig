@@ -9,7 +9,7 @@
     {%- do view.registerCssFile("/assets/plugins/swiper/swiper.min.css") -%}
     {%- do view.registerJsFile("/assets/plugins/swiper/swiper.min.js") -%}
     
-    <div class="swiper-container">
+    <div class="swiper-container" data-aos='fade' data-aos-easing="ease-in-out" >
       <div class="swiper-wrapper">
     
   {% endif %}
@@ -67,8 +67,8 @@
 			  		rgba(0,0,0,0.2) 100%),
 			  		url({{ sliderImage }})
 			  		no-repeat; background-size: cover;background-position: {{ position }};">
-      <div class="slider__content-container">
-        <div class="slider__content">
+      <div class="slider__content-container" >
+        <div class="slider__content" >
           
           {% if block.ueberschrift|length %}
             <h2 class="slider__title title-big">{{ block.ueberschrift }}</h2>
@@ -96,7 +96,7 @@
           centeredSlides: true,
           loop: true,
           autoplay: {
-            delay: 2500,
+            delay: 4000,
             disableOnInteraction: true,
           },
           pagination: {

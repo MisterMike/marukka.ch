@@ -14,6 +14,42 @@ main .inview__item.show {
     animation-fill-mode: forwards
 }
 
+body.home .svg__anim {
+  animation: showLine .75s ease;
+  animation-fill-mode: forwards;
+  stroke: yellow;
+  fill: $white;
+  stroke-width: 1;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+
+
+body.home .svg__anim path {
+    @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+@keyframes showLine {
+  0% {
+    stroke-dashoffset: 900;
+    fill: yellow;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-width: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+
 .fadeIn {
     animation-name: fadeIn;
 }

@@ -17,8 +17,36 @@
 }
 
 
+.header__logo {
 
+    display: inline-block;
+    margin-top: $base-spacing/3;
+    margin-left: $base-spacing/2;
+    width: 151px;
+    height: 24px;
+    //background: transparent url("/assets/img/logo/logo_marukka_white.svg") center no-repeat;
+    background-size: 100%;
+    z-index: 300;
+    cursor: pointer;
+    opacity: 0;
 
+    &:focus, &:hover, &:active {
+        outline: 0;
+    }
+    
+    @media (min-width: $break-desktop) {
+        margin-top: $base-spacing/2;
+        margin-left: $base-spacing;
+        width: 227px;
+        height: 36px;
+    }
+  
+    &.show {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    
+}
 
 
 

@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   aos__WEBPACK_IMPORTED_MODULE_6___default.a.init({
     duration: 800
   });
+  document.getElementById("main__logo--header").classList.add("show");
 });
 
 /***/ }),
