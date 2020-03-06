@@ -1,0 +1,117 @@
+///////////////////////////////
+// MOBILE NAVIGATION 
+///////////////////////////////
+
+.main__nav--items--level1 {
+  padding: 4px;
+  position: absolute;
+  right: 10px;
+  top:25px
+}
+
+
+.nav-main-link {
+  padding: 4px;
+  position: absolute;
+  right: 10px;
+  top:25px
+}
+
+.nav-main-link .icon-hamburger {
+  -webkit-transition: fill .15s ease;
+  transition: fill .15s ease;
+  max-width: 20px;
+  margin: 0;
+  fill:#1f1f1f
+}
+
+.nav-main-link:focus .icon-hamburger, 
+.nav-main-link:hover .icon-hamburger {
+  outline:none
+}
+
+.nav-main .navigation.container {
+  margin:0 auto
+}
+
+.nav-main .navigation .nav-main-list {
+  display: block;
+  padding: 0 0 20px;
+  margin:0
+}
+
+.nav-main .navigation .nav-main-list[aria-expanded=false], 
+.nav-main .navigation .nav-main-list[aria-expanded=true] {
+  left:0
+}
+
+.nav-main .navigation ul li a {
+  color: #1f1f1f;
+  display: block;
+  padding: 10px 10px;
+  margin: 3px 0 0;
+  font-size:1.2rem;
+  text-decoration: none;
+  transition: background .2s ease-out;
+  box-sizing:border-box;
+}
+
+.nav-main .navigation ul li a:focus,
+.nav-main .navigation ul li a:hover {
+  background-color: darken($accent-color,20%);
+  color:#1f1f1f
+}
+
+.nav-main .navigation ul li a:focus {
+  outline:none
+}
+
+.nav-main .navigation .subnav {
+  position: relative;
+  z-index:10
+}
+
+.nav-main .navigation .subnav svg {
+  top: 3px;
+  left: 2px;
+  position:relative
+}
+
+.nav-main .navigation .subnav .subnav-content {
+  min-width:250px
+}
+
+.nav-main .navigation .subnav ul {
+  display: block;
+  margin: 0;
+  padding:0
+}
+
+.nav-main .navigation .subnav ul li {
+  margin:0
+}
+
+.nav-main .navigation .subnav ul li a:focus,
+.nav-main .navigation .subnav ul li a:hover {
+  outline:none
+}
+
+.nav-main .navigation .subnav ul li a:focus {
+  outline:none
+}
+
+.nav-main .navigation .subnav ul a {
+  display: block;
+  padding: 10px 10px;
+  margin: 3px 0 0;
+  font-size: 1.1rem;
+}
+
+.nav-main .navigation .subnav ul li.lined:before {
+  content: " ";
+  display: block;
+  border-top: 1px solid #1f1f1f;
+  width: calc(100% - 20px);
+  margin:1.125em auto 1em
+}
+
