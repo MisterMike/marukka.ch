@@ -3,6 +3,64 @@
 //////////////////////////////
 
 
+.container--group {
+  border: 3px solid $accent-color;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .container--event {
+    //border: 2px solid $accent-color;
+    background-color: $accent-color;
+    color: #1f1f1f;
+    padding: .5em;
+    display: block;
+    font-family: soleil, sans-serif;
+    font-weight: 700;
+    appearance: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 0;
+    transition: background .2s ease-out;
+    line-height: 1em;
+    text-align: center;
+    margin:0 1em .5em 0;
+
+    &:focus, &:hover, &:active {
+
+      background-color: $green-dark;
+      color: $white;
+
+    }
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  .container--event--content {
+    display: table;
+    margin: 0;
+    width: 100%;
+  }
+  .event--form {
+    display: table-row; 
+    width: 100%;
+  }
+  .event--name {
+    display: table-cell;
+    width:70%;
+  }
+  .event--ticketdata {
+    display: table-cell;
+    padding: 0 20px;
+    width:30%;
+  }
+  .event--button {
+    display: table-cell;
+    width:30%;
+  }
+}
+
 .content__3-4 .events__wrapper {
   margin: 0 auto;
   width: auto;
@@ -109,7 +167,7 @@ main .event__item--content {
 
 
     @media (min-width: $break-desktop) {
-      border: 1px solid $blue;
+      border: 1px solid $accent-color;
       border-left: none;
     }
   }
@@ -160,7 +218,7 @@ main .event__item--content {
     }
 
     &:focus, &:hover, &:active {
-      color: shade($action-color, 40%);
+      color: shade($accent-color, 40%);
       border: none;
 
       .event__content--heading {
@@ -177,7 +235,7 @@ main .event__item--content {
 .home {
   main .event__item--content .event__item--wrapperline {
     @media (min-width: $break-tablet) {
-      border: 1px solid $blue;
+      border: 1px solid $accent-color;
       border-left: none;
     }
   }
@@ -185,7 +243,7 @@ main .event__item--content {
 
 .event__link--icon.icon-arrow::after {
   padding-left: 0;
-  color: $blue;
+  color: $accent-color;
   font-family: $symbol-font-family;
   font-size: 0.8rem;
   padding-right: 10px;
@@ -220,7 +278,7 @@ main .event__item--content {
   padding-top: 10px;
   height: 130px;
   width: 100px;
-  background-color: $blue;
+  background-color: $accent-color;
   color: $white;
   text-align: center;
   font-size: 2.667rem;
@@ -286,7 +344,7 @@ main .event__item--content {
     float: right;
     width: 60%;
     padding-left: $base-spacing/2;
-    border: 1px solid $blue;
+    border: 1px solid $accent-color;
     border-left: none;
   }
         

@@ -57,12 +57,12 @@ return [
 
     'staging' => [
 
-        'siteUrl' => 'https://craft.kitesailing.ch',
+        'siteUrl' => 'https://craft.marukka.ch',
         'devMode' => true,
     ],
 
     'production' => [
 
-        'siteUrl' => 'https://www.kitesailing.ch',
+        'siteUrl' => 'https://www.marukka.ch',
     ],
 ];

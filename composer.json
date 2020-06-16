@@ -1,8 +1,7 @@
 {
   "require": {
     "vlucas/phpdotenv": "^2.4.0",
-    "barrelstrength/sprout-notes": "^v2.2.3",
-    "craftcms/cms": "3.4.1",
+    "craftcms/cms": "3.4.9",
     "craftcms/redactor": "^2.3.1",
     "craftcms/element-api": "2.6.0",
     "craftcms/feed-me": "4.2.0.1",
@@ -25,8 +24,7 @@
     "vaersaagod/seomate": "^1.0",
     "spatie/pdf-to-text": "^1.2",
     "voku/portable-utf8": "^5.4",
-    "nibiru/facebook-events":"^0.1",
-    "codemonauts/craft-instagram-feed": "^1.0"
+    "verbb/events": "1.4.3"
   },
   "autoload": {
     "psr-4": {
