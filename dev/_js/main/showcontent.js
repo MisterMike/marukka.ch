@@ -1,8 +1,10 @@
-const showContent = (function(selectorClass, showClass, animMargin = "-150px 0px") {
+const showContent = (function(selectorClass, showClass, animMargin) {
     
     var divElem = document.querySelectorAll(selectorClass),
         divElemCount = divElem.length,
         myObserver = void 0;
+
+        console.log(divElem.length);
     
     if ("IntersectionObserver" in window) {
 
@@ -21,6 +23,7 @@ const showContent = (function(selectorClass, showClass, animMargin = "-150px 0px
             var loopElem = divElem[cntr1];
             loopElem.classList.contains(showClass) || myObserver.observe(loopElem)
         }
+
     } else
         !function(selectorClass, showClass) {
             for (var cntr2 = 0; cntr2 < selectorClass.length; cntr2++) {
@@ -31,5 +34,8 @@ const showContent = (function(selectorClass, showClass, animMargin = "-150px 0px
 
     function makeItSo(targetDiv, showClass) {
         targetDiv.classList.add(showClass)
+        console.log('makeItSo:'+showClass);
     }
 });
+
+module.exports = showContent;

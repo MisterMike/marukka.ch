@@ -15,7 +15,7 @@ section.section__inhalt {
   opacity: 0;
 
   &.show {
-    animation-name: fadein;
+    animation-name: fadeIn;
     animation-duration: 960ms;
     animation-timing-function: cubic-bezier(0.52, .01, .16, 1);
     animation-iteration-count: 1;

@@ -1,7 +1,7 @@
 {
   "require": {
     "vlucas/phpdotenv": "^2.4.0",
-    "craftcms/cms": "3.4.9",
+    "craftcms/cms": "^3.4",
     "craftcms/redactor": "^2.3.1",
     "craftcms/element-api": "2.6.0",
     "craftcms/feed-me": "4.2.0.1",

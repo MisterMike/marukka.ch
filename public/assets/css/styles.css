@@ -5553,8 +5553,8 @@ section.section__inhalt {
   opacity: 0;
 }
 .inhalt__text.showMe.show {
-  -webkit-animation-name: fadein;
-          animation-name: fadein;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
   -webkit-animation-duration: 960ms;
           animation-duration: 960ms;
   -webkit-animation-timing-function: cubic-bezier(0.52, 0.01, 0.16, 1);

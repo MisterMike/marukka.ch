@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementsByTagName("html")[0].className += " inited";
   document.getElementById("main__logo--header").classList.add("show");
-  new _main_showcontent__WEBPACK_IMPORTED_MODULE_1___default.a('showMe', 'show', '-150px 0px');
+  var showMyContent = new _main_showcontent__WEBPACK_IMPORTED_MODULE_1___default.a('.showMe', 'show', '-350px 0px');
 });
 
 /***/ }),
@@ -540,11 +540,11 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var showContent = function showContent(selectorClass, showClass) {
-  var animMargin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "-150px 0px";
+var showContent = function showContent(selectorClass, showClass, animMargin) {
   var divElem = document.querySelectorAll(selectorClass),
       divElemCount = divElem.length,
       myObserver = void 0;
+  console.log(divElem.length);
 
   if ("IntersectionObserver" in window) {
     myObserver = new IntersectionObserver(function (selectorClass) {
@@ -572,8 +572,11 @@ var showContent = function showContent(selectorClass, showClass) {
 
   function makeItSo(targetDiv, showClass) {
     targetDiv.classList.add(showClass);
+    console.log('makeItSo:' + showClass);
   }
 };
+
+module.exports = showContent;
 
 /***/ }),
 

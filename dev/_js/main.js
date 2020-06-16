@@ -16,6 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByTagName("html")[0].className += " inited";
     document.getElementById("main__logo--header").classList.add("show");
 
-    new showContent('showMe', 'show', '-150px 0px');
+    const showMyContent = new showContent('.showMe', 'show', '-350px 0px');
 
 });
