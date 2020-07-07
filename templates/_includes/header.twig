@@ -44,13 +44,18 @@
     <section class="nav-main">
         <nav role="navigation" class="navigation container">
 
-             {{ mainNavigation | raw }}
+{#             <span class="flyout__close u-pointer">
+                <i class="icon icon-cancel" aria-hidden="true"></i>
+                <span class="visuallyhidden">{{ 'Schliessen'|t }} </span>
+            </span> #}
+
+            {{ mainNavigation | raw }}
 
             <button id="search_open" class="search-icon" aria-label="Search">
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="31.4px" height="30.9px" viewBox="0 0 31.4 30.9">
+                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="24px" height="23.6px" viewBox="0 0 31.4 30.9">
                     <style>
                         .st0 {
-                            fill: #111
+                            fill: #ffffff;
                         }
                     </style>
                     <path class="st0" d="M20,22.6c-2.2,1.6-4.9,2.4-7.5,2.4c-2.7,0-5.4-0.9-7.6-2.6c-5.5-4.3-6.6-12-2.4-17.5c2.4-3.1,6-4.9,10-4.9

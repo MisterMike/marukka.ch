@@ -2,6 +2,63 @@
 // ACCORDEON
 //////////////////////////////
 
+
+.accordeon__item {
+  background: $grey-light;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+
+  &:hover, &:active, &:focus {
+    background: $grey-medium;
+  }
+}
+
+.accordeon__item--title {
+  padding: 1rem 0;
+  font-weight: 400;
+  line-height: 1.25em;
+  margin: 0;
+
+  svg.svg--inline {
+    top: 4px;
+    position: relative;
+    width: 0.5em;
+    display: inline-block;
+    margin: 0 10px;
+    transition: all 0.3s;
+  }
+
+  &:hover, &:active, &:focus {
+    cursor: pointer;
+  }
+}
+
+.accordeon__item--content {
+  height: 0px;
+  transform-origin:top;
+  //transform: scaleY(0);
+  overflow: hidden;
+  transition: all 0.3s;
+  
+  p {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.accordeon__item.open .accordeon__item--content {
+  height: auto;
+  //transform: scaleY(1);
+}
+
+.accordeon__item.open h3.accordeon__item--title .svg--inline {
+  transform: rotate(90deg);
+}
+
+
+/* previous version of accordeons */
+
+
 .accordeon {
   margin: auto;
   //width: 600px;

@@ -1,3 +1,4 @@
+
 /**
  * k4 Site Module module for Craft CMS
  *
@@ -7,12 +8,12 @@
  * @copyright Copyright (c) 2019 Mischa Sprecher
  * @link      kreisvier.ch
  * @package   K4SiteModule
- * @since     1.0.0
+ * @since     1.2.0
  */
 
 body.login {
     overflow: hidden;
-    background: #063b47 ;
+    background: #669526 ;
 }
 body.login::after {
     content: "";
@@ -35,11 +36,11 @@ body.login #login-form {
     outline: 18px solid rgba(250,250, 250, 0.15);
     padding: 40px 60px;
     background: #fff;
-    background-image: url('/assets/img/logo/logo_login.svg');
+    background-image: url('/assets/img/logo/logo_marukka.svg');
     background-position: center 50px;
     background-size: 200px 200px;
     padding-top: 280px;
-    margin-top: -400px;
+    /*margin-top: -400px;*/
     margin-left: 20px;
     margin-right: 20px;
     background-repeat: no-repeat;
@@ -47,14 +48,29 @@ body.login #login-form {
 
 }
 
+body.login #login-form #password-field .passwordwrapper .password-toggle {
+    top: 31px;
+    font-size: 0.8rem;
+}
+
 body.login #login-form #loginName,
 body.login #login-form #password{
     border-radius: 0;
     margin-top: 15px;
+    border-bottom-width: 1px;
 }
 
 body.login #login-form .buttons .submit {
     border-radius: 0;
+}
+
+body.login #login-form .btn.submit:not(.disabled):not(.inactive) {
+background-color: #8cbf37 !important;
+}
+
+body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover, 
+body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover {
+background-color: #669526 !important;
 }
 
 body.login #login-form #poweredby {
@@ -62,10 +78,19 @@ body.login #login-form #poweredby {
     margin-bottom: 0;
 }
 
+body.login #login-form #login-fields:after {
+    content:'';
+    box-shadow: none;
+}
+
+body.login #login-form #loginName:focus {
+     border-bottom-width: 1px;
+     margin-bottom: 0;
+ }
+
 @media (min-width: 768px) {
     body.login #login-form {
         width: 300px;
-        margin: -400px 0 0 -210px;
         left: 50%;
     }
 

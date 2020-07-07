@@ -31,7 +31,7 @@
     {# initial content #}
     <div class="js-lazy-wrapper">
         <ul class="js-lazy-list">
-            {% for page in craft.entries.section(settings.section).orderBy(settings.orderBy).limit(settings.limit) %}
+            {% for page in craft.entries.section(settings.section).orderBy(settings.orderBy).limit(settings.limit).all() %}
                 {% include settings.templatePath with {(settings.variableName): page} %}
             {% endfor %}
         </ul>

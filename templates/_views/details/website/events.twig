@@ -1,0 +1,97 @@
+{% set linkActiveBreadcrumbPath = false %}
+
+{% set seitenBild = entry.seitenbild.one()|default(standardSeitenbild.seitenbild.one()) %}
+
+    {% if cart is not defined %}
+        {% set cart = craft.commerce.carts.cart %}
+    {% endif %}
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+  
+
+<main role="main" id="{{entry.section.name}}">
+
+	{#  Generate the fullscreen homescreen with slider and sectionTeaser  #}
+    {% if entry.sliderMatrix|length %}
+        <section class="section__slider">
+
+            {%- include "_routers/component" with { blocks: entry.sliderMatrix.all() } only -%}
+
+        </section>
+    {% elseif seitenBild is defined and seitenBild is not empty %}
+      
+      {%- include "_includes/headerbild" with { image: seitenBild } -%}
+    
+    {% endif %}
+
+    {#  Get the rest of the blocks except sectionTeaser  #}
+    {%- include "_routers/component" with { blocks: entry.inhaltMatrix.type('not sectionTeaser') }  -%}
+    {%- include "_routers/component" with { blocks: entry.adminInhaltMatrix.all() } -%}
+
+    <hr>
+
+
+        <div class="container">
+
+    {# Create a events query with the 'type' and 'limit' parameters #}
+    {% set eventsQuery = craft.events.events()
+        .limit(10) %}
+
+    {# Fetch all Events for BVB Familientag #}
+    {% set events = eventsQuery.all() %}
+
+    {# Display grouped contents #}
+    {% for type, eventOfType in events |group("type.name") %}
+    <div class="container--group">
+        <h2>{{ type }}</h2>
+        {% for event in eventOfType %}
+        {% set availableSlots = event.availableTickets %}
+        <div class="container--event">
+            <div class="container--event--content">
+
+                {% if event.isAvailable %}
+                    <form method="POST">
+                        <div class="event--form">
+                    <p class="event--name">{{ event.title }} - {{ event.startDate|date("h:i") }} Uhr ( {{ event.availableTickets[0].quantity ~" verfügbar" }})</p>
+                {# <small>{% for availEvent in event.availableTickets() %}<li>{{availEvent.quantity}}{%endfor%}</li></small> #}
+                        <div class="event--ticketdata">
+                        <input type="hidden" name="action" value="commerce/cart/update-cart">
+                        {{ redirectInput('shop/cart') }}
+                        {{ csrfInput() }}
+
+                        <input type="number" name="qty" value="1" size="2">
+
+                        <div class="ticket--container">
+                            <select name="purchasableId">
+                                {% for ticket in event.tickets %}
+                                    <option value="{{ ticket.purchasableId }}" {% if not ticket.isAvailable %}disabled{% endif %}>
+                                        {{ ticket.name }} - {{ ticket.price | commerceCurrency(cart.currency) }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        </div>
+                        <div class="event--button">
+                            <input type="submit" value="In den Warenkorb" class="button button--invers"/>
+                        </div>
+                    </form>
+                {% else %}
+                    <strong>Sold out</strong>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
+    </div>
+
+</main>
+
+{% endblock %}
+

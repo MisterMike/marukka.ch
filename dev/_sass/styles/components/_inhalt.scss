@@ -11,18 +11,16 @@ section.section__inhalt {
   @include grid-container;
 }
 
-.inhalt__text {
+.inhalt__text.showMe {
+  opacity: 0;
 
-  //@include grid-collapse;
-  // @include grid-column(12);
-
-  // @include grid-media($neat-grid-phoneUp) {
-  //   @include grid-column(8);
-  // }
-
-  // @include grid-media($neat-grid-desktopUp) {
-  //   @include grid-column(8);
-  // }
+  &.show {
+    animation-name: fadeIn;
+    animation-duration: 960ms;
+    animation-timing-function: cubic-bezier(0.52, .01, .16, 1);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards
+  }
 }
 
 .table__container {

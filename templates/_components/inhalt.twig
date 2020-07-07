@@ -1,15 +1,13 @@
 {% if block.inhalt | length %}
 
-<section id="inhalt__{{ block.fieldId }}" class="section__inhalt">
-
+<section class="section__inhalt" id="inhalt__{{ block.id }}" >
   <div class="container">
-
-    <div class="inhalt__text">
+    <div class="inhalt__text {{ block.einblenden ? 'showMe' }}">
 
       {{ block.inhalt | encodeEmails | replace({'<table>': '<div class="table__container table__container--inhalt"><span class="table__scroll--icon"></span><table>','</table>': '</table></div>'}) | raw }}
 
     </div>
-
   </div>
-</div>
+</section>
+
 {% endif %}

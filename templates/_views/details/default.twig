@@ -21,7 +21,7 @@
 {#         data-sal-duration="500"#}
 {#         data-sal-easing="ease-in-out">#}
 
-    <div class="content__wrapper">
+    <article class="content__wrapper">
 
       <div class="grid__container">
         <h1>{{ entry.seitenUeberschrift|length ? entry.seitenUeberschrift : entry.title }}</h1>
@@ -37,7 +37,7 @@
         {%- include "_routers/component" with { blocks: adminBlocks } -%}
       {% endif %}
 
-    </div>
+    </article>
 
   </div>
 </main>
