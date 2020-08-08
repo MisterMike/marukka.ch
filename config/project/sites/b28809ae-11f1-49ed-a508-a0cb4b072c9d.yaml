@@ -1,0 +1,8 @@
+baseUrl: $DEFAULT_SITE_URL
+handle: default
+hasUrls: true
+language: de-CH
+name: 'Website DE'
+primary: true
+siteGroup: d6769a94-236b-4c2d-8ac3-60829f57a458
+sortOrder: 1

@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: faq
+name: FAQ
+previewTargets:
+  -
+    label: 'Primäre eintrag Seite'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  1ca6a4cf-e0a4-44a2-aded-b0f0d9c73da8:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: ''
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d:
+    enabledByDefault: true
+    hasUrls: true
+    template: _routers/page
+    uriFormat: 'faq/{slug}'
+structure:
+  maxLevels: 1
+  uid: 9a773de9-5bc5-4b88-bdb7-98c9a78eb623
+type: structure

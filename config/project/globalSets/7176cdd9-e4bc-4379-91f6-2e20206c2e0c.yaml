@@ -1,0 +1,12 @@
+fieldLayouts:
+  5c2484ca-522a-4b5d-b2c7-859ae21a1ab1:
+    tabs:
+      -
+        fields:
+          b34620af-769b-4d5e-9958-6555ad7d535c:
+            required: false
+            sortOrder: 1
+        name: Direktlinks
+        sortOrder: 1
+handle: direktlinks
+name: Direktlinks

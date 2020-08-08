@@ -1,0 +1,8 @@
+handle: videos
+hasUrls: true
+name: Videos
+settings:
+  path: '@webroot/assets/videos'
+sortOrder: 3
+type: craft\volumes\Local
+url: '@web/assets/videos'

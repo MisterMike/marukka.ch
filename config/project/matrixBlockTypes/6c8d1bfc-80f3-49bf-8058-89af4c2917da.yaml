@@ -1,0 +1,104 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  33a17993-f9bf-4b2a-be91-1d7007b8a9f0:
+    tabs:
+      -
+        fields:
+          19f41123-dce2-4104-a630-71d5ad0aa908:
+            required: false
+            sortOrder: 1
+          d95c285e-a9d9-44c0-9a98-036604060c2e:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  19f41123-dce2-4104-a630-71d5ad0aa908:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d95c285e-a9d9-44c0-9a98-036604060c2e:
+    contentColumnType: string
+    fieldGroup: null
+    handle: akzent
+    instructions: ''
+    name: Akzent
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'kein Akzent'
+            -
+              - value
+              - none
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Primärfarbe
+            -
+              - value
+              - primary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Sekundärfarbe
+            -
+              - value
+              - secondary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Grau
+            -
+              - value
+              - grey
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Schwarz
+            -
+              - value
+              - black
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: claim
+name: Claim
+sortOrder: 17
