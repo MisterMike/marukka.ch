@@ -1,0 +1,8 @@
+handle: bilder
+hasUrls: true
+name: Bilder
+settings:
+  path: '@webroot/assets/img/'
+sortOrder: 0
+type: craft\volumes\Local
+url: '@web/assets/img/'

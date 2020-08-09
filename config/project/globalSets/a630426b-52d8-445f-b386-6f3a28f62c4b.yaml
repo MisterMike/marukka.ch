@@ -1,0 +1,12 @@
+fieldLayouts:
+  5bd95ad1-0922-4868-9de9-362c2bddce02:
+    tabs:
+      -
+        fields:
+          4b2c817d-5a6b-4115-bb64-d14725fdcb71:
+            required: false
+            sortOrder: 1
+        name: 'Standard Seitenbild'
+        sortOrder: 1
+handle: standardSeitenbild
+name: 'Standard Seitenbild'

@@ -1,0 +1,18 @@
+fieldLayouts:
+  02baf2ee-ff8c-447a-9e15-60cd4aa9d15f:
+    tabs:
+      -
+        fields:
+          6970ee64-406d-4184-8984-cc1374928a8e:
+            required: false
+            sortOrder: 1
+        name: Inhalt
+        sortOrder: 1
+handle: dokumente
+hasUrls: true
+name: Dokumente
+settings:
+  path: '@webroot/assets/docs'
+sortOrder: 0
+type: craft\volumes\Local
+url: '@web/assets/docs'

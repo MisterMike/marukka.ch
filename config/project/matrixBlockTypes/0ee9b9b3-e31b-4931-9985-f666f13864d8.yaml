@@ -1,0 +1,165 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  e8fd3cac-9217-4770-abcf-5bb02bb9973a:
+    tabs:
+      -
+        fields:
+          1f2b817f-fbae-47af-bb46-073477e179d2:
+            required: false
+            sortOrder: 5
+          2a765c10-1543-4121-85f5-8478b6668223:
+            required: false
+            sortOrder: 3
+          9678b216-d684-4e48-93fa-2b3bffaaf6ab:
+            required: false
+            sortOrder: 4
+          a8e80506-9170-49e4-b0cb-36f8191138a0:
+            required: false
+            sortOrder: 2
+          c80efeec-ab78-44c5-8ad9-dda528f6ee65:
+            required: false
+            sortOrder: 6
+          daa1c929-54f4-4b76-84df-966faa2f8a38:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  1f2b817f-fbae-47af-bb46-073477e179d2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: externerLink
+    instructions: 'Fügen Sie hier Ihren Link zur externen Website ein (inkl. https://)'
+    name: 'Externer Link'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  2a765c10-1543-4121-85f5-8478b6668223:
+    contentColumnType: text
+    fieldGroup: null
+    handle: inhalt
+    instructions: ''
+    name: Inhalt
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  9678b216-d684-4e48-93fa-2b3bffaaf6ab:
+    contentColumnType: string
+    fieldGroup: null
+    handle: internerLink
+    instructions: ''
+    name: 'Interner Link'
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      limit: '1'
+      localizeRelations: ''
+      selectionLabel: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: ''
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  a8e80506-9170-49e4-b0cb-36f8191138a0:
+    contentColumnType: text
+    fieldGroup: null
+    handle: ueberschrift
+    instructions: ''
+    name: Überschrift
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c80efeec-ab78-44c5-8ad9-dda528f6ee65:
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkZuDatei
+    instructions: 'Wählen Sie Ihren Datei aus, oder ziehen Sie Ihren Datei in diesen Bereich.'
+    name: 'Link zu Datei'
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:8d92101e-9d1e-4248-96fa-9db528222c48'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: ''
+      restrictFiles: ''
+      selectionLabel: 'Datei verlinken'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:8d92101e-9d1e-4248-96fa-9db528222c48'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  daa1c929-54f4-4b76-84df-966faa2f8a38:
+    contentColumnType: string
+    fieldGroup: null
+    handle: bild
+    instructions: 'Ziehen Sie Ihr Bild in diesen Bereich. Durch einen Doppelklick können Sie den Alternativtext des Bildes ändern.'
+    name: Bild
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      defaultUploadLocationSubpath: sliderbilder
+      limit: '1'
+      localizeRelations: ''
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: slider
+name: Slider
+sortOrder: 15

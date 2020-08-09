@@ -1,0 +1,61 @@
+fieldLayouts:
+  2a6be59d-e1e8-4e39-b3a2-61609c7f1760:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 1bd16e11-1bea-4257-a0a6-032962479791
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 4b2c817d-5a6b-4115-bb64-d14725fdcb71
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 33dc6681-eddf-408d-b80e-a0eb9d9467d0
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: d40ae449-4316-4da0-8f25-d26df6126954
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Inhalt
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 2a82ec21-c911-4cb1-a812-eb996a54a38b
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 8717462a-a45a-4a10-96cd-0ffcc079298b
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 1d2c3960-1e98-4f07-a7f9-38570ab2f1d0
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 6970ee64-406d-4184-8984-cc1374928a8e
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 00bcec55-f222-4e65-9903-7b122b0b13cf
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: b723ee93-e593-410d-b251-381d3c1abc0a
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Einstellungen
+        sortOrder: 2
+handle: anfahrt
+hasTitleField: true
+name: Anfahrt
+section: b5dfecfa-162a-465a-b06b-7214d6bd2023
+sortOrder: 4
+titleFormat: ''

@@ -1,0 +1,67 @@
+field: 33dc6681-eddf-408d-b80e-a0eb9d9467d0
+fieldLayouts:
+  6fb4103d-e2b3-45f6-a49e-b8e6eafb9f3c:
+    tabs:
+      -
+        fields:
+          0b3a619f-5798-431b-aab0-e833e0b778c7:
+            required: false
+            sortOrder: 3
+          798b4561-7d0e-4592-bac2-3216ba76492a:
+            required: false
+            sortOrder: 2
+          b8a6e69d-0fc7-444f-aa06-93feee0fe1ca:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  0b3a619f-5798-431b-aab0-e833e0b778c7:
+    contentColumnType: text
+    fieldGroup: null
+    handle: parameter2
+    instructions: ''
+    name: 'Parameter 2'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  798b4561-7d0e-4592-bac2-3216ba76492a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: parameter1
+    instructions: ''
+    name: 'Parameter 1'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b8a6e69d-0fc7-444f-aa06-93feee0fe1ca:
+    contentColumnType: string
+    fieldGroup: null
+    handle: snippet
+    instructions: 'Pfad zum Snippet eingeben.'
+    name: Snippet
+    searchable: true
+    settings:
+      limitToSubfolder: _snippets
+    translationKeyFormat: null
+    translationMethod: none
+    type: superbig\templateselect\fields\TemplateSelectField
+handle: snippet
+name: Snippet
+sortOrder: 2

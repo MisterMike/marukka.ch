@@ -1,0 +1,120 @@
+dateModified: 1596895185
+email:
+  fromEmail: digital@kreisvier.ch
+  fromName: Craftdefault3
+  transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
+  buttonbox:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  contact-form:
+    schemaVersion: 1.0.0
+  contact-form-honeypot:
+    schemaVersion: 1.0.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  cp-js:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  craft-emailobfuscator:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  craftnavigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  db-dump:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+    settings:
+      key: kp0p9uozrifgqrenoimvp_lkqem$fs
+      revisions: '5'
+      source: '4'
+  default-dashboard:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  feed-me:
+    edition: standard
+    enabled: false
+    schemaVersion: 2.1.2
+  k4-image-optimizer:
+    schemaVersion: 1.0.0
+  k4-navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.0
+  k4-poweradmin:
+    schemaVersion: 2.1.0
+  k4encodeemails:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  kint:
+    schemaVersion: 1.0.0
+  logs:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  matrixmate:
+    enabled: true
+    schemaVersion: 1.0.0
+  oembed:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  picture:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  preparse-field:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.5
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redactor-custom-styles:
+    enabled: true
+    schemaVersion: 1.0.0
+  seomate:
+    enabled: true
+    schemaVersion: 1.0.0
+  sprout-notes:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  template-select:
+    enabled: true
+    schemaVersion: 2.0.0
+system:
+  edition: solo
+  live: true
+  name: marukka.ch
+  schemaVersion: 3.5.12
+  timeZone: Europe/Zurich
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true

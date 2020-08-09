@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 8b06cd83-018f-4043-8751-aa7468186613
+handle: inhaltMatrix
+instructions: ''
+name: Inhalt
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_inhaltmatrix}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: none
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

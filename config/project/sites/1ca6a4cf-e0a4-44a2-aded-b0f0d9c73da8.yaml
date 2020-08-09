@@ -1,0 +1,8 @@
+baseUrl: '@web/en/'
+handle: websiteEn
+hasUrls: true
+language: en
+name: 'Website EN'
+primary: false
+siteGroup: d6769a94-236b-4c2d-8ac3-60829f57a458
+sortOrder: 2

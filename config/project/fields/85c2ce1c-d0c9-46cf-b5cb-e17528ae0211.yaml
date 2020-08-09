@@ -1,0 +1,16 @@
+contentColumnType: text
+fieldGroup: c8f4d2d1-8e44-4ed5-ad71-73506c670ef6
+handle: kontaktKoordinaten
+instructions: 'Geben Sie die Koordinaten der Adresse ein im Format (lat, long), also z.B. (47.5420615,7.5978761)'
+name: 'Kontakt Koordinaten'
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

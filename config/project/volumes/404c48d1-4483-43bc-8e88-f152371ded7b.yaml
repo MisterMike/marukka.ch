@@ -1,0 +1,8 @@
+handle: backup
+hasUrls: true
+name: Backup
+settings:
+  path: '@webroot/assets/backup'
+sortOrder: 2
+type: craft\volumes\Local
+url: '@web/assets/backup'

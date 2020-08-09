@@ -1,0 +1,16 @@
+enableVersioning: true
+handle: mac
+name: Mac
+propagationMethod: all
+siteSettings:
+  1ca6a4cf-e0a4-44a2-aded-b0f0d9c73da8:
+    enabledByDefault: true
+    hasUrls: true
+    template: _routers/detail
+    uriFormat: 'mac/{slug}'
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d:
+    enabledByDefault: true
+    hasUrls: true
+    template: _routers/detail
+    uriFormat: 'mac/{slug}'
+type: channel

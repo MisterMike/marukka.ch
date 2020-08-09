@@ -1,0 +1,82 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  999e45c1-0e51-47f4-b645-1cf089d714a0:
+    tabs:
+      -
+        fields:
+          345c1884-7a25-4c6b-bff3-66ed07f2ea61:
+            required: false
+            sortOrder: 1
+          e287da6d-f1fa-4bda-a218-09ef55b0b790:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  345c1884-7a25-4c6b-bff3-66ed07f2ea61:
+    contentColumnType: text
+    fieldGroup: null
+    handle: titel
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e287da6d-f1fa-4bda-a218-09ef55b0b790:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ueberschriftstyp
+    instructions: ''
+    name: Ueberschriftstyp
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Überschrift 2'
+            -
+              - value
+              - h2
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Überschrift 3'
+            -
+              - value
+              - h3
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Überschrift 4'
+            -
+              - value
+              - h4
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: ueberschrift
+name: Ueberschrift
+sortOrder: 1

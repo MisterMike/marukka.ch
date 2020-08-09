@@ -1,0 +1,137 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  50e9118d-2c8d-41d1-bc05-9a9efb375c6f:
+    tabs:
+      -
+        fields:
+          4c2f1f70-70d2-4ca8-91c9-1188c52c2a1b:
+            required: false
+            sortOrder: 4
+          4c9c71f1-03dd-4659-a21a-b5f938d81209:
+            required: false
+            sortOrder: 3
+          58440e27-90c0-4494-b274-3f44cda519d3:
+            required: false
+            sortOrder: 2
+          616bfbfd-9844-4ba2-92fd-796c64648e17:
+            required: false
+            sortOrder: 1
+          dd97a1e3-7dc2-491c-8a1d-1107e7dfe304:
+            required: false
+            sortOrder: 5
+        name: Content
+        sortOrder: 1
+fields:
+  4c2f1f70-70d2-4ca8-91c9-1188c52c2a1b:
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkUrl
+    instructions: ''
+    name: Link
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      limit: ''
+      localizeRelations: ''
+      selectionLabel: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: ''
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  4c9c71f1-03dd-4659-a21a-b5f938d81209:
+    contentColumnType: text
+    fieldGroup: null
+    handle: inhalt
+    instructions: ''
+    name: Inhalt
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\redactor\Field
+  58440e27-90c0-4494-b274-3f44cda519d3:
+    contentColumnType: text
+    fieldGroup: null
+    handle: titel
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  616bfbfd-9844-4ba2-92fd-796c64648e17:
+    contentColumnType: string
+    fieldGroup: null
+    handle: bild
+    instructions: ''
+    name: Bild
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: ''
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  dd97a1e3-7dc2-491c-8a1d-1107e7dfe304:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkText
+    instructions: ''
+    name: 'Link Titel'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+handle: promo
+name: Promo
+sortOrder: 9

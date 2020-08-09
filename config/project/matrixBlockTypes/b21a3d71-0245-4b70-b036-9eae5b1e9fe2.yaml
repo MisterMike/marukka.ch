@@ -1,0 +1,61 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  4ca20248-dd0a-4933-a4e9-3dd1ab80ec2b:
+    tabs:
+      -
+        fields:
+          3b72897a-a1fc-4ce4-8775-cf829aa094c4:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  3b72897a-a1fc-4ce4-8775-cf829aa094c4:
+    contentColumnType: string
+    fieldGroup: null
+    handle: abstand
+    instructions: 'Legen Sie hier den Abstand zwischen zwei Blöcken fest.'
+    name: Abstand
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Klein
+            -
+              - value
+              - sm
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mittel
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Gross
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: abstand
+name: Abstand
+sortOrder: 13

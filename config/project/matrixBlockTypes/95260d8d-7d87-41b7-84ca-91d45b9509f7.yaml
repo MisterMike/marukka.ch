@@ -1,0 +1,49 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  d95fe8d6-3a81-406d-b64e-f65da4565664:
+    tabs:
+      -
+        fields:
+          eb03631a-406a-4306-84d4-045a77545259:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  eb03631a-406a-4306-84d4-045a77545259:
+    contentColumnType: string
+    fieldGroup: null
+    handle: downloads
+    instructions: 'Ziehen Sie Ihre Downloads in diesen Bereich. Durch einen Doppelklick können Sie die Beschriftung der Datei ändern.'
+    name: Downloads
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - excel
+        - pdf
+        - powerpoint
+        - word
+      defaultUploadLocationSource: 'volume:8d92101e-9d1e-4248-96fa-9db528222c48'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: ''
+      restrictFiles: '1'
+      selectionLabel: 'Datei hinzufügen'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:8d92101e-9d1e-4248-96fa-9db528222c48'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: downloads
+name: Downloads
+sortOrder: 5

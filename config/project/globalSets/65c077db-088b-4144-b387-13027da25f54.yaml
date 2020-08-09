@@ -1,0 +1,12 @@
+fieldLayouts:
+  6cb51faf-5ad0-42df-b152-da748a7c66e9:
+    tabs:
+      -
+        fields:
+          b34620af-769b-4d5e-9958-6555ad7d535c:
+            required: false
+            sortOrder: 1
+        name: Footerlinks
+        sortOrder: 1
+handle: footerlinks
+name: Footerlinks

@@ -1,0 +1,48 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  88a35173-4710-407d-a50a-bd211ed05068:
+    tabs:
+      -
+        fields:
+          6ec1bab2-6299-47f3-8481-3bf2f5abea8f:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  6ec1bab2-6299-47f3-8481-3bf2f5abea8f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: aufzaehlung
+    instructions: ''
+    name: Aufzählung
+    searchable: true
+    settings:
+      addRowLabel: 'Zeile hinzufügen'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Liste
+                -
+                  - handle
+                  - liste
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+handle: liste
+name: Liste
+sortOrder: 12
