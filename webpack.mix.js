@@ -2,14 +2,13 @@ const mix = require('laravel-mix');
 
 
 mix.setPublicPath('public/assets/')
-
-  .js('dev/_js/main.js', 'js')
-  .js('dev/_js/plugins.js', 'js')
-  .sass('dev/_sass/styles.scss', 'css')
-  .sass('dev/_sass/_vendors/photoswipe/css/main.scss', 'plugins/photoswipe/photoswipe.css')
-  .options({
-    processCssUrls: false,
-   })
+    .js('dev/_js/main.js', 'js/main.min.js')
+    .js('dev/_js/plugins.js', 'js/plugins.min.js')
+    .sass('dev/_sass/styles.scss', 'css/styles.min.css')
+    .sass('dev/_sass/_vendors/photoswipe/css/main.scss', 'plugins/photoswipe/photoswipe.css')
+    .options({
+        processCssUrls: false,
+    })
   .copy('node_modules/owl.carousel/dist/assets/owl.carousel.min.css', 'public/assets/plugins/owl-carousel/owl.carousel.min.css')
   .copy('node_modules/owl.carousel/dist/owl.carousel.min.js', 'public/assets/plugins/owl-carousel/owl.carousel.min.js')
   .copy('node_modules/photoswipe/dist/photoswipe.min.js', 'public/assets/plugins/photoswipe/photoswipe.min.js')

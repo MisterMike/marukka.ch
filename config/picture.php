@@ -168,6 +168,17 @@ return [
           ]
       ],
 
+      'teaser' => [
+          // optional lazysizes. Can be boolean (true = lazysizes, false = no lazysizes) or
+          // string (uses string value for src attribute value)
+          'lazysizes' => false,
+          'aspectRatio' => 7/3,
+          'img' => [
+              'sizes' => '50vw',
+              'widths' => [500, 1000]
+          ]
+      ],
+
       'teaserLarge' => [
           // optional lazysizes. Can be boolean (true = lazysizes, false = no lazysizes) or
           // string (uses string value for src attribute value)

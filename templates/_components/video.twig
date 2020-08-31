@@ -1,0 +1,8 @@
+{% if block.videoUrl|length %}
+	<!-- Simple video example -->
+	<video src="{{ block.videoUrl.getUrl() }}" autoplay poster="{{ block.videoPoster|default() }}">
+	  Sorry, dein browser unterstützt keine eingebetteten videos, 
+	  aber keine sorge, du kannst es <a href="videofile.ogg">herunterladen</a>
+	  und dann in deinem video programm ansehen.
+	</video>
+{% endif %}

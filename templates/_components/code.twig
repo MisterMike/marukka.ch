@@ -1,5 +1,10 @@
 {% if block.code|length %}
 
-  {{ block.code|raw }}
+{% do view.registerCssFile("/assets/plugins/prism/prism.min.css") %}
+{% do view.registerJsFile("/assets/plugins/prism/prism.min.js") %}
+
+  <pre><code class="language-{{block.codelang|default('twig')}}">
+  	{{ block.code|raw }}
+  </code></pre>
 
 {% endif %}

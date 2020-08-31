@@ -1,0 +1,51 @@
+
+    <section id="{{ block.id }}" class="eintraege">
+
+
+    {% set break = false %}
+    {% set entryCat = 'error' %}
+
+        {% for option in block.channelSection.options if not break %}
+            {% if option.selected %}
+                {% set entryCat = option.value %}
+                {% set break = true %}
+            {% endif %}
+        {% endfor %}
+
+        {% set entries = craft.entries.section(entryCat) %}
+
+        {% if entries is defined and entries|length %}
+        
+            <div class="container block-link"><ul class="item-grid container ">
+
+                {% for eintrag in entries %}
+
+
+                    <li>
+                        <div class="item-content">
+                            <a href="{{ eintrag.getUrl() }}">
+                                <div class="item-img ">
+                                    {% set image = entry.seitenbild|default(standardSeitenbild.seitenbild).one() %}
+                                    {{ craft.picture.element(
+                                        image,
+                                        'teaser',
+                                        { alt: image.title, transform: { position: 'bottom-right', quality: 80 } } ) 
+                                      }}
+                                </div>
+                            </a>
+                            <div class="item-description">
+                                <h5 class="h5">{{ eintrag.title }}</h5>
+                                <p>{{ teaserText|default() }}</p> 
+                                <a href="{{ eintrag.getUrl() }}" class="button">{{'Learn more'|t}}</a>
+                            </div>
+                        </div>
+                    </li>
+
+
+                {% endfor %}
+
+            </ul></div>
+
+        {% endif %}
+
+    </section>
