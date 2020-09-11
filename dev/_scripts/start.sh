@@ -132,18 +132,6 @@ mkdir -p dev/_SASS/_vendors/libs
 tput setaf 6;printf "\n  √ Verzeichnis erstellt (dev/_SASS/_vendors/libs)"
 sleep 1
 
-# Copy bourbon assets from node_modules to vendor folder
-cp -R node_modules/bourbon/core/ dev/_SASS/_vendors/bourbon
-
-tput setaf 6;printf "\n  √ Bourbon kopiert (dev/_SASS/_vendors/bourbon)"
-sleep 1
-
-# Copy bourbon core from node_modules to vendor folder
-cp -R node_modules/bourbon-neat/core dev/_SASS/_vendors/neat
-
-tput setaf 6;printf "\n  √ Neat kopiert (dev/_SASS/_vendors/neat)"
-sleep 1
-
 # Copy photoswipe from node_modules to vendor folder
 cp -R node_modules/photoswipe/src dev/_SASS/_vendors/photoswipe
 

@@ -1,4 +1,4 @@
-dateModified: 1596895185
+dateModified: 1599834524
 email:
   fromEmail: digital@kreisvier.ch
   fromName: Craftdefault3
@@ -97,6 +97,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   seomate:
+    edition: standard
     enabled: true
     schemaVersion: 1.0.0
   sprout-notes:

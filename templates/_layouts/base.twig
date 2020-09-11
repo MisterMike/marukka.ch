@@ -30,15 +30,10 @@
 
 <!DOCTYPE html>
 <html lang="de-CH">
-  
   <head>
-
     {% include '_includes/htmlhead' %}
-
     {% if not devMode %}{% include '_includes/google-analytics.twig' -%}{%  endif %}
-    
-    <link href="/assets/css/styles{{ devMode ? '' : '.min' }}.css?{{ staticAssetsVersion }}" rel="stylesheet" type="text/css">
-    
+    <link href="/assets/css/styles.min.css?{{ staticAssetsVersion }}" rel="stylesheet" type="text/css">
   </head>
   
   <body class="{{ entry.slug }}">
@@ -46,7 +41,6 @@
     {%- include "_includes/header" -%}
 
     {% block content %}
-    
     {% endblock %}
     
     {%- include '_includes/footer' -%}
@@ -56,6 +50,5 @@
     {%- include '_includes/scripts' -%}
     
   </body>
-  
 </html>
 {# endspaceless #}

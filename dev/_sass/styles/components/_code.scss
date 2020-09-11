@@ -1,0 +1,21 @@
+///////////////////////////////
+// CODE
+//////////////////////////////
+
+.inhalt__code {
+  margin: 0;
+
+  &:before {
+    content:'code';
+    position: relative;
+    top: 2.1rem;
+    left: 1rem;
+    color:$grey-light;
+    font-size: 4rem;
+    font-weight: 900;
+
+    @media (min-width: $break-phone) {
+      left: 2rem;
+    }
+  }
+}

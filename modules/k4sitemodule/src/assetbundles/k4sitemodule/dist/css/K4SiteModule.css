@@ -5,23 +5,19 @@
  * k4 Site Module CSS
  *
  * @author    Mischa Sprecher
- * @copyright Copyright (c) 2019-2020 Mischa Sprecher
+ * @copyright Copyright (c) 2019 Mischa Sprecher
  * @link      kreisvier.ch
  * @package   K4SiteModule
-<<<<<<< HEAD
- * @since     1.2.1
-=======
  * @since     1.2.0
->>>>>>> e0ac331b1c497c396ca629615cba523401ab6872
  */
 
 body.login {
     overflow: hidden;
-    background: #669526 ;
+    background: #669526;
 }
 body.login::after {
     content: "";
-    background: url(/assets/img/tpl/install-bg-1920.png) no-repeat 50% 40%;
+    background: url(/assets/img/install-bg-1920.png) no-repeat 50% 40%;
     background-size: cover;
     opacity: 0.1;
     top: 0;
@@ -39,7 +35,7 @@ body.login #login-form {
     outline: 18px solid rgba(250,250, 250, 0.15);
     padding: 40px 60px;
     background: #fff;
-    background-image: url('/assets/img/logo/logo_marukka.svg');
+    background-image: url(/assets/img/logo/logo_marukka.svg);
     background-position: center 50px;
     background-size: 300px 200px;
     padding-top: 240px;
@@ -63,16 +59,9 @@ body.login #login-form #password-field .passwordwrapper .password-toggle {
     font-size: 0.8rem;
 }
 
-body.login #login-form #password-field .passwordwrapper .password-toggle {
-    top: 31px;
-    font-size: 0.8rem;
-}
-
 body.login #login-form #loginName,
 body.login #login-form #password{
     border-radius: 0;
-    margin-top: 15px;
-    border-bottom-width: 1px;
 }
 
 body.login #login-form .buttons .submit {
@@ -80,17 +69,17 @@ body.login #login-form .buttons .submit {
 }
 
 body.login #login-form .btn.submit {
-    background-color: #ff7f50 !important;
+    background-color: #7fe090 !important;
 }
 
 body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover,
 body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover {
     background-color: #669526 !important;
 }
-body.login #login-form .btn.submit:not(.disabled):not(.inactive) {
-background-color: #8cbf37 !important;
-}
 
+body.login #login-form .btn.submit:not(.disabled):not(.inactive) {
+    background-color: #8cbf37 !important;
+}
 
 body.login #login-form #poweredby {
     margin-bottom: 40px;

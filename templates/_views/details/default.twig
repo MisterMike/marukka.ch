@@ -2,7 +2,6 @@
 
 {% set seitenBild = entry.seitenbild.one()|default(standardSeitenbild.seitenbild.one()) %}
 
-
 {% extends "_layouts/base" %}
 
 {% block content %}
@@ -11,19 +10,15 @@
     {%- include "_includes/headerbild" with { image: seitenBild } -%}
   {% endif %}
 
-<main class="main__content">
+
+<main role="main" class="main__content">
   <div class="section__outer">
 
     {%- include "_includes/breadcrumb" -%}
 
-{#    <div class="content__wrapper" data-sal="fade"#}
-{#         data-sal-delay="300"#}
-{#         data-sal-duration="500"#}
-{#         data-sal-easing="ease-in-out">#}
-
     <article class="content__wrapper">
 
-      <div class="grid__container">
+      <div class="container">
         <h1>{{ entry.seitenUeberschrift|length ? entry.seitenUeberschrift : entry.title }}</h1>
       </div>
 
