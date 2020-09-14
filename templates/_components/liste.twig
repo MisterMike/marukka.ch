@@ -1,13 +1,11 @@
-{% if block.aufzaehlung|length %}
+{% if block.aufzaehlung|length -%}
 
-  <ul>
+  <section class="section__liste">
+    <div class="container">
+    <ul class="liste__items">
+      {%- for row in block.aufzaehlung %}<li class="liste__item">{{ row.liste }} </li>{%- endfor %}
+    </ul>
+    </div>
+  </section>
 
-    {% for row in block.aufzaehlung %}
-    
-      <li>{{ row.liste }} </li>
-    
-    {% endfor %}
-
-  </ul>
-
-{% endif %}
+{%- endif %}

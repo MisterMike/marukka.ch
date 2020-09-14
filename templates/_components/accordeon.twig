@@ -1,37 +1,4 @@
-{# {% if block.inhalt|length %}
 
-  {% if ueberschrift is not defined %}
-    {% set ueberschrift = false %}
-  {% endif %}
-
-  {% if prevType != 'accordeon' and prevType != 'ueberschrift' %}
-
-    {% set ueberschrift = true %}
-
-    <section id="accordeon__{{ block.fieldId }}" class="section__accordeon">
-      <div class="container">
-        <div class="accordeon">
-  
-  {% endif %}
-
-<input type="radio" name="accordeon" id="accordeon-{{ block.id }}" />
-<section class="content--box">
-  <label class="box--title" for="accordeon-{{ block.id }}">{{ block.titel }}</label>
-  <label class="box--close" for="acc--close"></label>
-  <div class="box--content">{{ block.inhalt }}</div>
-</section>
-      
-  {% if nextType != 'accordeon' %}
-      
-    <input type="radio" name="accordeon" id="acc--close" />
-    </div></div></section>
-    {{ ueberschrift ? '</div></div></section>' : '' }}
-
-  {% endif %}
-
-{% endif %}
-
- #}
 
  {% if block.inhalt|length %}
 
