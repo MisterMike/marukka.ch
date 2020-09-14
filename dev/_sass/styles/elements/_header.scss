@@ -21,7 +21,7 @@
 
     display: inline-block;
     margin-top: $base-spacing/3;
-    margin-left: $base-spacing/2;
+    //margin-left: $base-spacing/2;
     width: 151px;
     height: 24px;
     //background: transparent url("/assets/img/logo/logo_marukka_white.svg") center no-repeat;
@@ -36,7 +36,7 @@
     
     @media (min-width: $break-desktop) {
         margin-top: $base-spacing/2;
-        margin-left: $base-spacing;
+        //margin-left: $base-spacing;
         width: 227px;
         height: 36px;
     }

@@ -5,20 +5,22 @@ instructions: 'Hier koennen Sie einen Menuepunkt der Website waehlen. Auf diesen
 name: 'Weiterleitung auf Menuepunkt'
 searchable: true
 settings:
-  limit: '1'
+  allowSelfRelations: false
+  limit: ''
   localizeRelations: false
   selectionLabel: 'Weiterleitung auswaehlen'
+  showSiteMenu: true
   source: null
   sources:
-    - singles
     - 'section:7bceb026-22c4-49b8-be54-5a5b762e4178'
+    - singles
     - 'section:0b08e350-db2a-492b-8ab9-ef1dd0ff050d'
     - 'section:2102785e-2edc-4604-9719-1f22b1d23f49'
-    - 'section:e8ae1e6d-5e1b-4b9e-b9a4-1899745df16b'
     - 'section:0260e672-8318-4f46-8b7f-13495afe4cdc'
     - 'section:b5dfecfa-162a-465a-b06b-7214d6bd2023'
     - 'section:40607c7b-957a-4237-9e1f-1d6d17f7d60a'
   targetSiteId: null
+  validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site

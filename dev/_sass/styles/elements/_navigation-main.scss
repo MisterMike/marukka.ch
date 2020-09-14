@@ -67,9 +67,9 @@
 .main__header .navigation.container {
   margin:0 auto;
 
-  @media (min-width: $break-tablet) {
-    max-width:none;
-  }
+  //@media (min-width: $break-tablet) {
+  //  max-width:none;
+  //}
 
   .main__nav--items--level1 > li:first-child {
     

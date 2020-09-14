@@ -2,9 +2,7 @@
 // CODE
 //////////////////////////////
 
-.inhalt__code {
-  margin: 0;
-
+section.section__code {
   &:before {
     content:'code';
     position: relative;
@@ -18,4 +16,15 @@
       left: 2rem;
     }
   }
+}
+
+.inhalt__code {
+  margin: 0;
+  background-color: #f5f2f0;
+
+
+}
+
+.inhalt__code pre {
+  padding: 0;
 }

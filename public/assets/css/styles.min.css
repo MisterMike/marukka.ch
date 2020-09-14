@@ -1348,6 +1348,10 @@ sub {
   width: 100%;
 }
 
+section:last-of-type {
+  margin-bottom: 4rem;
+}
+
 img {
   margin-bottom: 1.5em;
 }
@@ -1384,28 +1388,6 @@ figure figcaption {
 
 [hidden=true] {
   display: none !important;
-}
-
-.show-desktop {
-  display: none;
-}
-@media screen and (min-width: 900px) {
-  .show-desktop {
-    display: inline-block;
-  }
-}
-
-.hide-desktop {
-  display: block;
-}
-@media screen and (min-width: 900px) {
-  .hide-desktop {
-    display: none;
-  }
-}
-
-.rounded, .rounded img {
-  border-radius: 50em;
 }
 
 section.section__default {
@@ -2271,6 +2253,37 @@ body.sal-disabled [data-sal|=flip] {
   transform: none;
 }
 
+.align-center {
+  text-align: center;
+  justify-content: space-around;
+}
+
+.show-desktop {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  .show-desktop {
+    display: inline-block;
+  }
+}
+
+.hide-desktop {
+  display: block;
+}
+@media screen and (min-width: 900px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+.rounded, .rounded img {
+  border-radius: 50em;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 .main__header {
   position: relative;
   background-color: #9bd142;
@@ -2279,7 +2292,6 @@ body.sal-disabled [data-sal|=flip] {
 .header__logo {
   display: inline-block;
   margin-top: 10px;
-  margin-left: 15px;
   width: 151px;
   height: 24px;
   background-size: 100%;
@@ -2293,7 +2305,6 @@ body.sal-disabled [data-sal|=flip] {
 @media (min-width: 1224px) {
   .header__logo {
     margin-top: 15px;
-    margin-left: 30px;
     width: 227px;
     height: 36px;
   }
@@ -2357,11 +2368,6 @@ body.sal-disabled [data-sal|=flip] {
 
 .main__header .navigation.container {
   margin: 0 auto;
-}
-@media (min-width: 900px) {
-  .main__header .navigation.container {
-    max-width: none;
-  }
 }
 @media (min-width: 900px) {
   .main__header .navigation.container .main__nav--items--level1 > li:first-child {
@@ -2665,71 +2671,107 @@ body.sal-disabled [data-sal|=flip] {
   right: 10px;
 }
 
-.footer {
-  font-size: 0.875em;
-  border-top: 1px solid #0D0B0D;
-  padding: 2em 0;
-  background: #494949;
+section.footer__wrapper {
+  background-color: #222222;
+  overflow: hidden;
+  color: #fff;
+  margin: 2rem 0 0 0;
+  padding: 0;
 }
-@media screen and (min-width: 900px) {
-  .footer ul li {
-    display: inline-block;
-    margin-right: 0.5em;
-    color: #fff;
-  }
+section.footer__wrapper .container {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 }
-.footer .footer__wrapper {
-  max-width: none;
+section.footer__wrapper .inhalt__wrapper {
+  padding: 0;
 }
-@media screen and (min-width: 900px) {
-  .footer .footer__wrapper {
-    padding: 0 1em;
-    display: flex;
-    justify-content: space-between;
-  }
+
+section.footer__bottom {
+  background-color: #8cbf37;
+  overflow: hidden;
+  color: #0D0B0D;
+  margin: 0;
+  padding: 1rem 0;
 }
-@media screen and (min-width: 900px) {
-  .footer .footer__wrapper ul {
-    margin-top: 0.25em;
-  }
+section.footer__bottom .footer__bottom--love {
+  margin: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: #fff;
+  width: 100%;
 }
-@media screen and (min-width: 900px) {
-  .footer .footer__wrapper ul li {
-    display: inline-block;
-  }
+section.footer__bottom .footer__bottom--copy {
+  margin: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #fff;
+  width: 100%;
 }
-.footer .footer__wrapper .footer__navigation {
+section.footer__bottom .weitere-seiten {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+section.footer__bottom li.weitere-seiten__list--item:before {
+  content: "";
+  background: none;
+  border: 0;
+}
+section.footer__bottom p, section.footer__bottom .weitere-seiten__list--link {
   font-size: 0.9rem;
 }
-.footer .footer__wrapper .footer__navigation a {
+section.footer__bottom .weitere-seiten__list--link:hover, section.footer__bottom .weitere-seiten__list--link:active, section.footer__bottom .weitere-seiten__list--link:focus {
+  text-decoration: underline;
+}
+
+.footer__heading {
+  font-weight: 700;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.footer__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.footer--social {
+  padding: 0.5rem;
+}
+
+.footer--social svg {
+  fill: #8cbf37;
+}
+
+.footerlinks__list--item {
+  display: inline-block;
+  padding: 0 0.5rem;
+}
+
+.footerlinks__list--link {
+  text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: uppercase;
   color: #fff;
 }
-.footer .footer__wrapper .footer__navigation a:hover {
-  color: #9bd142;
-}
-.footer .footer__wrapper .footer__social {
-  margin: 0;
-}
-@media screen and (max-width: 900px) {
-  .footer .footer__wrapper .footer__social {
-    margin: 1em 0;
-  }
-}
-.footer .footer__wrapper .footer__social li {
+
+.quicklinks__list--item {
   display: inline-block;
-  margin-right: 0.5em;
+  padding: 0 0.5rem;
 }
-.footer .footer__wrapper .footer__social li svg {
-  fill: #fff;
-  transition: fill 0.15s ease;
-}
-.footer .footer__wrapper .footer__social li svg:hover {
-  fill: #9bd142;
-}
-.footer .footer__wrapper .footer__social li:last-of-type {
-  margin-right: 0;
+
+.quicklinks__list--link {
+  text-decoration: none;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .form, form {
@@ -5085,10 +5127,7 @@ section.section__claim .claim__content--text {
   margin: 0.5rem auto;
 }
 
-.inhalt__code {
-  margin: 0;
-}
-.inhalt__code:before {
+section.section__code:before {
   content: "code";
   position: relative;
   top: 2.1rem;
@@ -5098,9 +5137,18 @@ section.section__claim .claim__content--text {
   font-weight: 900;
 }
 @media (min-width: 768px) {
-  .inhalt__code:before {
+  section.section__code:before {
     left: 2rem;
   }
+}
+
+.inhalt__code {
+  margin: 0;
+  background-color: #f5f2f0;
+}
+
+.inhalt__code pre {
+  padding: 0;
 }
 
 .downloads__items {
@@ -5558,7 +5606,6 @@ main .event__item--content .event__content--link:focus .icon-right, main .event_
 }
 
 section.section__inhalt {
-  min-height: 300px;
   margin: 0 auto;
 }
 

@@ -1,0 +1,128 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954
+fieldLayouts:
+  8dd232b5-a736-4d0b-b10b-e30c9c840c6e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d6e5c6a6-2981-46be-93db-e23dcedb0348
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3b95a8ef-b63c-4700-83a5-3666fbfd6db2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+        name: Content
+        sortOrder: 1
+fields:
+  3b95a8ef-b63c-4700-83a5-3666fbfd6db2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: codelang
+    instructions: ''
+    name: Sprache
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Twig
+            -
+              - value
+              - twig
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - PHP
+            -
+              - value
+              - php
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - JavaScript
+            -
+              - value
+              - javascript
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - HTML
+            -
+              - value
+              - html
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Bash
+            -
+              - value
+              - bash
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Visual Basic (VBA)'
+            -
+              - value
+              - vba
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  d6e5c6a6-2981-46be-93db-e23dcedb0348:
+    contentColumnType: text
+    fieldGroup: null
+    handle: code
+    instructions: ''
+    name: Code
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: '1'
+      columnType: null
+      initialRows: '12'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: code
+name: Code
+sortOrder: 4

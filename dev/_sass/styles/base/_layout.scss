@@ -25,6 +25,10 @@
   width:100%
 }
 
+section:last-of-type {
+  margin-bottom: 4rem;
+}
+
 img {
   margin-bottom:1.5em
 }
@@ -65,31 +69,6 @@ figure figcaption {
 [hidden=true] {
   display:none !important
 }
-
-
-.show-desktop {
-  display:none;
-
-  @media screen and (min-width: $break-tablet) {
-    display:inline-block;
-  }
-
-}
-
-
-.hide-desktop {
-  display:block;
-
-  @media screen and (min-width: $break-tablet) {
-    display:none
-  }
-}
-
-
-.rounded, .rounded img {
-  border-radius:50em;
-}
-
 
 section.section__default {
 

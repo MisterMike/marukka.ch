@@ -27,11 +27,6 @@
         {%- include "_routers/component" with { blocks: inhaltsBlocks } -%}
       {% endif %}
 
-      {% if entry.adminInhaltMatrix|length %}
-        {% set adminBlocks = entry.adminInhaltMatrix.all() %}
-        {%- include "_routers/component" with { blocks: adminBlocks } -%}
-      {% endif %}
-
     </article>
 
   </div>
