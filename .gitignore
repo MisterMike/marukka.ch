@@ -19,7 +19,7 @@ _old/
 /dev/_SASS/_vendors/
 /public/cpresources/
 /public/assets/img/**
-
+!/public/assets/img/logo
 vendor/
 
 

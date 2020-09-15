@@ -2286,14 +2286,17 @@ body.sal-disabled [data-sal|=flip] {
 
 .main__header {
   position: relative;
-  background-color: #1abc9c;
+  background-color: transparent;
   font-size: 0.9em;
 }
+
 .header__logo {
   display: inline-block;
   margin-top: 10px;
-  width: 151px;
-  height: 24px;
+  margin-left: -25px;
+  width: 150px;
+  height: 55px;
+  background: transparent url("/assets/img/logo/logo_marukka-color-claim.svg") center no-repeat;
   background-size: 100%;
   z-index: 300;
   cursor: pointer;
@@ -2305,8 +2308,9 @@ body.sal-disabled [data-sal|=flip] {
 @media (min-width: 1224px) {
   .header__logo {
     margin-top: 15px;
-    width: 227px;
-    height: 36px;
+    margin-left: -39px;
+    width: 220px;
+    height: 80px;
   }
 }
 .header__logo.show {
@@ -2330,7 +2334,6 @@ body.sal-disabled [data-sal|=flip] {
 }
 @media (min-width: 900px) {
   .nav-main {
-    background: #fff;
     padding: 0;
     position: relative;
     overflow: visible;
@@ -2573,7 +2576,6 @@ body.sal-disabled [data-sal|=flip] {
   .nav-sub .navigation {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
     padding-bottom: 20px;
   }
 }

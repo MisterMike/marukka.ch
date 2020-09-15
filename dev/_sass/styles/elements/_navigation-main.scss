@@ -2,13 +2,6 @@
 // NAVIGATION 
 ///////////////////////////////
 
-//.main__nav--items--level1 {
-//  padding: 4px;
-//  position: absolute;
-//  right: 10px;
-//  top:25px
-//}
-
 .nav-main {
     transition: transform .3s cubic-bezier(0.52, .01, .16, 1);
     //padding: 6px;
@@ -20,12 +13,11 @@
     right: 0;
     overflow: hidden;
     overflow-y: scroll;
-    background: $green;
+    background: $accent-color;
     display: block;
     z-index:1001;
 
     @media (min-width: $break-tablet) {
-      background: #fff;
       padding:0;
       position:relative;
       overflow: visible;
