@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74fdb9cf87b1faa9485e856c14c4069e",
+    "content-hash": "3ac767883510006a5edebbdcd6e6ff2a",
     "packages": [
         {
             "name": "aelvan/preparse-field",
@@ -788,16 +788,16 @@
         },
         {
             "name": "craftcms/commerce",
-            "version": "3.2.4",
+            "version": "3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/commerce.git",
-                "reference": "394f320fa7fc64bc58837f49f1164ba21d5174df"
+                "reference": "81a640b2f38c2158e75793385fa93c5ab3986e77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/commerce/zipball/394f320fa7fc64bc58837f49f1164ba21d5174df",
-                "reference": "394f320fa7fc64bc58837f49f1164ba21d5174df",
+                "url": "https://api.github.com/repos/craftcms/commerce/zipball/81a640b2f38c2158e75793385fa93c5ab3986e77",
+                "reference": "81a640b2f38c2158e75793385fa93c5ab3986e77",
                 "shasum": ""
             },
             "require": {
@@ -843,7 +843,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2020-09-07T13:51:50+00:00"
+            "time": "2020-09-11T15:04:50+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -2390,12 +2390,12 @@
             "version": "2.2.1",
             "source": {
                 "type": "git",
-                "url": "https://bitbucket.org/kreisvierdigital/k4navigationcraft3.git",
+                "url": "https://bitbucket.org/kreisvierdigital/k4navigation.git",
                 "reference": "14858c28071b12ee89ae323544eda1f78e88621a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/kreisvierdigital/k4navigationcraft3/get/14858c28071b12ee89ae323544eda1f78e88621a.zip",
+                "url": "https://bitbucket.org/kreisvierdigital/k4navigation/get/14858c28071b12ee89ae323544eda1f78e88621a.zip",
                 "reference": "14858c28071b12ee89ae323544eda1f78e88621a",
                 "shasum": ""
             },
@@ -3056,6 +3056,55 @@
                 "single sign on"
             ],
             "time": "2020-07-18T17:54:32+00:00"
+        },
+        {
+            "name": "luwes/craft3-codemirror",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/luwes/craft3-codemirror.git",
+                "reference": "cdf5e08ea658c44cd9c3908ddaab2f86e032d07b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luwes/craft3-codemirror/zipball/cdf5e08ea658c44cd9c3908ddaab2f86e032d07b",
+                "reference": "cdf5e08ea658c44cd9c3908ddaab2f86e032d07b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-beta.20"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "CodeMirror",
+                "handle": "code-mirror",
+                "changelogUrl": "https://raw.githubusercontent.com/luwes/craft3-codemirror/master/CHANGELOG.md",
+                "class": "luwes\\codemirror\\CodeMirror"
+            },
+            "autoload": {
+                "psr-4": {
+                    "luwes\\codemirror\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wesley Luyten",
+                    "homepage": "https://wesleyluyten.com"
+                }
+            ],
+            "description": "Add the awesome in-browser code editor CodeMirror as a field type.",
+            "keywords": [
+                "Craft",
+                "cms",
+                "codemirror",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "time": "2019-12-18T03:32:28+00:00"
         },
         {
             "name": "marcusschwarz/lesserphp",
@@ -7794,12 +7843,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
