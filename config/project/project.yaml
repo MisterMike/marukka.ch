@@ -1,4 +1,4 @@
-dateModified: 1600086835
+dateModified: 1611003413
 email:
   fromEmail: digital@kreisvier.ch
   fromName: Craftdefault3
@@ -16,6 +16,8 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  commerce:
+    schemaVersion: 3.2.5
   contact-form:
     schemaVersion: 1.0.0
   contact-form-honeypot:
@@ -111,7 +113,7 @@ system:
   edition: solo
   live: true
   name: marukka.ch
-  schemaVersion: 3.5.12
+  schemaVersion: 3.5.13
   timeZone: Europe/Zurich
 users:
   allowPublicRegistration: false

@@ -1,80 +1,36 @@
-{% if block.bild|length %}
+{# Params #}
+{% set block = block is not defined ? false : block %}
+{% set image = block ? block.bild.one() : null %}
+{% set imageCaption = block.bildlegende ?? null %}
 
-  {# Bild #}
-  {# check picture.php in config #}
-  {% set image = block.bild.one %}
+{% if block and image %}
+<div class="content-padding block-bild {{ loop.last ? 'conclusion' : '' }}">
+    <div class="container">
+        <{{ imageCaption ? 'figure' : 'div' }} class="bild__wrapper animation-planned">
+        {% if image.extension == 'svg' %}
+            {{ svg(image) }}
+        {% else %}
 
-  {# adjust image transform (boxed/fullwidth) #}
+        {% include '_includes/responsiveImage' with {
+            class: 'bild__bild',
+            image: image,
+            sizes: {
+                '425px': '425px',
+                '767px': '768px',
+                '1023px': '1024px',
+                '1439px': '1440px',
+                'all': '1440px',
+            },
+            srcset: ['1440w', '1280w', '768w', '425w']
+        } %}
+        {% endif %}
+        {% if imageCaption %}
+            <figcaption class="bild__caption">
+                {{- imageCaption -}}
+            </figcaption>
+        {% endif %}
+        </{{ imageCaption ? 'figure' : 'div' }}>
 
-  {% if block.fullwidth %}
-
-    {% set imageSize = 'contentBreit' %}
-
-  {% else %}
-
-    {% set imageSize = 'lazyLoadedLarge' %}
-
-  {% endif %}
-
-  <section class="bild__wrapper">{{ block.fullwidth == 1 ? '' : '<div class="grid__container">' }}
-
-  {{ craft.picture.element(
-    image,
-    imageSize,
-    { alt: image.title, transform: { position: 'bottom-right', quality: 80 } } ) 
-  }}
-
-  {{ block.fullwidth == 1 ? '' : '</div>' }}</section>
-  
-  {# Grossansicht aktivieren #}
-  {% set grossAnsicht = false %}
-  
-  {% if block.grossansichtAktivieren %}
-  
-    {% set grossAnsicht = true %}
-  
-  {% endif %}
-
-  {# Links #}
-  {% set linkhref = '' %}
-  {% set linkText = '' %}
-  {% set linkTrue = false %}
-  {% set targetblank = false %}
-
-  {% if block.internerLink|length %}
-
-    {% for linkItem in block.internerLink.all() %}
-
-      {% set linkhref = linkItem.url %}
-      {% set linkTrue = true %}
-      {% set linkText = linkItem.title %}
-
-    {% endfor %}
-
-  {% elseif block.externerLink|length %}
-
-      {% set linkhref = block.externerLink %}
-      {% set targetblank = true %}
-      {% set linkTrue = true %}
-      {% set linkText = linkhref|replace({'http://': '', 'https://': ''}) %}
-
-  {% elseif block.linkZuDatei|length %}
-
-    {% for linkItem in block.linkZuDatei.all() %}
-
-      {% set linkhref = linkItem.url %}
-      {% set targetblank = true %}
-      {% set linkTrue = true %}
-      {% set linkText = linkItem.title %}
-
-    {% endfor %}
-
-  {% endif %}
-
-  {% if linkTrue %}
-
-    <a href="{{ linkhref }}" {% if targetblank %}target="_blank"{% endif %}>{{ linkText }}</a>
-
-  {% endif %}
-       
+    </div>
+</div>
 {% endif %}

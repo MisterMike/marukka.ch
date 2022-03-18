@@ -1,0 +1,19 @@
+descriptionFormat: ''
+handle: clothing
+hasDimensions: true
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: Clothing
+productTitleFormat: ''
+siteSettings:
+  1ca6a4cf-e0a4-44a2-aded-b0f0d9c73da8:
+    hasUrls: true
+    template: shop/products/_product
+    uriFormat: 'shop/products/{slug}'
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d:
+    hasUrls: true
+    template: shop/products/_product
+    uriFormat: 'shop/products/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'

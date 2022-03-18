@@ -1,0 +1,9 @@
+description: 'Default Order PDF'
+enabled: true
+fileNameFormat: 'Order-{number}'
+handle: order
+isDefault: true
+name: Default
+sortOrder: 0
+templatePath: shop/special/receipt
+uid: 2a414c5f-c198-4d41-85cb-49500da2bd08
