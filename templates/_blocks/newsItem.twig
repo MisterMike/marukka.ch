@@ -1,0 +1,30 @@
+{%- set image = item.hero ? item.hero.one() : null -%}
+{% set tags = item.kategorie ? item.kategorie.all() : null %}
+
+
+<in-view :tag="'div'"v-slot="{inView}"> 
+    <div class="recent-news">
+        <a href="{{item.url}}" class="recent-news__link">
+
+            {%- if image and showImage|default(false) %}
+                <figure class="recent-news__image">
+                    <img src="{{image.getUrl({ width: 325, height: 217 , format: 'webp'})}}" alt="{{image.assetAltText|default(title)}}">
+                </figure>
+            {% endif -%}
+
+            <div class="recent-news__text">
+                <div class="recent-news__text-wrapper">
+                <span class="recent-news__label">{{item.postDate|date("d.m.Y")}}</span>
+                    <h3 class="h3 recent-news__title">{{item.title}}</h3>
+                    {% if tags|length %}
+                        {{ tags|map((value) => "<span class='recent-news__categories'>#{value}</span>")|join(' ')|raw }}
+                    {% endif %}
+                    <p class="recent-news__description">{{item.lead}}</p>
+                    <div class="recent-news__cta">
+                        <span class="button button--primary" href="{{item.url}}">{{'Weiterlesen'|t}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</in-view>

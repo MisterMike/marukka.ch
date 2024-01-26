@@ -1,0 +1,66 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent">
+
+            {# render hero image if available #}
+            {% set seitenBild = entry.hero.one() %}
+
+            {% if seitenBild is defined and seitenBild|length %}
+                {%- include "_components/hero" -%}
+            {% else %}
+
+            {# page headline #}
+            <div class="l-container l-grid">
+                <div class="c-headline h2-alike c-headline--centered">
+                    <div class="c-headline__wrapper">
+                        {% if entry.parent().title is defined %}
+                        <p class="c-headline__preline">
+                            <span class="c-headline__preline-content">{{entry.parent().title}}</span>
+                        </p>
+                        {% endif %}
+                        <h1 class="c-headline__title h2">{{entry.title}}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {# lead text if available #}
+            {% if entry.lead is defined and entry.lead|length > 0 %}
+                {%- include "_components/lead" -%}
+            {% endif %}
+
+            {# image loop #}
+            {% if entry.assets|length %}
+
+                <div class="l-section text-image">
+                    <div class="l-container l-grid l-grid--singlecol background-neutral">
+                        <div class="l-grid l-grid__region l-grid__region--singlecol">
+                            <section id="section-gallery" class="l-module">
+                                
+                                    <div class="m-small-teaser m-small-teaser--list">
+
+                                    <vue-picture-swipe :items="[
+                                    {% for bild in entry.assets.all() %}
+                                    {% set largeImage = bild.setTransform({ width: 1600, format: 'jpeg'}) %}
+                                        {src: '{{largeImage.url()}}',thumbnail: '{{ bild.getUrl({ width: 690, height: 690 , format: 'jpeg'}) }}',w: {{largeImage.width}},h: {{largeImage.height}}, title: '{{bild.title}}'},
+                                    {% endfor %}    
+                                      ]"></vue-picture-swipe>
+
+                                    </div>
+                                
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </article>
+    </main>
+
+{% endblock %}
+

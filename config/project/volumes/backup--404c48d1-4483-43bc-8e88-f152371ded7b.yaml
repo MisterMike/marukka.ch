@@ -1,0 +1,6 @@
+fs: backup
+handle: backup
+hasUrls: true
+name: Backup
+sortOrder: 2
+url: '@web/assets/backup'

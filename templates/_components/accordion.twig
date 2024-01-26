@@ -1,0 +1,36 @@
+{%- if block.titel|length -%}
+
+    {%- if prevType != 'accordion' -%}
+        <section id="section-{{ block.id }}" class="l-module l-accordion akzent-{{ block.akzent|default('neutral') }}">
+        <in-view :tag="'div'" v-slot="{inView}">
+        <div class="l-container">
+        <div class="m-accordion l-grid">
+    {%- endif -%}
+
+    <div class="m-accordion__item">
+        <dt class="c-accordion__target" role="heading">
+            <button
+                    class="c-accordion__header h4 js-accordion-header"
+                    type="button"
+                    @click="toggleAccordeon($event)"
+                    aria-label="{{ block.titel }}"
+            >
+                {{ block.titel }}
+                <span class="c-accordion__indicator" aria-expanded="{{block.aktiv ? 'true' : 'false'}}">
+                            <svg class="icon icon--chevron-down" role="img" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 17c-.26 0-.51-.1-.71-.29l-7-7L5.7 8.3l6.3 6.29 6.29-6.29 1.41 1.41-7 7c-.19.19-.44.29-.7.29z"/>
+                            </svg>
+                        </span>
+            </button>
+        </dt>
+        <dd class="c-accordion__panel js-accordion-panel" role="region">
+            <div class="c-accordion__panel--inner js-accordion-panel-inner">
+                {{ block.inhalt }}
+            </div>
+        </dd>
+    </div>
+
+    {%- if nextType != 'accordion' %}</div></div></in-view></section>{%- endif -%}
+
+{%- endif -%}
+

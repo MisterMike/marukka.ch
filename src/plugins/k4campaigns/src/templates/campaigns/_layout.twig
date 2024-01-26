@@ -1,0 +1,10 @@
+{% extends 'k4-campaigns/_layout' %}
+
+{% do view.registerAssetBundle('k4\\k4campaigns\\assets\\CampaignAsset') %}
+
+{% set selectedSubnavItem = 'campaigns' %}
+
+{% set baseCrumbs = [
+	{ label: craft.k4campaigns.getTitle|t('k4-campaigns'), url: url('k4-campaigns') }
+] %}
+{% set crumbs = crumbs is defined ? baseCrumbs|merge(crumbs) : [] %}

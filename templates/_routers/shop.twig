@@ -1,0 +1,43 @@
+
+
+{% if product is defined %}
+
+  {% if devMode %}
+    <small style="position: fixed; bottom: 0; left: 0; min-width: 120px; padding: 8px; font-size: 9px;color: #fff; background-color: #333;font-size:0.7rem;z-index:700;">
+      <span style="color:#C70039 ">Section Handle:</span> {{ product.defaultVariant.title}} •
+      <span style="color:#2471a3 ">Entry Type Handle:</span>{{ product.defaultVariant.slug }} •
+      <span style="color:#27ae60 ">Request Path:</span>{{ craft.app.request.pathInfo}}
+    </small>
+  {% endif %}
+
+  {%- include [
+    'shop/sorten/detail',
+  ] -%}
+
+{% elseif category is defined %}
+
+  {% set categoryGroup = category.group|lower %}
+  {% set categoryTitle = category.title|lower %}
+
+  {% if devMode %}
+    <small style="position: fixed; bottom: 0; left: 0; min-width: 120px; padding: 8px; font-size: 9px;color: #fff; background-color: #333;font-size:0.7rem;z-index:700;">
+      <span style="color:#ee5039 ">Category title:</span> {{ categoryTitle }} •
+      <span style="color:#2471c9 ">Category group:</span>{{ categoryGroup }} •
+      <span style="color:#27ce60 ">Request Path:</span>{{ craft.app.request.pathInfo}}
+    </small>
+  {% endif %}
+
+  {%- include [
+    'shop/' ~ categoryGroup ~ '/' ~ categoryTitle,
+    'shop/' ~ categoryGroup,
+    'shop/' ~ categoryGroup ~ '/default',
+    'shop/default',
+
+  ] -%}
+
+{% endif %}
+
+
+
+{#   '_pages/' ~ entry.section.handle ~ '/' ~ entry.parent,
+ #}

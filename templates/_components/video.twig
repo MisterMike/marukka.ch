@@ -1,8 +1,118 @@
-{% if block.videoUrl|length %}
-	<!-- Simple video example -->
-	<video src="{{ block.videoUrl.getUrl() }}" autoplay poster="{{ block.videoPoster|default() }}">
-	  Sorry, dein browser unterstützt keine eingebetteten videos, 
-	  aber keine sorge, du kannst es <a href="videofile.ogg">herunterladen</a>
-	  und dann in deinem video programm ansehen.
-	</video>
+{% if block.videoUrl %}
+    {% set videoUrl = block.videoUrl.url|length > 1 ? block.videoUrl : null %}
 {% endif %}
+{% if block.videoDatei %}
+    {% set videoFile = block.videoDatei ? block.videoDatei.one() : null %}
+{% endif %}
+
+{% set videoThumb = {
+  mode: 'crop',
+  width: 1280,
+  height: 720,
+  quality: 75,
+  position: 'center-center'
+} %}
+
+{% if videoFile is defined or videoUrl is defined %}
+
+<section class="l-section video akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+    <div class="l-container l-grid l-grid--singlecol">
+        <div class="l-grid l-grid__region l-grid__region--singlecol">
+            <div class="l-module l-video">
+                <in-view :tag="'div'" v-slot="{inView}">
+                    <div class="m-video l-grid">
+                        <div class="m-video__video">
+
+                            {% if videoUrl %}
+                                <div class="oembed-lazyload oembed-lazyload--{{videoUrl.media.providerName|lower}}" data-strategy="{{block.strategy}}">
+                                    {{
+                                    videoUrl.render({
+                                        params: {
+                                            autoplay: 1,
+                                            rel: 0,
+                                            mute: 0,
+                                            loop: 1,
+                                            autopause: 1,
+                                        },
+                                        attributes: {
+                                            title: 'Main title',
+                                            class: 'oembed-lazyload__iframe oembed-lazyload__iframe--hidden',
+                                            'data-title': 'Some other title',
+                                        }
+                                    })
+                                    }}
+                                </div>
+                            {% elseif videoFile %}
+                                <div class="c-video">
+                                    <video class="c-video__video lazy" width="100%" autoplay loop muted playsinline importance="high" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused">
+                                        <source data-src="{{ videoFile.getUrl }}" type="video/mp4"/>
+                                    </video>
+                                        {% if block.strategy == 'onclick' %}
+                                            <button class="oembed-lazyload__button" title="{{'Ansehen'|t}}">
+                                                <span class="oembed-lazyload__visible-label">{{'Video laden'|t}}</span>
+                                                {% if block.title %}
+                                                    <span class="visually-hidden">{{ title }}</span>
+                                                {% endif %}
+                                                {% if block.videoPoster|length %}
+                                                    <span class="oembed-lazyload__thumbnail" style="background-image: url('{{ block.videoPoster.one().getUrl(videoThumb) }}')"></span>
+                                                {% endif %}
+                                            </button>
+                                        {% else %}
+                                            <a class="oembed-lazyload__button" href="{{ videoFile.url }}" title="{{'Ansehen'|t}}" rel="nofollow">
+                                                <span class="oembed-lazyload__thumbnail" style="background-image: url('{{ block.videoPoster.one().getUrl(videoThumb) }}')"></span>
+                                            </a>
+                                        {% endif %}
+                                    {#        <div class="c-image__caption">#}
+                                    {#            <a href="/de/aktivitaeten/sommer/rundreisen-touring" class="c-image__caption-link">#}
+                                    {#                Rundreise auf dem Alpine Circle#}
+                                    {#                <svg class="icon icon--poi ">#}
+                                    {#                    <use xlink:href="/themes/tonic/dist/sprites/sprite.svg#poi"></use>#}
+                                    {#                </svg>#}
+                                    {#            </a>#}
+                                    {#        </div>#}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </in-view>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endif %}
+
+{#<div class="oembed-lazyload oembed-lazyload--{{videoElement.media.providerName|lower}}" data-strategy="{{block.strategy}}">#}
+
+{#    {% if block.strategy == 'onclick' %}#}
+{#        <button class="oembed-lazyload__button" title="{{'Ansehen'|t}}">#}
+{#            <span class="oembed-lazyload__visible-label">{{'Video laden'|t}}</span>#}
+{#            {% if block.title %}#}
+{#                <span class="visually-hidden">{{ title }}</span>#}
+{#            {% endif %}#}
+{#            <span class="oembed-lazyload__thumbnail" style="background-image: url('{{ block.videoPoster.one().getUrl(videoThumb) }}')"></span>#}
+{#        </button>#}
+{#    {% else %}#}
+{#        <a class="oembed-lazyload__button" href="{{ videoElement.url }}" title="{{'Ansehen'|t}}" rel="nofollow">#}
+{#            <span class="oembed-lazyload__thumbnail" style="background-image: url('{{ block.videoPoster.one().getUrl(videoThumb) }}')"></span>#}
+{#        </a>#}
+{#    {% endif %}#}
+
+
+{#    {{#}
+{#    videoElement.render({#}
+{#        params: {#}
+{#            autoplay: 1,#}
+{#            rel: 0,#}
+{#            mute: 0,#}
+{#            loop: 1,#}
+{#            autopause: 1,#}
+{#        },#}
+{#        attributes: {#}
+{#            title: 'Main title',#}
+{#            class: 'oembed-lazyload__iframe oembed-lazyload__iframe--hidden',#}
+{#            'data-title': 'Some other title',#}
+{#        }#}
+{#    })#}
+{#    }}#}
+{#</div>#}

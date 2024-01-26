@@ -1,0 +1,127 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
+fieldLayouts:
+  33a17993-f9bf-4b2a-be91-1d7007b8a9f0:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 19f41123-dce2-4104-a630-71d5ad0aa908 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b0f92c34-ef25-42b4-958d-baf83087dc2f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: d95c285e-a9d9-44c0-9a98-036604060c2e # Akzent
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc032467-06b4-46b9-8ec1-44f1af78df82
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a687941d-0e37-4ca0-8259-6a5ed68a6fd8
+        userCondition: null
+fields:
+  19f41123-dce2-4104-a630-71d5ad0aa908: # Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d95c285e-a9d9-44c0-9a98-036604060c2e: # Akzent
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: akzent
+    instructions: null
+    name: Akzent
+    searchable: true
+    settings:
+      columnType: string
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'kein Akzent'
+            -
+              - value
+              - none
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Primärfarbe
+            -
+              - value
+              - primary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Sekundärfarbe
+            -
+              - value
+              - secondary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Grau
+            -
+              - value
+              - grey
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Schwarz
+            -
+              - value
+              - black
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: claim
+name: Claim
+sortOrder: 18

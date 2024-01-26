@@ -1,0 +1,159 @@
+.l-form {
+    grid-column:1/7;
+
+    @include mq(for-tablet-portrait) {
+        grid-column: 2/10;
+    }
+
+    @include mq(for-tablet-landscape) {
+        grid-column: 2/9;
+    }
+
+    @include mq(for-desktop) {
+        grid-column: 3/9;
+    }
+
+}
+
+
+.l-section .l-form {
+    margin-top:calc(var(--spacingFlexXXXL) * -1 + var(--spacingFlexXXL))
+}
+
+
+.form-item {
+    margin-top:var(--spacingL)
+}
+
+.messages.messages--error {
+    display:none
+}
+
+@media all and (min-width: 36em) {
+    .form-item-newsletter-plz {
+        width: 150px;
+        float: left;
+        margin-right:var(--spacingL)
+    }
+}
+
+@media all and (min-width: 36em) {
+    .form-item-newsletter-city {
+        display: inline-block;
+        width:calc(100% - 150px - var(--spacingL))
+    }
+}
+
+.form-required::after {
+    content: "*"
+}
+
+.webform-required .form-required {
+    margin-right:var(--spacingXXS)
+}
+
+.form-type-textarea textarea {
+    min-width:100%
+}
+
+
+.form-radios, .form-checkboxes {
+    display: flex;
+    flex-wrap:wrap
+}
+
+.form-type-radio, 
+.form-type-checkbox {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-right: var(--spacingL);
+    margin-top:var(--spacingXS)
+}
+
+.form-type-radio label.option, 
+.form-type-checkbox label.option {
+    margin:0 0 0 var(--spacingXS)
+}
+
+.form-type-radio .description, 
+.form-type-checkbox .description {
+    flex-basis: 100%;
+    margin-top:var(--spacingXXS)
+}
+
+.form-radio {
+    appearance: none;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid var(--colorGray);
+    border-radius:50%
+}
+
+.form-radio:checked {
+    border-color: var(--colorGrayDark);
+    background-color: var(--colorGrayDark);
+    box-shadow:inset 0 0 0 4px var(--colorWhite)
+}
+
+.form-checkbox {
+    appearance: none;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--colorGrayDark);
+    border-radius:0
+}
+
+.form-checkbox:checked {
+    border-color: var(--colorGrayDark);
+    background-image: url("/assets/layout/sprites.svg#tick-view");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:20px 20px;
+    border: 2px solid var(--colorGreenDark);
+    color: var(--colorGrayDark);
+}
+
+.form-checkbox[disabled] {
+    border-color:var(--colorGrayLight)
+}
+
+.form-checkbox[disabled] ~ label {
+    color:var(--colorGrayLight)
+}
+
+.description {
+    color: var(--colorGray);
+    margin-top:var(--spacingXXS)
+}
+
+
+input.error, textarea.error {
+    color: var(--colorError);
+    border-color:var(--colorError)
+}
+
+.form-item--error-message {
+    color: var(--colorError);
+    margin-top:var(--spacingXXS)
+}
+
+.form-item--error-message strong {
+    font-weight:normal
+}
+
+.form-actions {
+    margin-top:calc(var(--spacingL) * 2)
+}
+
+.form-actions .button {
+    width:100%
+}
+
+@media all and (min-width: 48em) {
+    .form-actions .button {
+        width:auto
+    }
+}

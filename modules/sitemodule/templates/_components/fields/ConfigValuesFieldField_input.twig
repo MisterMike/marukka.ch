@@ -1,0 +1,30 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Site Module module for Craft CMS 4.x
+ *
+ * A simple Module to enhance your site
+ *
+ * @copyright Copyright (c) 2019-23 Mischa Sprecher
+ */
+
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% switch type %}
+{% case "checkboxes" %}
+        {{ forms.checkboxGroup({
+                name: name,
+                id: id,
+                options: options,
+                values: value
+        }) }}
+{% default %}
+        {{ forms.selectField({
+                name: name,
+                id: id,
+                options: options,
+                value: value
+        }) }}
+{% endswitch %}

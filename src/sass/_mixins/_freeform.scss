@@ -1,0 +1,202 @@
+@mixin freeform {
+    .form {
+        $color-error: red;
+        $color-input: #363636;
+
+        & {
+            position: relative;
+        }
+
+        .ff-form-success {
+            display: none;
+        }
+        
+        &__thanks {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+        &__form {
+            &.inactive {
+                opacity: 0;
+            }
+        }
+        &__freeform {
+            position: relative;
+            .ff {
+                &-form-errors {
+                    display: none;
+                }
+                &-errors {
+                    display: block;
+                    font-size: 12px;
+                    color: $color-error;
+                }
+            }
+            .freeform {
+                &-fieldset {
+                    &:disabled {
+                        opacity: .5;
+                        // pointer-events: none;
+                        cursor: not-allowed;
+                    }
+                }
+                &-row {
+                    display: block;
+                    @include for-tablet-landscape-up {
+                        display: flex;
+                    }
+                    margin: 0 -2.5px;
+                }
+                &-column {
+                    & {
+                        flex: 1;
+                        // display: flex;
+                        padding: 0;
+                        margin: 0 2.5px 5px;
+                    }
+                    &-content {
+                        &-align-left {
+                            text-align: left;
+                        }
+                        &-align-right {
+                            @include for-tablet-landscape-up {
+                                text-align: right;
+                            }
+                        }
+                    }
+                    input,
+                    textarea {
+                        flex: 1;
+                        display: block;
+                        width: 100%;
+                        border: 1px solid #434343;
+                        color: $color-input;
+                        font-weight: 300;
+                        background: transparent;
+                        outline: none;
+                        padding: 0.53rem 0.82rem; //9px 14px
+                        transition: all 0.3s ease-in-out;
+
+                        &::placeholder {
+                            color: $color-input;
+                            font-weight: 300;
+                        }
+
+                        &::-moz-placeholder {
+                            color: $color-input;
+                            font-weight: 300;
+                        }
+                        
+                        // IE 11 (and 10), Edge uses -webkit placholder
+                        &:-ms-input-placeholder {
+                            color: $color-input !important; //IE 11 needs important flag
+                            font-weight: 300 !important;
+                        }
+
+                        &.ff-has-errors {
+                            border-color: $color-error;
+                        }
+                    }
+                    textarea {
+                        width: 100%;
+                        height: 45px !important;
+                        resize: none;
+                    }
+                    .form__submit {
+                        margin-top: 5px;
+                        outline: none;
+                    }
+
+                    .errors {
+                        display: block;
+                        font-size: 12px;
+                        color: $color-error;
+                    }
+
+                    .checkbox {
+                        & {
+                            color: #646464;
+                            padding: 2px 0 3px 0;
+                        }
+                        label {
+                            display: inline-block !important;
+                            cursor: pointer;
+                            user-select: none;
+                            strong {
+                                color: $color-brand;
+                                font-weight: 300;
+                            }
+                            a {
+                                color: inherit;
+                            }
+                        }
+                        .ff-errors {
+                            display: none;
+                        }
+                        input[type="checkbox"] {
+                            & {
+                                position: absolute;
+                                z-index: -1;
+                                opacity: 0;
+                                width: 0;
+                                height: 0;
+                            }
+                            & + .indicator {
+                                background: white;
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                border: 1px solid #434343;
+                                transform: translateY(4px);
+                                margin-right: 10px;
+                            }
+                            &:checked + .indicator {
+                                position: relative;
+                                color: #434343;
+                                &:after {
+                                    content: "";
+                                    background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='12px' viewBox='0 0 16 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='aaa' transform='translate(0.000000, -0.687500)' fill='%23434343' fill-rule='nonzero'%3E%3Cpolygon id='Path' points='0.604781307 5.63571536 0 6.30523634 5.76512742 12.6875 16 1.35702098 15.3952187 0.6875 5.76512742 11.348458'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                    display: block;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            &.ff-has-errors + .indicator {
+                                border-color: $color-error;
+                                & + span {
+                                    color: $color-error;    
+                                }
+                            }
+                        }
+                    }
+                }
+                &-label {
+                    display: none;
+                }
+                &-input {
+                }
+            }
+            &--survey {
+                .freeform {
+                    &-label {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

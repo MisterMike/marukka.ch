@@ -1,0 +1,10 @@
+/.*
+/src/*
+!/src/plugins
+assets/img/*
+/storage/runtime/*
+/storage/logs/*
+bitbucket-pipelines.yml
+deployment-exclude-list.txt
+README.md
+

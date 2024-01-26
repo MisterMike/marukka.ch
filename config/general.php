@@ -2,67 +2,53 @@
 /**
  * General Configuration
  *
- * (c) 2017 - 2019 kreisvier Communications AG
+ * All of your system's general configuration settings go in here. You can see a
+ * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
  *
- * @see craft\config\GeneralConfig
+ * @see \craft\config\GeneralConfig
  */
 
-return [
-    // Global settings
-    '*' => [
+use craft\config\GeneralConfig;
+use craft\helpers\App;
 
-        'defaultWeekStartDay' => 1,
+$isDev = App::env('ENVIRONMENT') === 'dev';
+$isProd = App::env('ENVIRONMENT') === 'production';
 
-        'enableCsrfProtection' => true,
+return GeneralConfig::create()
+    // Craft config settings from .env variables
+    ->aliases([
+        '@web' => App::env('PRIMARY_SITE_URL'),
+        '@webroot' => App::env('WEB_ROOT_PATH'),
+        '@assetsUrl' => App::env('PRIMARY_SITE_URL').'/assets',
+        '@assetsRootUrl' => App::env('WEB_ROOT_PATH').'/assets'
+    ])
+    ->allowUpdates(App::env('ALLOW_UPDATES'))
+    ->devMode($isDev)
+    ->cpTrigger(App::env('CP_TRIGGER') ?: 'admin')
+    ->defaultWeekStartDay(1)
+    ->enableTemplateCaching(!$isDev)
+    ->securityKey(App::env('SECURITY_KEY'))
+    ->limitAutoSlugsToAscii(true)
 
-        'omitScriptNameInUrls' => true,
-
-        'cpTrigger' => 'admin',
-
-        'securityKey' => getenv('SECURITY_KEY'),
-        
-        'useProjectConfigFile' => false,
-        
-        'convertFilenamesToAscii' => true,
-
-        /* for the sql dump plugin */
-        'extraAllowedFileExtensions' => 'sql',
-
-        'limitAutoSlugsToAscii' => true,
-
-        'errorTemplatePrefix' => "_errors/",
-
-        'enableTemplateCaching' => false,
-
-        // globally turn off devMode (default)
-        'devMode' => false,
-
-        'allowUpdates' => true,
-
-        'allowAdminChanges' => true,
-
-        // Custom site-specific config settings
-        'custom' => [
-            'craftEnv' => CRAFT_ENVIRONMENT,
-            'staticAssetsVersion' => time(),
-        ]
-    ],
-
-    'dev' => [
-        // Base site URL
-        'siteUrl' => getenv('DEFAULT_SITE_URL'),
-
-        'devMode' => true,
-    ],
-
-    'staging' => [
-
-        'siteUrl' => 'https://craft.marukka.ch',
-        'devMode' => true,
-    ],
-
-    'production' => [
-
-        'siteUrl' => 'https://www.marukka.ch',
-    ],
-];
+    // Craft config settings from constants
+    ->cacheDuration(false)
+    ->defaultSearchTermOptions([
+        'subLeft' => true,
+        'subRight' => true,
+    ])
+    ->defaultTokenDuration('P2W')
+    ->enableCsrfProtection(true)
+    ->errorTemplatePrefix('_errors/')
+    ->maxUploadFileSize('100M')
+    ->extraFileKinds([
+        'text' => [
+            'extensions' => ['csv'],
+        ],
+    ])
+    ->generateTransformsBeforePageLoad(!$isDev)
+    ->maxCachedCloudImageSize(3000)
+    ->maxUploadFileSize('100M')
+    ->omitScriptNameInUrls(true)
+    ->useEmailAsUsername(true)
+    ->disallowRobots(!$isProd)
+    ->usePathInfo(true);

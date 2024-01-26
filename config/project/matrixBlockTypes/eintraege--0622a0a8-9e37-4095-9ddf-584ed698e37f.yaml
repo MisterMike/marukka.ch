@@ -1,0 +1,115 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
+fieldLayouts:
+  45039a17-f95d-437e-b4ac-de2b84d665c9:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 128bfcad-1210-4f5b-9c77-7879226f3b03 # Einträge
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 512ed971-8370-4ece-9537-d1504c9d440f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 5a794545-3ef0-4dc0-b84d-ed0e6bbdb6f0 # Sektion (Kanal)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 751c82c3-8a06-4751-9c6a-9955e8fa29ae
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: f99d370d-5eec-41fb-ab73-7deae21e2529 # Paginierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f953983a-b641-4344-9676-3f0a16644e49
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 02998ce7-3d60-45ee-83be-3fd848841e2b
+        userCondition: null
+fields:
+  5a794545-3ef0-4dc0-b84d-ed0e6bbdb6f0: # Sektion (Kanal)
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: channelSection
+    instructions: null
+    name: 'Sektion (Kanal)'
+    searchable: false
+    settings:
+      allowMultiple: ''
+      whitelistedSections:
+        - '5'
+        - '12'
+        - '3'
+        - '11'
+        - '10'
+        - '6'
+    translationKeyFormat: null
+    translationMethod: none
+    type: charliedev\sectionfield\fields\SectionField
+  128bfcad-1210-4f5b-9c77-7879226f3b03: # Einträge
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: eintraege
+    instructions: null
+    name: Einträge
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      branchLimit: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: null
+      minRelations: null
+      selectionLabel: null
+      showSiteMenu: true
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  f99d370d-5eec-41fb-ab73-7deae21e2529: # Paginierung
+    columnSuffix: null
+    contentColumnType: smallint(2)
+    fieldGroup: null
+    handle: paginateCount
+    instructions: null
+    name: Paginierung
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: 10
+      max: 50
+      min: 0
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: Einträge
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: eintraege
+name: Einträge
+sortOrder: 3

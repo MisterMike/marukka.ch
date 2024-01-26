@@ -1,0 +1,123 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.lightSwitchField({
+	label: "Enabled"|t('app'),
+	instructions: "This will also affect all the campaigns that belong to that campaignType"|t('k4-campaigns'),
+	id: 'enabled',
+	name: 'enabled',
+	on: campaignType.enabled,
+	errors: campaignType.getErrors('enabled')
+}) }}
+
+{{ forms.textField({
+	label: 'Campaign Name'|t('k4-campaigns'),
+	id: 'name',
+	name: 'name',
+	type: 'text',
+	value: campaignType.name,
+	errors: campaignType.getErrors('name'),
+	first: true,
+	autofocus: true,
+	required: true,
+	maxlength: 255
+}) }}
+
+{{ forms.textField({
+	label: 'Campaign Handle'|t('k4-campaigns'),
+	id: 'handle',
+	name: 'handle',
+	class: 'code',
+	type: 'text',
+	value: campaignType.handle,
+	errors: campaignType.getErrors('handle'),
+	required: true,
+	maxlength: 255
+}) }}
+
+{{ forms.textField({
+	label: "Email Template"|t,
+	id: 'template',
+	name: 'template',
+	instructions: "The template to use when a Campaign URL is requested.  The text version of the Campaign Email will use the same template name and append .txt"|t,
+	placeholder: '_emails/emailtemplate',
+	value: campaignType.template,
+	errors: campaignType.getErrors('template')
+}) }}
+
+{{ forms.textField({
+	label: "Email Text Template"|t,
+	id: 'templateTxt',
+	name: 'templateTxt',
+	instructions: "The template to use when a Campaign URL is requested.  The text version of the Campaign Email will use the same template name and append .txt"|t,
+	placeholder: '_emails/emailtemplate',
+	value: campaignType.templateTxt,
+	errors: campaignType.getErrors('templateTxt')
+}) }}
+
+{#
+{{ forms.textField({
+	label: "Email Copy/Paste Template"|t,
+	id: 'templateCopyPaste',
+	name: 'templateCopyPaste',
+	instructions: "The template to use if you want to copy only part of your template.  The text version of the Copy/Paste content will use the same template name and append .txt"|t,
+	placeholder: 'email/copypaste-template',
+	value: (campaignType is defined ? campaignType.templateCopyPaste : null),
+	errors: (campaignType is defined ? campaignType.getErrors('templateCopyPaste') : null)
+}) }}
+#}
+
+<hr>
+
+{{ forms.checkboxField({
+	label: "Campaign Emails of this type have their own URLs"|t,
+	id: 'hasUrls',
+	name: 'hasUrls',
+	checked: (campaignType is defined ? campaignType.hasUrls : 0),
+	toggle: 'url-settings'
+}) }}
+
+<div id="url-settings" class="nested-fields{% if not campaignType.hasUrls %} hidden{% endif %}">
+
+	{{ forms.textField({
+		label: "Email URL Format"|t,
+		instructions: 'What the online version of the Campaign Email URLs should look like. You can include tags that output email properties, such as {slug} or {postDate|date("Y")}.'|t,
+		placeholder: 'email/{slug}',
+		name: 'urlFormat',
+		value: (campaignType is defined ? campaignType.urlFormat : null),
+		errors: (campaignType is defined ? campaignType.getErrors('urlFormat') : null)
+	}) }}
+
+</div>
+
+<hr>
+
+{{ forms.checkboxField({
+	label: "Add a custom format to the Subject field?"|t,
+	id: 'hasAdvancedTitles',
+	name: 'hasAdvancedTitles',
+	checked: (campaignType is defined ? campaignType.hasAdvancedTitles : 0),
+	toggle: 'advancedtitle-settings'
+}) }}
+
+<div id="advancedtitle-settings" class="nested-fields{% if not campaignType.hasAdvancedTitles %} hidden{% endif %}">
+
+	{{ forms.textField({
+		label: 'Subject Format'|t,
+		instructions: 'What the auto-generated email Subject should look like. You can include tags that output email properties, such as {code}.'|t({ code: '<code>{myCustomField}</code>' }),
+		id: 'titleFormat',
+		name: 'titleFormat',
+		value: (campaignType is defined ? campaignType.titleFormat : null),
+		errors: (campaignType is defined ? campaignType.getErrors('titleFormat') : null),
+	}) }}
+
+</div>
+
+<hr>
+
+
+
+{% include "_includes/fieldlayoutdesigner" with {
+	fieldLayout: campaignType.getFieldLayout(),
+	customizableTabs: true,
+	pretendTabName: "Campaign Type"|t('k4-campaigns')
+} only %}

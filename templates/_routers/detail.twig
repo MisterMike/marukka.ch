@@ -12,22 +12,21 @@
 -#}
 
 
-{% if devMode %}
+{# {% if devMode %}
   <small style="position: fixed; bottom: 0; left: 0; min-width: 120px; padding: 8px; font-size: 9px;color: #fff; background-color: #333;font-size:0.7rem;z-index:700;">
-    <span style="color:#C70039 ">Section Handle: </span> {{ entry.section.handle}} –
-    <span style="color:#2471a3 ">Entry Type Handle: </span>{{ entry.type.handle }} –
-    <span style="color:#27ae60 ">Request Path: </span>{{ craft.app.request.pathInfo}} –
-    <span style="color:#27aeae ">Segment Route: </span>{{ baseSegmentRoute|default('none')}}
+    <span style="color:#C70039 ">Section Handle:</span> {{ entry.section.handle}} •
+    <span style="color:#2471a3 ">Entry Type Handle:</span>{{ entry.type.handle }} •
+    <span style="color:#27ae60 ">Request Path:</span>{{ craft.app.request.pathInfo}}
   </small>
-{% endif %}
+{% endif %} #}
 
 {%- include [
-  '_views/details/' ~ baseSegmentRoute ?? null,
-  '_views/details/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
-  '_views/details/' ~ entry.section.handle,
-  '_views/details/' ~ entry.section.handle ~ '/' ~ entry.parent,
-  '_views/details/' ~ entry.section.handle,
-  '_views/details/' ~ entry.section.handle ~ '/default',
-  '_views/details/default',
+  '_pages/' ~ baseSegmentRoute ?? null,
+  '_pages/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_pages/' ~ entry.section.handle,
+  '_pages/' ~ entry.section.handle ~ '/' ~ entry.parent,
+  '_pages/' ~ entry.section.handle,
+  '_pages/' ~ entry.section.handle ~ '/default',
+  '_pages/default',
 
 ] -%}

@@ -1,0 +1,46 @@
+{% set imgWidth = bildBreite ? bildBreite : 690 %}
+{% set imgHeight = bildHoehe ? bildHoehe : 460 %}
+{% set mode = transformMode ? transformMode : 'crop' %}
+
+<div class="c-small-teaser">
+
+    {% if url|length -%}
+        <a href="{{ url }}" tabindex="-1" class="c-small-teaser__full-link"><span class="sr-only">{{ 'Ansehen'|t }}</span></a>
+    {%- endif %}
+
+    {%- set image = bild ? bild : null -%}
+
+    <div class="c-small-teaser__media {{ mode == 'fit' ? 'raycast':''}}" style="padding-bottom:{{ (imgHeight/imgWidth)*100 }}%">
+        <div itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="c-image">
+            {% if image %}
+                <picture class="c-image__image">
+                    <source
+                            media="all and (min-width: 320px)"
+                            data-srcset="{{ image.getUrl({ width: imgWidth, height: imgHeight , format: 'webp', mode: mode}) }} 1x, {{ image.getUrl({ width: imgWidth*1.5, height: imgHeight*1.5 , format: 'webp', mode: mode}) }} 1.5x"
+                            type="image/webp"
+                            src=""
+                    >
+                    <source
+                            media="all and (min-width: 320px)"
+                            data-srcset="{{ image.getUrl({ width: imgWidth, height: imgHeight , format: 'jpeg', mode: mode}) }} 1x, {{ image.getUrl({ width: imgWidth*1.5, height: imgHeight*1.5 , format: 'jpeg', mode: mode}) }} 1.5x"
+                            type="image/jpeg"
+                            src=""
+                    >
+                    <img
+                            src="{{ image.getUrl({ width: imgWidth/5, height: imgHeight/5 , format: 'jpeg', mode: mode}) }}"
+                            data-src="{{ image.getUrl({ width: imgWidth, height: imgHeight , format: 'jpeg', mode: mode}) }}"
+                            title="{{ image.title }}" alt="{{image.title}}"
+                            itemprop="contentUrl"
+                            class="img lazy"
+                    >
+                </picture>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="c-small-teaser__content">
+        <div class="content__topline">{{topline|default('&nbsp;')|raw}}</div>
+        <div class="content__title">{{titel|default('')}}</div>
+        {% if content is defined and content|length %}<div class="content__text">{{content|raw}}</div>{% endif %}
+    </div>
+</div>

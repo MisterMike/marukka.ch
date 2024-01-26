@@ -1,0 +1,98 @@
+{% macro recursive_nav(entries, cssClass, navLevel, wrapUl, loopLevel) %}
+
+  {% import _self as self %}
+
+  {%- if wrapUl %}
+    <ul class="{{ cssClass }}--level{{ navLevel }}" {% if navLevel > '1' %} aria-label="submenu"{%  endif %} :aria-expanded="{{ loopLevel }} === secondLevelIndex ? 'true' : 'false'">
+  {%- endif %}
+
+  {%- for entry in entries.all() -%}
+
+      {%- if entry.nichtInNavigationAnzeigen == false -%}
+
+      <li class="{{ cssClass }}{{ navLevel > 1 ? '--level'~navLevel : '' }}--item {{ entry.alsButtonAnzeigen ? ' highlight highlight--primary' : '' }}" :class="{'is-open':{{ loop.index }} === secondLevelIndex}" @mouseover="hoveringFirstLevel(true)" @mouseleave="hoveringFirstLevel(false)">
+
+            <div
+                class="main-menu__list--item--wrapper item-{{loop.index}}"
+                aria-controls="{{ entry.slug }}"
+                @click="toggleItem('{{ entry.slug }}')"
+            >
+
+            {%- if navLevel == 1 and not entry.hasDescendants -%}
+                <div class="nav-bg-2 bg-nav-red bg-nav-{{loop.index}}"></div>
+                <a class="{{ cssClass }}--link link--level{{ navLevel }}" href="{{entry.url}}">
+                    {{ entry.title }}
+                </a>
+            {%- elseif navLevel == 1 -%}
+                <div class="nav-bg-2 bg-nav-red bg-nav-{{loop.index}}"></div>
+                <div class="{{ cssClass }}--link link--level{{ navLevel }}">
+                    {{ entry.title }}
+                </div>
+            {%- else -%}
+                <a href="{{ entry.url }}" class="{{ cssClass }}--link link--level{{ navLevel }}">
+                    {{ entry.title }}
+                </a>
+            {%- endif -%}
+
+            </div>
+          
+            {%- if entry.hasDescendants -%}
+
+                <div id="{{ entry.slug }}" class="submenu menu-hidden">
+                    <button class="submenu__nav--button" @click="toggleItem('{{ entry.slug }}')">
+                        <span class="sr-only hidden">Zurück</span>
+                        <svg class="submenu__nav--button--svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m23 12c0-3.037-1.232-5.789-3.222-7.778s-4.741-3.222-7.778-3.222-5.789 1.232-7.778 3.222-3.222 4.741-3.222 7.778 1.232 5.789 3.222 7.778 4.741 3.222 7.778 3.222 5.789-1.232 7.778-3.222 3.222-4.741 3.222-7.778zm-2 0c0 2.486-1.006 4.734-2.636 6.364s-3.878 2.636-6.364 2.636-4.734-1.006-6.364-2.636-2.636-3.878-2.636-6.364 1.006-4.734 2.636-6.364 3.878-2.636 6.364-2.636 4.734 1.006 6.364 2.636 2.636 3.878 2.636 6.364zm-5-1h-5.586l2.293-2.293c.391-.391.391-1.024 0-1.414s-1.024-.391-1.414 0l-4 4c-.096.096-.168.206-.217.324-.051.122-.076.253-.076.383 0 .256.098.512.293.707l4 4c.391.391 1.024.391 1.414 0s.391-1.024 0-1.414l-2.293-2.293h5.586c.552 0 1-.448 1-1s-.448-1-1-1z"></path></svg>
+                    </button>
+                    <div class="submenu__wrapper">
+                        <div class="submenu__title" >
+                            <h5 class="text-blue font-bold text-18 lg:text-24">{{ entry.title }}</h5>
+                            <a href="{{ entry.url }}" class="button button--primary"> {{ 'Übersicht'|t }} </a>
+                        </div>
+                        <div class="submenu__content">
+                            {% set numEntries = entry.children.all() %}
+                            <div class="submenu__content--col">
+{#                                <h6 class="submenu__content--title">{{ entry.title }}</h6>#}
+                                <hr class="submenu__content--divider">
+                                <ul class="submenu__content--submenu">
+                                    {% for subentry in numEntries[:3] %}
+                                       <li><a href="{{subentry.url}}" class="submenu__content--link">{{ subentry.title }}</a></li> 
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% if numEntries|length > 3 %}
+                                <div class="submenu__content--col">
+                                    {# <h6 class="submenu__content--title">{{ entry.title }}</h6>#}
+                                    <hr class="submenu__content--divider">
+                                    <ul class="submenu__content--submenu">
+                                        {% for subentry in numEntries[3:] %}
+                                            <li><a href="{{subentry.url}}" class="submenu__content--link">{{ subentry.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-span-2 hidden header:flex flex-col items-end justify-start" style="grid-column-start: -2;">
+                            <div class="text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endif -%}
+
+          </li>
+
+      {%- endif %}
+
+  {% endfor %}
+
+  {%- if wrapUl %}
+    </ul>
+  {% endif %}
+
+{%- endmacro %} 
+
+{% import _self as self %}
+
+{%- set navEntries = craft.entries.section(sectionName ?? entry.section).level(1) -%}
+{{ self.recursive_nav(navEntries,(cssClass == "" ? entry.section : cssClass ), 1, false, 0)  }}

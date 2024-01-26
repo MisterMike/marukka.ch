@@ -17,7 +17,6 @@
   {% set specialRoutes = {
       'news': 'newsIndex',
       'events': 'eventsIndex',
-      'anfahrt': 'anfahrtIndex',
       'search/results': 'searchResults'
   } %}
 
@@ -42,8 +41,6 @@
 {%- set title = entry.title  -%}
 
 {%- block content -%}
-
-{# <small style="font-size: 9px;color: #dd2233;">{{craft.app.request.pathInfo}}::section handle = {{entry.section.handle}} , entry slug = {{ entry.slug }}</small> #}
 
   {%- include "_routers/detail" -%}
 

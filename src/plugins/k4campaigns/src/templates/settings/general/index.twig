@@ -1,0 +1,49 @@
+{% extends 'k4-campaigns/settings/_layout' %}
+
+{% import '_includes/forms' as forms %}
+{% import 'k4-campaigns/_macros' as macros %}
+
+{% set title = 'General Settings'|t('k4-campaigns') %}
+
+{% set crumbs = [] %}
+
+{% set fullPageForm = true %}
+
+{% block content %}
+
+    <input type="hidden" name="action" value="k4-campaigns/settings/save-general">
+
+    {{ forms.textField({
+        label: "Plugin Name"|t('k4-campaigns'),
+        instructions: "You can provide the name for the plugin visible in sidebar"|t('k4-campaigns'),
+        id: 'pluginName',
+        name: 'pluginName',
+        value: settings.pluginName,
+        errors: settings.getErrors('pluginName')
+    }) }}
+
+    {{ forms.autosuggestField({
+        label: "Mailchimp API Key"|t('k4-campaigns'),
+        instructions: "Mailchimp API for sending campaigns and reading lists."|t('k4-campaigns'),
+        warning: (config.mailchimpApiKey is defined ? macros.configWarning('mailchimpApiKey')),
+        id: 'mailchimpApiKey',
+        name: 'mailchimpApiKey',
+        suggestEnvVars: true,
+        value: settings.mailchimpApiKey,
+        errors: settings.getErrors('mailchimpApiKey'),
+        required: true,
+    }) }}
+
+    {{ forms.autosuggestField({
+        label: "Mailchimp Server Prefix"|t('k4-campaigns'),
+        instructions: "Mailchimp server prefix (login to your mailchimp account and note the subdomain e.g. us14.admin.mailchimp.com."|t('k4-campaigns'),
+        warning: (config.mailchimpServerPrefix is defined ? macros.configWarning('mailchimpServerPrefix')),
+        id: 'mailchimpServerPrefix',
+        name: 'mailchimpServerPrefix',
+        suggestEnvVars: true,
+        value: settings.mailchimpServerPrefix,
+        errors: settings.getErrors('mailchimpServerPrefix'),
+        required: true,
+    }) }}
+
+{% endblock %}

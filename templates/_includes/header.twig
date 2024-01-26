@@ -1,88 +1,79 @@
-<header role="banner" class="main__header">
-    <section class="nav-sub">
-        <nav role="navigation" class="navigation container is-open">
+<header role="banner" aria-label="Site header" class="m-header" :class="{ 'header--hidden': !showHeader, 'menu-open': mainMenuOpen, 'level-2-open': secondLevelOpen, 'level-3-open': thirdLevelOpen }">
+    <div class="m-header__container l-container">
 
-            <a href="/" class="header__logo" id="main__logo--header">
-{#                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 227.28 32.33">#}
-{#                    <defs><style>.cls-1{fill:white;}</style></defs>#}
-{#                    <title>Marukka Logo</title>#}
-{#                    <g id="Ebene_2" data-name="Ebene 2">#}
-{#                        <g id="Ebene_1-2" class="svg__anim" data-name="Ebene 1">#}
-{#                            <path class="cls-1" d="M19.35,11.57a6,6,0,0,1,1.77,4.61V30.72a1.6,1.6,0,0,1-1.58,1.59,1.64,1.64,0,0,1-1.63-1.59V16.18A3,3,0,0,0,17,13.83a2.87,2.87,0,0,0-2.25-.92H12.15V30.72a1.61,1.61,0,0,1-1.59,1.59,1.64,1.64,0,0,1-1.63-1.59V12.91H6.34A2.93,2.93,0,0,0,4,13.83a3,3,0,0,0-.86,2.35V30.72a1.6,1.6,0,0,1-1.59,1.59A1.6,1.6,0,0,1,0,30.72V16.18a5.92,5.92,0,0,1,1.78-4.61A5.72,5.72,0,0,1,6.34,9.7h8.45A5.87,5.87,0,0,1,19.35,11.57Z"/>#}
-{#                            <path class="cls-1" d="M44.93,9.7a1.59,1.59,0,0,1,1.53,1.63V30.72a1.56,1.56,0,0,1-1.53,1.59,1.6,1.6,0,0,1-1.59-1.59V12.91H37a2.94,2.94,0,0,0-2.31.92,3,3,0,0,0-.91,2.35v9.69A3,3,0,0,0,37,29h1.73a1.69,1.69,0,0,1,1.58,1.68,1.6,1.6,0,0,1-1.58,1.59H37a5.85,5.85,0,0,1-4.61-1.78,5.92,5.92,0,0,1-1.78-4.66V16.18a6,6,0,0,1,1.83-4.66A5.78,5.78,0,0,1,37,9.7Z"/>#}
-{#                            <path class="cls-1" d="M58,12.24A8.39,8.39,0,0,1,64,9.7h4.9a1.52,1.52,0,0,1,1.25.52,1.61,1.61,0,0,1,.33,1v9.41a1.59,1.59,0,1,1-3.17,0V12.86H64a4.73,4.73,0,0,0-3.5,1.45,4.52,4.52,0,0,0-1.3,3.31v13a1.59,1.59,0,0,1-1.58,1.68,1.56,1.56,0,0,1-1.54-1.68v-13A8.69,8.69,0,0,1,58,12.24Z"/>#}
-{#                            <path class="cls-1" d="M93.65,11.28V24.19a8.24,8.24,0,0,1-7.92,8.12,8,8,0,0,1-8-8.12V11.28A1.73,1.73,0,0,1,79.39,9.6a1.65,1.65,0,0,1,1.54,1.68V24.19a4.78,4.78,0,1,0,9.55,0V11.28a1.59,1.59,0,1,1,3.17,0Z"/>#}
-{#                            <path class="cls-1" d="M120.34,32.11a1.6,1.6,0,0,1-2.21-.81l-4.75-10.85-7,7.73v2.54a1.56,1.56,0,0,1-1.54,1.59,1.6,1.6,0,0,1-1.59-1.59V2.16A1.64,1.64,0,0,1,104.88.53a1.61,1.61,0,0,1,1.54,1.63v21l11.85-13.11a1.17,1.17,0,0,1,1-.38,1.67,1.67,0,0,1,1.3,2.73l-4.9,5.43,5.38,12.05A1.75,1.75,0,0,1,120.34,32.11Z"/>#}
-{#                            <path class="cls-1" d="M145.87,32.11a1.61,1.61,0,0,1-2.21-.81l-4.75-10.85-7,7.73v2.54a1.56,1.56,0,0,1-1.53,1.59,1.6,1.6,0,0,1-1.59-1.59V2.16A1.64,1.64,0,0,1,130.42.53,1.6,1.6,0,0,1,132,2.16v21l11.86-13.11a1.16,1.16,0,0,1,1-.38,1.66,1.66,0,0,1,1.29,2.73l-4.89,5.43,5.37,12.05A1.73,1.73,0,0,1,145.87,32.11Z"/>#}
-{#                            <path class="cls-1" d="M168.34,9.7a1.59,1.59,0,0,1,1.53,1.63V30.72a1.56,1.56,0,0,1-1.53,1.59,1.6,1.6,0,0,1-1.59-1.59V12.91h-6.33a2.93,2.93,0,0,0-2.31.92,3,3,0,0,0-.91,2.35v9.69a3,3,0,0,0,.91,2.31,2.91,2.91,0,0,0,2.31.86h1.72a1.69,1.69,0,0,1,1.59,1.68,1.6,1.6,0,0,1-1.59,1.59h-1.72a5.85,5.85,0,0,1-4.61-1.78A5.92,5.92,0,0,1,154,25.87V16.18a6,6,0,0,1,1.82-4.66,5.81,5.81,0,0,1,4.57-1.82Z"/>#}
-{#                            <path class="cls-1" d="M181.68,30.24a2.07,2.07,0,1,1-4.13,0A2.07,2.07,0,1,1,181.68,30.24Z"/>#}
-{#                            <path class="cls-1" d="M195.36,32.31a5.85,5.85,0,0,1-4.61-1.78A5.92,5.92,0,0,1,189,25.87V16.18a6,6,0,0,1,1.83-4.66,5.78,5.78,0,0,1,4.56-1.82h5.14a1.63,1.63,0,0,1,1.58,1.63,1.6,1.6,0,0,1-1.58,1.58h-5.14a2.94,2.94,0,0,0-2.31.92,3,3,0,0,0-.91,2.35v9.69A3,3,0,0,0,195.36,29h5.14a1.69,1.69,0,0,1,1.58,1.68,1.6,1.6,0,0,1-1.58,1.59Z"/>#}
-{#                            <path class="cls-1" d="M224.11,30.72V16.18a3.1,3.1,0,0,0-.91-2.26,3,3,0,0,0-2.3-1h-6.34V30.72A1.56,1.56,0,0,1,213,32.31a1.64,1.64,0,0,1-1.63-1.59V1.63A1.68,1.68,0,0,1,213,0a1.6,1.6,0,0,1,1.54,1.63V9.7h6.34a5.76,5.76,0,0,1,4.6,1.92,5.81,5.81,0,0,1,1.78,4.56V30.72a1.59,1.59,0,1,1-3.17,0Z"/>#}
-{#                        </g>#}
-{#                    </g>#}
-{#                </svg>#}
-            </a>
+        <a href="{{ siteUrl }}" title="{{ siteName }}" class="m-header__logo">
+            <img class="m-header__logo--img" src="{{ siteUrl }}/assets/layout/logo/logo_marukka-color-claim.svg">
+        </a>
+        <nav class="m-header__nav js-navigation">
+            <div class="m-header__nav--container">
+            <ul class="main-menu__list">
+                {{ mainNavigation|raw }}
 
-            <a href="#expand-nav-main-list" class="nav-main-link" aria-controls="nav-main-list" aria-haspopup="true" aria-expanded="true">
-                <svg width="30" height="25" class="icon-hamburger" viewBox="0 0 30 25" id="icon-hamburger">
-                    <path d="M30 5H0V0h30v5zm0 15H0v5h30v-5zm0-10H0v5h30v-5z"></path>
-                </svg>
-            </a>
-
-            <ul class="nav-action show-desktop">
-                {% set seknav = sekundaerNavigation.shortLinks %}
-                {% for page in seknav.all() %}
-                <li class="sekundaer__nav--item--level1">
-                    <a class="sekundaer__nav--link--level1 {% if craft.app.request.segments|last == page.slug %}active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>
-                </li>
-                <li><a href="/join" class="button">Klich mich</a></li>
-                {% endfor %}
             </ul>
-        </nav>
-    </section>
-
-    <section class="nav-main">
-        <nav role="navigation" class="navigation container">
-
-{#             <span class="flyout__close u-pointer">
-                <i class="icon icon-cancel" aria-hidden="true"></i>
-                <span class="visuallyhidden">{{ 'Schliessen'|t }} </span>
-            </span> #}
-
-            {{ mainNavigation | raw }}
-
-            <button id="search_open" class="search-icon" aria-label="Search">
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="24px" height="23.6px" viewBox="0 0 31.4 30.9">
-                    <style>
-                        .st0 {
-                            fill: #ffffff;
-                        }
-                    </style>
-                    <path class="st0" d="M20,22.6c-2.2,1.6-4.9,2.4-7.5,2.4c-2.7,0-5.4-0.9-7.6-2.6c-5.5-4.3-6.6-12-2.4-17.5c2.4-3.1,6-4.9,10-4.9
-                        c2.8,0,5.4,0.9,7.5,2.6c2.7,2,4.4,5,4.8,8.2c0.5,3-0.2,6-1.9,8.6l8.5,8.5l-3,3L20,22.6z M12.6,4.2c-4.6,0-8.3,3.7-8.3,8.3
-                        c0,4.5,3.7,8.2,8.3,8.2c4.5,0,8.2-3.7,8.2-8.3C20.8,7.9,17.1,4.2,12.6,4.2z"></path>
-                </svg>
-            </button>
-        </nav>
-    </section>
-
-    <div class="modal-overlay" id="search_modal" aria-hidden="true" role="dialog" aria-label="Search Modal">
-        <div class="modal-content">
-            <form class="form form--inline"
-                method="post"
-                onsubmit="window.location.href='/search?q=' + document.getElementById('search').value; return false;"
-            >
-                <div class="input">
-                    <input id="search" class="search" type="search" placeholder="{{'Enter search term'|t}}" aria-label="Search">
-                </div>
-                <div class="input">
-                    <input type="submit" class="button" value="Submit">
+            </div>
+{#             <div class="m-header__nav--cta--wrapper">
+                <a href="https://forestlab.partners/contact" class="button button--large button--outline header_main__nav-cta">Contact us</a>
+            </div> #}
+        <div class="m-header__search">
+            <form action="/suche" class="form__searchform">
+                <div class="m-header__search--wrapper" role="search">
+                    <label for="header-search">
+                        <span class="sr-only">Suche</span>
+                    </label>
+                    <input
+                        id="header-search"
+                        class="m-header__search--input"
+                        type="search"
+                        name="q"
+                        value=""
+                        placeholder="{{'Suchtext'|t}}">
+                    <button type="submit" class="m-header__search--submit">
+                        <span class="sr-only">Suche starten</span>
+                        <svg class="h-6 w-6 fill-current" height="23" viewBox="0 0 23 23" width="23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="m184.5 11c4.69442 0 8.5 3.8055796 8.5 8.5 0 1.6686108-.480803 3.2249241-1.311425 4.5379563l7.111783 7.1112709-2.828427 2.8284271-7.155045-7.1539028c-1.265233.7473846-2.740976 1.1762485-4.316886 1.1762485-4.69442 0-8.5-3.8055796-8.5-8.5s3.80558-8.5 8.5-8.5zm0 2c-3.589851 0-6.5 2.9101491-6.5 6.5s2.910149 6.5 6.5 6.5 6.5-2.9101491 6.5-6.5-2.910149-6.5-6.5-6.5z" fill="#464647" transform="translate(-176 -11)"></path></svg>
+                    </button>
                 </div>
             </form>
         </div>
-        <button class="close-button" id="modal_close" type="button" aria-label="close">
-            &times;
+        </nav>
+
+{#         <div class="m-header__toggle" :aria-expanded="mainMenuOpen ? 'true' : 'false'" :aria-label="mainMenuOpen ? 'Menü schliessen' : 'Menü öffnen'" type="button" @click="toggle">
+            <div class="line line--one"></div>
+            <div class="line line--two"></div>
+            <div class="line line--three"></div>
+        </div> #}
+
+        <button type="button" class="m-header__toggle" :aria-label="mainMenuOpen ? 'Menü schliessen' : 'Menü öffnen'" @click="toggle">
+            <svg class="m-header__toggle--burger" enable-background="new 0 0 40 40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+                    <path d="m2 8h36" class="first-line"></path>
+                    <path d="m2 20h36" class="second-line"></path>
+                    <path d="m2 32h36" class="third-line"></path>
+                </g>
+            </svg>
+            <span class="sr-only hidden">Close</span>
         </button>
-    </div> 
+
+{#        <div class="m-header__cta">#}
+{#            <a href="#}{# https://forestlab.partners/contact #}{#" class="button button--large button--outline">Kontakt</a>#}
+{#        </div>#}
+
+    </div>
+
+    <div class="search-wrapper" id="search">
+    <div class="container container--contained container--searchform">
+      <form action="/search" class="form__searchform">
+            <label for="search-field" class="sr-only">Suchwort</label>
+            <input 
+                id="search-field" 
+                class="form__searchform--field" 
+                type="search" 
+                name="q" 
+                value="" 
+                placeholder="Ich suche…">
+            <button class="button form__searchform--button">Jetzt finden</button>
+        </form>
+    </div>
+  </div>
+  
 </header>
 

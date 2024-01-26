@@ -1,39 +1,48 @@
-field: d40ae449-4316-4da0-8f25-d26df6126954
+field: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
 fieldLayouts:
   8dd232b5-a736-4d0b-b10b-e30c9c840c6e:
     tabs:
       -
+        elementCondition: null
         elements:
           -
-            fieldUid: d6e5c6a6-2981-46be-93db-e23dcedb0348
+            elementCondition: null
+            fieldUid: d6e5c6a6-2981-46be-93db-e23dcedb0348 # Code
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 71f37c21-803a-4858-9dc8-f54bc38de9e9
+            userCondition: null
             warning: null
             width: 100
           -
-            fieldUid: 3b95a8ef-b63c-4700-83a5-3666fbfd6db2
+            elementCondition: null
+            fieldUid: 3b95a8ef-b63c-4700-83a5-3666fbfd6db2 # Sprache
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d7e566bf-10e4-48e8-8a0e-757e01c16f00
+            userCondition: null
             warning: null
             width: 25
         name: Content
-        sortOrder: 1
+        uid: 20deedd0-6dfb-4462-b23e-2eeebe20fa7d
+        userCondition: null
 fields:
-  3b95a8ef-b63c-4700-83a5-3666fbfd6db2:
+  3b95a8ef-b63c-4700-83a5-3666fbfd6db2: # Sprache
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: codelang
-    instructions: ''
+    instructions: null
     name: Sprache
     searchable: false
     settings:
-      optgroups: true
+      columnType: string
       options:
         -
           __assoc__:
@@ -104,21 +113,22 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  d6e5c6a6-2981-46be-93db-e23dcedb0348:
+  d6e5c6a6-2981-46be-93db-e23dcedb0348: # Code
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: code
-    instructions: ''
+    instructions: null
     name: Code
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: '1'
+      code: true
       columnType: null
-      initialRows: '12'
-      multiline: '1'
-      placeholder: ''
+      initialRows: 12
+      multiline: true
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none

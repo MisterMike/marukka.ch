@@ -1,14 +1,25 @@
-<section class="section__code">
+{% set code = block.code ?? '' %}
+{% set hasTitle = block.titel != '' ? 1 : 0 %}
+{% set akzent = block.akzent ?? null %}
 
-    {%- if block.code|length -%}
-      {%- do view.registerCssFile("/assets/plugins/prism/prism.min.css") -%}
-      {%- do view.registerJsFile("/assets/plugins/prism/prism.min.js") -%}
+{% if code %}
+{%- do view.registerCssFile("/assets/vendor/prism/prism.min.css") -%}
+{%- do view.registerJsFile("/assets/vendor/prism/prism.min.js") -%}
 
-      <div class="inhalt__code">
-        <div class="container">
-          <pre><code class="language-{{block.codelang|default('twig')}}">{{ block.code|raw }}</code></pre>
+<div class="l-section code akzent-{{ block.akzent|default('neutral') }}">
+    <div class="l-container">
+        <div class="l-grid l-grid--singlecol">
+            <div class="l-text">
+                <in-view :tag="'div'" v-slot="{inView}">
+
+                    <div class="m-text">
+                        <div class="c-text code">
+                            <pre><code class="language-{{block.codelang|default('twig')}}">{{ code|raw }}</code></pre>
+                        </div>
+                    </div>
+                </in-view>
+            </div>
         </div>
-      </div>
-    {%- endif -%}
-
-</section>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,29 @@
+{% set inhalt = block.text ?? '' %}
+{% set hasTitle = block.titel != '' ? 1 : 0 %}
+{% set akzent = block.akzent ?? null %}
+
+{% if inhalt %}
+<div class="l-section text akzent-{{ block.akzent|default('neutral') }}">
+    <div class="l-container">
+        <div class="l-grid l-grid--singlecol">
+            <div class="l-text">
+                <in-view :tag="'div'" v-slot="{inView}">
+
+                    <div class="m-text">
+                        {%- if hasTitle %}
+                        <div class="c-headline ">
+                            <div class="c-headline__wrapper">
+                                <h2 class="c-headline__title ">{{block.titel}}</h2>
+                            </div>
+                        </div>
+                        {%- endif -%}
+                        <div class="c-text">
+                            {{ inhalt | encodeEmails | replace({'<table>': '<div class="inhalt__content--table"><span class="table__scroll--icon"></span><table>','</table>': '</table></div>'}) | raw }}
+                        </div>
+                    </div>
+                </in-view>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -1,51 +1,79 @@
+
 const mix = require('laravel-mix');
+const path = require('path');
 
+const themeDir = __dirname + "/";
 
-mix.setPublicPath('public/assets/')
-    .js('dev/_js/main.js', 'js/main.min.js')
-    .js('dev/_js/plugins.js', 'js/plugins.min.js')
-    .sass('dev/_sass/styles.scss', 'css/styles.min.css')
-    .sass('dev/_sass/_vendors/photoswipe/css/main.scss', 'plugins/photoswipe/photoswipe.css')
+/* Mix Plugins */
+// require('laravel-mix-bundle-analyzer');
+require('laravel-mix-criticalcss');
+require('laravel-mix-purgecss');
+
+let proxy_url = process.env.PRIMARY_SITE_URL;
+
+mix.webpackConfig({
+    resolve: {
+        mainFields: ['module', 'main'], // default ['browser', 'module', 'main']
+    },
+    stats: {
+        children: true,
+    }
+});
+
+mix
+    .setResourceRoot('/assets/')
+    .setPublicPath('public/assets')
+    .js('src/js/app.js', 'js/app.js')
+    .vue()
+    .sass('src/sass/styles.scss', 'css/styles.min.css')
+
     .options({
         processCssUrls: false,
+        postCss: [
+            require('cssnano')(),
+        ],
+        compilerOptions: {
+          isCustomElement: (tag) => ['inview'].includes(tag),
+        },
+        hmrOptions: {
+            host: 'localhost',
+            port: '3000'
+        },
     })
-  .copy('node_modules/owl.carousel/dist/assets/owl.carousel.min.css', 'public/assets/plugins/owl-carousel/owl.carousel.min.css')
-  .copy('node_modules/owl.carousel/dist/owl.carousel.min.js', 'public/assets/plugins/owl-carousel/owl.carousel.min.js')
-  .copy('node_modules/photoswipe/dist/photoswipe.min.js', 'public/assets/plugins/photoswipe/photoswipe.min.js')
-  .copy('node_modules/photoswipe/dist/photoswipe-ui-default.min.js', 'public/assets/plugins/photoswipe/photoswipe-ui-default.min.js');
- 
+    // .purgeCss({
+    //     content: [path.join(__dirname, 'templates/**/*.twig')],
+    //     enabled: false,
+    // });
 
-// mix.js('src/js/app.js', 'js/')
-//    .sass('src/sass/app.scss', 'css/')
-//    .autoload({
-//        jquery: ['$', 'jQuery', 'jquery', 'window.jQuery'],
-//        'popper.js/dist/umd/popper.js': ['Popper']
-//    })
-//    .extract(['jquery', 'popper.js', 'bootstrap'])
-//    .options({
-//        processCssUrls: false
-//    });
- 
+    // .purgeCss({
+    //     content: [
+    //         themeDir + 'templates/**/*.twig',
+    //         // Specify path to own javascript
+    //         themeDir + 'public/assets/js/**/*.js',
+    //     ],
+    //     enabled: mix.inProduction(),
+    // })
 
 // Browser sync for local development.
 mix.browserSync({
-    // When serving flat HTML from a given folder
-    // proxy: false,
-    // server: 'dist',
-    
-    // When serving PHP via xyz.localhost URL
-    // Note, no server node required
-    proxy: 'marukka.localhost',
-  
+
+    proxy: proxy_url,
+    notify: {
+        styles: {
+            top: 'auto',
+            bottom: '1rem'
+        }
+    },
     files: [
-        'public/assets/img',
+        'public/assets/images',
         'public/assets/css',
+        'public/assets/js',
         'templates/**/*.twig',
     ]
 });
 
 
-if (mix.production) {
+if (mix.inProduction()) {
     // Disabled notifications on production builds.
     mix.disableNotifications();
 

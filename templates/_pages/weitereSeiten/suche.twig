@@ -1,0 +1,77 @@
+
+{% set searchQuery = craft.app.request.getQueryParam('q') %}
+
+{% set contentResults = craft.entries()
+    .search(searchQuery)
+    .orderBy('score')
+    .all()
+%}
+
+{% set assetResults = craft.assets()
+    .search(searchQuery)
+    .orderBy('score')
+    .all()
+%}
+
+{% set totalCount = contentResults|length + assetResults|length %}
+
+{% set leadText = 'Ihre Suche nach &laquo;{query}&raquo; ergab {count} Treffer'|t('site', { query: searchQuery, count: totalCount }) %}
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent">
+
+            {% set seitenBild = entry.hero.one() %}
+
+            {% if seitenBild is defined and seitenBild|length %}
+                {%- include "_components/hero" -%}
+            {% else %}
+
+            <div class="l-container l-grid">
+                <div class="c-headline h2-alike c-headline--centered">
+                    <div class="c-headline__wrapper">
+                        {% if entry.parent().title is defined %}
+                        <p class="c-headline__preline">
+                            <span class="c-headline__preline-content">{{entry.parent().title}}</span>
+                        </p>
+                        {% endif %}
+                        <h1 class="c-headline__title h2">{{entry.title}}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="l-section l-lead">
+                <div class="l-container">
+                    <div class="l-grid l-grid--singlecol">
+                        <div class="m-lead" >
+                            <div class="c-lead"> {{ leadText|raw }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section">
+                
+                <div class="l-container l-grid l-grid--singlecol">
+                    <div class="l-grid l-grid__region l-grid__region--singlecol">
+
+                        <div class="l-module">
+                        {% for item in contentResults %}
+                            {% include '_blocks/newsItem' with {item: item, showImage: 0} %}
+                        {% endfor %} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+
+    </article>
+</main>
+
+{% endblock %}

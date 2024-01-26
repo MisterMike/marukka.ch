@@ -1,0 +1,61 @@
+
+{% set relatedGalleries = entry.children()
+      .level(2)
+      .limit(12)
+      .orderBy('postDate DESC')
+      .all()
+%}
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+<main class="main" id="mainView">
+
+    <article id="mainContent">
+
+        <div class="container">
+
+{#       {%- include "_components/seitenbild" with { image: entry.seitenbild.one() } -%}#}
+
+{#             <section class="block__title">
+               <h1 class="bloglist__title">{{ entry.seitenUeberschrift|default(entry.title)}}</h1>
+            </section> #}
+
+            <div class="l-grid">
+                <div class="c-headline h1-alike">
+                    <div class="c-headline__wrapper">
+{#                         <p class="c-headline__topline">{{entry.title}}</p> 
+ #}                        <h1 class="c-headline__title">{{entry.title}}</h1>
+                    </div>
+                </div>
+            </div>
+
+{#             <div class="l-container l-grid">
+                <div class="c-headline h2-alike c-headline--centered">
+                    <div class="c-headline__wrapper">
+                        <p class="c-headline__preline">
+                            <span class="c-headline__preline-label">Event</span> 
+                            <span class="c-headline__preline-content">Samnaun</span>
+                        </p>
+                        <h1 class="c-headline__title h2-alike">Genuss-Skifahren mit Gustav</h1>
+                    </div>
+                </div>
+            </div> #}
+
+            <section class="galleries">
+                    <div class="m-small-teaser m-small-teaser--list">
+
+                        <div class="m-small-teaser__wrapper l-grid">
+                            {% for gallery in relatedGalleries %}
+                                {% include '_blocks/smallTeaser' with { eintrag: gallery } %}
+                            {% endfor %}
+                        </div>
+                    </div>
+            </section>
+
+        </div>
+    </article>
+</main>
+
+{% endblock %}

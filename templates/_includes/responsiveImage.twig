@@ -12,7 +12,7 @@
 {% set image = image is not defined ? null : image %}
 
 {# prep image alt text #}
-{% set imageAlt = image.title ?? null %}
+{% set assetAltText = image.assetAltText ?? image.title ?? null %}
 
 {# showAlt: boolean - whether or not to output the alt attribute #}
 {% set showAlt = showAlt ?? true %}
@@ -23,10 +23,9 @@
 {# Variables #}
 {% set tagOptions = image ? {
   src: image.url,
-  alt: showAlt ? imageAlt : null,
+  alt: showAlt ? assetAltText : null,
 } : null %}
-
-{#{% set tagOptions = tagOptions|merge({ width: image.width, height: image.height }) %}#}
+{% set tagOptions = tagOptions|merge({ width: image.width, height: image.height }) %}
 {% set tagOptions = class ? tagOptions|merge({ class: class }) : tagOptions %}
 {% set tagOptions = srcset and image ? tagOptions|merge({ srcset: image.getSrcset(srcset) }) : tagOptions %}
 {% set tagOptions = sizes ? tagOptions|merge({ sizes: sizes|map((width, max) => max != 'all' ? "(max-width: #{max}) #{width}" : width)|join(', ') }) : tagOptions %}
@@ -35,3 +34,12 @@
 {% if image and tagOptions %}
   {{ tag('img', tagOptions) }}
 {% endif %}
+
+
+{# new version, unfinished #}
+
+{# image: asset element #}
+{% set image = image is not defined ? null : image %}
+
+{# WebP: wether to offer webp formats #}
+{% set useWebp = webp is not defined ? null : webp %}

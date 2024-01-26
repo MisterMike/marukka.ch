@@ -1,0 +1,25 @@
+<in-view :tag="'div'"v-slot="{inView}">
+    <div class="m-news-item">
+        <div class="m-news-item__meta">
+            <p class="m-news-item__meta--date">{{item.postDate|date('d.M Y')}}</p>
+            <p class="m-news-item__meta--category">
+                <a href="#">{{ item.kanalSectionName|default }}</a>
+            </p>
+        </div>
+        <div class="m-news-item__title">
+            <div class="c-headline c-headline--inline">
+                <div class="c-headline__wrapper">
+                    <h3 class="c-headline__title">{{ item.title }}</h3>
+                </div>
+            </div>
+        </div> 
+        <div class="m-news-item__lead">
+            {{ item.lead|default() }}
+        </div> 
+        <div class="m-news-item__cta">
+            <a href="{{ item.url }}" class="button button--primary m-news-item__cta--link"> {{ 'Mehr lesen'|t }}
+                <svg class="m-news-item__cta--svg" viewBox="0 0 18 12" width="18" height="12"><path d="m2.13310401 5.31561882 4.15736968-4.21363775c.24530806-.24904614.24904371-.65583578.00830146-.90959708-.2415724-.25333264-.63547654-.25676185-.88078459-.00857301l-5.23157822 5.30241087c-.11871084.12045089-.18595264.28462416-.18641234.45608449-.00078552.17146034.06479599.33649091.18226161.4577991l5.24029475 5.41171686c.12161635.1255947.28100432.1881777.4403923.1881777.1589729 0 .31836087-.062583.43997722-.1881777.24323269-.2511894.24323269-.6584077 0-.9091684l-4.16484099-4.30108257h15.23934271c.3436803 0 .6226092-.28805336.6226092-.64297625 0-.35535155-.2789289-.64297626-.6226092-.64297626z" fill-rule="evenodd" transform="matrix(-1 0 0 -1 18.000036 12)"></path></svg>
+            </a>
+        </div>
+    </div>
+</in-view>

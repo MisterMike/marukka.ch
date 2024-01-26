@@ -1,0 +1,124 @@
+.container--searchform {
+    position: relative;
+    z-index: 1;
+    
+    @include mq(for-tablet-landscape) {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form__searchform {
+        position: relative;
+        
+        @include filterDropdown;
+        
+        width: 100%;
+        
+        @include mq(for-desktop) {
+            display: flex;
+            width: auto;
+        }
+        
+        z-index: 0;
+
+        &::after {
+            content: " ";
+            border-bottom: 1px solid $gray-400;
+            position: absolute;
+            top: 50%;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            display: none;
+            
+            @include mq(for-desktop) {
+                display: block;
+            }
+        }
+
+        & > span {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            vertical-align: middle;
+        }
+        .form-group {
+            @include mq(for-desktop) {
+                margin-left: 20px;
+
+                &--big-spacing {
+                    margin-left: 76px;
+                }
+            }
+
+            &--select {
+                position: relative;
+                svg {
+                    display: block;
+                    position: absolute;
+                    right: 14px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                }
+            }
+            &--type {
+                margin-left: 0;
+            }
+            &--keyword {
+                margin-left: 0;
+            }
+            input {
+                width: auto;
+                background: white;
+                padding: 12px 1rem 13px;
+                border: 1px solid $brand-primary;
+                text-align: center;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0 0.25rem;
+                
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            select {
+                width: auto;
+                background: white;
+                padding: 12px 2rem 13px 1rem;
+                border: 1px solid $brand-primary;
+                text-align: center;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border-radius: 0;
+                width: 140px;
+            }
+            @include placeholder {
+                color: $gray-200;
+                font-weight: 100;
+            }
+
+            button {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+                @include mq(for-desktop) {
+                    width: auto;
+                }
+            }
+
+            a {
+                margin-top: 4px;
+                @include mq(for-tablet-landscape) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}

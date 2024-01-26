@@ -1,0 +1,24 @@
+{% macro footerList(listEntries, listColumn = '') %}
+
+    {% if listEntries | length %}
+
+        <ul class="footer__upper--col-list">
+            {% for item in listEntries %}
+                {% if item.footerSpalte == listColumn %}
+                    {% if item.untereintraegeAnzeigen  %}
+                        <h3 class="footer__upper--col-title">{{ item.ueberschrift|default() }}</h3>
+                        {% set Entry = item.eintraege.one() %}
+                        {% set subEntries = craft.entries()
+                            .descendantOf(Entry)
+                            .all() %}
+                        {% for entry in subEntries %}
+                            <li class="footer__upper--col-item"><a class="footer__upper--col-link" href="{{ entry.url }}">{{ entry.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endmacro %}

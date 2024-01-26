@@ -1,0 +1,4 @@
+/**
+ * Coupon class
+ */
+Campaign = {};

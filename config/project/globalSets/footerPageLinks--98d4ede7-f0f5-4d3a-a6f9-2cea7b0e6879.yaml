@@ -1,0 +1,24 @@
+fieldLayouts:
+  0a55ef9b-30aa-4a03-83f0-8677fc71f089:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b34620af-769b-4d5e-9958-6555ad7d535c # Page Links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7708866-92e4-4414-9cab-d8804a56514c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Entries
+        uid: f224d5d2-fa2b-441e-a2aa-5d28bd2eb3d5
+        userCondition: null
+handle: footerPageLinks
+name: 'Footer Page-Links'
+sortOrder: 6

@@ -1,0 +1,44 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Site Module module for Craft CMS 4.x
+ *
+ * A simple Module to enhance your site
+ *
+ * @copyright Copyright (c) 2019-23 Mischa Sprecher
+ */
+
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% if not data %}
+    <div class="field">
+        <p class="warning">
+            {{ "No data sources configured. Check the config file and add options to the array."|raw }}
+        </p>
+    </div>
+{% endif %}
+
+{{ forms.selectField({
+    label: "Select a data source",
+    instructions: "Available options are pulled from the `data` array in `config/site-module.php` file.<br> Here you can choose one of the first level items in the file, when editing the content, the children of the selected item will be available."|raw,
+    name: 'dataSet',
+    options: data,
+    value: field['dataSet'] ?? '',
+    errors: field.getErrors('dataSet') ?? ''
+}) }}
+
+{{ forms.selectField({
+    label: "How do you want to display the options?",
+    instructions: "Select how you want to display the data options."|raw,
+    name: 'type',
+    options: {
+        'dropdown': 'Dropdown menu',
+        'checkboxes': 'Checkboxes'
+    },
+    value: field['type'] ?? '',
+    errors: field.getErrors('type') ?? ''
+}) }}
+
+

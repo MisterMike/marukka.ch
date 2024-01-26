@@ -1,0 +1,48 @@
+{% extends 'k4-campaigns/settings/_layout' %}
+
+{% set title = 'CampaignTypees'|t('k4-campaigns') %}
+
+{% set crumbs = [] %}
+
+{% block actionButton %}
+	<a href="{{ url('k4-campaigns/settings/campaign-types/new') }}" class="btn submit add icon">{{ "New CampaignType"|t('k4-campaigns') }}</a>
+{% endblock %}
+
+
+{% block content %}
+	<div id="nocampaigns"{% if campaignTypes|length %}class="hidden"{% endif %}>
+		<p>{{ "No campaign-types exist."|t('k4-campaigns') }}</p>
+	</div>
+	
+	{% if campaignTypes|length %}
+		<table id="campaign-types" class="data fullwidth collapsible">
+			<thead>
+			<th scope="col">{{ "Name"|t('app') }}</th>
+			<th scope="col">{{ "Handle"|t('app') }}</th>
+			<th scope="col">{{ "Mailer"|t('app') }}</th>
+			<th scope="col">{{ "Template"|t('app') }}</th>
+			<td class="thin"></td>
+			</thead>
+			<tbody>
+			{% for campaignType in campaignTypes %}
+				<tr data-id="{{ campaignType.id }}" data-name="{{ campaignType.name }}">
+					<th scope="row" data-title="{{ 'Name'|t('app') }}">{#<span class="status {% if campaignType.enabled == true %}enabled{% else %}disabled{% endif %}"></span>#}<a href="{{ campaignType.cpEditUrl }}">{{ campaignType.name }}</a></th>
+					<td data-title="{{ 'Handle'|t('app') }}"><code>{{ campaignType.handle }}</code></td>
+					<td data-title="{{ 'Mailer'|t('app') }}">mailchimp</td>
+					<td data-title="{{ 'Template'|t('app') }}">{{ campaignType.template }}</td>
+					<td class="thin"><a class="delete icon" title="{{ 'Delete'|t('app') }}" role="button"></a></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
+
+
+{% js %}
+	new Craft.AdminTable({
+	tableSelector: '#campaignTypes',
+	deleteAction: 'k4-campaigns/campaign-types/delete',
+	confirmDeleteMessage: '{{ 'Are you sure you want to delete “{name}”? This will also delete all includeing campaigns. This action cannot be undone.'|t('k4-campaigns') }}',
+	});
+{% endjs %}

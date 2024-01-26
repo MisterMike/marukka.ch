@@ -1,0 +1,150 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
+fieldLayouts:
+  83f71a8e-221c-432c-9746-942db8c07dbd:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 92406a9c-ac17-4f2e-893e-ce069161af2c # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 634148ce-011e-4d12-b977-5bd77b1335f8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: c68d6234-6ee4-41cc-9e4b-13584dc90f40 # Grossansicht aktivieren
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d48a625f-e88f-4e94-a517-1b8e6b415f83
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: d4ac8006-02a6-48e8-8ef2-0b9fef7b5879 # Volle Breite
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0972362e-781c-4913-ae1a-9c730ec7bb3e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 8a1f973f-0f0e-4ab2-9583-a05b9f4d3e36 # Bildlegende
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f0cfe4a8-8703-477c-a0fd-a875734bde11
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bee99920-5be4-4470-bf6c-c5c9a317afca
+        userCondition: null
+fields:
+  8a1f973f-0f0e-4ab2-9583-a05b9f4d3e36: # Bildlegende
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: bildlegende
+    instructions: null
+    name: Bildlegende
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  92406a9c-ac17-4f2e-893e-ce069161af2c: # Bild
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: bild
+    instructions: 'Ziehen Sie Ihre Bilder in diesen Bereich. Durch einen Doppelklick können Sie den Alternativtext des Bildes ändern.'
+    name: Bild
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds: null
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c' # Bilder
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: false
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c' # Bilder
+      restrictedLocationSubpath: null
+      selectionLabel: null
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      sources:
+        - 'volume:cc53058b-4492-40b7-9107-0af16277db4c' # Bilder
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  c68d6234-6ee4-41cc-9e4b-13584dc90f40: # Grossansicht aktivieren
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: grossansichtAktivieren
+    instructions: null
+    name: 'Grossansicht aktivieren'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  d4ac8006-02a6-48e8-8ef2-0b9fef7b5879: # Volle Breite
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: fullwidth
+    instructions: null
+    name: 'Volle Breite'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: bild
+name: Bild
+sortOrder: 5

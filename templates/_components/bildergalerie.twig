@@ -1,40 +1,25 @@
-{% if block.bilder|length %}
+{% set bilder = block.bilder.all() %}
+<div class="l-section text-image akzent-{{ block.akzent|default('neutral') }}">
+    <div class="l-container l-grid l-grid--singlecol background-{{block.akzent|default('neutral')}}">
+        <div class="l-grid l-grid__region l-grid__region--singlecol">
+            <section id="section-{{block.id}}" class="l-module">
+                
+                    <div class="m-small-teaser m-small-teaser--list">
 
-  {%- include '_includes/photoswipe' -%}
-  {% do view.registerCssFile("/assets/plugins/photoswipe/photoswipe.min.css") %}
-  {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe.min.js") %}
-  {% do view.registerJsFile("/assets/plugins/photoswipe/photoswipe-ui-default.min.js") %}
+                        {% if block.titel|length %}
+                            {% include '_includes/blockHeadline' with { titel: block.titel, untertitel:block.untertitel  } %}
+                        {% endif %}
 
-  {% set galleryImages = block.bilder.orderBy('RAND()').all() %}
+                        <vue-picture-swipe :items="[
+                        {% for bild in bilder %}
+                        {% set largeImage = bild.setTransform({ width: 1600, format: 'jpeg'}) %}
+                            {src: '{{largeImage.url()}}',thumbnail: '{{ bild.getUrl({ width: 690, height: 690 , format: 'jpeg'}) }}',w: {{largeImage.width}},h: {{largeImage.height}}, title: '{{bild.title}}'},
+                        {% endfor %}    
+                          ]"></vue-picture-swipe>
 
-  <section id="bildergalerie__{{ block.fieldId }}" class="section__bildergalerie">
-    <div class="container container--wide">
-      <ul class="gallery">
-        {% for bild in galleryImages %}
-
-        {% if bild.height > bild.width %}
-
-          {% set imageArtClass = 'hochformat' %}
-
-        {% else %}
-
-          {% set imageArtClass = 'breitformat' %}
-
-        {% endif %}
-
-
-          {% set bildLink = craft.picture.url(bild, 'desktop') %}
-          <li>
-            <figure class="gallery__item" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-              <a href="{{ bildLink }}" itemprop="contentUrl" data-size="{{ bild.getWidth() }}x{{ bild.getHeight() }}" class="galerie__link--{{ imageArtClass }}">
-                {{ craft.picture.element(bild,'desktop',{ class: 'gallery__img', alt: bild.title, transform: { position: 'center-center', quality: 80 }}) }}
-              </a>
-              <figcaption itemprop="{{ bild.title }}">{{ bild.title }}</figcaption>
-            </figure>
-          </li>
-        {% endfor %}
-      </ul>
-
-  </div>
-
-{% endif %}
+                    </div>
+                
+            </section>
+        </div>
+    </div>
+</div>

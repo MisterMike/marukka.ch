@@ -1,0 +1,37 @@
+{% extends 'k4-campaigns/_layout' %}
+
+{% set selectedSubnavItem = 'settings' %}
+
+{% set baseCrumbs = [
+	{ label: craft.k4campaigns.getTitle|t('k4-campaigns'), url: url('k4-campaigns') },
+	{ label: 'Settings'|t('k4-campaigns'), url: url('k4-campaigns/settings') }
+] %}
+{% set crumbs = crumbs is defined ? baseCrumbs|merge(crumbs) : [] %}
+
+{% set segment3 = craft.app.request.getSegment(3) %}
+
+{% block sidebar %}
+	
+	<nav class="last">
+		<ul>
+			<li>
+				<a class="{{ segment3 == 'general' ? 'sel' }}" href="{{ url('k4-campaigns/settings/general') }}">
+					{{ 'General Settings'|t('k4-campaigns') }}
+				</a>
+			</li>
+			<li>
+				<a class="{{ segment3 == 'campaign-types' ? 'sel' }}" href="{{ url('k4-campaigns/settings/campaign-types') }}">
+					{{ 'Campaign Types'|t('k4-campaigns') }}
+				</a>
+			</li>
+			{#
+			<li>
+				<a class="{{ segment3 == 'mailers' ? 'sel' }}" href="{{ url('k4-campaigns/settings/mailers') }}">
+					{{ 'Mailers'|t('k4-campaigns') }}
+				</a>
+			</li>
+			#}
+		</ul>
+	</nav>
+
+{% endblock %}

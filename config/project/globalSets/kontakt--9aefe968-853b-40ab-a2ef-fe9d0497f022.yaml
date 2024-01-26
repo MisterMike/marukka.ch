@@ -1,0 +1,35 @@
+fieldLayouts:
+  c9e9997a-2e62-4bb6-8c61-f480a859775e:
+    tabs:
+      -
+        fields:
+          0ddcaaf7-90d7-4bfd-9d91-5a16b4dd9b24:
+            required: false
+            sortOrder: 7
+          71f47d17-6739-4fb0-995c-a5fdb22a3d76:
+            required: false
+            sortOrder: 3
+          85c2ce1c-d0c9-46cf-b5cb-e17528ae0211:
+            required: false
+            sortOrder: 6
+          25083746-02fc-49ff-9dc6-d3aaf7563e9d:
+            required: false
+            sortOrder: 4
+          b7e20fa9-d088-4b3c-a482-03cd903a0c89: # Kontakt Anschrift
+            required: false
+            sortOrder: 1
+          da23dcb4-1f05-4cf7-9a6a-1857853be50e:
+            required: false
+            sortOrder: 2
+        name: Kontakt
+        sortOrder: 1
+      -
+        fields:
+          b34620af-769b-4d5e-9958-6555ad7d535c: # Page Links
+            required: false
+            sortOrder: 1
+        name: 'Direkt Links Fusszeile'
+        sortOrder: 2
+handle: kontakt
+name: Kontakt
+sortOrder: 3

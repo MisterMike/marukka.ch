@@ -1,0 +1,47 @@
+{
+    "name": "k4/k4-campaigns",
+    "description": "manage campaigns",
+    "type": "craft-plugin",
+    "version": "2.8.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "k4 campaigns"
+    ],
+    "support": {
+        "docs": "https://www.kreivier.ch",
+        "issues": "https://www.kreivier.ch"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Hiller",
+            "homepage": "https://www.kreisvier.ch"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.4",
+        "phpoffice/phpspreadsheet": "^1.1",
+        "mailchimp/marketing": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "k4\\k4campaigns\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "k4 Campaigns",
+        "handle": "k4-campaigns",
+        "schemaVersion": "2.6.1",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "???",
+        "class": "k4\\k4campaigns\\K4Campaigns"
+    },
+    "require-dev": {
+        "codeception/codeception": "^3.0",
+        "vlucas/phpdotenv": "^3.3"
+    }
+}

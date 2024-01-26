@@ -1,0 +1,6 @@
+fs: amazons3
+handle: amazons3
+hasUrls: true
+name: AmazonS3
+sortOrder: 1
+url: 'https://s3.eu-central-1.amazonaws.com/craft-test/'

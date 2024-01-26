@@ -1,0 +1,13 @@
+{% if block.text | length %}
+
+<section class="l-section intro akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+    <div class="l-container">
+        <div class="l-grid">
+            <div class="m-intro">
+                <div class="c-intro">{{block.text|default()}}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}

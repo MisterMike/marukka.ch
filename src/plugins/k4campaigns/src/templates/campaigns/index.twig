@@ -1,0 +1,14 @@
+{% extends 'k4-campaigns/campaigns/_layout.twig' %}
+
+{% do view.registerAssetBundle('k4\\k4campaigns\\assets\\CampaignAsset') %}
+
+{% set elementType = 'k4\\k4campaigns\\elements\\CampaignElement' %}
+
+{% set title = 'Campaigns'|t('k4-campaigns') %}
+
+{% set tabs = {'view': {'label': 'View'|t('k4-campaigns'), 'url': url('k4-campaigns/campaigns')}} %}
+
+{% set crumbs = [
+	{ label: 'Campaigns'|t('k4-campaigns'), url: url('k4-campaigns/campaigns') }
+
+] %}

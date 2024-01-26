@@ -1,0 +1,50 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent"><!-- Template: {{ _self }}.twig -->
+
+            {% set seitenBild = entry.hero.one() %}
+
+            {% if seitenBild is defined and seitenBild|length %}
+                {%- include "_components/hero" -%}
+            {% else %}
+
+            <div class="l-container l-grid">
+                <div class="c-headline h2-alike c-headline--centered">
+                    <div class="c-headline__wrapper">
+                        <p class="c-headline__preline">
+                            <span class="c-headline__preline-content">{{ craft.app.request.pathInfo() }}</span>
+                        </p>
+                        <h1 class="c-headline__title h2">{{ errorPage.allgemeinerText1|default('Server Fehler (500)') }}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if errorPage.allgemeinerText2 is defined and errorPage.allgemeinerText2|length > 0 %}
+                <div class="l-section l-lead">
+                  <div class="l-container">
+                    <div class="l-grid l-grid--singlecol">
+                      <div class="m-lead" >
+                        <div class="c-lead"> {{ errorPage.allgemeinerText2 }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+
+            <div class="l-container l-grid">
+            <button class="btn btn-secondary teaser__button">
+              <a class="teaser__button--link" href="{{ siteUrl }}">{{ 'Zurück zur Startseite' | t }}</a>
+            </button>
+            </div>
+
+        {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+
+    </article>
+</main>
+
+{% endblock %}

@@ -1,5 +1,6 @@
-/.env*
-/.idea
+.env
+.env*
+.idea
 .DS_Store
 *.log
 *.bak
@@ -7,19 +8,33 @@
 *.orig
 *.sass-cache/*
 
+**/.DS_Store
 
 _old/
-/sql
-/storage/runtime/*
-/storage/config-backups/*
-/node_modules/
+sql
 
-/config/license.key
+composer.lock
 
-/dev/_SASS/_vendors/
-/public/cpresources/
-/public/assets/img/**
-!/public/assets/img/logo
-vendor/
+config/license.key
 
+# Development stuff
+dev/_sass/_vendors/
+
+# Runtime stuff
+public/cpresources/
+public/imager/**
+public/assets/img/
+!public/assets/img/logo/**
+!public/assets/img/install-bg-1920.png
+
+# Framework storage
+storage/runtime/*
+storage/config-backups/*
+!storage/backups/*
+
+# Third Party
+node_modules/**
+vendor/**
+
+!modules/**
 

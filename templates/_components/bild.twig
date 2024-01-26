@@ -1,36 +1,28 @@
-{# Params #}
-{% set block = block is not defined ? false : block %}
-{% set image = block ? block.bild.one() : null %}
-{% set imageCaption = block.bildlegende ?? null %}
+{% set image = block.bild.one() ?? null %}
 
-{% if block and image %}
-<div class="content-padding block-bild {{ loop.last ? 'conclusion' : '' }}">
-    <div class="container">
-        <{{ imageCaption ? 'figure' : 'div' }} class="bild__wrapper animation-planned">
-        {% if image.extension == 'svg' %}
-            {{ svg(image) }}
-        {% else %}
+{% if image %}
 
-        {% include '_includes/responsiveImage' with {
-            class: 'bild__bild',
-            image: image,
-            sizes: {
-                '425px': '425px',
-                '767px': '768px',
-                '1023px': '1024px',
-                '1439px': '1440px',
-                'all': '1440px',
-            },
-            srcset: ['1440w', '1280w', '768w', '425w']
-        } %}
-        {% endif %}
-        {% if imageCaption %}
-            <figcaption class="bild__caption">
-                {{- imageCaption -}}
-            </figcaption>
-        {% endif %}
-        </{{ imageCaption ? 'figure' : 'div' }}>
+<section class="l-section bild akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+    <div class="l-container l-grid l-grid--singlecol">
+        <div class="l-grid l-grid__region l-grid__region--singlecol">
+            <div class="l-module l-image">
+                <in-view :tag="'div'" v-slot="{inView}">
+                    <div class="m-image l-grid">
+                        <div class="m-image__media">
+                            <div itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="c-image">
 
+                                <picture class="c-image__image">
+                                    <source data-srcset="{{ image.getUrl({ width: 325, height: 217 , format: 'webp'}) }} 325w, {{ image.getUrl({ width: 650, height: 433 , format: 'webp'}) }} 650w, {{ image.getUrl({ width: 1300, height: 867 , format: 'webp'}) }} 1300w, {{ image.getUrl({ width: 2400, height: 1600 , format: 'webp'}) }} 2400w" type="image/webp">
+                                    <source data-srcset="{{ image.getUrl({ width: 325, height: 217 }) }} 325w, {{ image.getUrl({ width: 650, height: 433 }) }} 650w, {{ image.getUrl({ width: 1300, height: 867 }) }} 1300w, {{ image.getUrl({ width: 2400, height: 1600 }) }} 2400w" type="image/jpeg">
+                                    <img class="img lazy" loading="lazy" data-src="{{ image.getUrl({ width: 325, height: 217 }) }}" title="{{ image.title }}" alt="{{ image.title }}" itemprop="contentUrl" />
+                                </picture>
+
+                            </div>
+                        </div>
+                    </div>
+                </in-view>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 {% endif %}

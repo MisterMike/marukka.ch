@@ -1,0 +1,83 @@
+{% set newsAnzahl = block.anzahl ? block.anzahl : 5 %}
+
+<section class="l-section bild akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+
+    <div id="section-recent-news" class="l-module">
+        <div class="l-container">
+            <div class="c-headline">
+                <div class="c-headline__wrapper">
+                    <h2 class="c-headline__title thin">{{ block.titel|length ? block.titel : null }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="l-container l-grid l-grid--singlecol layout">
+            <div class="l-grid l-grid__region l-grid__region--singlecol box__wrapper" id="recent-news">
+                <a href="" class="recentnews__link">
+                    <template id="news-template">
+                        <div class="recentnews__item skeletton" ><div class="recentnews__thumb"><img src=""></div><div class="recentnews__content"><h2></h2><div class="recentnews__content--teaser"></div></div>
+                    </template>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% js %}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const container = document.querySelector(".box__wrapper");
+    const newsTemplate = document.getElementById("news-template");
+      
+    for (let i = 0; i < 3; i++) {
+        container.append(newsTemplate.content.cloneNode(true));
+    }
+
+    async function asyncNews () {
+
+        let currTime = Date.now();
+
+        await fetch('/news.json?n={{newsAnzahl}}&ts='+Date.now()).then(function (response) {
+            return response.json();
+
+        }).then(function (data) {
+            
+            let html = "";
+            
+
+            for (var i= 0; i < data.data.length; i++) {
+                let categories = data.data[i]["category"].map(o => '<span>'+o+'</span>');
+                const date = new Date(data.data[i]["date"]["date"]);
+                const postDate = date.toLocaleDateString("de-CH");
+                html += `
+                    <div class="recent-news item-${i}">
+                        <a href="${data.data[i]['url']}" class="recent-news__link">
+{#                            <figure class="recent-news__image">#}
+{#                                <img src="${data.data[i]['image']}" alt="">#}
+{#                            </figure>#}
+                            <div class="recent-news__text">
+                                <div class="recent-news__text-wrapper">
+                                <span class="recent-news__label">${postDate}</span>
+                                    <h3 class="h3 recent-news__title">${data.data[i]["title"]}</h3>
+                                    <span class="recent-news__categories">${categories.join('')}</span>
+                                    <p class="recent-news__description">${data.data[i]["teaser"]}</p>
+                                    <div class="recent-news__cta">
+                                    <span class="button button--primary" href="${data.data[i]['url']}">{{ 'Anzeigen'|t }}</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>`;
+                    console.log(categories);
+            }
+
+            document.getElementById("recent-news").innerHTML = html;
+
+        });
+    }
+    asyncNews();
+
+
+});
+
+
+{% endjs %}

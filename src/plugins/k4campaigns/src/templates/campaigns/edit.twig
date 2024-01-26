@@ -1,0 +1,6 @@
+{% extends 'k4-campaigns/campaigns/_edit.twig' %}
+
+{% set campaignTypeTitle = campaign.campaignType.name %}
+{% set campaignType = campaign.campaignType %}
+
+{% set title = 'Campaigns'|t('k4-campaigns') ~ ' - ' ~ campaignTypeTitle %}

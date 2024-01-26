@@ -1,5 +1,8 @@
-{% if block.snippet|length %}
+{% if block.templateSnippet|length %}
 
-  {% include "/_snippets/" ~ block.snippet with { parameter1: block.parameter1, parameter2: block.parameter2 } %}
+{#  {% include "/_snippets/" ~ block.templateSnippet with { parameter1: block.parameter1, parameter2: block.parameter2 } %}#}
+  {% include "/_snippets/" ~ block.templateSnippet %}
 
 {% endif %}
+
+<hr>

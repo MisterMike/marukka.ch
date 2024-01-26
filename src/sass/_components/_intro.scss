@@ -1,0 +1,45 @@
+///////////////////////////////
+// INTRO
+//////////////////////////////
+
+
+.m-intro {
+	grid-column: span var(--gridColumns);
+	position: relative;
+	z-index: 1;
+	padding-top: var(--spacingFlexXXXL);
+	padding-bottom: calc(var(--spacingFlexXL) * -1);
+
+	@include mq(for-tablet-portrait) {
+	    grid-column: 2/12;
+	}
+
+	@include mq(for-tablet-landscape) {
+	    grid-column: 3/11;
+	}
+}
+
+.m-intro, .m-intro p {
+	font-size: 1.25rem;
+	line-height: 1.5;
+	color: var(--colorBlack);
+
+	@include mq(for-tablet-portrait) {
+	    font-size: 1.5rem;
+		line-height: 1.5;
+	}
+
+	@include mq(for-medium-desktop) {
+	    font-size: 1.75rem;
+	}
+
+}
+
+.c-intro {
+	font-size: 20px;
+	line-height: 1.6;
+	color: var(--colorBlack);
+	// margin-top: var(--spacingFlexXXL);
+	margin-top: 0;
+}
+

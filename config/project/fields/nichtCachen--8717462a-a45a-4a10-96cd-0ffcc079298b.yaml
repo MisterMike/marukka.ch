@@ -1,0 +1,11 @@
+contentColumnType: boolean
+fieldGroup: 2357c45a-c960-4790-90ff-0bb669f324f6
+handle: nichtCachen
+instructions: ''
+name: 'Nicht Cachen'
+searchable: false
+settings:
+  default: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

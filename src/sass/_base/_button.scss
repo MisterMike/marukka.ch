@@ -1,0 +1,142 @@
+//--------------------
+// BUTTONS
+//--------------------
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    //border-radius: 9999px;
+    border: 4px solid;
+    padding: .75rem 1.25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
+    transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
+    transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0,0,.2,1);
+
+    &--primary {
+        border-color: var(--colorGreen);
+        background-color:var(--colorGreen);
+        color: var(--colorWhite);
+
+        @include hover-focus() {
+            color: var(--colorGreen);
+            background-color: var(--colorWhite);
+        }
+    }
+
+    &--inverse {
+        background-color: var(--colorWhite);
+        border-color: var(--colorGreen);
+        color: var(--colorGreen);
+
+        @include hover-focus() {
+            color: var(--colorWhite);
+            background-color: var(--colorGreen);
+        }
+    }
+}
+
+
+
+
+//button {
+//    border-radius: 0;
+//}
+//
+//.button {
+//    align-self: flex-start;
+//    border: none;
+//    color: var(--colorWhite);
+//    cursor: pointer;
+//    display: inline-block;
+//    font-family: $font-family-heading;
+//    padding: 11px 20px;
+//    margin: 0;
+//    transition: all 0.25s ease-in-out;
+//    text-transform: uppercase;
+//    user-select: none;
+//
+//    &:hover {
+//        text-decoration: none;
+//    }
+//
+//    &[disabled] {
+//        opacity: 0.4;
+//        pointer-events: none;
+//
+//        &::after {
+//            content: "";
+//            display: inline-block;
+//            @include loader02($align: middle, $size: 20px, $border-size: 3px, $color: white);
+//            margin-left: 15px;
+//            margin-bottom: -5px;
+//        }
+//    }
+//
+//    a {
+//        color: var(--colorWhite);
+//    }
+//
+//    & + .button {
+//        float: right;
+//        &:before {
+//            font-size: 0;
+//        }
+//        &:after {
+//            font-size: 0;
+//        }
+//    }
+//    &--primary {
+//        background-color: var(--colorGreenSaturated);
+//        color: var(--colorWhite);
+//
+//        &:hover {
+//            text-decoration: none;
+//            background-color: var(--colorGreenDark);
+//            color: var(--colorWhite);
+//        }
+//    }
+//
+//    &--outline {
+//        background-color: transparent;
+//        color: $brand-primary-dark;
+//        border: 1px solid $brand-primary-dark;
+//
+//        &:hover {
+//            background-color: $brand-primary-dark;
+//            color: var(--colorWhite);
+//            text-decoration: none;
+//        }
+//    }
+//
+//    // &--secondary {
+//    //     background-color: $brand-secondary;
+//    //     color: var(--colorWhite);
+//    //     &:hover {
+//    //         text-decoration: none;
+//    //         background-color: $brand-secondary;
+//    //         color: var(--colorWhite);
+//    //     }
+//    // }
+//
+//    &--large {
+//        @include font-smoothing;
+//        @include mq(for-tablet-portrait) {
+//            font-size: 1.25rem;
+//        }
+//        @include mq(for-tablet-landscape) {
+//            padding: 8px 32px 10px;
+//        }
+//    }
+//
+//    &--full {
+//        width: 100%;
+//    }
+//}

@@ -1,0 +1,35 @@
+{% if block.akzent == "neutral" %}
+{% set hasAkzent = false %}
+{% else %}
+{% set hasAkzent = true %}
+{% endif %}
+
+<section class="l-section text-box " id="section-{{block.id}}">
+    <div class="l-container">
+        <div class="l-grid l-grid--singlecol">
+            <div class="l-module l-text-box akzent-{{ block.akzent|default('neutral') }}">
+                <in-view :tag="'div'"v-slot="{inView}">
+                    <div class="m-text-box l-grid">
+                        <div class="m-text-box__background l-grid">
+                            <div class="m-text-box__text-wrapper">
+                                <div class="m-text-box__title">
+                                    {% include '_blocks/headline.twig' with {
+                                      titel: block.titel,
+                                      untertitel: block.untertitel,
+                                      centered: 0,
+                                      contained: 0
+                                    } %}
+                                </div>
+                                <div class="m-text-box__text">
+                                    <div class="c-text">
+                                        {{ block.text }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </in-view>
+            </div>
+        </div>
+    </div>
+</section>

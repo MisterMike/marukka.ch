@@ -1,0 +1,74 @@
+html {
+    box-sizing: border-box;
+    //font-size: 62.5%;
+}
+
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    // we mostly want to display them as block level elements anyway, right? We don't want any nasty spacing issues.
+    display: block;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+    margin: 0;
+}
+
+iframe {
+    border: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+}
+
+option {
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+}

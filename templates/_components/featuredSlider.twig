@@ -1,0 +1,61 @@
+
+{% set relatedArticles = block.eintraege.all() %}
+
+<section class="l-section teaser-slider akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+	<div class="l-container l-grid l-grid--singlecol">
+		<div class="l-grid l-grid__region l-grid__region--singlecol">
+			<div class="l-module l-image">
+
+				<div class="m-small-teaser m-small-teaser--carousel">
+					{% if block.titel|length %}
+						<div class="c-headline h2-alike">
+							<div class="c-headline__wrapper">
+								<p class="c-headline__title h2">{{ block.titel }}</p>
+							</div>
+						</div>
+					{% endif %}
+					<swiper
+						class="m-small-teaser__wrapper swiper-container"
+						:options="swiperOptions"
+						:breakpoints="{980: {slidesPerView: 3},768: {slidesPerView: 2.3},320: {slidesPerView: 1.3}}"
+						:navigation="{nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }"
+						:space-between="50" :pagination="{ clickable: true,el: '.swiper__progressbar',type: 'progressbar' }"
+						grab-cursor keyboard
+					>
+					{% for item in relatedArticles %}
+
+					{% set image = item.hero.one() %}
+
+						<swiper-slide :tag="'div'" class="m-small-teaser__slide" v-slot="{swiperSlides}">
+
+							{% include '_blocks/smallTeaser' with {
+								topline: null,
+								url: item.url,
+								bild: image,
+								bildBreite: 480,
+								bildHoehe: 480,
+								titel:item.title,
+								content: item.lead|default(),
+								buttons: block.showButtons
+							}
+							%}
+						</swiper-slide>
+
+					{%- endfor -%}
+
+					</swiper>
+					<div class="slides__buttons">
+						<button type="button" class="swiper-button-prev" tabindex="-1" role="button" aria-label="Previous slide" data-slide="prev" aria-disabled="true">
+							<svg class="icon icon--nav-prev"><use xlink:href="/assets/layout/sprites.svg#nav-prev"></use></svg>
+							<span class="sr-only">{{'Zurück'|t}}</span>
+						</button>
+						<button type="button" class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" data-slide="next" aria-disabled="false">
+							<svg class="icon icon--nav-next"><use xlink:href="/assets/layout/sprites.svg#nav-next"></use></svg>
+							<span class="sr-only">{{ 'Weiter'|t }}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

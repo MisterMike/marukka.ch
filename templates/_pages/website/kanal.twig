@@ -1,0 +1,73 @@
+{% if entry.kanalSectionName|length %}
+    {% set itemList = craft.entries.section(entry.kanalSectionName) %}
+{% endif %}
+
+{% set blockMode = 0 %}
+
+{% if entry.kanalDarstellung == 'blocks' %}
+{% set blockMode = 1 %}
+{% set imageHeight = 480 %}
+{% endif %}
+{% if entry.kanalDarstellung == 'blocksSquare' %}
+{% set blockMode = 1 %}
+{% set imageHeight = 690 %}
+{% endif %}
+
+{% set entryIds = itemList.ids() %}
+
+{% set myCategories = craft.entries.section('generalCats').relatedTo({ sourceElement:entryIds }).orderBy('title').all() %}
+
+
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent">
+
+            {% set seitenBild = entry.hero.one() %}
+
+            {% if seitenBild is defined and seitenBild|length %}
+                {%- include "_components/hero" -%}
+            {% endif %}
+
+            {%- include "_components/lead" -%}      
+
+            <div class="l-section">
+                
+                <div class="l-container l-grid l-grid--singlecol">
+                    <div class="l-grid l-grid__region l-grid__region--singlecol">
+
+                        <div class="l-module">
+                            {% if blockMode %}
+                            <div class="project-page__teasers">
+                                <div class="l-grid m-small-teaser__wrapper">
+                                    {% for item in itemList.all() %}
+                                        {% include '_blocks/smallTeaser' with {
+                                            url: item.url,
+                                            bild: item.hero.one(),
+                                            bildHoehe: imageHeight,
+                                            bildBreite: 690,
+                                            titel: item.title,
+                                            topline: item.subtitle,
+                                            content: item.lead
+                                        } %}
+                                    {% endfor %}  
+                                </div>
+                            </div>
+                            {% else %}
+                            {% for item in itemList.all() %}
+                                {% include '_blocks/newsItem' with {item: item, showImage: 0} %}
+                                {% endfor %} 
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div> 
+            </div>
+    </article>
+</main>
+
+{% endblock %}

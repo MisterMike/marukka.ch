@@ -1,44 +1,36 @@
-{%- if block.teaser is defined -%}
+{% set relatedItems = block.eintraege %}    
 
-    {%- set relatedTeaser = craft.entries.section('Website').relatedTo(block) -%}
+<section class="l-section gallery-teaser akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+    <div class="l-container l-grid l-grid--singlecol">
+        <div class="l-grid l-grid__region l-grid__region--singlecol">
+            <div class="l-module l-image">
 
-    <section id="teaser__{{ block.fieldId }}" class="section__teaser">
-	    <ul class="item-grid container ">
-	        {%- for teaserBlock in relatedTeaser.all() -%}
-	            {%- include "_snippets/teaser" with { teaserBlock: teaserBlock  }  -%}
-	        {%- endfor -%}
-	    </ul>
-	</section>
+                <div class="m-small-teaser m-small-teaser__wrapper">
 
+                    {%- for item in relatedItems.all() -%}
 
+                    {%- set image = item.hero.one() | default() -%}
 
+                    {% if item.kategorie|length %}
+                        {% set categories = item.kategorie|map((value) => "<span class='badge bg-grey text-white'>#{value}</span>")|join(' ')|raw %}
+                    {% endif %}
 
-{#                    <div class="teaser__content--wrapper">#}
-{#                        <h3 class="teaser__content--titel">{{ block.titel|default() }}</h3>#}
-{#                        <p class="teaser__content--lead">{{ block.lead|default() }}</p>#}
-{#                        <div class="teaser__content--text">{{ block.text|default() }}</div>#}
+                    {% include '_blocks/smallTeaser' with {
+                            topline: categories,
+                            url: item.url,
+                            bild: image,
+                            bildBreite: 480,
+                            bildHoehe: 480,
+                            titel:item.title,
+                            content: item.lead|default(),
+                            buttons: block.showButtons
+                        }
+                    %}
 
-{#                        {% if block.beitrag|length %}#}
+                    {% endfor %}
 
-{#                            <a href="{{block.beitrag.one().url}}" class="teaser__content--link">#}
-{#                                <span class="button button--small">Mehr erfahren</span>#}
-{#                            </a>#}
-
-{#                        {% endif %}#}
-
-{#            {% if block.bild|length %}#}
-
-{#                {%  set image = block.bild.one() %}#}
-
-{#                {% if image.hasFocalPoint %}#}
-{#                    {% set focalPoint = image.getFocalPoint() %}#}
-{#                    {% set position = focalPoint.x * 100 ~ '% ' ~ focalPoint.y * 100 ~ '%' %}#}
-{#                {% else %}#}
-{#                    {% set position = 'center center' %}#}
-{#                {% endif %}#}
-
-{#            {% endif %}#}
-
-
-
-{%- endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

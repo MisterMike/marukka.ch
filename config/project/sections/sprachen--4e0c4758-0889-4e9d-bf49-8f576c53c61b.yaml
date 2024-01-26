@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: false
+handle: sprachen
+name: Sprachen
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d: # marukka.ch
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'sprache/{slug}'
+structure:
+  maxLevels: null
+  uid: 3b47a272-187d-4a8c-8691-a0cfaab357f9
+type: structure

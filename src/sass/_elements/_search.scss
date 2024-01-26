@@ -1,0 +1,94 @@
+
+
+// main menu search icon
+
+.main-menu__search {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	padding: 10px;
+	transition: all .15s ease-in-out;
+	font-size: 1.1rem;
+	line-height: inherit;
+	color: inherit;
+	cursor: pointer;
+
+	.search-icon {
+		pointer-events: none;
+		width: 19px;
+		height: 19px;
+		
+		&.search-open {
+			display: inline-block;
+		}
+
+		&.search-close{
+			display: none;
+		}
+	}
+
+	&.search-close {
+		.search-icon.search-open {
+			display: none;
+		}
+		.search-icon.search-close{
+			display: inline-block;
+		}
+	}
+
+}
+
+// search form
+
+.search-wrapper {
+	position: fixed;
+    //background: $gray-200;
+    background: var(--ColorGreenLight);
+    height: 150px;
+    margin-top: -300px;
+    display: block;
+    transition: all $animation-base-duration ease-in-out;
+    width: 100%;
+    
+    @include mq(for-tablet-landscape) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .form__searchform {
+    	border-bottom: 4px solid $brand-primary;
+    	display: flex;
+    	align-items: center;
+
+    	&--field {
+    		font-size: 3.2rem;
+    		font-weight: $font-weight-bold;
+			line-height: 1.1;
+			width: 100%;
+			box-sizing: border-box;
+			border-width: 0;
+			background: transparent;
+			color: var(--ColorGreyDark);
+
+			&:focus {
+				outline: 2px solid transparent;
+				outline-offset: 2px;
+			}
+    	}
+
+    	&--button {
+    		border-radius: 999px;
+    		border: 4px solid $brand-primary;
+    		padding: .5rem 1.5rem;
+    		flex-shrink: 0;
+
+    		@include hover() {
+    			color: var(--ColorWhite);
+    			background-color: $brand-primary;
+    			text-decoration: none;
+    		}
+    	}
+    }
+}

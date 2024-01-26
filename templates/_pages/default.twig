@@ -1,0 +1,46 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent"><!-- Template: {{ _self }}.twig -->
+
+            {% set seitenBild = entry.hero.one() %}
+
+            {% if seitenBild is defined and seitenBild|length %}
+                {%- include "_components/hero" -%}
+            {% else %}
+
+            <div class="l-container l-grid">
+                <div class="c-headline h2-alike c-headline--centered">
+                    <div class="c-headline__wrapper">
+                        {% if entry.parent().title is defined %}
+                        <p class="c-headline__preline">
+                            <span class="c-headline__preline-content">{{entry.parent().title}}</span>
+                        </p>
+                        {% endif %}
+                        <h1 class="c-headline__title h2">{{entry.title}}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if entry.lead is defined and entry.lead|length > 0 %}
+                {%- include "_components/lead" -%}
+            {% endif %}
+            
+{#             <div class="container container-title">
+                <div class="container--content animation-planned">
+
+                    <h1>{{ entry.title }}</h1>
+
+                </div>
+            </div> #}
+
+        {%- include "_routers/component" with { blocks: entry.inhaltMatrix.all() } -%}
+
+    </article>
+</main>
+
+{% endblock %}

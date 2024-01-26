@@ -1,0 +1,11 @@
+{% set campaignUrl = cpUrl('k4-campaigns/campaigns/'~campaignType.handle~'/'~ campaign.id ~'/preview') %}
+
+{% if campaignUrl %}
+
+	<a href="javascript:void(0);" title="{{ campaign.title }}" data-preview-url="{{ campaignUrl }}" class="email-preview" data-icon="view" onclick="window.open('{{ campaignUrl }}', 'newwindow','width=920, height=600');"></a>
+
+{% else %}
+
+	<span class="light">&mdash;</span>
+
+{% endif %}

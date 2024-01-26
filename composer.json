@@ -1,63 +1,93 @@
 {
-  "require": {
-    "vlucas/phpdotenv": "^2.4.0",
-    "craftcms/cms": "^3.5",
-    "craftcms/redactor": "^2.3.1",
-    "craftcms/element-api": "2.6.0",
-    "craftcms/feed-me": "4.2.0.1",
-    "craftcms/contact-form": "^2.2.5",
-    "craftcms/contact-form-honeypot": "^1.0",
-    "ether/logs": "^v3.0.0",
-    "aelvan/preparse-field": "^1.0",
-    "supercool/buttonbox": "^2.0",
-    "marionnewlevant/picture": "^2.2",
-    "verbb/default-dashboard": "^1.0",
-    "wrav/oembed": "^1.1.6",
-    "smalot/pdfparser": "^0.14.0",
-    "k4/k4navigation": "^2.2",
-    "k4/k4encodeemails": "^2.1",
-    "k4/k4-image-optimizer": "dev-master",
-    "cebe/markdown": "~1.1.0",
-    "superbig/craft3-templateselect": "^2.0",
-    "carlcs/craft-redactorcustomstyles": "^3.0",
-    "vaersaagod/matrixmate": "^1.2.0",
-    "vaersaagod/seomate": "^1.0",
-    "spatie/pdf-to-text": "^1.2",
-    "voku/portable-utf8": "^5.4",
-    "verbb/events": "1.4.3",
-    "ether/splash": "^3.0",
-    "luwes/craft3-codemirror": "^1.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "modules\\k4pdfextractormodule\\": "modules/k4pdfextractormodule/src/",
-      "modules\\k4twigextensionsmodule\\": "modules/k4twigextensionsmodule/src/",
-      "modules\\k4sitemodule\\": "modules/k4sitemodule/src/"
-    }
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "platform": {
-      "php": "7.3"
-    }
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "dev/_plugins/*",
-      "options": {
-        "symlink": true
-      }
-    }
-  ],
-  "scripts": {
-    "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    "require": {
+        "besteadfast/craft-preparse-field": "2.0.2",
+        "carlcs/craft-redactorcustomstyles": "4.0.3",
+        "craftcms/ckeditor": "3.6.0",
+        "craftcms/cms": "4.7",
+        "craftcms/element-api": "3.0.1.1",
+        "furbo/cache-builder": "^1.0",
+        "k4/k4-cache-warmer": "^2.0",
+        "k4/k4-complianz": "^2.0",
+        "k4/k4-forms": "^2.0",
+        "k4/k4-healthcheck": "^2.0",
+        "k4/k4-notes": "^4.0",
+        "k4/k4encodeemails": "^2.3",
+        "k4/k4navigation": "^3.0",
+        "charliedev/section-field": "2.0",
+        "mischa-sprecher/craft-test": "dev-master",
+        "nystudio107/craft-autocomplete": "^1.0",
+        "statikbe/craft-config-values": "2.0.2",
+        "studioespresso/craft-dumper": "3.0.1",
+        "superbig/craft3-templateselect": "^3.0",
+        "symfony/translation-contracts": "^2.4",
+        "vaersaagod/assetmate": "^2.1",
+        "vaersaagod/matrixmate": "2.1.4",
+        "vaersaagod/seomate": "2.2.0",
+        "verbb/buttonbox": "4.2.0",
+        "verbb/kint": "^3.1",
+        "vlucas/phpdotenv": "^5",
+        "voku/portable-utf8": "6.0.13",
+        "webdna/qrcode": "^2.0",
+        "wrav/oembed": "3.0.7",
+        "yiisoft/yii2-shell": "^2.0"
+    },
+    "require-dev": {
+        "craftcms/generator": "^1.4"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "modules\\k4pdfextractormodule\\": "modules/k4pdfextractormodule/src/",
+            "modules\\k4twigextensionsmodule\\": "modules/k4twigextensionsmodule/src/",
+            "modules\\k4sitemodule\\": "modules/k4sitemodule/src/",
+            "modules\\": "modules/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.2"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://bitbucket.org/kreisvierdigital/k4notes.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://bitbucket.org/kreisvierdigital/k4cachewarmer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://bitbucket.org/kreisvierdigital/k4forms.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://bitbucket.org/kreisvierdigital/k4complianz.git"
+        },
+        {
+            "type": "path",
+            "url": "./src/plugins/*",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.craftcms.com",
+            "canonical": false
+        }
     ],
-    "post-install-cmd": [
-      "./dev/_scripts/start.sh"
-    ]
-  },
-  "prefer-stable": true,
-  "require-all": true
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    }
 }

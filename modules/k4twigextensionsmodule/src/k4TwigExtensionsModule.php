@@ -13,19 +13,21 @@
 namespace modules\k4twigextensionsmodule;
 
 use Craft;
+use modules\k4twigextensionsmodule\twigextensions\ShopExtension;
 use yii\base\Module;
 use craft\i18n\PhpMessageSource;
 use modules\k4twigextensionsmodule\twigextensions\DeDuplicateExtension;
 use modules\k4twigextensionsmodule\twigextensions\ThumbalizerExtension;
 use modules\k4twigextensionsmodule\twigextensions\ClassExtension;
 use modules\k4twigextensionsmodule\twigextensions\StringExtension;
+use modules\k4twigextensionsmodule\twigextensions\SlugExtension;
 use modules\k4twigextensionsmodule\twigextensions\DumpDieExtension;
 use modules\k4twigextensionsmodule\twigextensions\Rot13Extension;
 use modules\k4twigextensionsmodule\twigextensions\RelativeDateExtension;
 use modules\k4twigextensionsmodule\twigextensions\GlobalVariablesExtension;
 use modules\k4twigextensionsmodule\twigextensions\RegExpExtension;
 
-class K4TwigExtensionsModule extends Module
+class k4TwigExtensionsModule extends Module
 {
     /**
      * @var k4TwigExtensionsModule
@@ -47,6 +49,7 @@ class K4TwigExtensionsModule extends Module
         StringExtension::class,
         RegExpExtension::class,
         DumpDieExtension::class,
+        SlugExtension::class
     ];
 
     /**
@@ -63,7 +66,7 @@ class K4TwigExtensionsModule extends Module
         if (!isset($i18n->translations[$id]) && !isset($i18n->translations[$id.'*'])) {
             $i18n->translations[$id] = [
                 'class' => PhpMessageSource::class,
-                'sourceLanguage' => 'en-US',
+                'sourceLanguage' => 'de-CH',
                 'basePath' => '@modules/k4twigextensionsmodule/translations',
                 'forceTranslation' => true,
                 'allowOverrides' => true,
@@ -87,14 +90,6 @@ class K4TwigExtensionsModule extends Module
             array_diff($this->extensions, $settings['disabled'] ?? [])
         );
 
-//        Craft::info(
-//            Craft::t(
-//                'k4twigextensionsmodule',
-//                '{name} module loaded',
-//                ['name' => 'k4TwigExtension']
-//            ),
-//            __METHOD__
-//        );
     }
 
     /**

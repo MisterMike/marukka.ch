@@ -3,11 +3,11 @@
 namespace modules\k4twigextensionsmodule\twigextensions;
 
 use Twig\Extension\AbstractExtension;
-use modules\k4twigextensionsmodule\traits\k4TwigExtensionsTrait;
+use modules\k4twigextensionsmodule\traits\K4TwigExtensionsTrait;
 
 class StringExtension extends AbstractExtension
 {
-    use k4TwigExtensionsTrait;
+    use K4TwigExtensionsTrait;
 
     /**
      * @return string

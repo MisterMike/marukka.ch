@@ -1,0 +1,168 @@
+field: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
+fieldLayouts:
+  14df1ccc-abb9-4cb6-809b-6b24dbb27b75:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e5309fbb-db91-44b8-a762-b6d44f0b1c64 # Call2Action Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7e3a6660-2291-4270-9191-fa0e80a07e31
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 48ada3e5-2e17-482d-a19d-1fcf0b62e659 # Interner Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 842d3238-6863-440d-81d5-179bef59960c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: b3c15db2-5a84-41f3-a434-78ceea771187 # Externer Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c057c8c4-7f94-4a06-bc62-91ed05525600
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0e14c2a3-877e-4426-9add-75b78445c3bc # Link zu Datei
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66df75fe-9aa3-4147-beeb-bb0b8d310b47
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 10917e03-a326-4634-ac8a-fcf57387ade4
+        userCondition: null
+fields:
+  0e14c2a3-877e-4426-9add-75b78445c3bc: # Link zu Datei
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkZuDatei
+    instructions: 'Wählen Sie Ihren Datei aus, oder ziehen Sie Ihren Datei in diesen Bereich.'
+    name: 'Link zu Datei'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - excel
+        - pdf
+        - powerpoint
+        - word
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:8d92101e-9d1e-4248-96fa-9db528222c48' # Dokumente
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:cc53058b-4492-40b7-9107-0af16277db4c' # Bilder
+      restrictedLocationSubpath: null
+      selectionLabel: 'Datei verlinken'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      sources:
+        - 'volume:8d92101e-9d1e-4248-96fa-9db528222c48' # Dokumente
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  48ada3e5-2e17-482d-a19d-1fcf0b62e659: # Interner Link
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: internerLink
+    instructions: null
+    name: 'Interner Link'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      branchLimit: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      selectionLabel: null
+      showSiteMenu: true
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  b3c15db2-5a84-41f3-a434-78ceea771187: # Externer Link
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: externerLink
+    instructions: 'Fügen Sie hier Ihren Link zur externen Website ein (inkl. https://)'
+    name: 'Externer Link'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e5309fbb-db91-44b8-a762-b6d44f0b1c64: # Call2Action Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: call2actionText
+    instructions: null
+    name: 'Call2Action Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: callToAction
+name: Call-to-Action
+sortOrder: 13

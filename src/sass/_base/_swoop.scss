@@ -1,0 +1,48 @@
+.swoop-left {
+    background-image: url(../layout/swoop-left-top.svg), url(../layout/swoop-left-bottom.svg);
+    background-position: top, bottom;
+    background-repeat:repeat-x, repeat-x
+}
+
+.swoop-left-top {
+    background-image: url(../layout/swoop-left-top.svg);
+    background-position: top;
+    background-repeat:repeat-x
+}
+
+.swoop-left-bottom {
+    background-image: url(../layout/swoop-left-bottom.svg);
+    background-position: bottom;
+    background-repeat:repeat-x
+}
+
+.swoop-right {
+    background-image: url(../layout/swoop-right-top.svg), url(../layout/swoop-right-bottom.svg);
+    background-position: top, bottom;
+    background-repeat: repeat-x, repeat-x;
+}
+
+.swoop-right-top {
+    background-image: url(../layout/swoop-right-top.svg);
+    background-position: top;
+    background-repeat:repeat-x
+}
+
+.swoop-right-bottom {
+    background-image: url(../layout/swoop-right-bottom.svg);
+    background-position: bottom;
+    background-repeat:repeat-x
+}
+
+.swoop-left, .swoop-right {
+    padding-bottom: 5rem;
+    padding-top:5rem
+}
+
+.swoop-left-top, .swoop-right-top {
+    padding-top:5rem;
+}
+
+.swoop-left-bottom, .swoop-right-bottom {
+    padding-bottom:5rem;
+}

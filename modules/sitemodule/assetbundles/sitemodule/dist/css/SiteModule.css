@@ -1,0 +1,118 @@
+
+/**
+ * k4 Site Module module for Craft CMS
+ *
+ * k4 Site Module CSS
+ *
+ * @author    Mischa Sprecher
+ * @copyright Copyright (c) 2019-2021 Mischa Sprecher
+ * @link      kreisvier.ch
+ * @package   K4SiteModule
+ * @since     1.2.2
+ */
+
+body.login {
+    overflow: hidden;
+    background: #C4D65F;
+}
+body.login::after {
+    content: "";
+    background: url(/assets/images/install-bg-1920.png) no-repeat 50% 40%;
+    background-size: cover;
+    opacity: 0.07;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+body.login main {
+    z-index: 1;
+}
+
+body.login main div#login,
+body.login > form#login-form{
+    left: 0;
+    outline: 18px solid rgba(255,255, 255, 0.15);
+    padding: 40px 60px;
+    background: #fff;
+    background-image: url('/assets/images/logo/logo_2017.png');
+    background-position: center 50px;
+    background-size: 280px 120px;
+    padding-top: 190px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    z-index: 1;
+    width: unset;
+}
+
+body.login > form#login-form input:focus {
+    outline-style: solid;
+    outline-color: #A3B53A;
+}
+
+body.login h1{
+    display: none;
+}
+
+body.login #login-form #password-field .passwordwrapper {
+    border-radius: 0 ;
+    box-shadow: none;
+}
+
+body.login #login-form #password-field .passwordwrapper .password-toggle {
+    font-size: 0.7rem;
+    color: #A3B53A;
+}
+
+body.login #login-form #loginName,
+body.login #login-form #password{
+    border-radius: 0;
+/*    margin-top: 15px;
+    border-bottom-width: 1px;*/
+}
+
+body.login #login-form .passwordwrapper.focus,
+body.login #login-form input:focus{
+    border-color: #A3B53A;
+    box-shadow: none;
+}
+
+body.login #login-form .buttons .submit {
+    border-radius: 0;
+}
+
+body.login #login-form .btn.submit {
+    background-color: #A3B53A !important;
+}
+
+body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover,
+body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover {
+    background-color: #C4D65F !important;
+}
+
+body.login #login-form #poweredby {
+    margin-bottom: 40px;
+    margin-bottom: 0;
+}
+
+body.login #login-form #login-fields:after {
+    content:'';
+    box-shadow: none;
+}
+
+
+/* ButtonBox Plugin fixes (icons) */
+
+.buttonbox-buttons img, .buttonbox-buttons__label {
+    position: relative;
+    top: 2px;
+    height: 27px;
+}
+
+.buttonbox-buttons .buttonbox-buttons--graphical img {
+    height: 42px;
+}

@@ -1,0 +1,224 @@
+{% extends '_layouts/element.html' %}
+
+{% import '_includes/forms' as forms %}
+
+{% do view.registerAssetBundle('k4\\k4campaigns\\assets\\CampaignAsset') %}
+
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{# @var k4campaigns \k4\k4campaigns\variables\K4CampaignsVariable #}
+{% set k4campaigns = craft.k4campaigns %}
+{# @var mailer \k4\k4campaigns\services\MailchimpService #}
+{% set mailer = k4campaigns.mailer() %}
+
+
+{% set crumbs = [
+	{ label: craft.k4campaigns.getTitle|t('k4-campaigns'), url: url('k4-campaigns') },
+	{ label: 'Campaigns'|t('k4-campaigns'), url: url('k4-campaigns/campaigns') }
+] %}
+
+{% set isSingle = false %}
+{% set isDraft = false %}
+{% set isRevision = false %}
+
+{% set element = campaign %}
+{% set redirectUrl = 'k4-campaigns/campaigns' %}
+{% set saveSourceAction = 'k4-campaigns/campaigns/save-campaign' %}
+{% set duplicateSourceAction = null %}
+{% set deleteSourceAction = 'k4-campaigns/campaigns/delete-campaign' %}
+{% set saveDraftAction = null %}
+{% set deleteDraftAction = null %}
+{% set applyDraftAction = null %}
+{% set revertSourceAction = null %}
+{% set canUpdateSource = true %}
+{% set canDuplicateSource = true %}
+{% set canDeleteDraft = false %}
+
+{% set canDuplicateSource = true %}
+{% set canAddAnother = true %}
+{% set addAnotherRedirectUrl = "k4-campaigns/campaigns"~campaignType.handle~"/new" %}
+
+{% block header %}
+	{{ block('pageTitle') }}
+	{{ block('contextMenu') }}
+	<div class="flex-grow"></div>
+
+	<div class="btngroup">
+		{% if showPreviewBtn %}
+			{# `livepreviewbtn` class is required to make live preview functionality work #}
+			<div id="preview-btn" class="btn livepreviewbtn">{{ "Preview"|t('app') }}</div>
+		{% endif %}
+		{% if shareUrl is defined %}
+			<a href="{{ shareUrl }}" id="share-btn" class="btn" target="_blank">{{ 'View'|t('app') }}</a>
+		{% endif %}
+	</div>
+	<div class="spacer"></div>
+
+	{{ block('actionButton') }}
+
+{% endblock %}
+
+
+{% block details %}
+	<input type="hidden" name="campaignTypeId" value="{{ campaignType.id }}">
+	<div class="meta">
+		{{ forms.textField({
+			label: "Slug"|t,
+			id: 'slug',
+			name: 'slug',
+			value: campaign.slug,
+			errors: (campaign ? campaign.getErrors('slug')|merge(campaign.getErrors('uri')))
+		}) }}
+	</div>
+	<div class="meta">
+		{% if showStatusToggles and not isMultiSiteElement %}
+			{{ forms.lightswitchField({
+				status: element.getAttributeStatus('enabled'),
+				label: 'Enabled'|t('app'),
+				id: 'enabled',
+				name: 'enabled',
+				on: element.enabled,
+				disabled: isRevision
+			}) }}
+		{% endif %}
+	</div>
+	<div class="meta">
+
+		{% set defaultFromName  = "" %}
+		{% set defaultFromEmail = "" %}
+		{% set defaultReplyTo   = "" %}
+
+		{{ forms.textField({
+			label: "From Name <span class='info'>The person or business sending the email</span>"|t('k4-campaigns'),
+			name: 'fromName',
+			value: (campaign.fromName is not empty ? campaign.fromName : defaultFromName ),
+			errors: (campaign is defined ? campaign.getErrors('fromName') : null),
+			required: true
+		}) }}
+
+		{{ forms.textField({
+			name: 'fromEmail',
+			value: (campaign.fromEmail is not empty ? campaign.fromEmail : defaultFromEmail),
+			label: "From Email <span class='info'>The email address of the person or business sending the email</span>"|t('k4-campaigns'),
+			errors: (campaign is defined ? campaign.getErrors('fromEmail') : null),
+			required: true
+		}) }}
+
+		{{ forms.textField({
+			name: 'replyToEmail',
+			value: (campaign.replyToEmail is not empty ? campaign.replyToEmail : defaultReplyTo),
+			label: "Reply To <span class='info'>The email address which will be used if any recipients reply to your email</span>"|t('k4-campaigns'),
+			errors: (campaign is defined ? campaign.getErrors('replyToEmail') : null),
+			required: true
+		}) }}
+
+	</div>
+	<div id="meta-details" class="meta read-only">
+		{% block meta %}
+			{% if element.hasStatuses() %}
+				{% if element.isUnsavedDraft() %}
+					{% set statusColor = 'white' %}
+					{% set statusLabel = 'Draft'|t('app') %}
+				{% else %}
+					{% set status = element.getStatus() %}
+					{% set statusDef = element.statuses()[status] ?? null %}
+					{% set statusColor = statusDef.color ?? status %}
+					{% set statusLabel = statusDef.label ?? statusDef ?? status|ucfirst %}
+				{% endif %}
+				<div class="data">
+					<h5 class="heading">{{ 'Status'|t('app') }}</h5>
+					<div id="status-value" class="value"><span class="status {{ statusColor }}"></span>{{ statusLabel }}</div>
+				</div>
+			{% endif %}
+			<div class="data">
+				<h5 class="heading">{{ "Created at"|t('app') }}</h5>
+				<div id="date-created-value" class="value">{{ element.dateCreated|datetime('short') }}</div>
+			</div>
+			<div class="data">
+				<h5 class="heading">{{ "Updated at"|t('app') }}</h5>
+				<div id="date-updated-value" class="value">{{ element.dateUpdated|datetime('short') }}</div>
+			</div>
+			{% if isRevision %}
+				{% set revisionNotes = element.revisionNotes %}
+			{% elseif not isDraft and element.currentRevision %}
+				{% set revisionNotes = element.currentRevision.revisionNotes %}
+			{% else %}
+				{% set revisionNotes = null %}
+			{% endif %}
+			{% if revisionNotes %}
+				<div class="data">
+					<h5 class="heading">{{ "Notes"|t('app') }}</h5>
+					<div class="value">{{ revisionNotes }}</div>
+				</div>
+			{% endif %}
+		{% endblock %}
+	</div>
+	<div class="pane meta">
+			{% set lists = campaign.listSettings|json_decode %}
+			{% set recipientLists = lists != null ? lists.listIds : null %}
+			{% set listString = mailer.getRecipientListsHtml(recipientLists) %}
+			{% if listString|length %}
+				<div class="field mailing-lists">
+					<div class="heading">
+						{{ 'Lists'|t('k4-campaigns') }}
+					</div>
+					<div class="input">
+						{{ listString|raw  }}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+
+{% endblock %}
+
+{% block content %}
+
+	<input type="hidden" name="action" value="k4-campaigns/campaigns/save-campaign">
+	<input type="hidden" name="campaignTypeId" value="{{ campaignType.id }}">
+
+	{{ redirectInput('k4-campaigns/campaigns') }}
+
+	{% if campaign.id %}
+		<input type="hidden" name="campaignId" value="{{ campaign.id }}">
+	{% endif %}
+
+
+	<div id="fields">
+		{% for tab in element.fieldLayout.tabs ?? [] %}
+			<div id="{{ tab.getHtmlId() }}"{% if not loop.first %} class="hidden"{% endif %}>
+
+				{% if loop.first == true %}
+
+					{% if campaign.getErrors('subjectLine') %}
+						{% set subjectLineError = ['Subject Line cannot be blank.'|t] %}
+					{% endif %}
+
+					{% if not campaignType.hasAdvancedTitles %}
+
+						{{ forms.textField({
+							label: "Subject Line"|t,
+							id: 'subjectLine',
+							name: 'subjectLine',
+							value: campaign.subjectLine,
+							errors: (subjectLineError is defined ? subjectLineError : null),
+							first: true,
+							autofocus: true,
+							required: true,
+							maxlength: 255
+						}) }}
+
+					{% endif %}
+
+				{% endif %}
+
+				{% include "_includes/fields.html" with {
+					fields:  tab.getFields(),
+					element: element
+				} only %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% if not campaign.slug %}
+	{% js "window.slugGenerator = new Craft.SlugGenerator('#subjectLine', '#slug');" %}
+{% endif %}

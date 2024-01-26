@@ -1,0 +1,59 @@
+.m-lead {
+	max-width: 825px;
+	position: relative;
+	z-index: 1;
+	grid-column: span var(--gridColumns);
+
+	@include mq(for-tablet-portrait) {
+		grid-column: 2/12;
+	}
+
+	@include mq(for-desktop) {
+		grid-column: 3/11;
+	}
+}
+
+// large top margin when using large hero image
+body.has-hero:not(.m-hero-boxed) .m-lead {
+	margin-top: var(--spacingFlexXL);
+
+	@include mq(for-desktop) {
+		margin-top: var(--spacingFlexXXL);
+	}
+
+	@include mq(for-big-desktop) {
+		margin-top: var(--spacingFlexXXXL);
+	}
+}
+
+// remove large top margin with boxed hero image
+body.has-hero:has(.m-hero-boxed) .m-lead {
+	margin-top: 0;
+}
+
+// .m-lead, .m-lead p {
+// 	font-size: 1.5rem;
+// 	line-height: 1.5;
+// 	color: var(--colorDarkSlateGray);
+// 	margin-top: var(--spacingFlexXXL);
+// }
+
+.c-lead, .c-lead p{
+	font-size: 1.25rem;
+	font-weight: $font-weight-normal;
+	line-height: 1.6;
+
+	@include mq(for-tablet-portrait) {
+		font-size: 1.5rem;
+		line-height: 1.5;
+	}
+
+	@include mq(for-desktop) {
+		font-size: 1.75rem;
+	}
+
+}
+
+.m-lead .c-lead {
+	margin-top: 0;
+}

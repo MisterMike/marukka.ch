@@ -1,0 +1,20 @@
+columnSuffix: null
+contentColumnType: text
+fieldGroup: 2357c45a-c960-4790-90ff-0bb669f324f6
+handle: channelsections
+instructions: null
+name: Channelsections
+searchable: false
+settings:
+  allowSelect: false
+  columnType: text
+  decimals: 0
+  displayType: hidden
+  fieldTwig: ''
+  parseBeforeSave: false
+  parseOnMove: false
+  showField: false
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

@@ -1,0 +1,16 @@
+contentColumnType: text
+fieldGroup: c8f4d2d1-8e44-4ed5-ad71-73506c670ef6
+handle: kontaktFax
+instructions: ''
+name: 'Kontakt Fax'
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

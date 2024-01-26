@@ -1,0 +1,20 @@
+.green, .status.sent {
+    background-color: #27AE60;
+}
+#details-container {
+    -webkit-flex: 0 0 420px;
+    flex: 0 0 420px;
+    width: 420px;
+    box-sizing: border-box;
+}
+#details {
+    width: 420px;
+}
+.meta > .field > .input, .meta > .data > .value, .meta > .flex-fields > .field > .input, .meta > .flex-fields > .data > .value {
+    width: calc(100% - 147px);
+}
+.meta > .field > .heading, .meta > .data > .heading, .meta > .flex-fields > .field > .heading, .meta > .flex-fields > .data > .heading {
+    -webkit-flex: 0 0 140px;
+    flex: 0 0 140px;
+    line-height: 18px;
+}

@@ -1,0 +1,15 @@
+enableVersioning: true
+handle: home
+name: Home
+previewTargets:
+  -
+    label: 'Primäre eintrag Seite'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d: # marukka.ch
+    enabledByDefault: true
+    hasUrls: true
+    template: _routers/page
+    uriFormat: __home__
+type: single

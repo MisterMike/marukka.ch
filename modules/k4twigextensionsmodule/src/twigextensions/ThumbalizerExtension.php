@@ -3,11 +3,11 @@
 namespace modules\k4twigextensionsmodule\twigextensions;
 
 use Twig\Extension\AbstractExtension;
-use modules\k4twigextensionsmodule\traits\k4TwigExtensionsTrait;
+use modules\k4twigextensionsmodule\traits\K4TwigExtensionsTrait;
 
 class ThumbalizerExtension extends AbstractExtension
 {
-    use k4TwigExtensionsTrait;
+    use K4TwigExtensionsTrait;
 
     /**
      * @return string
@@ -38,7 +38,8 @@ class ThumbalizerExtension extends AbstractExtension
 
     public function thumbalizr($url, $options = array()) {
 
-        // useage: <img src="<?php echo thumbalizr('https://browshot.com/', array('width' => 300, 'size' => 'page')); ?>" title="Screenshot done with Thumbalizr">
+        /* useage: <img src="<?php echo thumbalizr('https://browshot.com/', array('width' => 300, 'size' => 'page')); ?> */
+        /* " title="Screenshot done with Thumbalizr"> */
 
     $embed_key = 'MY_EMBED_API_KEY'; # replace it with you Embed API key
     $secret = 'MY_SECRET'; # replace it with your Secret

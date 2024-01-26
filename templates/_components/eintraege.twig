@@ -1,51 +1,43 @@
+{% set relatedSections = block.channelSection %}    
+{% set sectionEntries = craft.entries.sectionId(relatedSections) %}
 
-    <section id="{{ block.id }}" class="eintraege">
+<section class="l-section gallery-teaser akzent-{{ block.akzent|default('neutral') }}" id="section-{{block.id}}">
+    <div class="l-container l-grid l-grid--singlecol">
+        <div class="l-grid l-grid__region l-grid__region--singlecol">
+            <div class="l-module l-image">
 
+                <div class="m-small-teaser m-small-teaser--list">
 
-    {% set break = false %}
-    {% set entryCat = 'error' %}
-
-        {% for option in block.channelSection.options if not break %}
-            {% if option.selected %}
-                {% set entryCat = option.value %}
-                {% set break = true %}
-            {% endif %}
-        {% endfor %}
-
-        {% set entries = craft.entries.section(entryCat) %}
-
-        {% if entries is defined and entries|length %}
-        
-            <div class="container block-link"><ul class="item-grid container ">
-
-                {% for eintrag in entries %}
+                    <div class="m-small-teaser__wrapper l-grid">
 
 
-                    <li>
-                        <div class="item-content">
-                            <a href="{{ eintrag.getUrl() }}">
-                                <div class="item-img ">
-                                    {% set image = entry.seitenbild|default(standardSeitenbild.seitenbild).one() %}
-                                    {{ craft.picture.element(
-                                        image,
-                                        'teaser',
-                                        { alt: image.title, transform: { position: 'bottom-right', quality: 80 } } ) 
-                                      }}
-                                </div>
-                            </a>
-                            <div class="item-description">
-                                <h5 class="h5">{{ eintrag.title }}</h5>
-                                <p>{{ teaserText|default() }}</p> 
-                                <a href="{{ eintrag.getUrl() }}" class="button">{{'Learn more'|t}}</a>
-                            </div>
-                        </div>
-                    </li>
+                    {%- for item in sectionEntries -%}
 
+                    {%- set image = item.hero.one() | default() -%}
 
-                {% endfor %}
+                    {% if item.kategorie|length %}
+                        {% set categories = item.kategorie|map((value) => "<span class='badge bg-grey text-white'>#{value}</span>")|join(' ')|raw %}
+                    {% else %}
+                        {% set categories = '' %}
+                    {% endif %}
 
-            </ul></div>
+                    {% include '_blocks/smallTeaser' with {
+                            topline: categories,
+                            url: item.url,
+                            bild: image,
+                            bildBreite: 480,
+                            bildHoehe: 480,
+                            transformMode: 'fit',
+                            titel:item.title,
+                            content: item.lead|default(),
+                            buttons: 1
+                        }
+                    %}
 
-        {% endif %}
-
-    </section>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

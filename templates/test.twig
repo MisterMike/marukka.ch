@@ -1,0 +1,26 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    <main class="main" id="mainView">
+
+        <article id="mainContent"><!-- Template: {{ _self }}.twig -->
+
+            {# Let your users request a password reset: #}
+            <form method="post">
+                {{ csrfInput() }}
+                {{ actionInput('k4-healthcheck/health/check-results') }}
+                {{ hiddenInput('k4-health-check-secret', 'mischa1973') }}
+
+                <label for="loginName">Username or email</label>
+                {{ input('text', 'loginName', null, {
+                    id: 'loginName',
+                }) }}
+
+                <button>Check</button>
+            </form>
+
+        </article>
+    </main>
+
+{% endblock %}

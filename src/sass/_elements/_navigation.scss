@@ -1,0 +1,188 @@
+///////////////////////////////
+// MAIN NAVIGATION
+///////////////////////////////
+
+// only desktop
+@include mq(for-tablet-landscape) {
+
+    .main-menu__list {
+        min-height: unset;
+        flex-direction: row;
+        //justify-content: flex-start;
+        position: static;
+        height: 100%;
+    }
+
+    .main-menu__list--item {
+        position: initial;
+        border-bottom: none;
+        overflow: visible;
+
+        &:hover, &:active {
+            .main-menu__list--item--wrapper:after {
+                --navBgndScale: 1;
+            }
+
+            .main-menu__list--item--wrapper .nav-bg-2 {
+                --navLineScale: 2;
+            }
+
+            .main-menu__list--item--wrapper a {
+                transform: translateY(-.25rem);
+            }
+        }
+    }
+
+    .main-menu__list--item--wrapper {
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            height: 100%;
+            width: 100%;
+            pointer-events: none;
+            transform-origin: bottom;
+            --navBgndScale: 0;
+            transform: scaleY(var(--navBgndScale));
+            opacity: .2;
+            transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-duration: .3s;
+            transition-timing-function:cubic-bezier(0, 0, .2, 1)
+        }
+
+        .submenu-toggler {
+            left: -10px;
+            top: unset;
+        }
+
+        .submenu-toggler svg {
+            width: 16px;
+            height: 8px;
+        }
+
+    }
+
+    .main-menu__list--link {
+        border: none;
+        color: var(--colorBlack);
+        font-size: 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+             @include mq(for-desktop) {
+                 font-size: 1.25rem;
+             }
+
+        &.link--level1 {
+            color: var(--colorWhite);
+            padding: 0 1rem;
+            transition-property: transform;
+            transition-duration: .3s;
+            transition-timing-function: cubic-bezier(0,0,.2,1);
+
+            @include mq(for-desktop) {
+                padding: 0 1.5rem;
+            }
+        }
+
+        &.active {
+            border-left: none;
+            color: var(--colorGreenDark);
+        }
+
+        svg {
+            position: absolute;
+            right: 0;
+            top: calc(50% - 6px);
+            vertical-align: middle;
+            margin-left: 4px;
+            height: 12px;
+            width: 12px;
+            
+        }
+
+        @include hover-focus {
+            border: none;
+            color: var(--colorGreenDark);
+            &:before {
+                transform:scaleX(1);
+            }
+        }
+    }
+
+    /* LEVEL 2 SUBMENU */
+    .main-menu__list--level2 {
+        background: var(--colorWhite);
+        box-shadow: 0 0 30px rgba(127,137,161,.25);
+        display: block;
+        font-size: 1.25rem;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 1.25rem 1rem;
+        position: absolute;
+        top: calc(100% + 30px);
+        transition: .3s;
+        visibility: hidden;
+        width: 100%;
+        z-index: 99;
+        transform: translateX(0%);
+    }
+
+    .main-menu__list--level2 .main-menu__list--link.link--level2 {
+        border: none;
+        color: var(--colorGreen);
+        font-size: 1.25rem;
+
+        &:before {
+            content: none;
+        }
+
+        @include hover-focus {
+            border: none;
+        }
+    }
+
+    .main-menu__list--item:hover .main-menu__list--level2 {
+        opacity: 1;
+        top: 100%;
+        visibility: visible;
+        height: unset;
+    }
+
+    /* CTA BUTTON */
+
+    .main-menu__list__cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: none;
+        opacity: 1;
+        position: relative;
+        width: auto !important;     
+    }
+
+    /* bottom color line of nav items */
+    .main-menu__list .nav-bg-2 {
+        --navLineScale: 1;
+        pointer-events: none;
+
+        height: 5px;
+        width: 100%;
+        transform-origin: bottom;
+        transform: scaleY( var(--navLineScale)) ;
+        transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+        transition-duration: .3s;
+        transition-timing-function:cubic-bezier(0, 0, .2, 1)
+    }
+}
+        

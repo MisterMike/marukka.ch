@@ -1,0 +1,39 @@
+{% set imgWidth = bildbreite ? bildbreite : 460 %}
+
+<div class="c-small-teaser">
+
+    {% if url|length -%}
+        <a href="{{ url }}" tabindex="-1" class="c-small-teaser__full-link"><span class="sr-only">{{ 'Ansehen'|t }}</span></a>
+    {%- endif %}
+
+    {%- set image = bild ? bild : null -%}
+
+    <div class="c-small-teaser__media" style="padding-bottom:{{ (imgWidth/690)*100 }}%">
+        <div itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="c-image">
+            {% if image %}
+                <picture class="c-image__image">
+                    <source
+                            media="all and (min-width: 320px)"
+                            data-srcset="{{ image.getUrl({ width: 690, height: imgWidth , format: 'webp'}) }} 1x, {{ image.getUrl({ width: 1035, height: imgWidth*1.5 , format: 'webp'}) }} 1.5x"
+                            type="image/webp"
+                            src=""
+                    >
+                    <source
+                            media="all and (min-width: 320px)"
+                            data-srcset="{{ image.getUrl({ width: 690, height: imgWidth , format: 'jpeg'}) }} 1x, {{ image.getUrl({ width: 1035, height: imgWidth*1.5 , format: 'jpeg'}) }} 1.5x"
+                            type="image/jpeg"
+                            src=""
+                    >
+                    <img
+                            src="{{ image.getUrl({ width: 138, height: imgWidth/5 , format: 'jpeg'}) }}"
+                            data-src="{{ image.getUrl({ width: 690, height: imgWidth , format: 'jpeg'}) }}"
+                            title="{{ image.title }}" alt="{{image.title}}"
+                            itemprop="contentUrl"
+                            class="img lazy"
+                    >
+                </picture>
+            {% endif %}
+        </div>
+    </div>
+
+</div>

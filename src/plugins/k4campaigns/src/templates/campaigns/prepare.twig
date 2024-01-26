@@ -1,0 +1,80 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{# @var k4campaigns \k4\k4campaigns\variables\K4CampaignsVariable #}
+{% set k4campaigns = craft.k4campaigns %}
+{# @var mailer \k4\k4campaigns\services\MailchimpService #}
+{% set mailer = k4campaigns.mailer() %}
+<div class="header">
+    <h1>MailChimp</h1>
+</div>
+<div class="body" style="height:470px;overflow-y:scroll;">
+    <div class="regular">
+        <h2>{{ 'Your content is ready to send.'|t('k4-campaigns') }}</h2>
+
+        <table class="data fullwidth">
+            <tbody>
+            <tr>
+                <td><strong>{{ 'Subject'|t('k4-campaigns') }}</strong></td>
+                <td>{{ campaign.subjectLine }}</td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'From Name'|t('k4-campaigns') }}</strong></td>
+                <td>{{ campaign.fromName }}</td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'From Email'|t('k4-campaigns') }}</strong></td>
+                <td>{{ campaign.fromEmail }}</td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'Reply To'|t('k4-campaigns') }}</strong></td>
+                <td>{{ campaign.replyToEmail }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>{{ 'Preview'|t('k4-campaigns') }}</strong>
+                </td>
+                <td>
+                    <a href="{{ campaign.url }}" title="{{ campaign.subjectLine }}" target="_blank">HTML</a>
+                    <a href="{{ campaign.url }}?type=text" title="{{ campaign.subjectLine }}" target="_blank">Text</a>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Lists</strong></td>
+                <td>
+                    {% set lists = campaign.listSettings|json_decode %}
+                    {% set recipientLists = lists != null ? lists.listIds : null %}
+                    {{ mailer.getRecipientListsHtmlForPrepareModal(recipientLists)|raw }}
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="loading hidden" style="width: 100%;height: 100%;text-align: center;margin-top: 25%;">
+        <div class="loading-wrapper">
+            <div id="graphic" class="spinner big"></div>
+            <div id="status">{{ 'Sending Campaign...'|t }}</div>
+        </div>
+    </div>
+    <div class="success hidden" style="width: 100%;height: 100%;text-align: center;margin-top: 25%;">
+        <div class="success-wrapper">
+            <div id="status">{{ 'Your campaign was sent successfully.'|t }}</div>
+        </div>
+    </div>
+    <div class="failure hidden">
+        <h4 class="failure-text"></h4>
+        <div class="content-pane" style="font-family: monospace;">
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="buttons right">
+        <div class="buttons">
+            <button class="btn close hidden">{{ 'Close'|t('k4-campaigns') }}</button>
+            <button class="btn cancel">{{ 'Cancel'|t('k4-campaigns') }}</button>
+            <button class="btn icon submit actions send-campaign">{{ 'Send Campaign'|t('k4-campaigns') }}</button>
+        </div>
+    </div>
+</div>

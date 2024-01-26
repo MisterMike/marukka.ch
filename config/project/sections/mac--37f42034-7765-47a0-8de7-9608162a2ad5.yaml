@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: mac
+name: Mac
+propagationMethod: all
+siteSettings:
+  b28809ae-11f1-49ed-a508-a0cb4b072c9d: # marukka.ch
+    enabledByDefault: true
+    hasUrls: true
+    template: _routers/detail
+    uriFormat: 'mac/{slug}'
+type: channel

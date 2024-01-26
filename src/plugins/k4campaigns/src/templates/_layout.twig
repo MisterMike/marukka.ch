@@ -1,0 +1,18 @@
+{% extends elementType is defined ? '_layouts/elementindex' : '_layouts/cp' %}
+
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{# @var k4campaigns \k4\k4campaigns\variables\K4CampaignsVariable #}
+{% set k4campaigns = craft.k4campaigns %}
+
+{% js %}
+	Craft.k4CampaignsCampaignTypes = [
+	{% for campaignType in k4campaigns.getAllCampaignTypes() %}
+		{
+		id: {{ campaignType.id }},
+		name: "{{ campaignType.name|e('js') }}",
+		handle: "{{ campaignType.handle|e('js') }}"
+		}{% if not loop.last %},{% endif %}
+	{% endfor %}
+	];
+
+{% endjs %}

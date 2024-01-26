@@ -1,20 +1,46 @@
-{% if block.downloads|length %}
+{% if block.dateien|length %}
 
-    <div class="grid__container">
+<section id="section-{{ block.id }}" class="l-section downloads akzent-{{ block.akzent|default('neutral') }}">
+	<in-view :tag="'div'" v-slot="{inView}">
+		<div class="l-container">
+			{# <div class="m-downloads l-grid"> #}
+				{%- if block.titel|length %}
+				<div class="c-headline">
+					<div class="c-headline__wrapper">
+						<h2 class="c-headline__title thin">{{ block.titel }}</h2>
+					</div>
+				</div>
+				{% endif -%}
 
-    <ul class="downloads__items">
+				<ul class="m-downloads l-grid">
 
-      {% for download in block.downloads.all() %}
+				  {% for download in block.dateien.all() -%}
 
-        <li class="downloads__item">
-          <a class="downloads__link" href="{{ download.getURL() }}" target="_blank">
-            <span class="downloads__icon icon-download"></span>{{ download.title }}
-            <small>({{ download.extension }}, {{ download.size|filesize }})</small>
-          </a>
-        </li>
+					 <li class="m-downloads__item">
+						<a id="{{ download.id }}" class="c-downloads__link" title="{{ download.title }}" href="{{ download.getURL() }}">
+							<div class="c-download--icon icon-download"></div>
+							<div class="c-download--container">
+								<div class="c-download--title">
+									{# <i class="icon-download">&nbsp;&nbsp;</i>#}
+									{{ download.title }}
+								</div>
+								<div class="c-download--meta">
+									{{ download.extension|capitalize }}  ({{ download.size|filesize }})
+								</div>
+							</div>
+						</a>
+					 </li>
 
-      {% endfor %}
+				  {%- endfor -%}
 
-    </ul>
-  </div>
+				</ul>
+			{# </div> #}
+		</div>
+	</in-view>
+</section>
+
+
 {% endif %}
+
+
+

@@ -1,0 +1,141 @@
+
+{% set googleMapsKey = craft.app.config.custom.googleMapApiKey ?? null %}
+
+{% if googleMapsKey %}
+
+<div class="l-container">
+    <div class="l-grid l-grid--singlecol">
+        <div class="l-map">
+            {# <div class="element fade-in" v-observe-visibility="{ callback: visibilityChanged, once: true, }" :class="[isVisible ? 'element--visible' : 'not-visible']"> #}
+
+                <div class="m-map">
+                    <div class="c-headline ">
+                        <div class="c-headline__wrapper">
+                            <h2 class="c-headline__title ">{{ block.titel }}</h2>
+                        </div>
+                    </div>
+                    <div class="c-map">
+
+                        <div class="m-google-map" id="mapView" data-map-id="{{block.id}}">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            {# </div> #}
+        </div>
+    </div>
+</div>
+
+{% js "https://maps.googleapis.com/maps/api/js?key=#{googleMapsKey}&callback=initMap&libraries=marker&v=beta" %}
+
+{% js %}
+    /**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function initMap() {
+    const center = {
+        lat: 47.565900, 
+        lng: 7.621652,
+    };
+    const map = new google.maps.Map(document.getElementById("mapView"), {
+        zoom: 16,
+        center,
+        mapId: "ac71821a671a3bd9",
+        mapTypeControl: false,
+    });
+
+
+  for (const property of properties) {
+    const advancedMarkerView = new google.maps.marker.AdvancedMarkerView({
+      map,
+      content: buildContent(property),
+      position: property.position,
+      title: property.description,
+    });
+    const element = advancedMarkerView.element;
+
+    ["focus", "pointerenter"].forEach((event) => {
+      element.addEventListener(event, () => {
+        highlight(advancedMarkerView, property);
+      });
+    });
+    ["blur", "pointerleave"].forEach((event) => {
+      element.addEventListener(event, () => {
+        unhighlight(advancedMarkerView, property);
+      });
+    });
+    advancedMarkerView.addListener("click", (event) => {
+      unhighlight(advancedMarkerView, property);
+    });
+  }
+}
+
+
+function highlight(markerView, property) {
+  markerView.content.classList.add("highlight");
+  markerView.element.style.zIndex = 1;
+}
+
+function unhighlight(markerView, property) {
+  markerView.content.classList.remove("highlight");
+  markerView.element.style.zIndex = "";
+}
+
+function buildContent(property) {
+  const content = document.createElement("div");
+
+  content.classList.add("property");
+  content.innerHTML = `
+    <div class="icon">
+        <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+        <span class="fa-sr-only">${property.type}</span>
+    </div>
+    <div class="details">
+        <div class="Name">${property.name}</div>
+        <div class="Adresse">${property.address}</div>
+        <div class="features">
+        <div>
+            <i aria-hidden="true" class="fa fa-bed fa-lg bed" title="Beschreibung"></i>
+            <span class="fa-sr-only">Beschreibung</span>
+            <span>${property.description}</span>
+        </div>
+        </div>
+    </div>
+    `;
+  return content;
+}
+
+const properties = [
+  {
+    name: "Coop Supermarkt Basel Bäumlihof",
+    address: "Bäumlihofstrasse 132",
+    description: "Coop Supermark für Einkäufe des täglichen Bedarfs",
+    type: "shop",
+
+    position: {
+      lat: 47.5652687,
+      lng: 7.617985,
+    },
+  },
+  {
+    name: "Spielplatz Wittlinger",
+    address: "Wittlingerstrasse 170/182",
+    description: "Der Spielplatz an der Wittlingerstrasse ist ein kleiner Quartierspielplatz mit Kletterturm, Rutschbahn, Wasserbecken und Sandkasten.",
+    type: "recreation",
+
+    position: {
+      lat: 47.5643867,
+      lng: 7.6205245,
+    },
+  }
+];
+
+window.initMap = initMap;
+
+{% endjs %}
+
+
+{% endif %}
