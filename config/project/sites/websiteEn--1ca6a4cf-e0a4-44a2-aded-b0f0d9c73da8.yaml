@@ -1,4 +1,5 @@
 baseUrl: '@web/en/'
+enabled: '1'
 handle: websiteEn
 hasUrls: true
 language: en

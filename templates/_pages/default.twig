@@ -8,9 +8,9 @@
 
             {% set seitenBild = entry.hero.one() %}
 
-            {% if seitenBild is defined and seitenBild|length %}
+{#             {% if seitenBild is defined and seitenBild|length %}
                 {%- include "_components/hero" -%}
-            {% else %}
+            {% else %} #}
 
             <div class="l-container l-grid">
                 <div class="c-headline h2-alike c-headline--centered">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
+            {# {% endif %} #}
 
             {% if entry.lead is defined and entry.lead|length > 0 %}
                 {%- include "_components/lead" -%}

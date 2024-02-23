@@ -1,16 +1,19 @@
+columnSuffix: null
 contentColumnType: text
 fieldGroup: 07c3ea11-a284-4c2f-bf66-c0b32d846353
 handle: teamFunktion
-instructions: ''
+instructions: null
 name: Funktion
 searchable: true
 settings:
-  charLimit: ''
-  code: ''
+  byteLimit: null
+  charLimit: null
+  code: false
   columnType: text
-  initialRows: '4'
-  multiline: ''
-  placeholder: ''
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\PlainText

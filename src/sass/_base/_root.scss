@@ -15,7 +15,11 @@
     --colorGrayLight: #f2f2f0;
     --colorGrayDark: #6b6956;
     
-    --colorGreen: #a3b53a;
+    --colorPurple: #a137be;
+    --colorPurpleLight: #df7af5;
+    --colorPurpleMedium: #6a3deb;
+    --colorPurpleDark: #2c1961;
+
     --colorGreenLight: #c4d65f;
     --colorGreenDark: #377937;//#377937 //9bb505
     --colorGreenSaturated: #359000;
@@ -27,7 +31,8 @@
     --colorBeigeMedium: #f1e7d9;
     --colorBeigeDark: #7b6d62;
 
-    --colorPurpleLight: #df7af5;
+    // abstractions
+    --colorPrimary: var(--colorPurple);
 
     // Background colors (lightened)
     --colorBackground: #0f2432; //#1b0f32;

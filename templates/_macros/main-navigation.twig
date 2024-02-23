@@ -6,9 +6,7 @@
     <ul class="{{ cssClass }}--level{{ navLevel }}" {% if navLevel > '1' %} aria-label="submenu"{%  endif %} :aria-expanded="{{ loopLevel }} === secondLevelIndex ? 'true' : 'false'">
   {%- endif %}
 
-  {%- for entry in entries.all() -%}
-
-      {%- if entry.nichtInNavigationAnzeigen == false -%}
+  {%- for entry in entries.nichtInNavigationAnzeigen(false).all() -%}
 
       <li class="{{ cssClass }}{{ navLevel > 1 ? '--level'~navLevel : '' }}--item {{ entry.alsButtonAnzeigen ? ' highlight highlight--primary' : '' }}" :class="{'is-open':{{ loop.index }} === secondLevelIndex}" @mouseover="hoveringFirstLevel(true)" @mouseleave="hoveringFirstLevel(false)">
 
@@ -20,7 +18,7 @@
 
             {%- if navLevel == 1 and not entry.hasDescendants -%}
                 <div class="nav-bg-2 bg-nav-red bg-nav-{{loop.index}}"></div>
-                <a class="{{ cssClass }}--link link--level{{ navLevel }}" href="{{entry.url}}">
+                <a class="{{ cssClass }}--link link--level{{ navLevel }}" href="{{ entry.url }}">
                     {{ entry.title }}
                 </a>
             {%- elseif navLevel == 1 -%}
@@ -81,8 +79,6 @@
             {% endif -%}
 
           </li>
-
-      {%- endif %}
 
   {% endfor %}
 

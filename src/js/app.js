@@ -259,6 +259,8 @@ const app = createApp({
                 this.navItems.classList.remove("open")
         },
         openItem(t) {
+            document.querySelector("body").classList.remove("loaded");
+            console.log('openItem');
             let e = document.querySelector(`.main-menu__list li #${t}`),
                 n = e.previousElementSibling;
             e && e.classList.remove("menu-hidden"),

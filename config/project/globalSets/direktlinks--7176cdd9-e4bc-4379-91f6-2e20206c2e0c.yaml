@@ -2,12 +2,23 @@ fieldLayouts:
   5c2484ca-522a-4b5d-b2c7-859ae21a1ab1:
     tabs:
       -
-        fields:
-          b34620af-769b-4d5e-9958-6555ad7d535c: # Page Links
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b34620af-769b-4d5e-9958-6555ad7d535c # Page Links
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ac6d8e9-0500-4cbd-a655-4804c9308386
+            userCondition: null
+            warning: null
+            width: 100
         name: Direktlinks
-        sortOrder: 1
+        uid: 3fa7a38f-ae24-4d96-9a85-f2bb57ba7b38
+        userCondition: null
 handle: direktlinks
 name: Direktlinks
 sortOrder: 1

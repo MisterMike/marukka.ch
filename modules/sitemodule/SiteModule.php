@@ -103,17 +103,17 @@ class SiteModule extends Module
         );
 
         // register custom system message
-        Event::on(
-            SystemMessages::class, 
-            SystemMessages::EVENT_REGISTER_MESSAGES, 
-            function(RegisterEmailMessagesEvent $e) {
-            $e->messages[] = new SystemMessage([
-                'key' => self::MESSAGE_KEY_LOGIN_FAILURE,
-                'heading' => 'When there is a failed login attempt',
-                'subject' => 'There has been a failed login attempt',
-                'body' => file_get_contents(Craft::getAlias('@ontherocks/emails/approve.txt')),
-            ]);
-        });
+        // Event::on(
+        //     SystemMessages::class, 
+        //     SystemMessages::EVENT_REGISTER_MESSAGES, 
+        //     function(RegisterEmailMessagesEvent $e) {
+        //     $e->messages[] = new SystemMessage([
+        //         'key' => self::MESSAGE_KEY_LOGIN_FAILURE,
+        //         'heading' => 'When there is a failed login attempt',
+        //         'subject' => 'There has been a failed login attempt',
+        //         'body' => file_get_contents(Craft::getAlias('@ontherocks/emails/approve.txt')),
+        //     ]);
+        // });
 
         Event::on(
             UsersController::class,

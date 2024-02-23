@@ -2,60 +2,172 @@ fieldLayouts:
   2a6be59d-e1e8-4e39-b3a2-61609c7f1760:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
             instructions: null
             label: Title
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: acc91fc4-d2d9-44cc-98ea-dd365eae985a
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 1bd16e11-1bea-4257-a0a6-032962479791
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 8fa11e47-46f6-453c-b055-ae2f6824aa81
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 4b2c817d-5a6b-4115-bb64-d14725fdcb71 # Hero
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 96d1a157-600c-4331-83a8-453c9c3f8f6b
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 33dc6681-eddf-408d-b80e-a0eb9d9467d0
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 26ae2746-d432-4e3d-880c-f1b4b48e414e
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 38ae6aa4-aec6-4dcb-8e39-441a0170badb
+            userCondition: null
+            warning: null
+            width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 3189c5d2-e441-409d-8b9b-65cdfec89dfe
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 2a82ec21-c911-4cb1-a812-eb996a54a38b # Als Button anzeigen
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ce74a0dc-a8d9-47f1-978d-1e153c6157fe
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 8717462a-a45a-4a10-96cd-0ffcc079298b
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 9a5b20d5-8e82-48ca-9f2b-83525c9b36d9
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 1d2c3960-1e98-4f07-a7f9-38570ab2f1d0
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a56f6303-465d-4db7-af8f-c9d7e7ad5d14
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 6970ee64-406d-4184-8984-cc1374928a8e # PDF-Suche Text
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 6cdc848a-3ca9-4171-a983-e61f414443b5
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: 00bcec55-f222-4e65-9903-7b122b0b13cf
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 796ddea0-c4e6-41d3-b456-3a6e855e13f6
+            userCondition: null
+            warning: null
+            width: 100
           -
+            elementCondition: null
             fieldUid: b723ee93-e593-410d-b251-381d3c1abc0a # Suchtext
+            instructions: null
+            label: null
             required: false
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 78ee1e7b-f138-49b9-81ee-b2e61a78d6e2
+            userCondition: null
+            warning: null
+            width: 100
         name: Einstellungen
-        sortOrder: 2
+        uid: d4d89c0d-a011-4fa8-aef4-dc7d1d056849
+        userCondition: null
 handle: anfahrt
 hasTitleField: true
 name: Anfahrt
 section: b5dfecfa-162a-465a-b06b-7214d6bd2023
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 4
-titleFormat: ''
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

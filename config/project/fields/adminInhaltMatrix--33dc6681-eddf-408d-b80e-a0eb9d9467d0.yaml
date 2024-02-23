@@ -1,14 +1,16 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: 8b06cd83-018f-4043-8751-aa7468186613
 handle: adminInhaltMatrix
-instructions: ''
+instructions: null
 name: 'Admin Inhalt'
 searchable: true
 settings:
   contentTable: '{{%matrixcontent_admininhaltmatrix}}'
-  localizeBlocks: '1'
-  maxBlocks: ''
-  minBlocks: ''
+  maxBlocks: null
+  minBlocks: null
+  propagationKeyFormat: null
+  propagationMethod: none
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

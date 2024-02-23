@@ -1,13 +1,15 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: 2357c45a-c960-4790-90ff-0bb669f324f6
 handle: sliderMatrix
-instructions: ''
+instructions: null
 name: Slider
 searchable: true
 settings:
   contentTable: '{{%matrixcontent_slidermatrix}}'
-  maxBlocks: ''
-  minBlocks: ''
+  maxBlocks: null
+  minBlocks: null
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

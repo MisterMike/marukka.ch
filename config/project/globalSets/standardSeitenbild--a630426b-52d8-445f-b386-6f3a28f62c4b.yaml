@@ -2,12 +2,23 @@ fieldLayouts:
   5bd95ad1-0922-4868-9de9-362c2bddce02:
     tabs:
       -
-        fields:
-          4b2c817d-5a6b-4115-bb64-d14725fdcb71: # Hero
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 4b2c817d-5a6b-4115-bb64-d14725fdcb71 # Hero
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed135fee-7c92-428c-95eb-b3ccaa43f106
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Standard Seitenbild'
-        sortOrder: 1
+        uid: ba21f318-4be4-4bb2-8c29-020c2d3251ff
+        userCondition: null
 handle: standardSeitenbild
 name: 'Standard Seitenbild'
 sortOrder: 5

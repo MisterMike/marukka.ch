@@ -2,7 +2,7 @@
     //margin-top: var(--spacingFlexXXXL);
     margin-top:0;
     padding-top: var(--spacingFlexXXXL);
-    background:var(--colorGreenDark);
+    background:var(--colorPurpleMedium);
 
     &__container {
         @include mq(for-tablet-landscape) {
@@ -18,9 +18,14 @@
             grid-column: 1/6;
         }
 
-        img {
+        img, svg {
             height: auto;
             width: 11rem;
+        }
+
+        .footer__logo {
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -53,7 +58,7 @@
 
 .m-footer__lower {
     font-size:1rem;
-    background-color:var(--colorGreenBlack);
+    background-color:var(--colorPurpleDark);
 
     @include mq(for-tablet-portrait){
         margin-top: calc(var(--spacingFlexXXXL) - var(--spacingS));
@@ -63,7 +68,7 @@
     .l-container.l-grid {
         @include mq(for-tablet-portrait) {
             margin-top: calc(var(--spacingFlexXXXL) - var(--spacingS));
-            background-color: var(--colorGreenBlack)
+            //background-color: var(--colorGreenBlack)
         }
     }
 }

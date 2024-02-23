@@ -96,7 +96,7 @@
 
         &.active {
             border-left: none;
-            color: var(--colorGreenDark);
+            color: var(--colorPurpleLight);
         }
 
         svg {
@@ -112,7 +112,7 @@
 
         @include hover-focus {
             border: none;
-            color: var(--colorGreenDark);
+            //color: var(--colorGreenDark);
             &:before {
                 transform:scaleX(1);
             }

@@ -3,54 +3,90 @@ fieldLayouts:
   6fb4103d-e2b3-45f6-a49e-b8e6eafb9f3c:
     tabs:
       -
-        fields:
-          0b3a619f-5798-431b-aab0-e833e0b778c7:
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b8a6e69d-0fc7-444f-aa06-93feee0fe1ca
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
-          798b4561-7d0e-4592-bac2-3216ba76492a:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e96c3db5-9eef-4e83-bf92-790ce47ed372
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 798b4561-7d0e-4592-bac2-3216ba76492a
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
-          b8a6e69d-0fc7-444f-aa06-93feee0fe1ca:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 183d2206-69b0-49a4-a70d-90f0ff14571a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0b3a619f-5798-431b-aab0-e833e0b778c7
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 00ec37fd-0f68-413e-bdbb-285c87964fef
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
-        sortOrder: 1
+        uid: 6b3e24d3-781f-418a-8a1a-6bd286d5ff27
+        userCondition: null
 fields:
   0b3a619f-5798-431b-aab0-e833e0b778c7:
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: parameter2
-    instructions: ''
+    instructions: null
     name: 'Parameter 2'
     searchable: true
     settings:
-      charLimit: ''
-      code: ''
+      byteLimit: null
+      charLimit: null
+      code: false
       columnType: text
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
   798b4561-7d0e-4592-bac2-3216ba76492a:
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: parameter1
-    instructions: ''
+    instructions: null
     name: 'Parameter 1'
     searchable: true
     settings:
-      charLimit: ''
-      code: ''
+      byteLimit: null
+      charLimit: null
+      code: false
       columnType: text
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
   b8a6e69d-0fc7-444f-aa06-93feee0fe1ca:
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: snippet

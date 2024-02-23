@@ -1,11 +1,14 @@
+columnSuffix: null
 contentColumnType: boolean
 fieldGroup: 2357c45a-c960-4790-90ff-0bb669f324f6
 handle: nichtInNavigationAnzeigen
-instructions: ''
+instructions: null
 name: 'Nicht in Navigation anzeigen'
 searchable: true
 settings:
-  default: ''
+  default: false
+  offLabel: null
+  onLabel: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

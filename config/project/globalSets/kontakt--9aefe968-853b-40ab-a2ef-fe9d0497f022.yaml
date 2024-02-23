@@ -2,34 +2,101 @@ fieldLayouts:
   c9e9997a-2e62-4bb6-8c61-f480a859775e:
     tabs:
       -
-        fields:
-          0ddcaaf7-90d7-4bfd-9d91-5a16b4dd9b24:
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b7e20fa9-d088-4b3c-a482-03cd903a0c89 # Kontakt Anschrift
+            instructions: null
+            label: null
             required: false
-            sortOrder: 7
-          71f47d17-6739-4fb0-995c-a5fdb22a3d76:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6d92678f-1263-4717-b21b-15e92a73ccfd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: da23dcb4-1f05-4cf7-9a6a-1857853be50e
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
-          85c2ce1c-d0c9-46cf-b5cb-e17528ae0211:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee72f43b-0e35-49c2-a7f8-84470c05cc54
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 71f47d17-6739-4fb0-995c-a5fdb22a3d76
+            instructions: null
+            label: null
             required: false
-            sortOrder: 6
-          25083746-02fc-49ff-9dc6-d3aaf7563e9d:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a983d5a0-d85a-45cc-bad0-f1daf1e07c51
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 25083746-02fc-49ff-9dc6-d3aaf7563e9d
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          b7e20fa9-d088-4b3c-a482-03cd903a0c89: # Kontakt Anschrift
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5dc0a61-cf35-4596-8681-71dfd0c44e80
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 85c2ce1c-d0c9-46cf-b5cb-e17528ae0211
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
-          da23dcb4-1f05-4cf7-9a6a-1857853be50e:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f1bebfa-25e1-4944-b659-38b78a48b277
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0ddcaaf7-90d7-4bfd-9d91-5a16b4dd9b24
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d8d7d280-d19f-47b5-8088-681a32d8d690
+            userCondition: null
+            warning: null
+            width: 100
         name: Kontakt
-        sortOrder: 1
+        uid: 0e99af11-e8f9-4d06-8bc7-cfea3e4b5e77
+        userCondition: null
       -
-        fields:
-          b34620af-769b-4d5e-9958-6555ad7d535c: # Page Links
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b34620af-769b-4d5e-9958-6555ad7d535c # Page Links
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b66a8a95-e0ea-47dd-9123-ae1637f6c97f
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Direkt Links Fusszeile'
-        sortOrder: 2
+        uid: 796ee4e3-10ae-4757-ba27-0bf19df24f61
+        userCondition: null
 handle: kontakt
 name: Kontakt
 sortOrder: 3

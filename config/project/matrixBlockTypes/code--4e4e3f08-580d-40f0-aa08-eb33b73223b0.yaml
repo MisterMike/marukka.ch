@@ -3,14 +3,26 @@ fieldLayouts:
   7fc168c1-25ea-42a2-b88e-88d1639c31bb:
     tabs:
       -
-        fields:
-          8d462414-68bf-4793-9d32-03ac49f48a53:
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 8d462414-68bf-4793-9d32-03ac49f48a53
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7589e02-69f1-42ea-b999-0e4f178d0642
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
-        sortOrder: 1
+        uid: c084d6e8-280a-49be-87c5-99393e53beda
+        userCondition: null
 fields:
   8d462414-68bf-4793-9d32-03ac49f48a53:
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: code
@@ -18,12 +30,14 @@ fields:
     name: Code
     searchable: true
     settings:
-      charLimit: ''
-      code: ''
+      byteLimit: null
+      charLimit: null
+      code: false
       columnType: text
-      initialRows: '4'
-      multiline: '1'
-      placeholder: ''
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText

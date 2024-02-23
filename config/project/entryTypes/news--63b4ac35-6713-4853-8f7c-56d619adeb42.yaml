@@ -2,6 +2,7 @@ fieldLayouts:
   e2c9e5be-c640-4674-9646-20d05b32d490:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,7 +10,9 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,109 +22,145 @@ fieldLayouts:
             placeholder: null
             readonly: false
             requirable: false
-            required: false
             size: null
             step: null
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 1039b23b-bdb0-4d5f-bdfa-1f06db359198
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 1bd16e11-1bea-4257-a0a6-032962479791
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 7fb74d50-cc42-47d1-89d6-5ba493c6a7d0
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 5c37c645-003d-4830-aab8-c24ddbcf456e # Lead
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: f7c47eba-8dfa-4f53-ab6c-f04a5ec567d5
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 4b2c817d-5a6b-4115-bb64-d14725fdcb71 # Hero
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 09cd14bd-ceb8-497f-b131-dd1e326f94b1
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: d40ae449-4316-4da0-8f25-d26df6126954 # Inhalte
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 90dea6a5-1e64-4f7b-9a5d-16fa76fb966e
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: ff9839e4-b7c4-454a-a5f0-8a7c48164aef
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 31fb108b-0fd5-4e30-8624-7b0700fb856d
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d2e4c0ec-918c-49dc-917e-679c6382ba66
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 0757097d-0b07-4aa8-bed5-06cf5b244668
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 4c51bc47-e6be-4aba-9afd-6832a606fa81
+            userCondition: null
             warning: null
             width: 100
         name: SEO
-        sortOrder: 2
+        uid: 6e4f8725-a1a2-4e96-a765-8e0d44037e55
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 8717462a-a45a-4a10-96cd-0ffcc079298b
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e9ed30ee-80d4-4c04-b314-77afa55b510c
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: 1d2c3960-1e98-4f07-a7f9-38570ab2f1d0
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e50de365-f2d7-450a-8696-59c3482d5878
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: b723ee93-e593-410d-b251-381d3c1abc0a # Suchtext
             instructions: null
             label: null
-            required: '0'
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: afb0ce5d-9cc3-4744-a2e7-9688357967a6
+            userCondition: null
             warning: null
             width: 100
         name: Einstellungen
-        sortOrder: 3
+        uid: df594a06-1d23-427f-b311-7b2d92039cf5
+        userCondition: null
 handle: news
 hasTitleField: true
 name: News
 section: 2102785e-2edc-4604-9719-1f22b1d23f49
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
