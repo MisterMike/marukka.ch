@@ -7,7 +7,7 @@
 {%- do view.registerJsFile("/assets/vendor/prism/prism.min.js") -%}
 
 <div class="l-section code akzent-{{ block.akzent|default('neutral') }}">
-    <div class="l-container">
+    <div class="l-container desktop-only">
         <div class="l-grid l-grid--singlecol">
             <div class="l-text">
                 <in-view :tag="'div'" v-slot="{inView}">

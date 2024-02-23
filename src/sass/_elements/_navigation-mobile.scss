@@ -15,6 +15,10 @@
 
 	&--item {
 		cursor: pointer;
+
+		&.active {
+			border-left: 8px solid var(--colorYellow);
+	    }
 	}
 
 	&--link {
@@ -36,12 +40,9 @@
 		}
 
 		&.active {
-	        color: var(--colorPurpleLight);
-			border-left: 4px solid var(--colorPurpleMedium);
+	        color: var(--colorYellow);
+			//border-left: 4px solid var(--colorPurpleMedium);
 
-			@include mq(for-tablet-portrait) {
-				
-			}
 	    }
 
 	    svg {

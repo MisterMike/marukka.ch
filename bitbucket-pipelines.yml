@@ -5,7 +5,7 @@ pipelines:
           name: rsync
           script:
           - rsync -zrSlhv --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/ parhelia@s006.cyon.net:public_html/ch.marukka
-          - ssh -i ~/.ssh/config wg3linde@s006.cyon.net "cd public_html/ch.marukka ; php craft clear-caches/all"
+          - ssh -i ~/.ssh/config parhelia@s006.cyon.net "cd public_html/ch.marukka ; php craft clear-caches/all"
     develop:
       - step:
           name: rsync

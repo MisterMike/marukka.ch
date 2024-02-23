@@ -67,7 +67,19 @@ header.m-header + main.main:has(.hero) {
     max-width: var(--gridMaxWidth);
     padding-left: var(--gridMargin);
     padding-right: var(--gridMargin);
-    margin:0 auto
+    margin:0 auto;
+
+    &.desktop-only {
+
+        padding-left: 0;
+        padding-right: 0;
+
+        @media all and (min-width: 47.99em) {
+            padding-left: var(--gridMargin);
+            padding-right: var(--gridMargin);
+        }
+
+    }
 }
 
 .l-container--full {

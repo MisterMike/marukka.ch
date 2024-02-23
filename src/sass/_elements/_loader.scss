@@ -1,14 +1,13 @@
 /* page loader pane */
 
-body.loaded svg {
-    visibility: hidden;
-    opacity: 0;
-}
-
 body.loaded .loader {
     visibility: hidden;
     opacity: 0;
-    //animation-play-state: paused;
+    
+    svg {
+        visibility: hidden;
+        opacity: 0;
+    }
 }
 
 .loader {

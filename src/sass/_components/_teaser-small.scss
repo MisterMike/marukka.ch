@@ -92,6 +92,7 @@
 
 .c-small-teaser__content {
     position: relative;
+    margin-top: var(--spacingS);
 }
 
 /* Headline */
@@ -102,14 +103,13 @@
 
 
 .c-small-teaser__content .content__topline {
-    margin-top: var(--spacingS);
     font-size: .6875rem;
     font-weight: bold;
     line-height: 1.45;
     letter-spacing: .05em;
     text-transform: uppercase;
     color: var(--colorPurpleLight);
-    margin: var(--spacingS) 0 var(--spacingXXS) 0;
+    margin-bottom: var(--spacingXXS);
 
     @include mq(for-tablet-landscape) { // 980
         font-size: .6875rem;

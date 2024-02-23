@@ -10,7 +10,7 @@
 
 use craft\helpers\App;
 
-$rev = "20240223v3";
+$rev = "20240223v4";
 
 $isDev = App::env('ENVIRONMENT') === 'dev';
 $isProd = App::env('ENVIRONMENT') === 'production';
