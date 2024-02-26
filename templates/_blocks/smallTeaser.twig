@@ -39,7 +39,7 @@
     </div>
 
     <div class="c-small-teaser__content">
-        {% if topline|length %}<div class="content__topline">{{topline}}</div>{% endif %}
+        {% if topline|length %}<div class="content__topline">{{topline|raw}}</div>{% endif %}
         <div class="content__title">{{titel|default('')}}</div>
         {% if content is defined and content|length %}<div class="content__text">{{content|raw}}</div>{% endif %}
     </div>
