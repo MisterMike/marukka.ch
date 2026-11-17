@@ -1,0 +1,48 @@
+.site-header {position: relative; z-index: 20; background: #8028af; border-bottom: 1px solid #bf87e2;}
+.header-inner {display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); min-height: 64px;}
+.brand {display: inline-flex; align-items: center; gap: 14px; flex-shrink: 0; font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; line-height: 1;
+    & img {width: 48px; height: 25px;}
+}
+.header-navigation {display: flex; flex: 1; gap: 28px; align-items: center; justify-content: space-between; border-left: 1px solid #c78bdf; padding-left: clamp(20px, 3vw, 44px);
+    & nav {display: flex; align-items: center; gap: clamp(14px, 2vw, 28px);}
+    & nav .icon {display: none;}
+    & nav a {white-space: nowrap; font-size: .8rem; font-weight: 700; padding-block: 8px; position: relative;
+        &::after {content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--color-magenta); transition: right 180ms var(--ease-out);}
+        &:hover::after, &[aria-current]::after {right: 0;}
+    }
+    & form {position: relative; flex: 0 1 210px; min-width: 140px;}
+    & input {width: 100%; border: 1px solid #d0acd9; background: transparent; padding: 7px 40px 7px 12px; font-size: .8rem; color: white; &::placeholder {color: #eedcf7;}}
+    & form button {position: absolute; inset: 0 0 0 auto; width: 38px; background: transparent; border: 0; display: grid; place-items: center;}
+}
+.menu-toggle {display: none; border: 1px solid #cf9ce1; background: transparent; width: 44px; height: 44px; place-items: center;}
+@media (max-width: 1180px) {.header-navigation nav {gap: 14px;} .header-navigation nav a {font-size: .73rem;} .header-inner {gap: 20px;} .header-navigation {padding-left: 20px; gap: 20px;}}
+/* The panel is a fixed viewport overlay on mobile, independent of header height. */
+@media (max-width: 1000px) {
+    html.mobile-menu-open, html.mobile-menu-open body {overflow: hidden;}
+    .header-inner {justify-content: space-between; min-height: 76px; padding-block: 12px;}
+    .header-inner > .brand {position: relative; z-index: 2;}
+    .menu-toggle {display: inline-flex; position: relative; z-index: 2; align-items: center; justify-content: center; gap: 12px; width: auto; min-width: 100px; padding: 10px 12px; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+        & .close-icon {display: none;}
+        &[aria-expanded="true"] {border-color: var(--color-magenta); background: var(--color-magenta); color: var(--color-navy);
+            & .menu-icon {display: none;}
+            & .close-icon {display: block;}
+        }
+    }
+    .header-navigation {display: none; position: fixed; inset: 0; z-index: 1; height: 100dvh; overflow-y: auto; overscroll-behavior: contain; background: var(--color-navy); border: 0; padding: 100px var(--page-gutter) max(32px, env(safe-area-inset-bottom));
+        &.is-open {display: flex; flex-direction: column; align-items: stretch; justify-content: start; gap: 32px; animation: menu-reveal 220ms var(--ease-out);}
+        & nav {display: flex; flex-direction: column; align-items: stretch; gap: 0;}
+        & nav a {display: flex; align-items: center; justify-content: space-between; gap: 20px; white-space: normal; font-size: clamp(1.8rem, 5.5vw, 3.75rem); line-height: 1.2; letter-spacing: -.03em; padding-block: 12px; border-bottom: 1px solid var(--border-subtle);
+            &::after {display: none;}
+            &:hover, &[aria-current] {color: var(--color-magenta);}
+            & .icon {display: block; width: 26px; height: 26px; flex-basis: 26px; color: var(--color-magenta);}
+        }
+        & form {flex: none; width: 100%; max-width: none; margin-top: auto;}
+        & input {padding-block: 16px; font-size: 1rem; border-color: var(--border);}
+    }
+    html:not(.alpine-ready) {
+        & .header-inner {flex-wrap: wrap;}
+        & .header-navigation {position: static; display: flex; flex-direction: column; flex-basis: 100%; height: auto; padding: 20px 0;}
+        & .menu-toggle {display: none;}
+    }
+}
+@keyframes menu-reveal {from {opacity: 0; transform: translateY(-8px);} to {opacity: 1; transform: translateY(0);}}

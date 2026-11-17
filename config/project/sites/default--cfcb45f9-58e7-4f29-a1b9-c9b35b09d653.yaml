@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: de
+name: Marukka
+primary: true
+siteGroup: b9ef3e7b-4801-46ea-812f-0ea59df3c294 # Marukka
+sortOrder: 1

@@ -1,7 +1,0 @@
-
-{% set entry = craft.k4campaigns.entries.id(campaign.id).one() %}
-{{ entry.subjectLine }}
-
-Bitte lesen Sie die E-Mail in einem Programm, das HTML E-Mail Nachrichten unterstützt. Besten Dank.
-
-Ihr TAB Aesch

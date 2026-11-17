@@ -99,42 +99,7 @@ class SiteModule extends Module
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
                 $event->types[] = ConfigValuesField::class;
-            }
-        );
-
-        // register custom system message
-        // Event::on(
-        //     SystemMessages::class, 
-        //     SystemMessages::EVENT_REGISTER_MESSAGES, 
-        //     function(RegisterEmailMessagesEvent $e) {
-        //     $e->messages[] = new SystemMessage([
-        //         'key' => self::MESSAGE_KEY_LOGIN_FAILURE,
-        //         'heading' => 'When there is a failed login attempt',
-        //         'subject' => 'There has been a failed login attempt',
-        //         'body' => file_get_contents(Craft::getAlias('@ontherocks/emails/approve.txt')),
-        //     ]);
-        // });
-
-        Event::on(
-            UsersController::class,
-            UsersController::EVENT_LOGIN_FAILURE,
-            function (LoginFailureEvent $event) {
-
-                // available in $event: 'authError','message','user'
-
-                // get users ip address
-                $userIp = craft()->request->getIpAddress() ?? null;
-
-                // send email to user
-                $mailer = Craft::$app->getMailer();
-
-                $mailer
-                    ->composeFromKey(Module::MESSAGE_KEY_LOGIN_FAILURE, [
-                        'message' => $message,
-                    ])
-                    ->setFrom($mailer->from)
-                    ->setTo($recipe->author->email)
-                    ->send();
+                $event->types[] = \modules\sitemodule\fields\WhitespaceText::class;
             }
         );
 
@@ -176,7 +141,7 @@ class SiteModule extends Module
  */
         Craft::info(
             Craft::t(
-                'site-module',
+                'sitemodule',
                 '{name} module loaded',
                 ['name' => 'Site Module']
             ),

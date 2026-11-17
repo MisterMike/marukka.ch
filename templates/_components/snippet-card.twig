@@ -1,0 +1,17 @@
+{% set topics = article.kategorie.all() %}
+{% set excerpt = article.teaser ?? '' %}
+{% set isCode = article.teaserIsCode and excerpt|trim is not empty %}
+<article class="snippet-card">
+    <div class="snippet-card__body">
+        <p class="snippet-card__category">{{ topics|first.title ?? 'Notes' }}</p>
+        <h3><a class="snippet-card__link" href="{{ article.url }}">{{ article.title }}</a></h3>
+        {% if isCode %}
+            {% if article.lead %}<p class="snippet-card__description">{{ article.lead }}</p>{% endif %}
+            {% include '_components/code-preview' with {code: excerpt, language: article.teaserLanguage, preview: true} only %}
+        {% else %}
+            <p class="snippet-card__description">{{ excerpt|trim is not empty ? excerpt : (article.lead ?: 'Read this technical note and its practical solution.') }}</p>
+            <span class="snippet-card__arrow" aria-hidden="true">{% include '_components/icon' only %}</span>
+        {% endif %}
+    </div>
+    <div class="snippet-card__meta"><span>{% if article.readingMinutes %}{{ article.readingMinutes }} min read{% else %}{{ article.postDate|date('d M Y') }}{% endif %}</span><span>{{ topics|map(t => t.title)|join(' · ') }}</span></div>
+</article>

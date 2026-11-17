@@ -1,0 +1,53 @@
+columnSuffix: null
+handle: singleLink
+instructions: null
+name: 'Single Link'
+searchable: false
+settings:
+  fullGraphqlData: false
+  maxLength: 255
+  showLabelField: false
+  typeSettings:
+    __assoc__:
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - allowRootRelativeUrls
+              - ''
+            -
+              - allowAnchors
+              - ''
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowedKinds
+              - '*'
+            -
+              - showUnpermittedVolumes
+              - ''
+            -
+              - showUnpermittedFiles
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+  types:
+    - url
+    - asset
+    - entry
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Link
+warning: null

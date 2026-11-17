@@ -1,0 +1,105 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  9606ede9-1a5b-47af-83fe-75755f16e76c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bb152e16-e167-4b08-b76a-57dcf802891c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d476e3c6-0e95-4e2a-8754-17ca56967b0a # Introduction
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 31446f8b-5411-4139-b9fe-8c9479c5f977
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f801721c-6854-4c0a-89b4-6ce7103d919c # Content Matrix
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b28b692d-8ef1-4ab4-b740-779315193e49
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 85f85a40-cd4f-48b5-a423-734415357d28 # Text Plain
+            handle: heroTitle
+            instructions: null
+            label: 'Hero headline'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 987592be-77f1-45dc-a44c-7253ee46f6a9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 98b8a153-56da-4f49-8820-119dbd12c192
+        userCondition: null
+    thumbFieldKey: null
+handle: homepage
+hasTitleField: true
+icon: null
+name: Homepage
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

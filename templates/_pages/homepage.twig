@@ -1,0 +1,26 @@
+{% extends '_layouts/base' %}
+{% set recent = craft.entries.section('snippets').with(['kategorie']).orderBy('postDate desc, id desc').limit(3).all() %}
+{% set featured = craft.entries.section('snippets').featured(true).with(['kategorie']).orderBy('postDate desc, id desc').limit(3).all() %}
+{% set featured = featured|length ? featured : recent %}
+{% block content %}
+    {% include '_components/hero' with {title: entry.heroTitle ?: 'Code Snippets &
+Practical Solutions', description: entry.lead ?: 'A curated collection of useful code snippets, practical solutions, and technical notes for Craft CMS, Twig, CSS, Laravel, Mac, and JavaScript.', actions: true} only %}
+    <div class="site-shell home-content">
+        <section class="content-section" aria-labelledby="featured-heading">
+            <div class="section-heading"><h2 id="featured-heading">{{ featured|length and featured != recent ? 'Featured snippets' : 'Recent snippets' }}</h2><a class="text-link" href="{{ url('snippets') }}">View all snippets {% include '_components/icon' only %}</a></div>
+            {% if featured|length %}<div class="snippet-grid grid gap-5 md:grid-cols-2 lg:grid-cols-3">{% for article in featured %}{% include '_components/snippet-card' with {article: article} only %}{% endfor %}</div>{% else %}{% include '_components/empty-state' only %}{% endif %}
+        </section>
+        <section class="content-section" id="topics" aria-labelledby="topics-heading">
+            <div class="section-heading"><h2 id="topics-heading">Explore by topic</h2></div>
+            <div class="category-grid">{% for category in categories %}{% include '_components/category-card' with {category: category} only %}{% endfor %}</div>
+        </section>
+        <div class="home-latest-grid">
+            <aside class="editorial-note"><p class="section-label">A developer’s notebook</p><h2>Useful today.<br>Saved for tomorrow.</h2><p>Small discoveries, working examples and the solutions worth keeping close.</p><a class="text-link" href="{{ url('snippets') }}">Find your next solution {% include '_components/icon' only %}</a></aside>
+            <section class="latest-section" aria-labelledby="latest-heading"><div class="section-heading"><h2 id="latest-heading">Latest notes</h2><a class="text-link" href="{{ url('snippets') }}">More notes {% include '_components/icon' only %}</a></div>
+                {% for article in recent %}<article class="latest-row"><span>{{ article.kategorie.all()|first.title ?? 'Notes' }}</span><h3><a href="{{ article.url }}">{{ article.title }}</a></h3><time datetime="{{ article.postDate|date('c') }}">{{ article.postDate|date('d M') }}</time></article>{% else %}<p class="latest-empty">New notes will be listed here when published.</p>{% endfor %}
+            </section>
+        </div>
+        {% set homeBlocks = entry.contentMatrix.with(['image']).all() %}
+        {% if homeBlocks|length %}<div class="article-content home-matrix">{% include '_routers/component' with {components: homeBlocks} only %}</div>{% endif %}
+    </div>
+{% endblock %}

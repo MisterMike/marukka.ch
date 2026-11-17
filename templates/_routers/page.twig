@@ -1,47 +1,6 @@
-
-{#
- # Page Router Template
- # --------------------
- #
- # This template gets loaded whenever a full page is requested, either because an
- # entry section's Template setting is set to "_routers/page" or using dymanic routes.
- #
- # An `entry` variable will be automatically passed to this template if the URI matches
- # an element URI. Otherwise an `entry` array is created before invoking a view router.
--#}
-
-
-{# Handle special routes that don’t correspond to Craft entries. #}
-{% if entry is not defined %}
-
-  {% set specialRoutes = {
-      'news': 'newsIndex',
-      'events': 'eventsIndex',
-      'search/results': 'searchResults'
-  } %}
-
-  {% set baseSegmentRoute = specialRoutes[craft.app.request.pathInfo] ?? null %}
-
-  {#
-   # Setting `null` values so that we can avoid a twig error when
-   # it processes `entry.section.handle` expressions in the `include` statement.
-  #}
-
-  {% set entry = {
-      title: null,
-      section: { handle: null },
-      type: { handle: null },
-    }
-  %}
-
-
-{% endif -%}
-
-{# Pick title from entries #}
-{%- set title = entry.title  -%}
-
-{%- block content -%}
-
-  {%- include "_routers/detail" -%}
-
-{%- endblock -%}
+{% include [
+    '_pages/' ~ entry.section.handle|kebab ~ '/' ~ entry.type|kebab|replace({'entry-':''}) ~ '.twig',
+    '_pages/' ~ entry.type|kebab|replace({'entry-':''})  ~ '.twig',
+    '_pages/' ~ entry.section.handle|kebab ~ '/default.twig',
+    '_pages/default.twig'
+] %}

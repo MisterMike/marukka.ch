@@ -1,0 +1,35 @@
+.hero {position: relative; isolation: isolate; overflow: hidden; background: #061c2a;
+    &::after {content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #061c2afa 0%, #091c2de6 30%, #0b1e2b22 65%, #061c2a11 100%);}
+}
+.hero-art {position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 55%;}
+.hero-inner {position: relative; display: flex; justify-content: space-between; min-height: 450px; align-items: center; padding-block: 54px 64px;}
+.hero-copy {max-width: 610px;}
+.hero-kicker, .hero-breadcrumb {display: flex; gap: 12px; align-items: center; flex-wrap: wrap; color: #e1d8eb; font-size: .68rem; font-weight: 600; letter-spacing: .15em; line-height: 1.6; text-transform: uppercase; margin-bottom: 28px;
+    &::before {content: ''; width: 40px; height: 2px; background: var(--color-magenta); margin-right: 8px;}
+    & span {color: #c9b1d9;}
+    & a:hover {text-decoration: underline;}
+}
+.hero-lead {font-size: 1.08rem; line-height: 1.65; max-width: 48ch; margin-top: 24px; color: #ede8f5;}
+.hero-actions {margin-top: 30px;}
+.hero-index {align-self: flex-start; color: #bbb1cf; font-family: var(--font-mono); font-size: .7rem; line-height: 1.8; padding: 0 0 0 22px; border-left: 1px solid #aa4bcd; margin: 8px 0 0 36px;
+    &::before {content: ''; display: block; width: 30px; height: 2px; background: var(--color-magenta); margin-bottom: 16px;}
+}
+.hero--compact {
+    & .hero-inner {min-height: 320px; padding-block: 40px 44px;}
+    & .hero-copy {max-width: 700px;}
+    & h1 {font-size: clamp(2rem, 3.6vw, 3rem);}
+    & .hero-breadcrumb {margin-bottom: 24px;}
+    & .hero-lead {margin-top: 18px; max-width: 60ch;}
+}
+@media (max-width: 760px) {
+    .hero-index {display: none;}
+    .hero-inner {min-height: 500px; padding-block: 44px 52px; align-items: start;}
+    .hero-copy {max-width: 600px;}
+    .hero-art {object-position: 65% center; opacity: .7;}
+    .hero::after {background: linear-gradient(90deg, #061c2af0, #061c2a99);}
+    .hero-kicker {font-size: .59rem; gap: 8px; letter-spacing: .1em; &::before {width: 22px; margin-right: 0;}}
+    .hero-lead {font-size: 1rem; max-width: 44ch;}
+    .hero-actions {gap: 12px;}
+    .hero-actions .button {padding-inline: 20px; font-size: .7rem;}
+    .hero--compact .hero-inner {min-height: 300px;}
+}

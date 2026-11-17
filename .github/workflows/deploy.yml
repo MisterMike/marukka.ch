@@ -1,0 +1,91 @@
+name: Deploy to Hostpoint
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_SERVER }}
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          printf "%s\n" "${{ secrets.REMOTE_SERVER_FINGERPRINT }}" >> ~/.ssh/known_hosts
+
+      # Decide deploy path based on branch
+      - name: Set deploy path
+        run: |
+          if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
+            echo "DEPLOY_PATH=www/ch.marukka" >> $GITHUB_ENV
+          else
+            echo "DEPLOY_PATH=www/ch.marukka.staging" >> $GITHUB_ENV
+          fi
+
+      # Cache npm's download cache; npm ci installs a clean dependency tree.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # Install & build assets
+      - name: Install dependencies and build assets
+        run: |
+          npm ci
+          npm run build
+
+      # Deploy
+      - name: Deploy files via rsync
+        run: |
+          rsync -avzvv --delete \
+            -e "ssh -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+            --exclude-from=deployment-exclude-list.txt \
+            ./ ehedurux@sl3111.web.hostpoint.ch:${{ env.DEPLOY_PATH }}
+
+      # Craft post-deploy tasks
+      - name: Run Craft commands on server
+        run: |
+          ssh ehedurux@sl3111.web.hostpoint.ch "
+            set -e
+            cd '${{ env.DEPLOY_PATH }}'
+      
+            # 1) Install PHP deps without triggering Craft's composer scripts
+            composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts
+
+            # 1b) Runtime Node packages: the mjml compiler for the emails
+            #     (NODE_PATH / MJML_PATH in .env). node_modules is
+            #     excluded from rsync, so it's installed here, with the
+            #     Node that .env names for MJML.
+            NODE=\$(grep -E '^(export )?NODE_PATH *=' .env | tail -1 | cut -d= -f2- | tr -d '\"'\"'\"' ')
+            if [ -z \"\$NODE\" ] || [ ! -x \"\$NODE\" ]; then
+              echo \"NODE_PATH in \$PWD/.env is missing or not executable: '\$NODE'\" >&2
+              exit 1
+            fi
+            export PATH=\"\$(dirname \"\$NODE\"):\$PATH\"
+            echo \"Node \$(node --version), npm \$(npm --version)\"
+            npm ci --omit=dev --no-audit --no-fund
+
+            # 2) Run migrations
+            php craft migrate/all --interactive=0
+            php craft migrate --track=content --interactive=0
+            php craft up --interactive=0
+             
+            # 3) Apply project config
+            php craft project-config/apply --force --interactive=0
+          
+            # 4) Clear caches at the end
+            php craft clear-caches/all --interactive=0
+          "

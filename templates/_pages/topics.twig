@@ -1,0 +1,7 @@
+{% extends '_layouts/base' %}
+{% set pageTitle = 'Explore topics — Marukka' %}
+{% block content %}
+{% include '_components/hero' with {compact: true, title: 'A practical answer.
+Whatever your stack.', description: 'Explore code snippets and technical notes by topic.', breadcrumb: 'Topics'} only %}
+<section class="site-shell topics-section" aria-labelledby="all-topics"><div class="section-heading"><h2 id="all-topics">Explore by topic</h2></div><div class="category-grid">{% for category in categories %}{% include '_components/category-card' with {category: category} only %}{% endfor %}</div></section>
+{% endblock %}

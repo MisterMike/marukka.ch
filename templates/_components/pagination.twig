@@ -1,0 +1,7 @@
+{% if pageInfo.totalPages > 1 %}
+<nav class="pagination" aria-label="Snippet pages">
+    {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" aria-label="Previous page">←</a>{% endif %}
+    {% for page, pageUrl in pageInfo.getDynamicRangeUrls(5) %}<a href="{{ pageUrl }}" {% if page == pageInfo.currentPage %}aria-current="page"{% endif %} aria-label="Page {{ page }}">{{ page }}</a>{% endfor %}
+    {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" aria-label="Next page">{% include '_components/icon' only %}</a>{% endif %}
+</nav>
+{% endif %}

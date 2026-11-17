@@ -2,24 +2,132 @@
 /**
  * k4 Site Module module for Craft CMS
  *
- * k4 Site Module CSS
+ * k4 Site Module CSS – Login Page Styler
  *
  * @author    Mischa Sprecher
- * @copyright Copyright (c) 2019-2021 Mischa Sprecher
+ * @copyright Copyright (c) 2019-2024 Mischa Sprecher
  * @link      kreisvier.ch
  * @package   K4SiteModule
- * @since     1.2.2
+ * @since     5.0.3
  */
 
+/* Login background color */
 body.login {
+    background: #87A922;
     overflow: hidden;
-    background: #C4D65F;
 }
+
+body.login header {
+    align-items: center;
+    background: rgba(255,255,255, 0.15);
+    border-block-end: none;
+    justify-content: center;
+}
+
+body.login header a{
+    align-items: center;
+    margin: 0 auto;
+}
+
+body.login .login-container {
+    width: unset;
+    outline: 18px solid rgba(255,255,255, 0.15);
+    border: none;
+    //padding: 40px;
+    border-radius: 8px;
+}
+
+body.login .login-container .flex{
+    background: var(--secondary-pane-bg);
+    padding: 0 40px 40px 40px;
+    margin: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+body.login .login-container .pane{
+    border: none;
+    margin: 0;
+    padding: 40px;
+    box-shadow: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* login button */
+form.login-form .btn.submit {
+background-color: #87A922 !important;
+border-radius: 0;
+}
+
+form.login-form .btn {
+    border-radius: 0;
+    min-height: 2.5rem;
+}
+
+form.login-form input.text {
+    border-radius: 0;
+    min-height: 2.5rem;
+}
+
+form.login-form .passwordwrapper {
+    border-radius: 0;
+}
+
+form.login-form .passwordwrapper .password-toggle {
+    color: #114232;
+    font-size: 80%;
+}
+
+.alternative-login-methods .btn {
+    border-radius: 0;
+    min-height: 2.5rem;
+}
+
+/* login button active states */
+.btn.submit:not(.disabled):not(.inactive):not(.loading).hover,
+.btn.submit:not(.disabled):not(.inactive):not(.loading):focus,
+.btn.submit:not(.disabled):not(.inactive):not(.loading):hover {
+background-color: #114232!important;
+}
+
+/* customer logo */
+
+body.login #login-logo {
+    max-width: 250px;
+    display: flex;
+}
+
+body.login h1{
+    display: flex;
+    justify-content: center;
+}
+
+
+/*body.login main:has(.login-container) {*/
+/*    background: transparent;*/
+/*    width: unset;*/
+/*    outline: 18px solid rgba(255,255,255, 0.15);*/
+/*    border: none;*/
+/*    padding: 40px;*/
+/*    border-radius: 8px;*/
+/*}*/
+
+/*body.login .login-container .pane{*/
+/*    background: #fff;*/
+/*    box-shadow: none;*/
+/*    border-radius: 0;*/
+/*}*/
+
+/*body.login .login-container .alternative-login-methods {*/
+/*    padding: 0 var(--xl);*/
+/*}*/
+
 body.login::after {
     content: "";
-    background: url(/assets/images/install-bg-1920.png) no-repeat 50% 40%;
+    background: url(/assets/layout/install-bg-1920.png) no-repeat 50% 40%;
     background-size: cover;
-    opacity: 0.07;
+    opacity: 0.17;
     top: 0;
     left: 0;
     bottom: 0;
@@ -32,31 +140,18 @@ body.login main {
     z-index: 1;
 }
 
-body.login main div#login,
-body.login > form#login-form{
-    left: 0;
-    outline: 18px solid rgba(255,255, 255, 0.15);
-    padding: 40px 60px;
-    background: #fff;
-    background-image: url('/assets/images/logo/logo_2017.png');
-    background-position: center 50px;
-    background-size: 280px 120px;
-    padding-top: 190px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-repeat: no-repeat;
-    z-index: 1;
-    width: unset;
+
+
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #6f6f6f!important;
 }
 
 body.login > form#login-form input:focus {
     outline-style: solid;
-    outline-color: #A3B53A;
+    outline-color: #997e69;
 }
 
-body.login h1{
-    display: none;
-}
 
 body.login #login-form #password-field .passwordwrapper {
     border-radius: 0 ;
@@ -65,38 +160,39 @@ body.login #login-form #password-field .passwordwrapper {
 
 body.login #login-form #password-field .passwordwrapper .password-toggle {
     font-size: 0.7rem;
-    color: #A3B53A;
+    color: #997e69;
 }
 
-body.login #login-form #loginName,
-body.login #login-form #password{
-    border-radius: 0;
-/*    margin-top: 15px;
-    border-bottom-width: 1px;*/
-}
+
 
 body.login #login-form .passwordwrapper.focus,
 body.login #login-form input:focus{
-    border-color: #A3B53A;
+    border-color: #997E69;
     box-shadow: none;
 }
 
-body.login #login-form .buttons .submit {
-    border-radius: 0;
-}
 
 body.login #login-form .btn.submit {
-    background-color: #A3B53A !important;
+    background-color: #997e69 !important;
 }
 
 body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover,
 body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover {
-    background-color: #C4D65F !important;
+    background-color: #584E4C !important;
 }
 
-body.login #login-form #poweredby {
-    margin-bottom: 40px;
+body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover .label,
+body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover .label {
+    color: #000000;
+}
+
+body.login #poweredby {
+    margin-top: 40px;
     margin-bottom: 0;
+
+/*    svg path {
+        fill: white;
+    }*/
 }
 
 body.login #login-form #login-fields:after {

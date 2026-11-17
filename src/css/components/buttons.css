@@ -1,0 +1,8 @@
+.button {display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 46px; padding: 12px 26px; border: 1px solid var(--muted); font-size: .75rem; line-height: 1.4; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; transition: background 160ms, border-color 160ms, color 160ms;
+    &:hover {background: var(--color-ink); border-color: var(--color-ink); color: var(--color-navy);}
+    &.button--primary {background: var(--color-magenta); color: #101123; border-color: var(--color-magenta); &:hover {background: #ff74cf; border-color: #ff74cf;}}
+}
+.filter-button {display: inline-flex; align-items: center; justify-content: center; min-height: 40px; border: 1px solid var(--border); padding: 8px 17px; font-size: .73rem; line-height: 1.3; white-space: nowrap; transition: border-color 160ms, background 160ms;
+    &:hover {border-color: var(--color-magenta);}
+    &[aria-current] {background: var(--color-magenta); color: #101123; border-color: var(--color-magenta); font-weight: 700;}
+}

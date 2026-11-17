@@ -1,0 +1,7 @@
+{% set languages = ['plaintext', 'javascript', 'typescript', 'php', 'twig', 'css', 'xml', 'json', 'bash', 'sql', 'yaml'] %}
+{% set language = (language ?? 'plaintext') ~ '' %}
+{% set language = language in languages ? language : 'plaintext' %}
+<figure class="code-preview {{ preview ?? false ? 'code-preview--teaser' : '' }}" {% if not (preview ?? false) %}x-data="codeCopy"{% endif %}>
+    {% if not (preview ?? false) %}<figcaption class="code-toolbar"><span>{{ language == 'xml' ? 'HTML / XML' : language }}</span><button class="copy-button" type="button" @click="copy()" x-cloak><span x-text="label">Copy code</span>{% include '_components/icon' with {name: 'copy'} only %}</button><span class="sr-only" role="status" aria-live="polite" x-text="announcement"></span></figcaption>{% endif %}
+    <pre {% if not (preview ?? false) %}tabindex="0" aria-label="{{ language }} code"{% endif %}><code class="language-{{ language }}" {% if not (preview ?? false) %}x-ref="code"{% endif %}>{{ code|e }}</code></pre>
+</figure>

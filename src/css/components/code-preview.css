@@ -1,0 +1,20 @@
+.code-preview {position: relative; min-width: 0; border: 1px solid #4b3d68; background: var(--surface-code); margin-block: 24px; color: #ebe9f8;
+    & pre {margin: 0; padding: 22px; overflow-x: auto; tab-size: 4; scrollbar-width: thin; scrollbar-color: #655180 var(--surface-code);}
+    & code {display: block; font-family: var(--font-mono); font-size: .85rem; line-height: 1.85; white-space: pre; overflow-wrap: normal; font-weight: 400;}
+    &.code-preview--teaser {margin-block: 18px 0;
+        & pre {padding: 12px 14px; height: 126px; overflow: hidden; mask-image: linear-gradient(black 82%, transparent);}
+        & code {font-size: .69rem; line-height: 1.7;}
+    }
+}
+.code-toolbar {display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #4b3d68; padding: 8px 14px 8px 20px; font-family: var(--font-mono); color: #c8bbdf; font-size: .7rem;}
+.copy-button {display: inline-flex; align-items: center; gap: 8px; padding: 8px; border: 0; background: transparent; color: #ece6fa; font-family: var(--font-sans); font-size: .75rem;
+    &:hover {color: #ff70cf;}
+    & .icon {width: 16px; height: 16px; flex-basis: 16px;}
+}
+.hljs-keyword, .hljs-selector-tag, .hljs-template-tag, .hljs-doctag {color: #ff66c9;}
+.hljs-string, .hljs-attr, .hljs-template-variable {color: #e7e789;}
+.hljs-title, .hljs-title.function_, .hljs-selector-class, .hljs-section {color: #8cdbf4;}
+.hljs-comment, .hljs-quote {color: #b1a7c5; font-style: italic;}
+.hljs-number, .hljs-literal, .hljs-built_in, .hljs-type {color: #c4adff;}
+.hljs-variable, .hljs-property, .hljs-params {color: #efdfed;}
+.hljs-meta, .hljs-tag {color: #ffb38e;}

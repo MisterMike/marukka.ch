@@ -1,0 +1,35 @@
+columnSuffix: null
+handle: imageTransformSettings
+instructions: null
+name: 'Image Transform Settings'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Zuschneiden
+        -
+          - value
+          - crop
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Einpassen
+        -
+          - value
+          - fit
+        -
+          - default
+          - ''
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
+warning: null

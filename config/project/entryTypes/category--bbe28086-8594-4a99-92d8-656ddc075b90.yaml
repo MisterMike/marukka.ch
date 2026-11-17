@@ -1,0 +1,88 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  ec2111d4-2a97-48ed-b5d3-d222cfcd8a40:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: fd76a2b1-552d-4596-934d-f0928b84e03f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d476e3c6-0e95-4e2a-8754-17ca56967b0a # Introduction
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b6e014ee-8b75-483d-b7ba-983726521a8e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fc298b30-3e86-4ac0-beeb-f8e01262aa73 # Asset Single
+            handle: categoryImage
+            instructions: null
+            label: 'Category artwork (optional)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c6d36b74-bf5b-4afe-8242-3e8cbfc25f70
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fb09e534-3878-42f4-8cf6-ddb7e805b7c7
+        userCondition: null
+    thumbFieldKey: null
+handle: category
+hasTitleField: true
+icon: null
+name: Category
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,14 @@
+{% extends '_layouts/base' %}
+{% set articleTopics = entry.kategorie.all() %}
+{% set heroImage = entry.heroImage.one() %}
+{% set blocks = entry.contentMatrix.with(['image']).all() %}
+{% set related = articleTopics|length ? craft.entries.section('snippets').id(['not', entry.id]).relatedTo({targetElement: articleTopics, field: 'kategorie'}).with(['kategorie']).limit(3).orderBy('postDate desc, id desc').all() : [] %}
+{% set canonicalUrl = entry.url %}
+{% block content %}
+    <article>
+        <header class="article-header site-shell"><nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('snippets') }}">All snippets</a>{% for category in articleTopics %}<span aria-hidden="true">/</span><a href="{{ category.url }}">{{ category.title }}</a>{% endfor %}</nav><h1>{{ entry.title }}</h1>{% if entry.lead %}<p class="article-lead">{{ entry.lead }}</p>{% endif %}<div class="article-meta"><time datetime="{{ entry.postDate|date('c') }}">{{ entry.postDate|date('d F Y') }}</time>{% if entry.readingMinutes %}<span>{{ entry.readingMinutes }} min read</span>{% endif %}</div></header>
+        {% if heroImage %}<div class="site-shell article-hero"><img src="{{ heroImage.getUrl({width: 1440}) }}" alt="{{ heroImage.alt ?? '' }}" width="{{ heroImage.width }}" height="{{ heroImage.height }}" fetchpriority="high"></div>{% endif %}
+        <div class="article-content site-shell">{% include '_routers/component' with {components: blocks} only %}</div>
+    </article>
+    {% if related|length %}<section class="site-shell related-section" aria-labelledby="related-heading"><div class="section-heading"><h2 id="related-heading">Related snippets</h2><a class="text-link" href="{{ url('snippets') }}">All snippets {% include '_components/icon' only %}</a></div><div class="snippet-grid grid gap-5 md:grid-cols-2 lg:grid-cols-3">{% for article in related %}{% include '_components/snippet-card' with {article: article} only %}{% endfor %}</div></section>{% endif %}
+{% endblock %}

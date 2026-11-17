@@ -1,0 +1,6 @@
+{% set topic = craft.app.config.getConfigFromFile('marukka').topics[category.slug] ?? null %}
+{% set image = category.categoryImage.one() %}
+<a class="category-card" href="{{ category.url }}">
+    {% if image %}<img src="{{ image.getUrl({width: 440, height: 460, mode: 'crop'}) }}" width="440" height="460" alt="" loading="lazy" decoding="async">{% elseif topic %}<img src="{{ url('assets/template/categories/' ~ topic.image ~ '.webp') }}" width="440" height="460" alt="" loading="lazy" decoding="async">{% endif %}
+    <div class="category-card__content"><h3>{{ category.title }}</h3><p>{{ category.lead ?: (topic.description ?? 'Technical notes & practical solutions') }}</p>{% include '_components/icon' only %}</div>
+</a>

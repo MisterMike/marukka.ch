@@ -1,7 +1,7 @@
 name: marukka.ch
 type: craftcms
-docroot: public
-php_version: "8.2"
+docroot: web
+php_version: "8.4"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -12,6 +12,11 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
+web_extra_exposed_ports:
+    - name: vite
+      container_port: 3000
+      http_port: 3005
+      https_port: 3006
 
 # Key features of DDEV's config.yaml:
 

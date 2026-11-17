@@ -1,730 +1,94 @@
-dateModified: 1707492311
-elementSources:
-  craft\elements\Asset:
-    -
-      key: 'folder:92b1e30e-2c4b-453e-886b-49d85fa105c5'
-      type: native
-    -
-      key: 'folder:7a6965ae-85b7-481d-9a4a-963ac7f67b1f'
-      tableAttributes:
-        - filename
-        - size
-        - dateModified
-        - link
-      type: native
-    -
-      key: 'folder:ffc3f5b7-5222-4a4b-96fc-caec8c4493b8'
-      type: native
-    -
-      key: 'folder:65734e4c-570e-495a-ba5c-7afe5686d48e'
-      type: native
-    -
-      key: 'folder:587eebc9-81c0-4189-9166-47fc04a39004'
-      type: native
-    -
-      heading: Videos
-      type: heading
-  craft\elements\Entry:
-    -
-      heading: Inhalte
-      type: heading
-    -
-      key: 'section:0260e672-8318-4f46-8b7f-13495afe4cdc'
-      tableAttributes:
-        - postDate
-        - expiryDate
-        - link
-        - slug
-      type: native
-    -
-      key: 'section:b5dfecfa-162a-465a-b06b-7214d6bd2023'
-      type: native
-    -
-      heading: 'Content Channels'
-      type: heading
-    -
-      key: 'section:7bceb026-22c4-49b8-be54-5a5b762e4178'
-      tableAttributes:
-        - postDate
-        - expiryDate
-        - link
-      type: native
-    -
-      key: 'section:d05588e9-5a8d-4db8-b6b7-a7afd2a70fd1'
-      tableAttributes:
-        - postDate
-        - expiryDate
-        - link
-      type: native
-    -
-      key: 'section:7d2d3a33-7df3-4fd3-afd3-a1aac7aec53c' # CSS
-      tableAttributes:
-        - postDate
-        - expiryDate
-        - link
-      type: native
-    -
-      key: 'section:37f42034-7765-47a0-8de7-9608162a2ad5'
-      type: native
-    -
-      heading: 'Strukturierte Daten'
-      type: heading
-    -
-      key: 'section:2102785e-2edc-4604-9719-1f22b1d23f49'
-      type: native
-    -
-      key: 'section:0b08e350-db2a-492b-8ab9-ef1dd0ff050d'
-      type: native
-    -
-      heading: Spezials
-      type: heading
-    -
-      key: 'section:40607c7b-957a-4237-9e1f-1d6d17f7d60a'
-      type: native
-    -
-      heading: ''
-      type: heading
-    -
-      key: singles
-      tableAttributes:
-        - link
-      type: native
-    -
-      key: '*'
-      tableAttributes:
-        - section
-        - postDate
-        - expiryDate
-        - link
-      type: native
-    -
-      heading: ''
-      type: heading
+dateModified: 1794939973
 email:
-  fromEmail: mischa@parhelia.ch
-  fromName: '[ marukka.ch ]'
-  replyToEmail: null
-  template: null
-  transportSettings:
-    command: '/usr/local/bin/mailpit sendmail -t --smtp-addr 127.0.0.1:1025'
+  fromEmail: mischa@marukka.ch
+  fromName: Marukka
   transportType: craft\mail\transportadapters\Sendmail
 fs:
-  bilder:
+  bilderLokal:
     hasUrls: true
-    name: Bilder
+    name: Images
     settings:
-      path: '@webroot/assets/images'
+      path: '@webroot/uploads/images'
     type: craft\fs\Local
-    url: '@web/assets/images/'
-  dokumente:
+    url: '@web/uploads/images'
+  dokumenteLokal:
     hasUrls: true
-    name: Dokumente
+    name: Documents
     settings:
-      path: '@webroot/assets/docs'
+      path: '@webroot/uploads/documents'
     type: craft\fs\Local
-    url: '@web/assets/docs'
-  transforms:
-    hasUrls: true
-    name: Transforms
-    settings:
-      path: '@webroot/assets/images/_transforms'
-    type: craft\fs\Local
-    url: '@web/assets/images/_transforms/'
-  videos:
-    hasUrls: true
-    name: Videos
-    settings:
-      path: '@webroot/assets/videos'
-    type: craft\fs\Local
-    url: '@web/assets/videos'
+    url: '@web/uploads/documents'
 graphql:
   publicToken:
     enabled: false
     expiryDate: null
 meta:
   __names__:
-    0b08e350-db2a-492b-8ab9-ef1dd0ff050d: FAQ
-    0b3a619f-5798-431b-aab0-e833e0b778c7: 'Parameter 2'
-    00bcec55-f222-4e65-9903-7b122b0b13cf: Slider
-    0ddcaaf7-90d7-4bfd-9d91-5a16b4dd9b24: 'Kontakt Location'
-    0e14c2a3-877e-4426-9add-75b78445c3bc: 'Link zu Datei' # Link zu Datei
-    0ee9b9b3-e31b-4931-9985-f666f13864d8: Slider # Slider
-    1bd16e11-1bea-4257-a0a6-032962479791: Seitenueberschrift
-    1ca6a4cf-e0a4-44a2-aded-b0f0d9c73da8: 'Website EN'
-    1d2c3960-1e98-4f07-a7f9-38570ab2f1d0: 'Nicht in Navigation anzeigen'
-    1f2b817f-fbae-47af-bb46-073477e179d2: 'Externer Link' # Externer Link
-    2a82ec21-c911-4cb1-a812-eb996a54a38b: 'Als Button anzeigen' # Als Button anzeigen
-    2a765c10-1543-4121-85f5-8478b6668223: Inhalt # Inhalt
-    2d75b86a-3598-4878-84f4-e2c91b36fb86: 'Hero Boxed' # Hero Boxed
-    3a7ae843-596b-42b9-b751-6d7f0c85ec69: Bild # Bild
-    3b95a8ef-b63c-4700-83a5-3666fbfd6db2: Sprache # Sprache
-    3b72897a-a1fc-4ce4-8775-cf829aa094c4: Abstand # Abstand
-    3c595b85-d4cf-4ae8-a80c-747df9486a3e: FAQ
-    3caa4f4a-e4ce-44ee-9f43-78ed6a44cb65: Nachname
-    4a629df6-b607-4910-ac6f-51a910029c2a: Youtube-Video # Youtube-Video
-    4b2c817d-5a6b-4115-bb64-d14725fdcb71: Hero # Hero
-    4c2f1f70-70d2-4ca8-91c9-1188c52c2a1b: Link # Link
-    4c9c71f1-03dd-4659-a21a-b5f938d81209: Text # Text
-    4d67b086-0676-4fff-a8fb-d5e37104d34f: Default # Default
-    4d11844c-23c1-48e6-be4a-b23e9d3e2dbf: Code # Code
-    4e0c4758-0889-4e9d-bf49-8f576c53c61b: Sprachen # Sprachen
-    4e4e3f08-580d-40f0-aa08-eb33b73223b0: Code
-    5a794545-3ef0-4dc0-b84d-ed0e6bbdb6f0: 'Sektion (Kanal)' # Sektion (Kanal)
-    5b16ae73-1cc5-415b-87b7-da7ac7e74a33: Ausrichtung # Ausrichtung
-    5baaf537-cfcd-4212-ba85-92ec432edca7: Vorname
-    5c37c645-003d-4830-aab8-c24ddbcf456e: Lead # Lead
-    5e1469be-f1de-4c92-91c5-d883a931b65e: Accordeon # Accordeon
-    6a5453d8-3043-4934-b9f8-4fbd5bf9543b: Anfahrt
-    6c8d1bfc-80f3-49bf-8058-89af4c2917da: Claim # Claim
-    6ec1bab2-6299-47f3-8481-3bf2f5abea8f: Aufzählung # Aufzählung
-    7bceb026-22c4-49b8-be54-5a5b762e4178: Craft
-    07c3ea11-a284-4c2f-bf66-c0b32d846353: Team
-    7d2d3a33-7df3-4fd3-afd3-a1aac7aec53c: CSS # CSS
-    7e743470-d62f-403c-b2a3-0379d0f925e7: FAQ
-    8a1f973f-0f0e-4ab2-9583-a05b9f4d3e36: Bildlegende # Bildlegende
-    8a374984-7d56-464d-9129-784096daa229: 'Inhalt mit Bild' # Inhalt mit Bild
-    8ab0cf47-9c95-438b-a13e-160e3172774d: Zitat # Zitat
-    8af160e1-ad47-4c98-8f9b-2dcd417cea8e: Telefonnummer
-    8b06cd83-018f-4043-8751-aa7468186613: Inhalt
-    8ba10555-19e7-4cae-8d38-014355430812: Shop
-    8ce7ff0e-9b1b-4658-9140-dd94ed24de67: Standard # Standard
-    8d8c23c1-60bd-443d-881e-623bf7b12ac5: Überschrift
-    8d92101e-9d1e-4248-96fa-9db528222c48: Dokumente # Dokumente
-    8d462414-68bf-4793-9d32-03ac49f48a53: Code
-    9aefe968-853b-40ab-a2ef-fe9d0497f022: Kontakt # Kontakt
-    9dc493e3-ed9a-437a-acf6-59a244d77ba8: Liste # Liste
-    19f41123-dce2-4104-a630-71d5ad0aa908: Text # Text
-    20f49626-f2c1-43a4-a490-91f2eae3b109: Kategorie
-    31fb108b-0fd5-4e30-8624-7b0700fb856d: 'SEO Beschreibung'
-    33dc6681-eddf-408d-b80e-a0eb9d9467d0: 'Admin Inhalt'
-    37f42034-7765-47a0-8de7-9608162a2ad5: Mac
-    42c98ded-dd9d-46d0-bfeb-f4f8e0539a6e: Tags # Tags
-    48ada3e5-2e17-482d-a19d-1fcf0b62e659: 'Interner Link' # Interner Link
-    52a0db1d-881b-42f7-b56b-a90850c02dbd: 'Hero Untertitel' # Hero Untertitel
-    63b4ac35-6713-4853-8f7c-56d619adeb42: News
-    65c077db-088b-4144-b387-13027da25f54: 'Footer Meta-Links' # Footer Meta-Links
-    68b3f5bf-8ae6-451e-959d-28bf63d34bb3: Inhalt
-    70b4a2cf-7292-481e-937d-242825071690: Text # Text
-    71f47d17-6739-4fb0-995c-a5fdb22a3d76: 'Kontakt Telefon'
-    85c2ce1c-d0c9-46cf-b5cb-e17528ae0211: 'Kontakt Koordinaten'
-    89f525b1-aa0e-4cdb-afc7-68c261351b06: SEO
-    95d9500b-4565-42ba-8b32-8b5d35cce988: Simple # Simple
-    98b2a516-26ac-4468-9bc3-e9cee9dfa84e: 'Externer Link' # Externer Link
-    98d4ede7-f0f5-4d3a-a6f9-2cea7b0e6879: 'Footer Page-Links' # Footer Page-Links
-    128bfcad-1210-4f5b-9c77-7879226f3b03: Einträge # Einträge
-    259f2b6f-1d36-47d5-b510-66874b9aecb7: 'Externer Link'
-    0260e672-8318-4f46-8b7f-13495afe4cdc: Website
-    345c1884-7a25-4c6b-bff3-66ed07f2ea61: Titel # Titel
-    349cbb2f-5db8-45ba-9173-3f7f48bc1410: Ueberschrift # Ueberschrift
-    404c48d1-4483-43bc-8e88-f152371ded7b: Backup # Backup
-    560a9039-5147-415f-b09f-63b981b322e0: Überschrift # Überschrift
-    616bfbfd-9844-4ba2-92fd-796c64648e17: Bild # Bild
-    0622a0a8-9e37-4095-9ddf-584ed698e37f: Einträge # Einträge
-    624f9c61-41cf-415f-85ca-ceb6d8f9a83d: 'Überschrift Subtitel' # Überschrift Subtitel
-    627cb0dd-50a9-4f45-9343-833f4890f7b4: 'Weitere Seiten'
-    679dec31-fb67-4d2c-b34d-4b0226058e14: 'Interner Link'
-    794c455f-b0be-4530-a615-0895e0a768f0: Slider
-    798b4561-7d0e-4592-bac2-3216ba76492a: 'Parameter 1'
-    916f53e6-cfcb-4206-89de-296b35a214c8: Snippet
-    917ab8fe-931c-43e5-b38a-edefbfa0c1b4: AmazonS3 # AmazonS3
-    1127e7f5-ef60-47ab-94a5-dd8b886f42d3: Videos # Videos
-    2344bfa1-a43e-4db0-981f-6e80e79e899d: 'Hero Titel' # Hero Titel
-    2357c45a-c960-4790-90ff-0bb669f324f6: Einstellungen
-    2930c147-82a9-446b-a01a-664eaa1bfa84: Bildergalerie # Bildergalerie
-    5020d47c-6d77-4c14-83d4-e06d56f361e5: 'Link zu Datei' # Link zu Datei
-    6970ee64-406d-4184-8984-cc1374928a8e: 'PDF-Suche Text' # PDF-Suche Text
-    7176cdd9-e4bc-4379-91f6-2e20206c2e0c: Direktlinks # Direktlinks
-    9678b216-d684-4e48-93fa-2b3bffaaf6ab: 'Interner Link' # Interner Link
-    40607c7b-957a-4237-9e1f-1d6d17f7d60a: 'Weitere Seiten Admin'
-    58440e27-90c0-4494-b274-3f44cda519d3: Titel # Titel
-    92406a9c-ac17-4f2e-893e-ce069161af2c: Bild # Bild
-    95260d8d-7d87-41b7-84ca-91d45b9509f7: Downloads # Downloads
-    0757097d-0b07-4aa8-bed5-06cf5b244668: 'SEO Titel'
-    816064d3-d5db-464f-9ffd-469b3024ef69: Einblenden # Einblenden
-    2102785e-2edc-4604-9719-1f22b1d23f49: News
-    8717462a-a45a-4a10-96cd-0ffcc079298b: 'Nicht Cachen'
-    24929697-0e8d-4ed4-8512-7abea5e4216d: Bild # Bild
-    25083746-02fc-49ff-9dc6-d3aaf7563e9d: 'Kontakt Fax'
-    25724904-0bda-4102-b3ec-74f0eece4fe8: Bild
-    74303777-5171-42e7-9a09-ef8fd282a994: 'Interner Link' # Interner Link
-    82134989-99a9-442a-aed5-68d86f6bc885: Website
-    a092deda-a14c-4caa-960d-75d86a761a55: Titel # Titel
-    a8e80506-9170-49e4-b0cb-36f8191138a0: Überschrift # Überschrift
-    a630426b-52d8-445f-b386-6f3a28f62c4b: 'Standard Seitenbild' # Standard Seitenbild
-    aa231d56-ca01-4165-8549-57d60cfe6150: Mac
-    ad6e8037-12ff-4dfc-97bd-3e2f732d7965: Bilder # Bilder
-    b2bc85de-745f-4093-82b7-87eb1f628e4e: Text # Text
-    b3c15db2-5a84-41f3-a434-78ceea771187: 'Externer Link' # Externer Link
-    b5dfecfa-162a-465a-b06b-7214d6bd2023: 'Weitere Seiten'
-    b7e20fa9-d088-4b3c-a482-03cd903a0c89: 'Kontakt Anschrift' # Kontakt Anschrift
-    b8a6e69d-0fc7-444f-aa06-93feee0fe1ca: Snippet
-    b12a3057-aac3-4ff3-9b13-d8f26e132c84: Titel # Titel
-    b21a3d71-0245-4b70-b036-9eae5b1e9fe2: Abstand # Abstand
-    b54cc664-0eaf-4bce-adaf-2b79d123b401: Bild # Bild
-    b723ee93-e593-410d-b251-381d3c1abc0a: Suchtext # Suchtext
-    b28809ae-11f1-49ed-a508-a0cb4b072c9d: marukka.ch # marukka.ch
-    b34620af-769b-4d5e-9958-6555ad7d535c: 'Page Links' # Page Links
-    bc59339c-4c1e-4324-90be-35a12da5a88b: Text # Text
-    be2f2ebf-8931-4040-9428-bf2a0fd0f4ff: SEO
-    c2fff9a0-daf2-40ad-b89a-7425a4299fc9: 'Weitere Seiten Admin'
-    c8f4d2d1-8e44-4ed5-ad71-73506c670ef6: 'Globale Inhalte'
-    c9c24988-2641-4d91-b378-1a3c4a4e3a77: Channelsections # Channelsections
-    c50a2f74-12e0-4394-978d-e05db19f60cc: 'Google Maps API Key'
-    c68d6234-6ee4-41cc-9e4b-13584dc90f40: 'Grossansicht aktivieren' # Grossansicht aktivieren
-    c80efeec-ab78-44c5-8ad9-dda528f6ee65: 'Link zu Datei' # Link zu Datei
-    c744c9d2-8b89-455a-a019-4f0841819072: Teaser # Teaser
-    cb8bee98-15c5-4500-b848-2ac881d2876a: Promo # Promo
-    cc53058b-4492-40b7-9107-0af16277db4c: Bilder # Bilder
-    d0074ff8-d4c0-4cd5-8ad5-a1eca5d98aa4: Funktion
-    d05588e9-5a8d-4db8-b6b7-a7afd2a70fd1: JS
-    d4ac8006-02a6-48e8-8ef2-0b9fef7b5879: 'Volle Breite' # Volle Breite
-    d6acffc1-d193-4daf-b4b2-360e421bd2c0: Author # Author
-    d6e5c6a6-2981-46be-93db-e23dcedb0348: Code # Code
-    d40ae449-4316-4da0-8f25-d26df6126954: Inhalte # Inhalte
-    d95c285e-a9d9-44c0-9a98-036604060c2e: Akzent # Akzent
-    d6769a94-236b-4c2d-8ac3-60829f57a458: marukka
-    da23dcb4-1f05-4cf7-9a6a-1857853be50e: 'Kontakt E-Mail'
-    daa1c929-54f4-4b76-84df-966faa2f8a38: Bild # Bild
-    dd97a1e3-7dc2-491c-8a1d-1107e7dfe304: 'Link Titel' # Link Titel
-    dd226522-f995-47b9-b99f-964e116604df: 'Craft Snippets'
-    df726f05-464b-4bb2-8006-4527f1826fc0: News
-    e0fc0795-c6a6-4577-b066-780f4b01a34f: 'Asset Alt Text' # Asset Alt Text
-    e4a5b0aa-98e1-4079-b51a-ec74ae9769d5: Standard # Standard
-    e287da6d-f1fa-4bda-a218-09ef55b0b790: Überschrift-Typ # Überschrift-Typ
-    e761fb0b-4ddb-4759-a6de-bf1b01b3c1b0: News
-    e5309fbb-db91-44b8-a762-b6d44f0b1c64: 'Call2Action Text' # Call2Action Text
-    eaabdac6-6dee-4788-b904-1fd108b5969d: Call-to-Action # Call-to-Action
-    eb03631a-406a-4306-84d4-045a77545259: Dateien # Dateien
-    ebdb16af-a216-4939-b1dd-e1adbf48f5a7: E-Mail
-    eefdf2e4-4d1e-432a-acde-94a0a284934b: Home # Home
-    f1d0041b-190b-482b-9ae0-f44d6e182231: Youtube-Video # Youtube-Video
-    f33de013-ea0f-4987-bf47-a46c866a1dcd: Text # Text
-    f99d370d-5eec-41fb-ab73-7deae21e2529: Paginierung # Paginierung
-    f320b043-0328-4166-8ff2-bb081cc24979: Zitat # Zitat
-    fb56ddca-dad7-471f-b4d0-3d33b80570fc: Home
-    fcc52ee4-a74c-4071-9807-70355cac35c3: Eintrag # Eintrag
-    fe020d09-b1c5-43ac-8145-603ef5b93212: Kategorie # Kategorie
+    0bd6f39a-8a83-4176-b700-63dc09530759: 'Asset Multiple' # Asset Multiple
+    1fde791c-5b81-4848-8272-220763aab4ab: 'Image Transform Settings' # Image Transform Settings
+    2f36fe93-1bac-402e-98fc-23484bbeb2f1: 'Time Field' # Time Field
+    2fca5307-2150-4616-a483-e9ab2b651f41: Code # Code
+    4c99201e-bd60-4a5e-87f9-81d9d5a11c72: Dokumente # Dokumente
+    5b91bdbb-68df-47b7-8504-7632345b3179: 'Formie Form' # Formie Form
+    6a6dd9ee-9dbe-4ae9-a8dc-041ecd0856a6: 'Entry Multi' # Entry Multi
+    6ce09d3f-cd70-4989-ac98-08175e68fd98: Snippets # Snippets
+    7ad563dc-e319-4149-904e-b585f6ac1579: 'DateTime Field' # DateTime Field
+    7b8e1a95-fe8d-4f7b-a076-d038cb896038: 'Featured snippet' # Featured snippet
+    18ecf1b0-c49a-4741-ae6e-f501ac0f465a: 'Dropdown Weather' # Dropdown Weather
+    64c5c27d-6223-499c-be94-db8e69932790: Snippet # Snippet
+    67cf8146-1ff9-4520-87bd-62a12a9d3cd1: Text # Text
+    73b39ecb-762f-47a7-ad41-a3dfe1ba7874: Image # Image
+    85f85a40-cd4f-48b5-a423-734415357d28: 'Text Plain' # Text Plain
+    279dd1e3-44f1-4b0a-9cfc-6c0610962f5f: 'Dynamischer Inhalt' # Dynamischer Inhalt
+    701f8135-e62f-4ceb-a5e2-79dd4a6eb0b3: 'Date Field' # Date Field
+    981bea9a-1412-4b19-a5c9-5207d750a5dd: Homepage # Homepage
+    2404a7cb-cf0f-44cf-ada1-97f948057ece: Akzent # Akzent
+    2837e505-1210-4d99-a8dd-4863087c0313: 'Text Plain Multiline' # Text Plain Multiline
+    3250b117-baec-4180-9974-0525088afb0f: 'Code language' # Code language
+    74397f93-8fdb-4cd2-8f11-80188142afca: Teaser # Teaser
+    310775e1-f428-4ab5-b744-4f70d26086b0: Icon # Icon
+    411212dd-77e8-4b50-8c33-740e672af331: 'Reading time (minutes)' # Reading time (minutes)
+    a7bbcedd-2697-4c44-bf73-eb3b121ba0b5: Kategorie # Kategorie
+    ae8eb40f-6869-4c5c-abe8-4b010ce02297: 'Integer Number' # Integer Number
+    b9ef3e7b-4801-46ea-812f-0ea59df3c294: Marukka # Marukka
+    b62679f3-d9f9-47bb-bbda-301f8db4d23b: Lightswitch # Lightswitch
+    bbe28086-8594-4a99-92d8-656ddc075b90: Category # Category
+    c260ff96-b881-4512-b95a-850551ad99c1: 'Colorbox Color' # Colorbox Color
+    c5239019-7106-48cb-be16-aadecab5d945: Homepage # Homepage
+    cfcb45f9-58e7-4f29-a1b9-c9b35b09d653: Marukka # Marukka
+    d404c91d-b956-4a8f-b251-aa9941d28d27: 'Box Typ' # Box Typ
+    d476e3c6-0e95-4e2a-8754-17ca56967b0a: Introduction # Introduction
+    d599099b-0a11-4aa3-a5f7-e3c90b05ca50: 'Teaser is code' # Teaser is code
+    daf4caa6-1386-425f-8e95-9b7809e58929: Categories # Categories
+    ddeb429e-c402-4413-b6cf-7e763937d9fe: 'Rich Text' # Rich Text
+    f8c0ad19-faf6-4d75-ba80-f2060891cc5a: 'Entry Single' # Entry Single
+    f801721c-6854-4c0a-89b4-6ce7103d919c: 'Content Matrix' # Content Matrix
+    fa068348-7c27-457e-bcc4-f472cdce08a2: 'Single Link' # Single Link
+    fa64a818-8fd7-4cf6-8254-c4dbe425f0a8: Bilder # Bilder
+    fc298b30-3e86-4ac0-beeb-f8e01262aa73: 'Asset Single' # Asset Single
 plugins:
-  aws-s3:
-    edition: standard
-    enabled: true
-    schemaVersion: '1.2'
-  buttonbox:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
-  contact-form:
-    schemaVersion: 1.0.0
-  contact-form-honeypot:
-    schemaVersion: 1.0.0
-  cp-css:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  cp-js:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  craft-emailobfuscator:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  craft-reporter:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.2.0
-    settings:
-      apiKey: BwVgxTme2NRnPgDt1ZrQz7WfimI1zf
-  craftnavigation:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  db-dump:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
-    settings:
-      key: kp0p9uozrifgqrenoimvp_lkqem$fs
-      revisions: '5'
-      source: '4'
-  default-dashboard:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  element-api:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  feed-me:
-    edition: standard
-    enabled: false
-    schemaVersion: 2.1.2
-  k4-image-optimizer:
-    schemaVersion: 1.0.0
-  k4-navigation:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.3.0
-  k4-notes:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  k4-poweradmin:
-    schemaVersion: 2.1.0
-  k4encodeemails:
-    edition: standard
-    enabled: true
-    schemaVersion: '2.3'
-  kint:
-    enabled: true
-    schemaVersion: 1.0.0
-  logs:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
-  matrixmate:
-    enabled: true
-    schemaVersion: 1.0.0
-  oembed:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.1
-  picture:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  preparse-field:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.5
-  redactor:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.3.0
-  redactor-custom-styles:
-    enabled: true
-    schemaVersion: 1.0.0
-  section-field:
-    edition: standard
-    enabled: true
-    schemaVersion: 0.0.1
+    schemaVersion: 5.6.0.0
   seomate:
+    edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  sherlock:
+  vite:
     edition: standard
     enabled: true
-    schemaVersion: 3.1.3
-    settings:
-      apiKey: bmorfmjuiwexliducdqmmaazwspzvedd
-      blowfishHashCost:
-        __assoc__:
-          -
-            - threshold
-            - 13
-      contentSecurityPolicy:
-        __assoc__:
-          -
-            - canFail
-            - true
-      contentSecurityPolicySettings:
-        __assoc__:
-          -
-            - enabled
-            - false
-          -
-            - enforce
-            - false
-          -
-            - header
-            - true
-          -
-            - directives
-            -
-              -
-                - 1
-                - default-src
-                - '''self'''
-      cooldownDuration:
-        __assoc__:
-          -
-            - threshold
-            - 300
-      cors:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      craftFilePermissions:
-        __assoc__:
-          -
-            - canFail
-            - true
-      craftFolderPermissions:
-        __assoc__:
-          -
-            - canFail
-            - true
-      craftFoldersAboveWebRoot:
-        __assoc__:
-          -
-            - canFail
-            - true
-      criticalCraftUpdates:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      criticalPluginUpdates:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      defaultDirMode:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 509
-      defaultFileMode:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 436
-      defaultTokenDuration:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 86400
-      devMode:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      elevatedSessionDuration:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 300
-      enableCsrfProtection:
-        __assoc__:
-          -
-            - canFail
-            - true
-      expectCT:
-        __assoc__:
-          -
-            - canFail
-            - true
-      headerProtectionSettings:
-        __assoc__:
-          -
-            - enabled
-            - false
-          -
-            - headers
-            -
-              -
-                - true
-                - Strict-Transport-Security
-                - max-age=31536000
-              -
-                - true
-                - X-Content-Type-Options
-                - nosniff
-              -
-                - true
-                - X-Frame-Options
-                - SAMEORIGIN
-              -
-                - true
-                - X-Xss-Protection
-                - '1; mode=block'
-      highSecurityLevel: '1'
-      httpsControlPanel:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      httpsFrontEnd:
-        __assoc__:
-          -
-            - canFail
-            - true
-      invalidLoginWindowDuration:
-        __assoc__:
-          -
-            - threshold
-            - 3600
-      maxInvalidLogins:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 5
-      monitor: false
-      notificationEmailAddresses: mischa@parhelia.ch
-      phpComposerVersion:
-        __assoc__:
-          -
-            - canFail
-            - true
-      phpVersion:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - thresholds
-            -
-              __assoc__:
-                -
-                  - '5.0'
-                  - '2005-09-05'
-                -
-                  - '5.1'
-                  - '2006-07-24'
-                -
-                  - '5.2'
-                  - '2011-01-06'
-                -
-                  - '5.3'
-                  - '2014-07-14'
-                -
-                  - '5.4'
-                  - '2015-09-03'
-                -
-                  - '5.5'
-                  - '2016-07-10'
-                -
-                  - '5.6'
-                  - '2018-12-31'
-                -
-                  - '7.0'
-                  - '2018-12-03'
-                -
-                  - '7.1'
-                  - '2019-12-01'
-                -
-                  - '7.2'
-                  - '2020-11-30'
-      preventUserEnumeration:
-        __assoc__:
-          -
-            - canFail
-            - true
-      referrerPolicy:
-        __assoc__:
-          -
-            - canFail
-            - true
-      rememberedUserSessionDuration:
-        __assoc__:
-          -
-            - threshold
-            - 12096004
-      requireEmailVerification:
-        __assoc__:
-          -
-            - canFail
-            - true
-      restrictControlPanelIpAddresses: ''
-      restrictFrontEndIpAddresses: ''
-      sanitizeSvgUploads:
-        __assoc__:
-          -
-            - canFail
-            - true
-      strictTransportSecurity:
-        __assoc__:
-          -
-            - canFail
-            - true
-      testToEmailAddress:
-        __assoc__:
-          -
-            - canFail
-            - true
-      translationDebugOutput:
-        __assoc__:
-          -
-            - canFail
-            - true
-      useSecureCookies:
-        __assoc__:
-          -
-            - canFail
-            - true
-      userSessionDuration:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 3600
-      verificationCodeDuration:
-        __assoc__:
-          -
-            - canFail
-            - true
-          -
-            - threshold
-            - 86400
-      webAliasInSiteBaseUrl:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      webAliasInVolumeBaseUrl:
-        __assoc__:
-          -
-            - forceFail
-            - true
-      xContentTypeOptions:
-        __assoc__:
-          -
-            - canFail
-            - true
-      xFrameOptions:
-        __assoc__:
-          -
-            - canFail
-            - true
-  sprout-notes:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-  template-select:
-    enabled: true
-    schemaVersion: 4.0.0
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
-  name: marukka.ch
-  schemaVersion: 4.5.3.0
-  timeZone: Europe/Zurich
+  name: Marukka
+  schemaVersion: 5.12.0.2
+  timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
-  deactivateByDefault: false
   defaultGroup: null
-  photoSubpath: ''
+  photoSubpath: null
   photoVolumeUid: null
+  require2fa: false
   requireEmailVerification: true

@@ -1,0 +1,14 @@
+columnSuffix: null
+handle: timeField
+instructions: null
+name: 'Time Field'
+searchable: false
+settings:
+  max: null
+  min: null
+  minuteIncrement: 15
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Time
+warning: null

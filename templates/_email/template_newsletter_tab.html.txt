@@ -1,6 +1,0 @@
-
-{{ email.subjectLine }}
-
-Bitte lesen Sie die E-Mail in einem Programm, das HTML E-Mail Nachrichten unterstützt. Besten Dank.
-
-Ihr TAB Aesch

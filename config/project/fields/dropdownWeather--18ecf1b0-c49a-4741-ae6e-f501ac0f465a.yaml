@@ -1,0 +1,64 @@
+columnSuffix: null
+handle: dropdownWeather
+instructions: null
+name: 'Dropdown Weather'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Aktuell
+        -
+          - value
+          - current
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Stündlich
+        -
+          - value
+          - fc-hourly
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '15 Minütlich'
+        -
+          - value
+          - fc-15min
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
+warning: null

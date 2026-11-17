@@ -1,0 +1,8 @@
+.site-footer {margin-top: var(--section-space); background: #8026b8; border-top: 1px solid #b452db;}
+.footer-main {display: flex; align-items: center; gap: clamp(28px, 5vw, 72px); padding-block: 34px;
+    & > p {border-left: 1px solid #c88fe2; padding-left: clamp(28px, 5vw, 72px); font-size: .85rem; line-height: 1.5;}
+    & nav {margin-left: auto; display: flex; gap: 26px; font-size: .75rem;}
+    & nav a:hover {text-decoration: underline;}
+}
+.footer-bottom {background: #2b1a4e; padding-block: 16px; color: #d4c7e8; font-size: .72rem;}
+@media (max-width: 700px) {.footer-main {flex-wrap: wrap; gap: 24px; & > p {font-size: .8rem; padding-left: 24px;} & nav {width: 100%; margin: 6px 0 0; flex-wrap: wrap;}}}

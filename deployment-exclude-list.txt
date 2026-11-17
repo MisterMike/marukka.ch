@@ -1,9 +1,20 @@
+.git/
+.github/
+node_modules/
+/vendor/
+_stashed/
 /.*
-/src/*
-!/src/plugins
+/src/css/*
+/src/fonts/*
+/src/js/*
+/src/favicon/*
 assets/img/*
-/storage/runtime/*
-/storage/logs/*
+# Server-owned files must survive rsync --delete.
+/storage/
+/config/license.key
+/web/uploads/
+/web/cpresources/
+/web/imager/
 bitbucket-pipelines.yml
 deployment-exclude-list.txt
 README.md

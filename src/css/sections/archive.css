@@ -1,0 +1,17 @@
+.archive-section, .topics-section {padding-block: 30px 24px;}
+.result-count {font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;}
+.archive-controls {display: flex; justify-content: space-between; align-items: start; gap: 20px; margin-block: 20px 30px;}
+.topic-filters {display: flex; flex-wrap: wrap; gap: 10px;}
+.sort-form {display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    & label {font-size: .7rem; text-transform: uppercase;}
+    & select {border: 1px solid var(--border); background: var(--color-navy); color: var(--color-ink); font-size: .75rem; padding: 8px 30px 8px 12px; min-height: 40px;}
+    & button {border: 1px solid var(--border); background: transparent; padding: 8px 12px; font-size: .73rem; min-height: 40px; &:hover {border-color: var(--color-magenta);}}
+}
+.pagination {display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 34px;
+    & a {display: grid; place-items: center; min-width: 44px; min-height: 42px; padding: 8px; border: 1px solid var(--border); font-size: .85rem;
+        &:hover {border-color: var(--color-magenta);}
+        &[aria-current] {background: var(--color-magenta); border-color: var(--color-magenta); color: #101123; font-weight: 700;}
+    }
+}
+@media (max-width: 1200px) {.archive-controls {flex-wrap: wrap;}}
+@media (max-width: 550px) {.topic-filters {gap: 8px;} .filter-button {font-size: .7rem; padding-inline: 12px;} .sort-form {width: 100%; & select {flex: 1;}}}

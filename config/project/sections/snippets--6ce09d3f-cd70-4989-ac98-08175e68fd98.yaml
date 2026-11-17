@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 64c5c27d-6223-499c-be94-db8e69932790 # Snippet
+handle: snippets
+maxAuthors: 1
+minAuthors: 1
+name: Snippets
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  cfcb45f9-58e7-4f29-a1b9-c9b35b09d653: # Marukka
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/article
+    uriFormat: 'snippets/{slug}'
+type: channel

@@ -1,79 +1,14 @@
-<header role="banner" aria-label="Site header" class="m-header" :class="{ 'header--hidden': !showHeader, 'menu-open': mainMenuOpen, 'level-2-open': secondLevelOpen, 'level-3-open': thirdLevelOpen }">
-    <div class="m-header__container l-container">
-
-        <a href="{{ siteUrl }}" title="{{ siteName }}" class="m-header__logo">
-            <img class="m-header__logo--img" src="{{ siteUrl }}/assets/layout/logo/logo_marukka-color-claim.svg">
-        </a>
-        <nav class="m-header__nav js-navigation">
-            <div class="m-header__nav--container">
-            <ul class="main-menu__list">
-                {{ mainNavigation|raw }}
-
-            </ul>
-            </div>
-{#             <div class="m-header__nav--cta--wrapper">
-                <a href="https://forestlab.partners/contact" class="button button--large button--outline header_main__nav-cta">Contact us</a>
-            </div> #}
-        <div class="m-header__search">
-            <form action="/suche" class="form__searchform">
-                <div class="m-header__search--wrapper" role="search">
-                    <label for="header-search">
-                        <span class="sr-only">Suche</span>
-                    </label>
-                    <input
-                        id="header-search"
-                        class="m-header__search--input"
-                        type="search"
-                        name="q"
-                        value=""
-                        placeholder="{{'Suchtext'|t}}">
-                    <button type="submit" class="m-header__search--submit">
-                        <span class="sr-only">Suche starten</span>
-                        <svg class="h-6 w-6 fill-current" height="23" viewBox="0 0 23 23" width="23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="m184.5 11c4.69442 0 8.5 3.8055796 8.5 8.5 0 1.6686108-.480803 3.2249241-1.311425 4.5379563l7.111783 7.1112709-2.828427 2.8284271-7.155045-7.1539028c-1.265233.7473846-2.740976 1.1762485-4.316886 1.1762485-4.69442 0-8.5-3.8055796-8.5-8.5s3.80558-8.5 8.5-8.5zm0 2c-3.589851 0-6.5 2.9101491-6.5 6.5s2.910149 6.5 6.5 6.5 6.5-2.9101491 6.5-6.5-2.910149-6.5-6.5-6.5z" fill="#464647" transform="translate(-176 -11)"></path></svg>
-                    </button>
-                </div>
+<header class="site-header" x-data="navigation" @keydown.escape.window="close(true)" @resize.window.debounce="onResize()" @keydown="trapFocus($event)" :role="open ? 'dialog' : null" :aria-modal="open ? 'true' : null" :aria-label="open ? 'Site navigation' : null">
+    <div class="site-shell header-inner">
+        {% include '_components/brand' %}
+        <button class="menu-toggle" type="button" x-ref="toggle" @click="toggle()" :aria-expanded="open" aria-controls="main-nav" aria-label="Open navigation" :aria-label="open ? 'Close navigation' : 'Open navigation'"><span x-text="open ? 'Close' : 'Menu'">Menu</span><span class="menu-icon">{% include '_components/icon' with {name: 'menu'} only %}</span><span class="close-icon">{% include '_components/icon' with {name: 'close'} only %}</span></button>
+        <div class="header-navigation" id="main-nav" :class="{'is-open': open}" x-ref="panel" @click="if ($event.target.closest('a')) close()">
+            <nav aria-label="Main navigation"><a href="{{ url('snippets') }}" {{ craft.app.request.pathInfo == 'snippets' ? 'aria-current="page"'|raw : '' }}>All snippets{% include '_components/icon' only %}</a>{% for category in categories %}<a href="{{ category.url }}" {% if craft.app.request.pathInfo == category.uri %}aria-current="page"{% endif %}>{{ category.title }}{% include '_components/icon' only %}</a>{% endfor %}</nav>
+            <form class="site-search" action="{{ url('search') }}" role="search" method="get">
+                <label class="sr-only" for="site-search">Search snippets</label>
+                <input id="site-search" type="search" name="q" placeholder="Search snippets…" maxlength="200" value="{{ craft.app.request.getQueryParam('q') is iterable ? '' : craft.app.request.getQueryParam('q') }}">
+                <button type="submit" aria-label="Search">{% include '_components/icon' with {name: 'search'} only %}</button>
             </form>
         </div>
-        </nav>
-
-{#         <div class="m-header__toggle" :aria-expanded="mainMenuOpen ? 'true' : 'false'" :aria-label="mainMenuOpen ? 'Menü schliessen' : 'Menü öffnen'" type="button" @click="toggle">
-            <div class="line line--one"></div>
-            <div class="line line--two"></div>
-            <div class="line line--three"></div>
-        </div> #}
-
-        <button type="button" class="m-header__toggle" :aria-label="mainMenuOpen ? 'Menü schliessen' : 'Menü öffnen'" @click="toggle">
-            <svg class="m-header__toggle--burger" enable-background="new 0 0 40 40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
-                    <path d="m2 8h36" class="first-line"></path>
-                    <path d="m2 20h36" class="second-line"></path>
-                    <path d="m2 32h36" class="third-line"></path>
-                </g>
-            </svg>
-            <span class="sr-only hidden">Close</span>
-        </button>
-
-{#        <div class="m-header__cta">#}
-{#            <a href="#}{# https://forestlab.partners/contact #}{#" class="button button--large button--outline">Kontakt</a>#}
-{#        </div>#}
-
     </div>
-
-    <div class="search-wrapper" id="search">
-    <div class="container container--contained container--searchform">
-      <form action="/search" class="form__searchform">
-            <label for="search-field" class="sr-only">Suchwort</label>
-            <input 
-                id="search-field" 
-                class="form__searchform--field" 
-                type="search" 
-                name="q" 
-                value="" 
-                placeholder="Ich suche…">
-            <button class="button form__searchform--button">Jetzt finden</button>
-        </form>
-    </div>
-  </div>
-  
 </header>
-

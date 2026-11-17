@@ -1,51 +1,8 @@
-{% set footerMetaPages = footerMetaLinks.pageLinks.all() %}
-{% set footerLinks = footerPageLinks.pageLinks.all() %}
-
-<footer class="m-footer">
-
-    <div class="l-container l-grid">
-        <div class="m-footer__brand">
-            {# <img class="footer__logo" src="{{ siteUrl }}/assets/layout/logo/logo_wg3l_2023_v3_white.svg"> #}
-            <svg class="footer__logo" enable-background="new 0 0 141.9 59.7" viewBox="0 0 141.9 59.7" xmlns="http://www.w3.org/2000/svg"><path d="m33.8 2.4-15.9 27.4h31.7z" fill="#f4f4f4"/><path d="m49.6 29.8-15.8 27.4h31.6z" fill="#dadada"/><path d="m17.9 29.8 15.9-27.4h-31.7z" fill="#fff"/><path d="m33.8 57.2 15.8-27.4h-31.7z" fill="#c4c6c5"/><path d="m70.6 2.4-15.8 27.4h31.6z" fill="#c4c6c5"/><path d="m86.4 29.8-15.8 27.4h31.6z" fill="#f4f4f4"/><path d="m54.8 29.8 15.8-27.4h-31.6z" fill="#dadada"/><path d="m70.6 57.2 15.8-27.4h-31.6z" fill="#fff"/><path d="m107.5 2.4-15.8 27.4h31.6z" fill="#f4f4f4"/><path d="m123.3 29.8-15.8 27.4h31.6z" fill="#dadada"/><path d="m91.7 29.8 15.8-27.4h-31.7z" fill="#fff"/><path d="m107.5 57.2 15.8-27.4h-31.6z" fill="#c4c6c5"/></svg>
-        </div>
-
-        <div class="m-footer__address">
-            <div class="m-footer__address--wrapper">
-                <h2 class="c-footer__address--title">Kontakt</h2>
-                <div class="c-footer__address--body">
-                    {{kontakt.kontaktanschrift}}
-                    <p>
-                        <a class="c-footer-menu--link" href="tel:{{kontakt.kontaktTelefon}}" rel="_none">{{kontakt.kontaktTelefon}}</a>
-                        <br>
-                        {{kontakt.kontaktEMail | encodeEmails}}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="m-footer__pages">
-            <ul class="c-footer-menu--links c-footer--toggle--body">
-                {% for page in footerLinks %}
-                    <li class="c-footer-menu--item"><a class="c-footer-menu--link" href="{{page.getUrl}}">{{page.title}}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
+<footer class="site-footer">
+    <div class="site-shell footer-main">
+        {% include '_components/brand' %}
+        <p>Small solutions.<br>Less time reinventing.</p>
+        <nav aria-label="Footer navigation"><a href="{{ url('snippets') }}">All snippets</a><a href="{{ url('topics') }}">Explore topics</a><a href="#main-content">Back to top ↑</a></nav>
     </div>
-
-    <div class="m-footer__lower">
-        <div class="l-container l-grid">
-            <div class="c-footer-lower-menu">
-                © 2023 {{siteName}}
-            </div>
-            <div class="c-footer-lower-meta">
-                <ul class="c-footer-lower-menu--list">
-                    {% for page in footerMetaPages %}
-                        <li class="c-footer-menu--item"><a class="c-footer-menu--link" href="{{page.getUrl}}">{{page.title}}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div class="footer-bottom"><div class="site-shell">© {{ now|date('Y') }} Marukka</div></div>
 </footer>
-
-

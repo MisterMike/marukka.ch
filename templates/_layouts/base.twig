@@ -1,90 +1,23 @@
-{% set devMode = craft.app.config.general.devMode %}
-{% set frontendDebug = craft.app.config.custom.debugFrontend %}
-{% set cacheTag = craft.app.config.custom.litespeedCacheTag %}
-{% set staticAssetsVersion = craft.app.config.custom.staticAssetsVersion %}
-
-{% if entry is not defined %}
-  {% set entry = craft.entries({
-    "uri": "__home__",
-  }).one() %}
-{% endif %}
-
-{% if entry.hero is defined and entry.hero|length > 0 %}
-  {% set hasHero = 1 %}
-{% else %}
-  {% set hasHero = 0 %}
-{% endif %}
-
- {% block cacheHeader %}
-   {% if not entry.nichtCachen|default(false) and not devMode and craft.app.request.getQueryParam("x-craft-live-preview")|length == 0 %}
-     {% header "X-LiteSpeed-Cache-Control:public,max-age=604800" %}
-     {% header "X-LiteSpeed-Tag: #{cacheTag}" %}
-   {% else %}
-     {% header "X-LiteSpeed-Cache-Control:no-cache" %}
-   {% endif %}
- {% endblock %}
-
-{% set flashNotice = craft.app.session.getFlash('notice') %}
-{% set flashError = craft.app.session.getFlash('error') %}
-
-{# spaceless#}
-
-{% if not selectedPath is defined %}
-  {% set selectedPath = craft.app.request.absoluteUrl %}
-{% endif %}
-
-{# Dieser Parameter ist beispielsweise für Team Sektion gedacht, einfach true setzen #}
-{% if not linkActiveBreadcrumbPath is defined %}
-  {% set linkActiveBreadcrumbPath = false %}
-{% endif %}
-
-{% set mainNavigation %}
-  {# Output Main-Navigation #}
-  {%- include "_macros/main-navigation" with { sectionName: 'website', cssClass: "main-menu__list" } -%}
-{% endset %} 
-
-{% set mainNavigation = mainNavigation | k4NavigationGetActivePath(selectedPath) %}
-
+{% set categories = categories ?? craft.entries.section('categories').with(['categoryImage']).orderBy('title asc').all() %}
+{% set pageTitle = pageTitle ?? (entry is defined and entry.section.handle != 'home' ? entry.title ~ ' — Marukka' : 'Marukka — Code snippets & practical solutions') %}
+{% set pageDescription = pageDescription ?? (entry.lead ?? 'Useful code snippets, practical solutions and technical notes for Craft CMS, Twig, CSS, Laravel, Mac and JavaScript.') %}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ craft.app.language|slice(0,2) }}">
-  
-  <head>
-
-    {% include '_includes/htmlhead' %}
-    
-    <link href="/assets/css/styles.min.css?v={{ staticAssetsVersion }}" rel="stylesheet" type="text/css">
-    
-  </head>
-
-{#   <body class="
-    {{ entry.type.handle|default('default') }}
-    {{ currentUser ? 'logged-in':'' }}
-    {{ devMode ? 'development':'' }}
-    " id="{{ entry.slug|default('normal') }}"
-  > #}
-
-  <body class="site__wrapper {{ currentUser ? 'logged-in':'' }} {{ frontendDebug ? 'development':'' }} {{hasHero ? 'has-hero':''}}" id="{{ craft.app.request.segments|last|default('home') }}">
-    <a href="#main-content" class="sr-skip-link"> {{'Skip to main content'|t}} </a>
-    <div id="app" class="page" >
-
-      <div class="loader" style="background: var(--colorPurpleDark);z-index: 999;position: fixed;top: 0;left: 0;width: 100%;max-width: 100vw;height: 100%;max-height: 100vh;display: flex;flex-direction: column;align-items: center;justify-content: center;transition: 400ms ease-in;">
-          <div class="loader__logo">
-              <svg style="opacity:.62" viewBox="0 0 141.9 59.7" xmlns="http://www.w3.org/2000/svg"><path d="m33.8 2.4-15.9 27.4h31.7z" fill="#f4f4f4"/><path d="m49.6 29.8-15.8 27.4h31.6z" fill="#dadada"/><path d="m17.9 29.8 15.9-27.4h-31.7z" fill="#fff"/><path d="m33.8 57.2 15.8-27.4h-31.7z" fill="#c4c6c5"/><path d="m70.6 2.4-15.8 27.4h31.6z" fill="#c4c6c5"/><path d="m86.4 29.8-15.8 27.4h31.6z" fill="#f4f4f4"/><path d="m54.8 29.8 15.8-27.4h-31.6z" fill="#dadada"/><path d="m70.6 57.2 15.8-27.4h-31.6z" fill="#fff"/><path d="m107.5 2.4-15.8 27.4h31.6z" fill="#f4f4f4"/><path d="m123.3 29.8-15.8 27.4h31.6z" fill="#dadada"/><path d="m91.7 29.8 15.8-27.4h-31.7z" fill="#fff"/><path d="m107.5 57.2 15.8-27.4h-31.6z" fill="#c4c6c5"/></svg>
-          </div>
-      </div>
-
-      {%- include "_includes/header" -%}
-
-      {% block content %}
-      {% endblock %}
-
-      {%- include '_includes/footer' -%}
-
-     </div>
-
-    {%- include '_includes/scripts' -%}
-
-  </body>
-  
+<html lang="{{ craft.app.language|slice(0, 2) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071e2b">
+    <title>{{ pageTitle }}</title>
+    {% set seomate = {canonicalUrl: canonicalUrl ?? craft.app.request.absoluteUrl, meta: {title: pageTitle, description: pageDescription, 'og:title': pageTitle, 'twitter:title': pageTitle, 'og:description': pageDescription, 'twitter:description': pageDescription}} %}
+    {% hook 'seomateMeta' %}
+    {% if craft.app.config.general.disallowRobots %}<meta name="robots" content="noindex, nofollow">{% elseif noindex ?? false %}<meta name="robots" content="noindex, follow">{% endif %}
+    <link rel="icon" href="{{ url('assets/brand-mark.svg') }}" type="image/svg+xml">
+    {{ craft.vite.script('src/js/app.js', false) }}
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {% include '_includes/header' with {categories: categories} only %}
+    <main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+    {% include '_includes/footer' %}
+</body>
 </html>
-{# endspaceless #}

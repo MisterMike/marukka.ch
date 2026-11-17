@@ -1,0 +1,1 @@
+<div class="empty-state"><h3>{{ title ?? 'The next useful solution starts here.' }}</h3><p>{{ description ?? 'New snippets and technical notes will appear here as they are published.' }}</p>{% if reset ?? false %}<a class="text-link" href="{{ url('snippets') }}">Browse all snippets {% include '_components/icon' only %}</a>{% endif %}</div>

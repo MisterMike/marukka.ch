@@ -1,0 +1,28 @@
+{% extends '_layouts/base' %}
+{% set activeCategory = activeCategory ?? null %}
+{% set rawSearch = craft.app.request.getQueryParam('q', '') %}
+{% set search = rawSearch is iterable ? '' : rawSearch|trim|slice(0, 200) %}
+{% set sort = craft.app.request.getQueryParam('sort', 'newest') %}
+{% set sort = sort in ['newest', 'oldest', 'title'] ? sort : 'newest' %}
+{% set sorting = {newest: 'postDate desc, id desc', oldest: 'postDate asc, id asc', title: 'title asc, id asc'} %}
+{% set query = craft.entries.section('snippets').with(['kategorie']).orderBy(sorting[sort]) %}
+{% if activeCategory %}{% do query.relatedTo({targetElement: activeCategory, field: 'kategorie'}) %}{% endif %}
+{% if search %}{% do query.search(search) %}{% endif %}
+{% paginate query.limit(12) as pageInfo, articles %}
+{% if craft.app.request.pageNum > max(1, pageInfo.totalPages) %}{% redirect (activeCategory ? activeCategory.url : url('snippets')) 302 %}{% endif %}
+{% set pageTitle = (search ? 'Search: ' ~ search : (activeCategory ? activeCategory.title ~ ' snippets' : 'All code snippets')) ~ ' — Marukka' %}
+{% set noindex = search != '' %}
+{% set canonicalUrl = activeCategory ? activeCategory.url : url('snippets') %}
+{% if pageInfo.currentPage > 1 %}{% set canonicalUrl = pageInfo.getPageUrl(pageInfo.currentPage) %}{% endif %}
+{% block content %}
+    {% include '_components/hero' with {compact: true, breadcrumb: activeCategory ? activeCategory.title : 'All topics', title: search ? 'Search results' : (activeCategory ? activeCategory.title ~ ' Code Snippets' : 'Code Snippets & Tech Notes'), description: search ? 'Results for “' ~ search ~ '”' : (activeCategory.lead ?? 'Practical examples, useful patterns and solutions to everyday development problems.'), actions: false} only %}
+    <section class="site-shell archive-section" aria-labelledby="archive-heading">
+        <div class="section-heading"><h2 id="archive-heading">{{ activeCategory ? 'Browse ' ~ activeCategory.title ~ ' snippets' : 'Browse all snippets' }}</h2><span class="result-count">{{ pageInfo.total }} {{ pageInfo.total == 1 ? 'snippet' : 'snippets' }}</span></div>
+        <div class="archive-controls">
+            <nav class="topic-filters" aria-label="Filter by topic"><a class="filter-button" href="{{ url('snippets', {q: search, sort: sort}) }}" {% if not activeCategory %}aria-current="page"{% endif %}>All topics</a>{% for category in categories %}<a class="filter-button" href="{{ url(category.url, {q: search, sort: sort}) }}" {% if activeCategory and activeCategory.id == category.id %}aria-current="page"{% endif %}>{{ category.title }}</a>{% endfor %}</nav>
+            <form class="sort-form" method="get" action="{{ activeCategory ? activeCategory.url : url('snippets') }}"><input type="hidden" name="q" value="{{ search }}"><label for="snippet-sort">Sort</label><select name="sort" id="snippet-sort"><option value="newest" {{ sort == 'newest' ? 'selected' : '' }}>Newest first</option><option value="oldest" {{ sort == 'oldest' ? 'selected' : '' }}>Oldest first</option><option value="title" {{ sort == 'title' ? 'selected' : '' }}>Title A–Z</option></select><button type="submit">Apply</button></form>
+        </div>
+        {% if articles|length %}<div class="snippet-grid grid gap-5 md:grid-cols-2 lg:grid-cols-3">{% for article in articles %}{% include '_components/snippet-card' with {article: article} only %}{% endfor %}</div>{% else %}{% include '_components/empty-state' with {title: search ? 'No matching snippets yet.' : 'No snippets published here yet.', description: search ? 'Try another search or browse all topics.' : 'This collection will grow as new notes and solutions are published.', reset: search != '' or activeCategory != null} only %}{% endif %}
+        {% include '_components/pagination' with {pageInfo: pageInfo} only %}
+    </section>
+{% endblock %}

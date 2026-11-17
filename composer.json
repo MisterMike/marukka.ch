@@ -1,92 +1,91 @@
 {
-    "require": {
-        "besteadfast/craft-preparse-field": "2.0.2",
-        "carlcs/craft-redactorcustomstyles": "4.0.3",
-        "charliedev/section-field": "2.0",
-        "craftcms/ckeditor": "3.7.3",
-        "craftcms/cms": "^5.0.0",
-        "craftcms/element-api": "3.0.1.1",
-        "furbo/cache-builder": "^1.0",
-        "k4/k4-cache-warmer": "^2.0",
-        "k4/k4-complianz": "^2.0",
-        "k4/k4-forms": "^2.0",
-        "k4/k4-healthcheck": "^2.0",
-        "k4/k4-notes": "^4.0",
-        "k4/k4encodeemails": "^2.3",
-        "k4/k4navigation": "^3.0",
-        "nystudio107/craft-autocomplete": "^1.0",
-        "statikbe/craft-config-values": "2.0.2",
-        "studioespresso/craft-dumper": "3.0.1",
-        "superbig/craft3-templateselect": "^3.0",
-        "symfony/translation-contracts": "^2.4",
-        "vaersaagod/assetmate": "^2.1",
-        "vaersaagod/matrixmate": "2.1.4",
-        "vaersaagod/seomate": "2.2.0",
-        "verbb/buttonbox": "4.2.0",
-        "verbb/kint": "^3.1",
-        "vlucas/phpdotenv": "^5",
-        "voku/portable-utf8": "6.0.13",
-        "webdna/qrcode": "^2.0",
-        "wrav/oembed": "3.0.7",
-        "yiisoft/yii2-shell": "^2.0"
+  "description": "Marukka.ch",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "project"
+  ],
+  "license": "MIT",
+  "homepage": "https://craftcms.com/",
+  "type": "project",
+  "support": {
+    "email": "support@craftcms.com",
+    "issues": "https://github.com/craftcms/cms/issues",
+    "forum": "https://craftcms.stackexchange.com/",
+    "source": "https://github.com/craftcms/cms",
+    "docs": "https://craftcms.com/docs",
+    "rss": "https://craftcms.com/changelog.rss"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "craftcms/ckeditor": "^5.0",
+    "craftcms/cms": "^5.10.0",
+    "miranj/craft-obfuscator": "^1.2.0",
+    "nystudio107/craft-vite": "^5.0.1",
+    "studioespresso/craft-dumper": "^5.0.1",
+    "superbig/craft-mjml": "^5.0",
+    "vaersaagod/seomate": "^3.3.1",
+    "verbb/kint": "^4.0",
+    "vlucas/phpdotenv": "^5.6.0"
+  },
+  "require-dev": {
+    "craftcms/generator": "^2.0.0",
+    "nystudio107/craft-autocomplete": "^1.12",
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "config": {
+    "allow-plugins": {
+      "craftcms/plugin-installer": true,
+      "php-http/discovery": true,
+      "yiisoft/yii2-composer": true
     },
-    "require-dev": {
-        "craftcms/generator": "^1.4"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "modules\\k4pdfextractormodule\\": "modules/k4pdfextractormodule/src/",
-            "modules\\k4twigextensionsmodule\\": "modules/k4twigextensionsmodule/src/",
-            "modules\\k4sitemodule\\": "modules/k4sitemodule/src/",
-            "modules\\": "modules/"
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "8.2"
-        },
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true,
-            "craftcms/plugin-installer": true
-        }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://bitbucket.org/kreisvierdigital/k4notes.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://bitbucket.org/kreisvierdigital/k4cachewarmer.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://bitbucket.org/kreisvierdigital/k4forms.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://bitbucket.org/kreisvierdigital/k4complianz.git"
-        },
-        {
-            "type": "path",
-            "url": "./src/plugins/*",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "composer",
-            "url": "https://composer.craftcms.com",
-            "canonical": false
-        }
-    ],
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.2"
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "scripts": {
+    "craft-update": [
+      "@pre-craft-update",
+      "@post-craft-update"
+    ],
+    "pre-craft-update": [],
+    "post-craft-update": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php craft install/check && php craft clear-caches/all --interactive=0 || exit 0",
+      "@php craft install/check && php craft up --interactive=0 || exit 0"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php craft setup/welcome"
+    ],
+    "pre-update-cmd": "@pre-craft-update",
+    "pre-install-cmd": "@pre-craft-update",
+    "post-update-cmd": "@post-craft-update",
+    "post-install-cmd": "@post-craft-update"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./src/plugins/*",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
+    }
+  ]
 }

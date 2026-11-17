@@ -1,0 +1,38 @@
+columnSuffix: null
+handle: contentMatrix
+instructions: null
+name: 'Content Matrix'
+searchable: false
+settings:
+  createButtonLabel: 'Element hinzufügen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 67cf8146-1ff9-4520-87bd-62a12a9d3cd1 # Text
+    -
+      __assoc__:
+        -
+          - uid
+          - 2fca5307-2150-4616-a483-e9ab2b651f41 # Code
+    -
+      __assoc__:
+        -
+          - uid
+          - 73b39ecb-762f-47a7-ad41-a3dfe1ba7874 # Image
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+tip: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
+warning: null

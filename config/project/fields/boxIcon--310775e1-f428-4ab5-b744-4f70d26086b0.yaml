@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: boxIcon
+instructions: null
+name: Icon
+searchable: false
+settings:
+  fullGraphqlData: false
+  iconSets:
+    - fontawesome
+  includeProIcons: false
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Icon
+warning: null

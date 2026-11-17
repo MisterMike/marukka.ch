@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: bbe28086-8594-4a99-92d8-656ddc075b90 # Category
+handle: categories
+maxAuthors: 1
+minAuthors: 1
+name: Categories
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  cfcb45f9-58e7-4f29-a1b9-c9b35b09d653: # Marukka
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/category
+    uriFormat: 'topics/{slug}'
+type: channel

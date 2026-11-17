@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: dynamicInclude
+instructions: null
+name: 'Dynamischer Inhalt'
+searchable: false
+settings:
+  errorMessage: 'Unable to find component class ''superbig\templateselect\fields\TemplateSelectField''.'
+  expectedType: superbig\templateselect\fields\TemplateSelectField
+  settings:
+    __assoc__:
+      -
+        - friendlyOptionValues
+        - true
+      -
+        - limitToSubfolder
+        - _dynamic
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField
+warning: null

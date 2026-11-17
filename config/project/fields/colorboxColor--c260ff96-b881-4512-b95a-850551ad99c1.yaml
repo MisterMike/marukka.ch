@@ -1,0 +1,115 @@
+columnSuffix: null
+handle: colorboxColor
+instructions: null
+name: 'Colorbox Color'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Grün
+        -
+          - value
+          - green
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#4c9d2f'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Hellgrün
+        -
+          - value
+          - lightgreen
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#e9fcc7'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Dunkelgrün
+        -
+          - value
+          - darkgreen
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#115740'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Rot
+        -
+          - value
+          - red
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#be3d4e'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Gelb
+        -
+          - value
+          - yellow
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#fff176'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Schwarz
+        -
+          - value
+          - black
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#2e2e2e'
+        -
+          - default
+          - ''
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
+warning: null

@@ -1,0 +1,1 @@
+<section class="article-code">{% if block.title %}<h2>{{ block.title }}</h2>{% endif %}{% include '_components/code-preview' with {code: block.code ?? '', language: block.language ?? 'plaintext'} only %}</section>

@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: formieForm
+instructions: null
+name: 'Formie Form'
+searchable: false
+settings:
+  errorMessage: 'Unable to find component class ''verbb\formie\fields\Forms''.'
+  expectedType: verbb\formie\fields\Forms
+  settings:
+    __assoc__:
+      0:
+        - allowSelfRelations
+        - false
+      2:
+        - defaultPlacement
+        - end
+      3:
+        - maintainHierarchy
+        - false
+      4:
+        - maxRelations
+        - 1
+      5:
+        - minRelations
+        - 1
+      7:
+        - showSearchInput
+        - true
+      8:
+        - showSiteMenu
+        - false
+      9:
+        - sources
+        - '*'
+      11:
+        - validateRelatedElements
+        - false
+      12:
+        - viewMode
+        - list
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField
+warning: null

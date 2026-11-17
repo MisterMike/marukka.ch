@@ -1,0 +1,20 @@
+@theme {
+    --color-navy: #071e2b;
+    --color-magenta: #f72eb5;
+    --color-violet: #8426bd;
+    --color-ink: #f4f3fc;
+    --font-sans: "Manrope", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+}
+:root {
+    color-scheme: dark;
+    --surface: #0b2332;
+    --surface-code: #1b1932;
+    --muted: #bac5d6;
+    --border: #68758e;
+    --border-subtle: #344b60;
+    --page-width: 1280px;
+    --page-gutter: clamp(20px, 4.8vw, 64px);
+    --section-space: clamp(36px, 4vw, 60px);
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+}

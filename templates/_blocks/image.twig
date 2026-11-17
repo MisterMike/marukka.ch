@@ -1,0 +1,1 @@
+{% set image = block.image.one() %}{% if image %}<figure class="article-image"><img src="{{ image.getUrl({width: 1400}) }}" alt="{{ block.caption ?: (image.alt ?? '') }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy" decoding="async">{% if block.caption %}<figcaption>{{ block.caption }}</figcaption>{% endif %}</figure>{% endif %}

@@ -1,0 +1,18 @@
+columnSuffix: null
+handle: teaser
+instructions: 'A short excerpt or manually selected code. Independent of article content.'
+name: Teaser
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: modules\sitemodule\fields\WhitespaceText
+warning: null

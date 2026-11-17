@@ -1,0 +1,98 @@
+columnSuffix: null
+handle: boxTyp
+instructions: null
+name: 'Box Typ'
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Avocado
+        -
+          - value
+          - avocado
+        -
+          - icon
+          - circle-info
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Grün
+        -
+          - value
+          - green
+        -
+          - icon
+          - circle-check
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Rot
+        -
+          - value
+          - red
+        -
+          - icon
+          - circle-xmark
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Gelb
+        -
+          - value
+          - yellow
+        -
+          - icon
+          - circle-exclamation
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Dunkelgrün
+        -
+          - value
+          - darkgreen
+        -
+          - icon
+          - circle-question
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Weiss (gerahmt)'
+        -
+          - value
+          - white
+        -
+          - icon
+          - comment-lines
+        -
+          - default
+          - ''
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup
+warning: null

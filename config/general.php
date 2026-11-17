@@ -6,49 +6,44 @@
  * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
  *
  * @see \craft\config\GeneralConfig
+ * @link https://craftcms.com/docs/5.x/reference/config/general.html
  */
 
 use craft\config\GeneralConfig;
 use craft\helpers\App;
 
-$isDev = App::env('ENVIRONMENT') === 'dev';
-$isProd = App::env('ENVIRONMENT') === 'production';
+$environment = App::env('CRAFT_ENVIRONMENT') ?? App::env('ENVIRONMENT');
+$isDev = $environment === 'dev';
+$isProd = $environment === 'production';
 
 return GeneralConfig::create()
-    // Craft config settings from .env variables
-    ->aliases([
-        '@web' => App::env('PRIMARY_SITE_URL'),
-        '@webroot' => App::env('WEB_ROOT_PATH'),
-        '@assetsUrl' => App::env('PRIMARY_SITE_URL').'/assets',
-        '@assetsRootUrl' => App::env('WEB_ROOT_PATH').'/assets'
-    ])
-    ->allowUpdates(App::env('ALLOW_UPDATES'))
-    ->devMode($isDev)
-    ->cpTrigger(App::env('CP_TRIGGER') ?: 'admin')
+    // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
     ->defaultWeekStartDay(1)
-    ->enableTemplateCaching(!$isDev)
-    ->securityKey(App::env('SECURITY_KEY'))
-    ->limitAutoSlugsToAscii(true)
+    // Prevent generated URLs from including "index.php"
+    ->omitScriptNameInUrls()
+    // Preload Single entries as Twig variables
+    ->preloadSingles()
+    // Prevent user enumeration attacks
+    ->preventUserEnumeration()
+    // Front-end member accounts: email is the login identifier, no separate
+    // username field
+    ->useEmailAsUsername()
+    // Front-end account (templates/_konto). Login, registration and
+    // "Passwort vergessen" are entries of the Benutzerkonto section; the
+    // other pages are routes in config/routes.php. Paths without a
+    // leading slash.
+    // Links in the account emails
+    ->autoLoginAfterAccountActivation()
 
-    // Craft config settings from constants
-    ->cacheDuration(false)
-    ->defaultSearchTermOptions([
-        'subLeft' => true,
-        'subRight' => true,
-    ])
-    ->defaultTokenDuration('P2W')
-    ->enableCsrfProtection(true)
-    ->errorTemplatePrefix('_errors/')
-    ->maxUploadFileSize('100M')
-    ->extraFileKinds([
-        'text' => [
-            'extensions' => ['csv'],
-        ],
-    ])
-    ->generateTransformsBeforePageLoad(!$isDev)
-    ->maxCachedCloudImageSize(3000)
-    ->maxUploadFileSize('100M')
-    ->omitScriptNameInUrls(true)
-    ->useEmailAsUsername(true)
+    ->devMode($isDev)
     ->disallowRobots(!$isProd)
-    ->usePathInfo(true);
+    ->enableTemplateCaching($isProd)
+
+    // Set the @webroot alias so the clear-caches command knows where to find CP resources
+    ->aliases([
+        '@webroot' => dirname(__DIR__) . '/web',
+        '@assetsRootUrl' => dirname(__DIR__) . '/web/assets',
+        '@assetsUrl' => App::env('PRIMARY_SITE_URL').'/assets',
+    ])
+
+;

@@ -1,21 +1,3 @@
-{%- set prevType = null -%}
-{%- set nextType = null -%}
-
-{%- for i, block in blocks -%}
-
-  {% set type = (nextType ?: block.type.handle) %}
-  {% set nextType = (not loop.last ? blocks[i+1].type.handle) %}
-
-  {# set variable, if spalten are being used #}
-  {% if block.type == "spalten" %}
-    {% set rowCounter = ( rowCounter | default(0) ) + 1 %}
-  {% endif %}
-
-  {%- include [
-    '_components/' ~ block.type.handle,
-    '_components/default',
-  ] -%}
-
-  {%- set prevType = type -%}
-
-{%- endfor -%}
+{% for component in components %}
+    {% include ['_blocks/' ~ component.type.handle ~ '.twig', '_blocks/default.twig'] with {block: component} only %}
+{% endfor %}

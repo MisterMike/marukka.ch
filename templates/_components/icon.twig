@@ -1,0 +1,9 @@
+{% set name = name ?? 'arrow' %}
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true" focusable="false">
+{% if name == 'search' %}<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>
+{% elseif name == 'menu' %}<path d="M3 6h18M3 12h18M3 18h18"/>
+{% elseif name == 'close' %}<path d="m5 5 14 14M5 19 19 5"/>
+{% elseif name == 'copy' %}<rect x="8" y="8" width="12" height="12"/><path d="M15 4H4v11"/>
+{% elseif name == 'chevron' %}<path d="m6 9 6 6 6-6"/>
+{% else %}<path d="M3 12h17m-6-6 6 6-6 6"/>{% endif %}
+</svg>
