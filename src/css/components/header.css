@@ -34,8 +34,8 @@
     gap: 28px; 
     align-items: center; 
     justify-content: space-between; 
-    border-left: 1px solid #c78bdf; p
-    adding-left: clamp(20px, 3vw, 44px);
+    border-left: 1px solid #c78bdf; 
+    padding-left: clamp(20px, 3vw, 44px);
 
     & nav {
         display: flex; align-items: center; gap: clamp(14px, 2vw, 28px);
