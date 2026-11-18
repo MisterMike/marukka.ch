@@ -1,0 +1,20 @@
+{# =========================================================================
+   Info Box
+   Highlights an informational note or warning inside Matrix content.
+   ========================================================================= #}
+
+{% set style = block.infoBoxStyle.value ?? 'solid' %}
+{% set variants = {
+    solid: 'info-box--solid',
+    outlined: 'info-box--outlined',
+} %}
+{% set classes = collect({
+    component: 'info-box',
+    variant: variants[style] ?? variants.solid,
+}) %}
+{% set headingId = 'info-box-heading-' ~ block.id %}
+
+<aside class="{{ classes.implode(' ') }}" aria-labelledby="{{ headingId }}">
+    <p class="info-box__heading" id="{{ headingId }}">{{ block.title }}</p>
+    <div class="info-box__content">{{ block.richText }}</div>
+</aside>

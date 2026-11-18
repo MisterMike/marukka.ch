@@ -1,21 +1,113 @@
-.site-header {position: relative; z-index: 20; background: #8028af; border-bottom: 1px solid #bf87e2;}
-.header-inner {display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); min-height: 64px;}
-.brand {display: inline-flex; align-items: center; gap: 14px; flex-shrink: 0; font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; line-height: 1;
-    & img {width: 48px; height: 25px;}
+.site-header {
+    position: relative; 
+    z-index: 20; 
+    background: #8028af; 
+    border-bottom: 1px solid #bf87e2;
 }
-.header-navigation {display: flex; flex: 1; gap: 28px; align-items: center; justify-content: space-between; border-left: 1px solid #c78bdf; padding-left: clamp(20px, 3vw, 44px);
-    & nav {display: flex; align-items: center; gap: clamp(14px, 2vw, 28px);}
-    & nav .icon {display: none;}
-    & nav a {white-space: nowrap; font-size: .8rem; font-weight: 700; padding-block: 8px; position: relative;
-        &::after {content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--color-magenta); transition: right 180ms var(--ease-out);}
-        &:hover::after, &[aria-current]::after {right: 0;}
+
+.header-inner {
+    display: flex; 
+    align-items: center; 
+    gap: clamp(20px, 3vw, 44px); 
+    min-height: 64px;
+}
+
+.brand {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 14px; 
+    flex-shrink: 0; 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    letter-spacing: -.02em; 
+    line-height: 1;
+
+    & img {
+        width: 169px; 
+        height: 25px;
     }
-    & form {position: relative; flex: 0 1 210px; min-width: 140px;}
-    & input {width: 100%; border: 1px solid #d0acd9; background: transparent; padding: 7px 40px 7px 12px; font-size: .8rem; color: white; &::placeholder {color: #eedcf7;}}
-    & form button {position: absolute; inset: 0 0 0 auto; width: 38px; background: transparent; border: 0; display: grid; place-items: center;}
 }
-.menu-toggle {display: none; border: 1px solid #cf9ce1; background: transparent; width: 44px; height: 44px; place-items: center;}
+
+.header-navigation {
+    display: flex; 
+    flex: 1; 
+    gap: 28px; 
+    align-items: center; 
+    justify-content: space-between; 
+    border-left: 1px solid #c78bdf; p
+    adding-left: clamp(20px, 3vw, 44px);
+
+    & nav {
+        display: flex; align-items: center; gap: clamp(14px, 2vw, 28px);
+    }
+
+    & nav .icon {
+        display: none;
+    }
+
+    & nav a {
+        white-space: nowrap; 
+        font-size: .8rem; 
+        font-weight: 700; 
+        padding-block: 8px; 
+        position: relative;
+
+        &::after {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            right: 100%; 
+            bottom: 0; 
+            height: 2px; 
+            background: var(--color-magenta); 
+            transition: right 180ms var(--ease-out);
+        }
+
+        &:hover::after, &[aria-current]::after {
+            right: 0;
+        }
+    }
+
+    & form {
+        position: relative; 
+        flex: 0 1 210px; 
+        min-width: 140px;
+    }
+
+    & input {
+        width: 100%; 
+        border: 1px solid #d0acd9; 
+        background: transparent; 
+        padding: 7px 40px 7px 12px; 
+        font-size: .8rem; 
+        color: white; 
+
+        &::placeholder {
+            color: #eedcf7;
+        }
+    }
+
+    & form button {
+        position: absolute; 
+        inset: 0 0 0 auto; 
+        width: 38px; 
+        background: transparent; 
+        border: 0; 
+        display: grid; 
+        place-items: center;
+    }
+}
+.menu-toggle {
+    display: none; 
+    border: 1px solid #cf9ce1; 
+    background: transparent; 
+    width: 44px; 
+    height: 44px; 
+    place-items: center;
+}
+
 @media (max-width: 1180px) {.header-navigation nav {gap: 14px;} .header-navigation nav a {font-size: .73rem;} .header-inner {gap: 20px;} .header-navigation {padding-left: 20px; gap: 20px;}}
+
 /* The panel is a fixed viewport overlay on mobile, independent of header height. */
 @media (max-width: 1000px) {
     html.mobile-menu-open, html.mobile-menu-open body {overflow: hidden;}
@@ -45,4 +137,9 @@
         & .menu-toggle {display: none;}
     }
 }
-@keyframes menu-reveal {from {opacity: 0; transform: translateY(-8px);} to {opacity: 1; transform: translateY(0);}}
+
+@keyframes menu-reveal {
+    from {opacity: 0; transform: translateY(-8px);} 
+    to {opacity: 1; transform: translateY(0);}
+}
+
