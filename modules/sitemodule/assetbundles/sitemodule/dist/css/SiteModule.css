@@ -13,20 +13,23 @@
 
 /* Login background color */
 body.login {
-    background: #87A922;
+    /* Match src/css/base/variables.css and components/buttons.css.
+       The control panel does not load the frontend stylesheet. */
+    --login-navy: #071e2b;
+    --login-magenta: #f72eb5;
+    --login-magenta-hover: #ff74cf;
+    --login-violet: #8426bd;
+    --login-button-text: #101123;
+    background: var(--login-navy);
     overflow: hidden;
 }
 
-body.login header {
-    align-items: center;
-    background: rgba(255,255,255, 0.15);
-    border-block-end: none;
-    justify-content: center;
+header:has(.system-login) {
+    display: none;
 }
 
-body.login header a{
-    align-items: center;
-    margin: 0 auto;
+body.login header {
+    display: none;
 }
 
 body.login .login-container {
@@ -55,8 +58,9 @@ body.login .login-container .pane{
 }
 
 /* login button */
-form.login-form .btn.submit {
-background-color: #87A922 !important;
+body.login form.login-form .btn.submit {
+    background-color: var(--login-magenta) !important;
+    color: var(--login-button-text);
 border-radius: 0;
 }
 
@@ -74,8 +78,8 @@ form.login-form .passwordwrapper {
     border-radius: 0;
 }
 
-form.login-form .passwordwrapper .password-toggle {
-    color: #114232;
+body.login form.login-form .passwordwrapper .password-toggle {
+    color: var(--login-violet);
     font-size: 80%;
 }
 
@@ -85,10 +89,10 @@ form.login-form .passwordwrapper .password-toggle {
 }
 
 /* login button active states */
-.btn.submit:not(.disabled):not(.inactive):not(.loading).hover,
-.btn.submit:not(.disabled):not(.inactive):not(.loading):focus,
-.btn.submit:not(.disabled):not(.inactive):not(.loading):hover {
-background-color: #114232!important;
+body.login .btn.submit:not(.disabled):not(.inactive):not(.loading).hover,
+body.login .btn.submit:not(.disabled):not(.inactive):not(.loading):focus,
+body.login .btn.submit:not(.disabled):not(.inactive):not(.loading):hover {
+    background-color: var(--login-magenta-hover) !important;
 }
 
 /* customer logo */
@@ -125,7 +129,7 @@ body.login h1{
 
 body.login::after {
     content: "";
-    background: url(/assets/layout/install-bg-1920.png) no-repeat 50% 40%;
+    background: url(/assets/template/install-bg-1920.png) no-repeat 50% 40%;
     background-size: cover;
     opacity: 0.17;
     top: 0;
@@ -142,14 +146,14 @@ body.login main {
 
 
 
-input:-webkit-autofill, input:-webkit-autofill:focus {
+body.login input:-webkit-autofill, body.login input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px white inset;
   -webkit-text-fill-color: #6f6f6f!important;
 }
 
 body.login > form#login-form input:focus {
     outline-style: solid;
-    outline-color: #997e69;
+    outline-color: var(--login-violet);
 }
 
 
@@ -160,30 +164,32 @@ body.login #login-form #password-field .passwordwrapper {
 
 body.login #login-form #password-field .passwordwrapper .password-toggle {
     font-size: 0.7rem;
-    color: #997e69;
+    color: var(--login-violet);
 }
 
 
 
 body.login #login-form .passwordwrapper.focus,
 body.login #login-form input:focus{
-    border-color: #997E69;
+    border-color: var(--login-violet);
     box-shadow: none;
 }
 
 
 body.login #login-form .btn.submit {
-    background-color: #997e69 !important;
+    background-color: var(--login-magenta) !important;
+    color: var(--login-button-text);
 }
 
 body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover,
-body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover {
-    background-color: #584E4C !important;
+body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover,
+body.login #login-form .btn.submit:not(.disabled):not(.inactive):focus {
+    background-color: var(--login-magenta-hover) !important;
 }
 
 body.login #login-form .btn.submit:not(.disabled):not(.inactive):hover .label,
 body.login #login-form .btn.submit:not(.disabled):not(.inactive).hover .label {
-    color: #000000;
+    color: var(--login-button-text);
 }
 
 body.login #poweredby {

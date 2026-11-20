@@ -1,4 +1,4 @@
-dateModified: 1795044046
+dateModified: 1795207794
 email:
   fromEmail: mischa@marukka.ch
   fromName: Marukka
@@ -82,9 +82,10 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: Marukka
+  retryDuration: null
   schemaVersion: 5.12.0.2
   timeZone: America/Los_Angeles
 users:
