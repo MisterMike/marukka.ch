@@ -7,6 +7,7 @@
 @import "./components/snippet-card.css";
 @import "./components/code-preview.css";
 @import "./components/category-card.css";
+@import "./components/info-box.css";
 @import "./components/article-content.css";
 @import "./sections/hero.css";
 @import "./sections/featured-snippets.css";

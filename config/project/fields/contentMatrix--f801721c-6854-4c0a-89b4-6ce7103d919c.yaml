@@ -23,6 +23,11 @@ settings:
         -
           - uid
           - 73b39ecb-762f-47a7-ad41-a3dfe1ba7874 # Image
+    -
+      __assoc__:
+        -
+          - uid
+          - 23288020-b954-44ed-a747-e8deb729aa4c # Info Box
   includeTableView: false
   maxEntries: null
   minEntries: null

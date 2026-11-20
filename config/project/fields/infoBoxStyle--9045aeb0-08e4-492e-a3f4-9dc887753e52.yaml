@@ -1,0 +1,42 @@
+columnSuffix: null
+handle: infoBoxStyle
+instructions: 'Choose whether the info box has a solid magenta background or a magenta outline.'
+name: 'Info Box Style'
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Solid
+        -
+          - value
+          - solid
+        -
+          - icon
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Outlined
+        -
+          - value
+          - outlined
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup
+warning: null

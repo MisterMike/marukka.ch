@@ -14,7 +14,7 @@ assets/img/*
 /config/license.key
 /web/uploads/
 /web/cpresources/
-/web/imager/
+/web/.htaccess
 bitbucket-pipelines.yml
 deployment-exclude-list.txt
 README.md
