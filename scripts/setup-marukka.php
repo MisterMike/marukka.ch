@@ -86,6 +86,14 @@ if ($richText instanceof craft\ckeditor\Field && $richText->headingLevels !== [2
     $richText->headingLevels = [2, 3, 4];
     saveOrFail($app->fields, 'saveField', $richText);
 }
+if ($richText instanceof craft\ckeditor\Field) {
+    $needed = ['underline', 'bulletedList', 'numberedList', 'code', 'codeBlock', 'insertTable', 'sourceEditing'];
+    $missing = array_values(array_diff($needed, $richText->toolbar));
+    if ($missing) {
+        $richText->toolbar = [...$richText->toolbar, '|', ...$missing];
+        saveOrFail($app->fields, 'saveField', $richText);
+    }
+}
 $code = entryType('code', 'Code', [layoutField('textPlainMultiline', ['handle' => 'code', 'label' => 'Code']), layoutField('teaserLanguage', ['handle' => 'language', 'label' => 'Language'])]);
 $image = entryType('image', 'Image', [layoutField('assetSingle', ['handle' => 'image', 'label' => 'Image']), layoutField('plainText', ['handle' => 'caption', 'label' => 'Caption / alternative text'])]);
 $matrix = $app->fields->getFieldByHandle('contentMatrix');

@@ -37,6 +37,14 @@ settings:
     - bold
     - italic
     - link
+    - '|'
+    - underline
+    - bulletedList
+    - numberedList
+    - code
+    - codeBlock
+    - insertTable
+    - sourceEditing
   wordLimit: null
 tip: null
 translationKeyFormat: null

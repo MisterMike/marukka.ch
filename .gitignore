@@ -27,6 +27,7 @@ web/assets/img/
 storage/runtime/*
 storage/config-backups/*
 storage/backups/
+storage/temp/
 
 # Third Party
 node_modules/**
