@@ -26,7 +26,6 @@ meta:
   __names__:
     0bd6f39a-8a83-4176-b700-63dc09530759: 'Asset Multiple' # Asset Multiple
     1fde791c-5b81-4848-8272-220763aab4ab: 'Image Transform Settings' # Image Transform Settings
-    23288020-b954-44ed-a747-e8deb729aa4c: 'Info Box' # Info Box
     2f36fe93-1bac-402e-98fc-23484bbeb2f1: 'Time Field' # Time Field
     2fca5307-2150-4616-a483-e9ab2b651f41: Code # Code
     4c99201e-bd60-4a5e-87f9-81d9d5a11c72: Dokumente # Dokumente
@@ -40,16 +39,17 @@ meta:
     67cf8146-1ff9-4520-87bd-62a12a9d3cd1: Text # Text
     73b39ecb-762f-47a7-ad41-a3dfe1ba7874: Image # Image
     85f85a40-cd4f-48b5-a423-734415357d28: 'Text Plain' # Text Plain
-    9045aeb0-08e4-492e-a3f4-9dc887753e52: 'Info Box Style' # Info Box Style
     279dd1e3-44f1-4b0a-9cfc-6c0610962f5f: 'Dynamischer Inhalt' # Dynamischer Inhalt
     701f8135-e62f-4ceb-a5e2-79dd4a6eb0b3: 'Date Field' # Date Field
     981bea9a-1412-4b19-a5c9-5207d750a5dd: Homepage # Homepage
     2404a7cb-cf0f-44cf-ada1-97f948057ece: Akzent # Akzent
     2837e505-1210-4d99-a8dd-4863087c0313: 'Text Plain Multiline' # Text Plain Multiline
     3250b117-baec-4180-9974-0525088afb0f: 'Code language' # Code language
+    9045aeb0-08e4-492e-a3f4-9dc887753e52: 'Info Box Style' # Info Box Style
     74397f93-8fdb-4cd2-8f11-80188142afca: Teaser # Teaser
     310775e1-f428-4ab5-b744-4f70d26086b0: Icon # Icon
     411212dd-77e8-4b50-8c33-740e672af331: 'Reading time (minutes)' # Reading time (minutes)
+    23288020-b954-44ed-a747-e8deb729aa4c: 'Info Box' # Info Box
     a7bbcedd-2697-4c44-bf73-eb3b121ba0b5: Kategorie # Kategorie
     ae8eb40f-6869-4c5c-abe8-4b010ce02297: 'Integer Number' # Integer Number
     b9ef3e7b-4801-46ea-812f-0ea59df3c294: Marukka # Marukka
